@@ -1,0 +1,16 @@
+Il sistema deve permettere all'utente di richiedere attraverso un form* una nuova scheda di allenamento al personal trainer.
+
+Il sistema deve identificare univocamente un personal trainer tramite un numero identificativo fornito al momento della registrazione. 
+
+Il sistema deve permettere la registrazione di utente(cliente) e personal trainer tramite e-mail, password, nome e cognome.
+
+*
+form = Modulo precompilato con set di domande* utili al personal trainer per sapere come impostare la scheda 
+domande : 
+-età 
+-peso
+-obiettivo:
+   -diamgrimento
+   -aumento di massa
+   -mantenimento 
+-frequenza settimanale (da 1 a 7)
