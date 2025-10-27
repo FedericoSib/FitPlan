@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/141.0.7390.96 Mobile/15E148 Safari/604.1" version="28.2.8">
   <diagram name="Pagina-1" id="SsGwn0MBWTN3woI1b2sZ">
-    <mxGraphModel dx="630" dy="1007" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="687" dy="1098" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -25,7 +25,7 @@
         <mxCell id="8x8jrxBMyS0NaqggiWx0-13" value="Componi scheda" style="ellipse;whiteSpace=wrap;html=1;" parent="8x8jrxBMyS0NaqggiWx0-1" vertex="1">
           <mxGeometry x="147" y="470" width="80" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="8x8jrxBMyS0NaqggiWx0-14" value="Visualizza richieste di allenamento&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" parent="8x8jrxBMyS0NaqggiWx0-1" vertex="1">
+        <mxCell id="8x8jrxBMyS0NaqggiWx0-14" value="&amp;nbsp;Gestisci richieste di scheda&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" parent="8x8jrxBMyS0NaqggiWx0-1" vertex="1">
           <mxGeometry x="347" y="470" width="80" height="50" as="geometry" />
         </mxCell>
         <mxCell id="8x8jrxBMyS0NaqggiWx0-15" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="8x8jrxBMyS0NaqggiWx0-1" source="8x8jrxBMyS0NaqggiWx0-13" target="8x8jrxBMyS0NaqggiWx0-14" edge="1">
@@ -156,21 +156,21 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="C3rx6N-c3NM-qIXCzlER-3" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="8x8jrxBMyS0NaqggiWx0-10">
+        <mxCell id="C3rx6N-c3NM-qIXCzlER-3" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="8x8jrxBMyS0NaqggiWx0-10" edge="1">
           <mxGeometry width="140" relative="1" as="geometry">
             <mxPoint x="150" y="460" as="sourcePoint" />
             <mxPoint x="70" y="450" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="C3rx6N-c3NM-qIXCzlER-4" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="8x8jrxBMyS0NaqggiWx0-11">
+        <mxCell id="C3rx6N-c3NM-qIXCzlER-4" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="8x8jrxBMyS0NaqggiWx0-11" edge="1">
           <mxGeometry width="140" relative="1" as="geometry">
             <mxPoint x="248.5664745154649" y="260.0038907601731" as="sourcePoint" />
             <mxPoint x="70" y="450" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="C3rx6N-c3NM-qIXCzlER-8" value="Scheda* : scheda di allenamento, insieme di esercizi da svolgere durante la sessione allenante&amp;nbsp;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" vertex="1" parent="1">
+        <mxCell id="C3rx6N-c3NM-qIXCzlER-8" value="Scheda* : scheda di allenamento, insieme di esercizi da svolgere durante la sessione allenante&amp;nbsp;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="70" y="720" width="680" height="30" as="geometry" />
         </mxCell>
       </root>
