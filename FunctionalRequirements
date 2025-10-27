@@ -7,6 +7,7 @@ Il sistema deve permettere la registrazione di utente(cliente) e personal traine
 *
 form = Modulo precompilato con set di domande* utili al personal trainer per sapere come impostare la scheda 
 domande : 
+-sesso
 -età 
 -peso
 -obiettivo:
