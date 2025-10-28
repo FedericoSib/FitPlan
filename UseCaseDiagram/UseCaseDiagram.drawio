@@ -64,7 +64,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="OvNExYpsh-69XkvBrXju-64" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="8x8jrxBMyS0NaqggiWx0-1" source="8x8jrxBMyS0NaqggiWx0-10" target="8x8jrxBMyS0NaqggiWx0-11" edge="1">
+        <mxCell id="OvNExYpsh-69XkvBrXju-64" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="8x8jrxBMyS0NaqggiWx0-1" source="8x8jrxBMyS0NaqggiWx0-10" target="8x8jrxBMyS0NaqggiWx0-2" edge="1">
           <mxGeometry width="120" relative="1" as="geometry">
             <mxPoint x="250" y="280" as="sourcePoint" />
             <mxPoint x="577" y="280" as="targetPoint" />
@@ -165,6 +165,13 @@
         </mxCell>
         <mxCell id="C3rx6N-c3NM-qIXCzlER-8" value="Scheda* : scheda di allenamento, insieme di esercizi da svolgere durante la sessione allenante&amp;nbsp;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="70" y="720" width="680" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ESiVXD6pyDMTAfRxyLZr-2" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8x8jrxBMyS0NaqggiWx0-5" target="8x8jrxBMyS0NaqggiWx0-10">
+          <mxGeometry width="120" relative="1" as="geometry">
+            <mxPoint x="190" y="235" as="sourcePoint" />
+            <mxPoint x="387" y="230" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
