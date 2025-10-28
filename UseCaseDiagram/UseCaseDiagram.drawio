@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/141.0.7390.96 Mobile/15E148 Safari/604.1" version="28.2.8">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0" version="28.2.8">
   <diagram name="Pagina-1" id="SsGwn0MBWTN3woI1b2sZ">
-    <mxGraphModel dx="687" dy="1098" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -17,7 +17,7 @@
           <mxGeometry x="200" y="390" width="80" height="50" as="geometry" />
         </mxCell>
         <mxCell id="8x8jrxBMyS0NaqggiWx0-10" value="Richiedi scheda&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" parent="8x8jrxBMyS0NaqggiWx0-1" vertex="1">
-          <mxGeometry x="157" y="200" width="80" height="50" as="geometry" />
+          <mxGeometry x="157" y="230" width="80" height="50" as="geometry" />
         </mxCell>
         <mxCell id="8x8jrxBMyS0NaqggiWx0-11" value="Associa a Trainer" style="ellipse;whiteSpace=wrap;html=1;" parent="8x8jrxBMyS0NaqggiWx0-1" vertex="1">
           <mxGeometry x="157" y="120" width="80" height="50" as="geometry" />
@@ -64,9 +64,9 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="OvNExYpsh-69XkvBrXju-64" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="8x8jrxBMyS0NaqggiWx0-1" source="8x8jrxBMyS0NaqggiWx0-10" target="8x8jrxBMyS0NaqggiWx0-2" edge="1">
+        <mxCell id="OvNExYpsh-69XkvBrXju-64" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="8x8jrxBMyS0NaqggiWx0-1" source="8x8jrxBMyS0NaqggiWx0-10" target="8x8jrxBMyS0NaqggiWx0-11" edge="1">
           <mxGeometry width="120" relative="1" as="geometry">
-            <mxPoint x="247" y="220" as="sourcePoint" />
+            <mxPoint x="250" y="280" as="sourcePoint" />
             <mxPoint x="577" y="280" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
