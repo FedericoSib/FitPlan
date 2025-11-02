@@ -1,0 +1,139 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0" version="28.2.8">
+  <diagram name="Pagina-1" id="tsjTgDXbZpDio_zIxmgk">
+    <mxGraphModel dx="1426" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-16" target="MDtOtpxNs2wqmTjdWflv-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-16" value="Il sistema verifica che il cliente sia associato ad un PT" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360.64" y="130" width="119.37" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-18" target="MDtOtpxNs2wqmTjdWflv-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-18" value="" style="ellipse;shape=doubleEllipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#330000;" vertex="1" parent="1">
+          <mxGeometry x="410.32" y="70" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-19" value="Richiedi Scheda" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330.63" y="40" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-50" value="PT : Personal Trainer" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="840" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-51" target="MDtOtpxNs2wqmTjdWflv-136">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="235" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-51" target="MDtOtpxNs2wqmTjdWflv-57">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="235" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-51" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="399.07" y="220" width="42.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-55" value="Cliente non associato" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="441.57" y="210" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-56" value="Cliente associato" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300.32" y="210" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-57" target="MDtOtpxNs2wqmTjdWflv-59">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="279" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-57" value="Il sistema mostra il form da compilare" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="219.38" y="290" width="120.62" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-59" target="MDtOtpxNs2wqmTjdWflv-72">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="279" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-59" value="Cliente compila il form" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="219.38" y="359" width="119.38" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-60" target="MDtOtpxNs2wqmTjdWflv-64">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="279.07000000000016" y="567" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-60" value="Il sistema verifica la completezza del form" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="219.38" y="497" width="119.38" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-64" target="MDtOtpxNs2wqmTjdWflv-68">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-64" target="MDtOtpxNs2wqmTjdWflv-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-64" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="257.82" y="567" width="42.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-68" target="MDtOtpxNs2wqmTjdWflv-70">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="459" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-68" value="Il sistema evidenzia i campi non compilati" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="399.07" y="450" width="119.38" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-70" target="MDtOtpxNs2wqmTjdWflv-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-70" value="Il sistema mostra messaggio d&#39;errore" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="399.07" y="359" width="119.38" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-72" target="MDtOtpxNs2wqmTjdWflv-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-72" value="Cliente conferma l&#39;invio della richiesta" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="219.38" y="430" width="119.38" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-74" value="Form non completo" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="311.57" y="560" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-76" value="Form completo" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160.32" y="562" width="89.68" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-78" target="MDtOtpxNs2wqmTjdWflv-81">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="151.8900000000001" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-78" value="Il sistema registra la richiesta" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="92.2" y="620" width="119.38" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-81" target="MDtOtpxNs2wqmTjdWflv-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-81" value="Il sistema associa la richiesta al PT" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="92.2" y="680" width="119.38" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-82" target="MDtOtpxNs2wqmTjdWflv-135">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-82" value="Il sistema mostra il messaggio di conferma al cliente" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="92.2" y="740" width="117.8" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-135" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-circle-filled-128.png" vertex="1" parent="1">
+          <mxGeometry x="606.88" y="745" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-137" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MDtOtpxNs2wqmTjdWflv-136" target="MDtOtpxNs2wqmTjdWflv-135">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MDtOtpxNs2wqmTjdWflv-136" value="Il sistema mostra messaggio d&#39;errore" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="561.5699999999999" y="290" width="120.62" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
