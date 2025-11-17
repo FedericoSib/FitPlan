@@ -14,17 +14,17 @@ Flussi alternativi:
 
 2a. Cliente non associato a un Personal Trainer:
 
-2a.1. Il sistema rileva che il Cliente non ha un Personal Trainer associato
-2a.2. Il sistema visualizza un messaggio: "Non hai ancora un Personal Trainer associato. Per richiedere una scheda devi prima associarti a un trainer."
-2a.3. Il sistema offre l'opzione di procedere con l'associazione
-2a.4. Il caso d'uso termina (o si passa al caso d'uso "Associa a trainer")
+3a Il sistema rileva che il Cliente non ha un Personal Trainer associato
+4a Il sistema visualizza un messaggio: "Non hai ancora un Personal Trainer associato. Per richiedere una scheda devi prima associarti a un trainer."
+5a Il sistema offre l'opzione di procedere con l'associazione
+6a Il caso d'uso termina (o si passa al caso d'uso "Associa a trainer")
 
-6a. Dati incompleti o non validi:
+6b. Dati incompleti o non validi:
 
-6a.1. Il sistema rileva che uno o più campi obbligatori non sono stati compilati
-6a.2. Il sistema evidenzia i campi mancanti o non validi
-6a.3. Il sistema visualizza un messaggio: "Completa tutti i campi obbligatori prima di inviare la richiesta"
-6a.4. Si ritorna al passo 4
+7b Il sistema rileva che uno o più campi obbligatori non sono stati compilati
+8b Il sistema evidenzia i campi mancanti o non validi
+9b Il sistema visualizza un messaggio: "Completa tutti i campi obbligatori prima di inviare la richiesta"
+10b Si ritorna al passo 4
 
 Flussi di eccezione:
 E1. Errore di sistema durante il salvataggio:
