@@ -70,7 +70,7 @@
         <mxCell id="kdSBpO295t8a2cvBWzr6-39" value="&lt;div&gt;&lt;font face=&quot;Tahoma&quot;&gt;Attenzione:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font face=&quot;Tahoma&quot;&gt;Nessuna scheda richiesta&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;font face=&quot;Tahoma&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;font face=&quot;Tahoma&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" vertex="1" parent="kdSBpO295t8a2cvBWzr6-37">
           <mxGeometry x="34" y="18" width="194" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="kdSBpO295t8a2cvBWzr6-53" value="&lt;div&gt;&lt;font face=&quot;Tahoma&quot;&gt;Nessun Personal trainer associato:&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Tahoma&quot;&gt;[Associati ora&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ]&lt;/font&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="kdSBpO295t8a2cvBWzr6-22">
+        <mxCell id="kdSBpO295t8a2cvBWzr6-53" value="&lt;div&gt;&lt;font face=&quot;Tahoma&quot;&gt;Nessun Personal trainer associato:&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Tahoma&quot;&gt;[Associati ora]&lt;/font&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="kdSBpO295t8a2cvBWzr6-22">
           <mxGeometry x="28" y="15" width="199" height="70" as="geometry" />
         </mxCell>
       </root>
