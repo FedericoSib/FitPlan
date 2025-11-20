@@ -1,9 +1,27 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0" version="29.1.0">
   <diagram name="Pagina-1" id="FWSl1NxNnlTrusbdR83g">
-    <mxGraphModel>
+    <mxGraphModel dx="1426" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="dVbM38iz88rTHkjdB0zz-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=29;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;swimlaneFillColor=light-dark(#ffffff, #ededed);fillColor=#A0D7EB;" value="&lt;div&gt;&amp;lt;&amp;lt;Boundary&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;ClienteRichiediSchedaBoundary&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="120" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="dVbM38iz88rTHkjdB0zz-2" parent="dVbM38iz88rTHkjdB0zz-1" style="text;html=1;strokeColor=default;fillColor=#A0D7EB;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;" value="" vertex="1">
+          <mxGeometry height="51" width="200" y="29" as="geometry" />
+        </mxCell>
+        <mxCell id="dVbM38iz88rTHkjdB0zz-4" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=29;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;swimlaneFillColor=default;fillColor=#FF9999;" value="&lt;div&gt;&amp;lt;&amp;lt;Controller&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;RichiediSchedaController&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="170" x="470" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="dVbM38iz88rTHkjdB0zz-5" parent="dVbM38iz88rTHkjdB0zz-4" style="text;html=1;strokeColor=default;fillColor=#FF9999;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;" value="" vertex="1">
+          <mxGeometry height="61" width="170" y="29" as="geometry" />
+        </mxCell>
+        <mxCell id="dVbM38iz88rTHkjdB0zz-7" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=29;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;swimlaneFillColor=light-dark(#ffffff, #ededed);fillColor=#A0D7EB;" value="&lt;div&gt;&amp;lt;&amp;lt;Boundary&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;SistemaNotificaPTBoundary&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="100" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="dVbM38iz88rTHkjdB0zz-8" parent="dVbM38iz88rTHkjdB0zz-7" style="text;html=1;strokeColor=default;fillColor=#A0D7EB;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;" value="" vertex="1">
+          <mxGeometry height="51" width="180" y="29" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
