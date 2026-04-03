@@ -139,7 +139,7 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <ImageView fx:id="imgRichiediScheda" fitHeight="150.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgRichiediScheda" fitHeight="200.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/RichiediScheda.png" />
                                              </image>
