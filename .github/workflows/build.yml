@@ -14,7 +14,8 @@ jobs:
         with:
           fetch-depth: 0
 
-
+      - name: Crea cartella binari fake
+        run: mkdir dummy_binaries
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
