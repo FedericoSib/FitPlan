@@ -1,0 +1,20 @@
+package model.entity;
+
+import java.io.Serializable;
+
+public class DatiFisici implements Serializable {
+    private final String sesso;
+    private final int eta;
+    private final double peso;
+
+    public DatiFisici(String sesso, int eta, double peso) {
+        this.sesso = sesso;
+        this.eta = eta;
+        this.peso = peso;
+    }
+
+    // Solo Getter (rendiamolo immutabile per sicurezza)
+    public String getSesso() { return sesso; }
+    public int getEta() { return eta; }
+    public double getPeso() { return peso; }
+}

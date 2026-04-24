@@ -1,10 +1,12 @@
 package view;
 
+import util.LogManager;
 import controller.graphic.RichiediSchedaController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.entity.RichiestaScheda;
-import model.entity.Utente;
+import model.entity.Cliente;
+import model.entity.DatiFisici;
 import model.Sessione;
 import model.exception.InvalidFormException;
 import javafx.scene.image.ImageView;
@@ -45,7 +47,7 @@ public class ClienteRichiediSchedaBoundary {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
             imgFitplan.setImage(logo);
         } catch (Exception e) {
-            System.err.println("Impossibile caricare il logo: " + e.getMessage());
+            LogManager.error("Impossibile caricare il logo: ",e);
         }
     }
 
@@ -127,7 +129,7 @@ public class ClienteRichiediSchedaBoundary {
             // Opzionale: Dopo l'invio, riportiamo l'utente alla Home
             Navigator.pushScene("/view/ClienteDashboard.fxml", "FitPlan - Dashboard");
 
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException _) {
             // Errore se l'utente scrive lettere dove servono numeri (Età/Peso)
             mostraMessaggioErrore("Assicurati che Età e Peso siano numeri validi (es: 25, 70.5).");
         } catch (InvalidFormException e) {
