@@ -1,5 +1,6 @@
-package controller;
+package controller.graphic;
 
+import util.LogManager;
 import model.entity.Cliente;
 import model.entity.PersonalTrainer;
 import model.entity.Utente;
@@ -8,7 +9,6 @@ import model.dao.UtenteDAO;
 import model.exception.RegistrazioneException;
 
 public class RegistrazioneController {
-
     public void registraNuovoUtente(String nome, String cognome, String email, String pass, int ruolo)
             throws RegistrazioneException {
 
@@ -26,14 +26,14 @@ public class RegistrazioneController {
 
             // Controllo se l'email esiste già
             if (dao.trovaUtentePerEmail(email) != null) {
+                LogManager.warn("Tentativo di registrazione con email duplicata: " + email);
                 throw new RegistrazioneException("Email già registrata.");
             }
-
             dao.salvaNuovoUtente(nuovoUtente);
-            System.out.println("[REGISTRAZIONE] Creato utente con ID: " + nuovoUtente.getId());
-
+            LogManager.info("Registrazione completata con successo. Creato utente con ID: " + nuovoUtente.getId());
         } catch (Exception e) {
-            throw new RegistrazioneException("Errore nel database: " + e.getMessage());
+            LogManager.error("Errore critico durante la registrazione", e);
+            throw new RegistrazioneException("Errore interno del sistema. Riprova più tardi.");
         }
     }
 }

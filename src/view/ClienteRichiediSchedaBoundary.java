@@ -1,15 +1,12 @@
 package view;
 
-import controller.RichiediSchedaController;
+import controller.graphic.RichiediSchedaController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.entity.RichiestaScheda;
 import model.entity.Utente;
-import model.entity.Cliente;
-import model.entity.PersonalTrainer;
 import model.Sessione;
 import model.exception.InvalidFormException;
-import model.exception.TrainerNotAssociatedException;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import java.util.ArrayList;

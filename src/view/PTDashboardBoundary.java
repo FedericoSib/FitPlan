@@ -43,6 +43,7 @@ public class PTDashboardBoundary {
 
     @FXML
     public void initialize() {
+        final String IMAGE_LOAD_ERROR = "Impossibile caricare immagine: ";
         // 1. Recupero dati utente dalla sessione
         PersonalTrainer PT = (PersonalTrainer) Sessione.getInstance().getUtente();
         lblNomeUtente.setText(PT.getNome() + " " + PT.getCognome());
@@ -57,27 +58,27 @@ public class PTDashboardBoundary {
             imgGestioneClienti.setImage(GestioneClienti);
             imgGestioneClienti2.setImage(GestioneClienti);
         } catch (Exception e) {
-            System.err.println("Impossibile caricare immagine: " + e.getMessage());
+            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
         }
         try {
             Image Notifiche = new Image(getClass().getResourceAsStream("/view/Immages/Notifiche.png"));
             imgNotifiche.setImage(Notifiche);
             imgNotifiche2.setImage(Notifiche);
         } catch (Exception e) {
-            System.err.println("Impossibile caricare immagine: " + e.getMessage());
+            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
         }
         try {
             Image AssemblaScheda = new Image(getClass().getResourceAsStream("/view/Immages/AssemblaScheda.png"));
             imgAssemblaScheda.setImage(AssemblaScheda);
             imgAssemblaScheda2.setImage(AssemblaScheda);
         } catch (Exception e) {
-            System.err.println("Impossibile caricare immagine: " + e.getMessage());
+            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
         }
         try {
             Image AvatarBase = new Image(getClass().getResourceAsStream("/view/Immages/AvatarBase.png"));
             imgAvatar.setImage(AvatarBase);
         } catch (Exception e) {
-            System.err.println("Impossibile caricare immagine: " + e.getMessage());
+            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
         }
 
         // 2. Setup dinamico del calendario

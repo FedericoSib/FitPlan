@@ -1,6 +1,6 @@
 package view;
 
-import controller.RegistrazioneController;
+import controller.graphic.RegistrazioneController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -58,7 +58,7 @@ public class RegistrazioneBoundary {
 
         try {
             // Convertiamo la selezione della ChoiceBox in ruolo numerico
-            int ruolo = ruoloSelezionato.equals("Atleta") ? 1 : 2;
+            int ruolo = ruoloSelezionato.equals("Personal Trainer") ? 2 : 1;
 
             // 2. Chiamata al controller
             controller.registraNuovoUtente(nome, cognome, email, pass, ruolo);

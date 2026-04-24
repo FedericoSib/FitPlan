@@ -1,6 +1,6 @@
 package test;
 
-import controller.RichiediSchedaController;
+import controller.graphic.RichiediSchedaController;
 import model.dao.DAOFactory;
 import model.entity.RichiestaScheda;
 import model.exception.InvalidFormException;

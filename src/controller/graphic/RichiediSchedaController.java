@@ -1,4 +1,4 @@
-package controller;
+package controller.graphic;
 
 import model.dao.DAOFactory;
 import model.dao.RichiestaDAO;
@@ -7,6 +7,7 @@ import model.Sessione;
 import model.entity.RichiestaScheda;
 import model.exception.InvalidFormException;
 import model.exception.TrainerNotAssociatedException;
+import util.LogManager;
 
 public class RichiediSchedaController {
     public void elaboraRichiesta(RichiestaScheda richiesta) throws InvalidFormException {
@@ -24,7 +25,7 @@ public class RichiediSchedaController {
             RichiestaDAO dao = DAOFactory.getRichiestaDAO();
             dao.salvaRichiesta(richiesta);
         } catch (Exception e) {
-            System.err.println("[ERRORE SISTEMA] Impossibile salvare la richiesta: " + e.getMessage());
+            LogManager.error("Impossibile salvare la richiesta:", e);
         }
     }
     public void verificaAssociazionePT() throws TrainerNotAssociatedException {
