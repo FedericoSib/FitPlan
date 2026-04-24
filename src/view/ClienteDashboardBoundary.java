@@ -14,10 +14,11 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import model.Sessione;
 import model.entity.Utente;
 import model.entity.Cliente;
+import util.LogManager;
+
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.TextStyle;
@@ -48,34 +49,34 @@ public class ClienteDashboardBoundary {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
              imgFitplan.setImage(logo);
         } catch (Exception e) {
-            System.err.println("Impossibile caricare il logo: " + e.getMessage());
+            LogManager.error("Impossibile caricare il logo: ", e);
         }
         try {
             Image AssociaPT = new Image(getClass().getResourceAsStream("/view/Immages/AssociaPT.png"));
             imgAssociaPT.setImage(AssociaPT);
             imgAssociaPT2.setImage(AssociaPT);
         } catch (Exception e) {
-            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
+            LogManager.error(IMAGE_LOAD_ERROR, e);
         }
         try {
             Image GestisciScheda = new Image(getClass().getResourceAsStream("/view/Immages/GestisciScheda.png"));
             imgGestisciScheda.setImage(GestisciScheda);
             imgGestisciScheda2.setImage(GestisciScheda);
         } catch (Exception e) {
-            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
+            LogManager.error(IMAGE_LOAD_ERROR, e);
         }
         try {
             Image RichiediScheda = new Image(getClass().getResourceAsStream("/view/Immages/RichiediScheda.png"));
             imgRichiediScheda.setImage(RichiediScheda);
             imgRichiediScheda2.setImage(RichiediScheda);
         } catch (Exception e) {
-            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
+            LogManager.error(IMAGE_LOAD_ERROR, e);
         }
         try {
             Image AvatarBase = new Image(getClass().getResourceAsStream("/view/Immages/AvatarBase.png"));
             imgAvatar.setImage(AvatarBase);
         } catch (Exception e) {
-            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
+            LogManager.error(IMAGE_LOAD_ERROR, e);
         }
 
         // 2. Setup dinamico del calendario

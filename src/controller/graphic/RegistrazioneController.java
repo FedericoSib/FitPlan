@@ -18,7 +18,7 @@ public class RegistrazioneController {
         if (ruolo == 1) {
             nuovoUtente = new Cliente(nome, cognome, email, pass);
         } else {
-            nuovoUtente = new PersonalTrainer(nome, cognome, email, pass, "Generalist");
+            nuovoUtente = new PersonalTrainer(nome, cognome, email, pass);
         }
 
         try {

@@ -1,6 +1,8 @@
 package model.dao;
 
 import model.entity.*;
+import util.LogManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +14,14 @@ public class UtenteDAOMemory implements UtenteDAO {
         // Possiamo aggiungere un utente "pre-caricato" per testare il login subito
         if (utenti.isEmpty()) {
             utenti.add(new Cliente("Mario", "Rossi", "mario@test.it", "pass123"));
-            utenti.add(new PersonalTrainer("Coach", "Zanna", "coach@test.it", "pass123", "Bodybuilding"));
+            utenti.add(new PersonalTrainer("Coach", "Zanna", "coach@test.it", "pass123"));
         }
     }
 
     @Override
     public void salvaNuovoUtente(Utente u) {
         utenti.add(u);
-        System.out.println("[MEMORY] Utente salvato: " + u.getEmail());
+        LogManager.info("Utente salvato: "+ u.getEmail());
     }
 
     @Override

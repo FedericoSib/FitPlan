@@ -6,9 +6,7 @@ import java.io.Serializable;
 
 public class RichiestaScheda implements Serializable {
 
-    private String sesso;
-    private int eta;
-    private double peso;
+    private DatiFisici datiFisici;
     private String obiettivo; // Dimagrimento, Aumento massa, Mantenimento
     private int frequenzaSettimanale;
     private String note;
@@ -18,12 +16,10 @@ public class RichiestaScheda implements Serializable {
     private String idPersonalTrainer;
 
     // Costruttore completo
-    public RichiestaScheda(String sesso, int eta, double peso, String obiettivo,
+    public RichiestaScheda(DatiFisici datiFisici, String obiettivo,
                            int frequenzaSettimanale, String note,
                            String clienteEmail, String idPersonalTrainer) {
-        this.sesso = sesso;
-        this.eta = eta;
-        this.peso = peso;
+        this.datiFisici = datiFisici;
         this.obiettivo = obiettivo;
         this.frequenzaSettimanale = frequenzaSettimanale;
         this.note = note;
@@ -31,14 +27,11 @@ public class RichiestaScheda implements Serializable {
         this.idPersonalTrainer = idPersonalTrainer;
     }
 
-    public String getSesso() { return sesso; }
-    public void setSesso(String sesso) { this.sesso = sesso; }
+    public String getSesso() { return datiFisici.getSesso(); }
 
-    public int getEta() { return eta; }
-    public void setEta(int eta) { this.eta = eta; }
+    public int getEta() { return datiFisici.getEta(); }
 
-    public double getPeso() { return peso; }
-    public void setPeso(double peso) { this.peso = peso; }
+    public double getPeso() { return datiFisici.getPeso(); }
 
     public String getObiettivo() { return obiettivo; }
     public void setObiettivo(String obiettivo) { this.obiettivo = obiettivo; }
@@ -54,7 +47,11 @@ public class RichiestaScheda implements Serializable {
 
     @Override
     public String toString() {
+        // Usiamo il getter getPeso() sull'istanza datiFisici
         return String.format("Richiesta[Email=%s, Obiettivo=%s, Peso=%.2f, Frequenza=%d]",
-                clienteEmail, obiettivo, peso, frequenzaSettimanale);
+                clienteEmail,
+                obiettivo,
+                datiFisici.getPeso(),
+                frequenzaSettimanale);
     }
 }

@@ -49,7 +49,7 @@ public class ClienteRichiediSchedaBoundary {
         }
     }
 
-    public RichiestaScheda raccogliDatiRichiesta() {
+    /*public RichiestaScheda raccogliDatiRichiesta() {
         Utente utenteLoggato = Sessione.getInstance().getUtente();
         String emailCliente = "";
         String idPT = "";
@@ -62,6 +62,28 @@ public class ClienteRichiediSchedaBoundary {
                 txtNote.getText(),
                 emailCliente,
                 idPT       // Temporaneo: andrebbe preso dal profilo atleta
+        );
+    }*/
+
+    public RichiestaScheda raccogliDatiRichiesta() {
+        // 1. Recuperiamo l'utente dalla sessione (sappiamo che è un Cliente grazie ai controlli preventivi)
+        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+
+        // 2. Creiamo il Value Object DatiFisici raggruppando i 3 parametri
+        DatiFisici datiFisici = new DatiFisici(
+                cbSesso.getValue(),
+                Integer.parseInt(txtEta.getText()),
+                Double.parseDouble(txtPeso.getText())
+        );
+
+        // 3. Creiamo l'oggetto RichiestaScheda passando l'oggetto datiFisici (totale 6 parametri)
+        return new RichiestaScheda(
+                datiFisici,
+                cbObiettivo.getValue(),
+                spFrequenza.getValue(),
+                txtNote.getText(),
+                cliente.getEmail(),
+                cliente.getIdPersonalTrainer()
         );
     }
 

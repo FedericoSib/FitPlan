@@ -59,7 +59,7 @@ public class UtenteDAOFile implements UtenteDAO {
             c.setIdPersonalTrainer(d[7].equals("null") ? null : d[7]);
             return c;
         } else {
-            return new PersonalTrainer(d[2], d[3], d[4], d[5], "Generalist");
+            return new PersonalTrainer(d[2], d[3], d[4], d[5]);
         }
     }
 }

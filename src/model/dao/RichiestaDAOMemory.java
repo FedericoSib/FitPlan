@@ -1,9 +1,10 @@
 package model.dao;
 
 import model.entity.RichiestaScheda;
+import util.LogManager;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RichiestaDAOMemory implements RichiestaDAO {
     private static List<RichiestaScheda> storage = new ArrayList<>();
@@ -11,8 +12,7 @@ public class RichiestaDAOMemory implements RichiestaDAO {
     @Override
     public void salvaRichiesta(RichiestaScheda richiesta){
         storage.add(richiesta);
-        System.out.println("[DEMO-MEMORIA] Richiesta salvata con successo per il PT: "
-                + richiesta.getIdPersonalTrainer());
+        LogManager.info("Richiesta salvata con successo per il PT: " + richiesta.getIdPersonalTrainer());
     }
 
     @Override
@@ -24,12 +24,12 @@ public class RichiestaDAOMemory implements RichiestaDAO {
     public List<RichiestaScheda> prendiRichiestePerPT(String idPersonalTrainer){
         return storage.stream()
                 .filter(r -> r.getIdPersonalTrainer().equals(idPersonalTrainer))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
     public void cancellaRichiesta(RichiestaScheda richiesta) {
         storage.remove(richiesta);
-        System.out.println("[DEMO-MEMORIA] Richiesta rimossa.");
+        LogManager.info("Richiesta rimossa con successo.");
     }
 }

@@ -1,6 +1,8 @@
 package model.dao;
 
 import model.entity.RichiestaScheda;
+import util.LogManager;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,7 @@ public class RichiestaDAOFile implements RichiestaDAO {
         // Scriviamo l'intera lista aggiornata sul file
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
             oos.writeObject(listaAttuale);
-            System.out.println("[FULL-FILE] Richiesta salvata correttamente su disco.");
+            LogManager.info("Richiesta salvata correttamente su disco.");
         }
     }
 
@@ -54,7 +56,7 @@ public class RichiestaDAOFile implements RichiestaDAO {
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             return (List<RichiestaScheda>) ois.readObject();
-        } catch (EOFException e) {
+        } catch (EOFException _) {
             return new ArrayList<>();
         }
     }
