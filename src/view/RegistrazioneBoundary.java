@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.exception.RegistrazioneException;
+import util.LogManager;
 
 public class RegistrazioneBoundary {
 
@@ -32,7 +33,7 @@ public class RegistrazioneBoundary {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
             imgFitplan.setImage(logo);
         } catch (Exception e) {
-            System.err.println("Impossibile caricare il logo: " + e.getMessage());
+            LogManager.error("Impossibile caricare il logo: ",e);
         }
     }
 

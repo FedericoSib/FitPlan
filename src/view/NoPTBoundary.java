@@ -39,6 +39,7 @@ import javafx.stage.Stage;           // Import fondamentale
 import javafx.scene.Node;            // Import fondamentale
 import javafx.event.ActionEvent;     // ATTENZIONE: deve essere javafx.event, non java.awt.event
 import javafx.scene.control.Button;
+import util.LogManager;
 
 public class NoPTBoundary {
 
@@ -50,23 +51,17 @@ public class NoPTBoundary {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
             imgFitplan.setImage(logo);
         } catch (Exception e) {
-            System.err.println("Errore logo: " + e.getMessage());
+            LogManager.error("Impossibile caricare il logo: ",e);
         }
     }
 
     @FXML
     public void vaiAssociaPT(ActionEvent event) {
-        // 1. Chiudiamo il popup (il banner)
         chiudiFinestra(event);
-
-        // 2. Opzionale: Se vuoi che la dashboard sotto faccia qualcosa,
-        // lo gestiamo dopo. Per ora torniamo alla dashboard principale.
-        System.out.println("L'utente vuole associarsi, chiudo il banner.");
     }
 
     @FXML
     public void tornaAllaDashboard(ActionEvent event) {
-        // Chiude semplicemente il banner sovrapposto
         chiudiFinestra(event);
     }
 

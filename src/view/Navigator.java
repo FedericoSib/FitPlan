@@ -4,11 +4,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import util.LogManager;
+
 import java.io.IOException;
 
 public class Navigator {
 
     private static Stage primaryStage;
+
+    private Navigator(){}
 
     public static void setPrimaryStage(Stage stage) {
         primaryStage = stage;
@@ -28,8 +32,7 @@ public class Navigator {
             primaryStage.show();
 
         } catch (IOException e) {
-            System.err.println("ERRORE NAVIGATORE: Impossibile caricare " + fxmlPath);
-            e.printStackTrace();
+            LogManager.error("ERRORE NAVIGATORE: Impossibile caricare " + fxmlPath, e);
         }
     }
 }

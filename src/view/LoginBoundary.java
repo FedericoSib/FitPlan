@@ -9,6 +9,7 @@ import model.Sessione;
 import model.entity.Utente;
 import model.entity.Cliente;
 import model.entity.PersonalTrainer;
+import util.LogManager;
 
 public class LoginBoundary {
 
@@ -24,7 +25,7 @@ public class LoginBoundary {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
             imgFitplan.setImage(logo);
         } catch (Exception e) {
-            System.err.println("Errore caricamento logo login: " + e.getMessage());
+            LogManager.error("Impossibile caricare il logo: ",e);
         }
     }
 

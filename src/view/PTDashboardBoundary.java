@@ -19,6 +19,8 @@ import model.Sessione;
 import model.entity.PersonalTrainer;
 import model.entity.Utente;
 import model.entity.Cliente;
+import util.LogManager;
+
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.TextStyle;
@@ -51,34 +53,34 @@ public class PTDashboardBoundary {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
             imgFitplan.setImage(logo);
         } catch (Exception e) {
-            System.err.println("Impossibile caricare il logo: " + e.getMessage());
+            LogManager.error("Impossibile caricare il logo: ",e);
         }
         try {
             Image GestioneClienti = new Image(getClass().getResourceAsStream("/view/Immages/GestioneClienti.png"));
             imgGestioneClienti.setImage(GestioneClienti);
             imgGestioneClienti2.setImage(GestioneClienti);
         } catch (Exception e) {
-            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
+            LogManager.error(IMAGE_LOAD_ERROR ,e);
         }
         try {
             Image Notifiche = new Image(getClass().getResourceAsStream("/view/Immages/Notifiche.png"));
             imgNotifiche.setImage(Notifiche);
             imgNotifiche2.setImage(Notifiche);
         } catch (Exception e) {
-            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
+            LogManager.error(IMAGE_LOAD_ERROR ,e);
         }
         try {
             Image AssemblaScheda = new Image(getClass().getResourceAsStream("/view/Immages/AssemblaScheda.png"));
             imgAssemblaScheda.setImage(AssemblaScheda);
             imgAssemblaScheda2.setImage(AssemblaScheda);
         } catch (Exception e) {
-            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
+            LogManager.error(IMAGE_LOAD_ERROR ,e);
         }
         try {
             Image AvatarBase = new Image(getClass().getResourceAsStream("/view/Immages/AvatarBase.png"));
             imgAvatar.setImage(AvatarBase);
         } catch (Exception e) {
-            System.err.println(IMAGE_LOAD_ERROR + e.getMessage());
+            LogManager.error(IMAGE_LOAD_ERROR ,e);
         }
 
         // 2. Setup dinamico del calendario
