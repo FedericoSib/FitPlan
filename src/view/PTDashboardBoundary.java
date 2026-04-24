@@ -47,8 +47,8 @@ public class PTDashboardBoundary {
     public void initialize() {
         final String IMAGE_LOAD_ERROR = "Impossibile caricare immagine: ";
         // 1. Recupero dati utente dalla sessione
-        PersonalTrainer PT = (PersonalTrainer) Sessione.getInstance().getUtente();
-        lblNomeUtente.setText(PT.getNome() + " " + PT.getCognome());
+        PersonalTrainer pT = (PersonalTrainer) Sessione.getInstance().getUtente();
+        lblNomeUtente.setText(pT.getNome() + " " + pT.getCognome());
         try {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
             imgFitplan.setImage(logo);
@@ -56,29 +56,29 @@ public class PTDashboardBoundary {
             LogManager.error("Impossibile caricare il logo: ",e);
         }
         try {
-            Image GestioneClienti = new Image(getClass().getResourceAsStream("/view/Immages/GestioneClienti.png"));
-            imgGestioneClienti.setImage(GestioneClienti);
-            imgGestioneClienti2.setImage(GestioneClienti);
+            Image gestioneClienti = new Image(getClass().getResourceAsStream("/view/Immages/GestioneClienti.png"));
+            imgGestioneClienti.setImage(gestioneClienti);
+            imgGestioneClienti2.setImage(gestioneClienti);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR ,e);
         }
         try {
-            Image Notifiche = new Image(getClass().getResourceAsStream("/view/Immages/Notifiche.png"));
-            imgNotifiche.setImage(Notifiche);
-            imgNotifiche2.setImage(Notifiche);
+            Image notifiche = new Image(getClass().getResourceAsStream("/view/Immages/Notifiche.png"));
+            imgNotifiche.setImage(notifiche);
+            imgNotifiche2.setImage(notifiche);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR ,e);
         }
         try {
-            Image AssemblaScheda = new Image(getClass().getResourceAsStream("/view/Immages/AssemblaScheda.png"));
-            imgAssemblaScheda.setImage(AssemblaScheda);
-            imgAssemblaScheda2.setImage(AssemblaScheda);
+            Image assemblaScheda = new Image(getClass().getResourceAsStream("/view/Immages/AssemblaScheda.png"));
+            imgAssemblaScheda.setImage(assemblaScheda);
+            imgAssemblaScheda2.setImage(assemblaScheda);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR ,e);
         }
         try {
-            Image AvatarBase = new Image(getClass().getResourceAsStream("/view/Immages/AvatarBase.png"));
-            imgAvatar.setImage(AvatarBase);
+            Image avatarBase = new Image(getClass().getResourceAsStream("/view/Immages/AvatarBase.png"));
+            imgAvatar.setImage(avatarBase);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR ,e);
         }

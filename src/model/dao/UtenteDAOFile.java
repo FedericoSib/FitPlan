@@ -2,8 +2,6 @@ package model.dao;
 
 import model.entity.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UtenteDAOFile implements UtenteDAO {
     private static final String FILE_NAME = "utenti_fitplan.dat";

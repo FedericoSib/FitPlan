@@ -52,29 +52,29 @@ public class ClienteDashboardBoundary {
             LogManager.error("Impossibile caricare il logo: ", e);
         }
         try {
-            Image AssociaPT = new Image(getClass().getResourceAsStream("/view/Immages/AssociaPT.png"));
-            imgAssociaPT.setImage(AssociaPT);
-            imgAssociaPT2.setImage(AssociaPT);
+            Image  associaPT= new Image(getClass().getResourceAsStream("/view/Immages/AssociaPT.png"));
+            imgAssociaPT.setImage(associaPT);
+            imgAssociaPT2.setImage(associaPT);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR, e);
         }
         try {
-            Image GestisciScheda = new Image(getClass().getResourceAsStream("/view/Immages/GestisciScheda.png"));
-            imgGestisciScheda.setImage(GestisciScheda);
-            imgGestisciScheda2.setImage(GestisciScheda);
+            Image gestisciScheda = new Image(getClass().getResourceAsStream("/view/Immages/GestisciScheda.png"));
+            imgGestisciScheda.setImage(gestisciScheda);
+            imgGestisciScheda2.setImage(gestisciScheda);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR, e);
         }
         try {
-            Image RichiediScheda = new Image(getClass().getResourceAsStream("/view/Immages/RichiediScheda.png"));
-            imgRichiediScheda.setImage(RichiediScheda);
-            imgRichiediScheda2.setImage(RichiediScheda);
+            Image richiediScheda = new Image(getClass().getResourceAsStream("/view/Immages/RichiediScheda.png"));
+            imgRichiediScheda.setImage(richiediScheda);
+            imgRichiediScheda2.setImage(richiediScheda);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR, e);
         }
         try {
-            Image AvatarBase = new Image(getClass().getResourceAsStream("/view/Immages/AvatarBase.png"));
-            imgAvatar.setImage(AvatarBase);
+            Image avatarBase = new Image(getClass().getResourceAsStream("/view/Immages/AvatarBase.png"));
+            imgAvatar.setImage(avatarBase);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR, e);
         }

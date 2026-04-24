@@ -51,22 +51,6 @@ public class ClienteRichiediSchedaBoundary {
         }
     }
 
-    /*public RichiestaScheda raccogliDatiRichiesta() {
-        Utente utenteLoggato = Sessione.getInstance().getUtente();
-        String emailCliente = "";
-        String idPT = "";
-        return new RichiestaScheda(
-                cbSesso.getValue(),
-                Integer.parseInt(txtEta.getText()),
-                Double.parseDouble(txtPeso.getText()),
-                cbObiettivo.getValue(),
-                spFrequenza.getValue(),
-                txtNote.getText(),
-                emailCliente,
-                idPT       // Temporaneo: andrebbe preso dal profilo atleta
-        );
-    }*/
-
     public RichiestaScheda raccogliDatiRichiesta() {
         // 1. Recuperiamo l'utente dalla sessione (sappiamo che è un Cliente grazie ai controlli preventivi)
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();

@@ -4,7 +4,7 @@ import util.LogManager;
 
 public class DAOFactory {
 
-    private static boolean DEMO_MODE = false;
+    private static boolean demoMode = false;
 
     private DAOFactory() {
         throw new IllegalStateException("Utility class");
@@ -13,21 +13,21 @@ public class DAOFactory {
     public static void setMode(int scelta) {
         // 1 = Demo, 2 = Full
         if (scelta == 1){
-            DEMO_MODE = true;
+            demoMode = true;
         }
-        String modo = DEMO_MODE ? "DEMO (In-Memory)" : "FULL (File System)";
+        String modo = demoMode ? "DEMO (In-Memory)" : "FULL (File System)";
         LogManager.info("Sistema avviato in modalità: " + modo);
     }
 
     public static RichiestaDAO getRichiestaDAO() {
-        if (DEMO_MODE) {
+        if (demoMode) {
             return new RichiestaDAOMemory(); //Versione DEMO
         } else {
             return new RichiestaDAOFile(); //Versione FULL
         }
     }
     public static UtenteDAO getUtenteDAO() {
-        if (DEMO_MODE) {
+        if (demoMode) {
             return new UtenteDAOMemory(); //Versione DEMO
         } else {
             return new UtenteDAOFile(); //Versione FULL
