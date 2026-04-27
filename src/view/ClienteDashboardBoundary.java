@@ -151,21 +151,17 @@ public class ClienteDashboardBoundary {
                 Stage popupStage = new Stage();
                 popupStage.initOwner(imgFitplan.getScene().getWindow());
                 popupStage.initModality(Modality.WINDOW_MODAL);
-
-                popupStage.initStyle(StageStyle.TRANSPARENT);
+                popupStage.initStyle(StageStyle.TRANSPARENT); // Chiamato una sola volta
 
                 Scene scene = new Scene(root);
-
                 scene.setFill(Color.TRANSPARENT);
-
                 scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
 
                 popupStage.setScene(scene);
-                popupStage.initStyle(StageStyle.TRANSPARENT);
                 popupStage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LogManager.error("Errore caricamento popup errore NoPT", e);
             }
         } else {
             Navigator.pushScene("/view/RichiestaScheda.fxml", "FitPlan - Nuova Richiesta");
@@ -195,6 +191,33 @@ public class ClienteDashboardBoundary {
             popupStage.show();
 
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void apriRicercaPT() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ClienteRicercaPT.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+
+            popupStage.initOwner(lblNomeUtente.getScene().getWindow());
+            popupStage.initModality(Modality.WINDOW_MODAL);
+            popupStage.initStyle(StageStyle.TRANSPARENT);
+
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
+
+            popupStage.setScene(scene);
+            popupStage.show();
+
+            LogManager.info("Popup Ricerca PT aperto correttamente.");
+
+        } catch (IOException e) {
+            LogManager.error("Impossibile aprire il popup di ricerca PT", e);
             e.printStackTrace();
         }
     }

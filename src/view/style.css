@@ -86,3 +86,15 @@
     -fx-scale-x: 1.1;                   /* Si ingrandisce leggermente */
     -fx-scale-y: 1.1;
 }
+
+/* Colore della riga quando viene selezionata */
+.list-view .list-cell:filled:selected {
+    -fx-background-color: #94b231;
+    -fx-text-fill: white;
+}
+
+/* Colore della riga quando il mouse ci passa sopra */
+.list-view .list-cell:filled:hover {
+    -fx-background-color: #e8f5e9;
+    -fx-text-fill: black;
+}

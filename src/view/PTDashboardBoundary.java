@@ -136,6 +136,18 @@ public class PTDashboardBoundary {
     }
 
     @FXML
+    public void apriRichiesteClienti() {
+        // Caricherà la schermata con la lista delle richieste pendenti
+        Navigator.pushScene("/view/PTRichiestePendenti.fxml", "FitPlan - Richieste Scheda");
+    }
+
+    @FXML
+    public void apriListaAtleti() {
+        // Caricherà la lista dei clienti associati
+        Navigator.pushScene("/view/PTMieiAtleti.fxml", "FitPlan - I Miei Atleti");
+    }
+
+    @FXML
     public void apriProfiloPersonale() {
         Utente utenteCorrente = Sessione.getInstance().getUtente();
 

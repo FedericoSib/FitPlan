@@ -57,7 +57,9 @@ public class NoPTBoundary {
 
     @FXML
     public void vaiAssociaPT(ActionEvent event) {
-        chiudiFinestra(event);
+        Stage popupStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        popupStage.close();
+        Navigator.pushScene("/view/ClienteRicercaPT.fxml", "FitPlan - Cerca il tuo Trainer");
     }
 
     @FXML

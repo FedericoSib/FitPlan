@@ -33,4 +33,11 @@ public class DAOFactory {
             return new UtenteDAOFile(); //Versione FULL
         }
     }
+    public static PersonalTrainerDAO getPersonalTrainerDAO() {
+        if (demoMode) {
+            return new PersonalTrainerDAOMemory(); //Versione DEMO
+        } else {
+            return new PersonalTrainerDAOFile(); //Versione FULL
+        }
+    }
 }
