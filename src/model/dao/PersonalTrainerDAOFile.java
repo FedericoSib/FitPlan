@@ -5,7 +5,6 @@ import util.LogManager;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PersonalTrainerDAOFile implements PersonalTrainerDAO {
 
@@ -51,8 +50,7 @@ public class PersonalTrainerDAOFile implements PersonalTrainerDAO {
         // e li restituisce come lista
         return caricaTutti().stream()
                 .filter(pt -> pt.getNome().equalsIgnoreCase(name) ||
-                        pt.getCognome().equalsIgnoreCase(name))
-                .collect(Collectors.toList());
+                        pt.getCognome().equalsIgnoreCase(name)).toList();
     }
 
     @Override

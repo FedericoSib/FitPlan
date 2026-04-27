@@ -14,11 +14,9 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import model.Sessione;
 import model.entity.PersonalTrainer;
 import model.entity.Utente;
-import model.entity.Cliente;
 import util.LogManager;
 
 import java.time.LocalDate;
