@@ -38,11 +38,11 @@ jobs:
 
       - name: Esegui test con JaCoCo
         run: |
-          CLASSPATH=$(find lib -name "*.jar" | tr '\n' ':')
+          CLASSPATH=$(find lib -name "*.jar" | grep -v "console-standalone" | tr '\n' ':')
           java --enable-preview \
             -javaagent:lib/jacocoagent.jar=destfile=jacoco.exec \
             -cp "$CLASSPATH:out/production:out/test" \
-            org.junit.platform.console.standalone.ConsoleLauncher \
+            -jar lib/junit-platform-console-standalone-1.8.1.jar \
             --scan-class-path out/test
 
       - name: Genera report JaCoCo XML
