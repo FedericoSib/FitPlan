@@ -430,3 +430,5 @@ apr 28, 2026 7:55:40 PM util.LogManager info
 INFO: Tentativo invio richiesta a: PT-VR-2841955
 apr 28, 2026 7:55:40 PM util.LogManager info
 INFO: Richiesta inviata: Federico@gmail.com -> ValerioR@gmail.com
+apr 28, 2026 8:34:32 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
