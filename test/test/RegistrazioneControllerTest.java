@@ -17,6 +17,7 @@ class RegistrazioneControllerTest {
 
     @BeforeEach
     void setUp() {
+        DAOFactory.setMode(1);
         registrazioneController = new RegistrazioneController();
         // Impostiamo la modalità Memory (1) per non sporcare i file reali durante i test
         DAOFactory.setMode(1);

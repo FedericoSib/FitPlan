@@ -1,8 +1,7 @@
 package test;
 
 import controller.graphic.AssociaPTController;
-import model.dao.DAOFactory;
-import model.dao.UtenteDAO;
+import model.dao.*;
 import model.entity.PersonalTrainer;
 import java.util.List;
 import model.exception.*;
@@ -15,17 +14,18 @@ class AssociaPTControllerTest {
     private AssociaPTController controller;
 
     @BeforeEach
-    void setUp() throws DAOException {
-        DAOFactory.setMode(1); // Memory
+    void setUp() {
+        DAOFactory.setMode(1); // Modalità Memory
         controller = new AssociaPTController();
 
-        PersonalTrainer pt1 = new PersonalTrainer("Mario", "Rossi", "mario@pt.it", "pass");
-        PersonalTrainer pt2 = new PersonalTrainer("Valerio", "S", "Valerio@gmail.com", "ValerioS");
+        // IMPORTANTE: Dobbiamo aggiungere i PT al DAOMemory prima di cercarli!
+        PersonalTrainerDAO dao = DAOFactory.getPersonalTrainerDAO();
 
-        // Oppure, se il tuo DAOMemory ha una lista accessibile o un metodo di salvataggio:
-        UtenteDAO utenteDao = DAOFactory.getUtenteDAO();
-        utenteDao.salvaNuovoUtente(pt1);
-        utenteDao.salvaNuovoUtente(pt2);
+        // Puliamo e aggiungiamo i dati per i test
+        dao.getAllPT().clear();
+        dao.getAllPT().add(new PersonalTrainer("Mario", "Rossi", "mario@pt.it", "pass"));
+        dao.getAllPT().add(new PersonalTrainer("Valerio", "S", "Valerio@gmail.com", "pass"));
+        dao.getAllPT().add(new PersonalTrainer("Valerio", "R", "ValerioR@gmail.com", "pass"));
     }
 
     @Test

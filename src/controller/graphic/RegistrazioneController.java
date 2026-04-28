@@ -30,16 +30,24 @@ public class RegistrazioneController {
         try {
             UtenteDAO dao = DAOFactory.getUtenteDAO();
 
-            // Controllo se l'email esiste già
-            if (dao.trovaUtentePerEmail(email) != null) {
+            try {
+                // Proviamo a cercare l'utente
+                dao.trovaUtentePerEmail(email);
+
+                // Se arriviamo qui, significa che l'utente ESISTE (non è stata lanciata l'eccezione)
                 LogManager.warn("Tentativo di registrazione con email duplicata: " + email);
                 throw new RegistrazioneException("Email già registrata.");
+
+            } catch (model.exception.UserNotFoundException _) {
+                // SCENARIO CORRETTO: L'utente non esiste, quindi possiamo salvarlo
+                dao.salvaNuovoUtente(nuovoUtente);
+                LogManager.info("Registrazione completata. ID: " + nuovoUtente.getId());
             }
-            dao.salvaNuovoUtente(nuovoUtente);
-            LogManager.info("Registrazione completata con successo. Creato utente con ID: " + nuovoUtente.getId());
-        } catch (Exception e) {
-            LogManager.error("Errore critico durante la registrazione", e);
-            throw new RegistrazioneException("Errore interno del sistema. Riprova più tardi.");
+
+        } catch (model.exception.DAOException e) {
+            // SCENARIO ERRORE TECNICO: Problemi al database o al file
+            LogManager.error("Errore persistenza registrazione", e);
+            throw new RegistrazioneException("Errore tecnico durante il salvataggio. Riprova più tardi.");
         }
     }
 }
