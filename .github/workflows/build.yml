@@ -43,7 +43,9 @@ jobs:
             -javaagent:lib/jacocoagent.jar=destfile=jacoco.exec \
             -cp "$CLASSPATH:out/production:out/test" \
             -jar lib/junit-platform-console-standalone-1.8.1.jar \
-            --scan-class-path out/test
+            --classpath out/production \
+            --classpath out/test \
+            --scan-classpath out/test
 
       - name: Genera report JaCoCo XML
         run: |
