@@ -18,21 +18,21 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
+          java-version: '23'
           distribution: 'temurin'
 
       - name: Compila sorgenti
         run: |
           mkdir -p out/production out/test
           CLASSPATH=$(find lib -name "*.jar" | tr '\n' ':')
-          javac --enable-preview --release 21 -cp "$CLASSPATH" \
+          javac --enable-preview --release 23 -cp "$CLASSPATH" \
             -d out/production \
             $(find src -name "*.java")
 
       - name: Compila test
         run: |
           CLASSPATH=$(find lib -name "*.jar" | tr '\n' ':')
-          javac --enable-preview --release 21 -cp "$CLASSPATH:out/production" \
+          javac --enable-preview --release 23 -cp "$CLASSPATH:out/production" \
             -d out/test \
             $(find test -name "*.java")
 
