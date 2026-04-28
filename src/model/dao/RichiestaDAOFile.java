@@ -1,8 +1,8 @@
 package model.dao;
 
 import model.entity.RichiestaScheda;
+import model.exception.DAOException;
 import util.LogManager;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class RichiestaDAOFile implements RichiestaDAO {
     private static final String FILE_NAME = "richieste_fitplan.dat";
 
     @Override
-    public void salvaRichiesta(RichiestaScheda richiesta) throws IOException, ClassNotFoundException {
+    public void salvaRichiesta(RichiestaScheda richiesta) throws DAOException, IOException {
         // Leggiamo prima le richieste esistenti per non sovrascriverle
         List<RichiestaScheda> listaAttuale = prendiTutteLeRichieste();
         listaAttuale.add(richiesta);
@@ -24,7 +24,7 @@ public class RichiestaDAOFile implements RichiestaDAO {
     }
 
     @Override
-    public List<RichiestaScheda> prendiRichiestePerPT(String idPersonalTrainer) throws IOException, ClassNotFoundException {
+    public List<RichiestaScheda> prendiRichiestePerPT(String idPersonalTrainer) throws DAOException {
         List<RichiestaScheda> tutte = prendiTutteLeRichieste();
         List<RichiestaScheda> filtrate = new ArrayList<>();
 
@@ -37,7 +37,7 @@ public class RichiestaDAOFile implements RichiestaDAO {
     }
 
     @Override
-    public void cancellaRichiesta(RichiestaScheda richiesta) throws IOException, ClassNotFoundException {
+    public void cancellaRichiesta(RichiestaScheda richiesta) throws DAOException, IOException {
         List<RichiestaScheda> lista = prendiTutteLeRichieste();
         // Rimuoviamo la richiesta basandoci sull'uguaglianza dei dati
         lista.removeIf(r -> r.getClienteEmail().equals(richiesta.getClienteEmail()) &&
@@ -48,16 +48,15 @@ public class RichiestaDAOFile implements RichiestaDAO {
         }
     }
 
-    public List<RichiestaScheda> prendiTutteLeRichieste() throws IOException, ClassNotFoundException {
+    @Override
+    public List<RichiestaScheda> prendiTutteLeRichieste() throws DAOException {
         File file = new File(FILE_NAME);
-        if (!file.exists()) {
-            return new ArrayList<>();
-        }
+        if (!file.exists()) return new ArrayList<>();
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             return (List<RichiestaScheda>) ois.readObject();
-        } catch (EOFException _) {
-            return new ArrayList<>();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new DAOException("Errore nel caricamento delle richieste da file: " + e.getMessage());
         }
     }
 }

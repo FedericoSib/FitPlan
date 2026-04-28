@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.exception.LoginException;
 import model.Sessione;
 import model.entity.Utente;
 import model.entity.Cliente;
@@ -40,14 +41,11 @@ public class LoginBoundary {
         }
 
         try {
-            // Chiamata al controller per l'autenticazione
             loginController.autentica(email, pass);
-
-            // Se arriviamo qui, il login è riuscito
             procediAllaDashboard();
 
-        } catch (Exception e) {
-            mostraAlert(Alert.AlertType.ERROR, "Errore Accesso", e.getMessage());
+        } catch (LoginException e) {
+            mostraAlert(Alert.AlertType.ERROR, "Problema di Accesso", e.getMessage());
         }
     }
 

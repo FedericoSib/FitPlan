@@ -1,8 +1,11 @@
 package model.dao;
 
-import model.entity.*;
+import model.entity.Utente;
+import model.entity.Cliente;
+import model.entity.PersonalTrainer;
+import model.exception.DAOException;
+import model.exception.UserNotFoundException;
 import util.LogManager;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,28 +22,31 @@ public class UtenteDAOMemory implements UtenteDAO {
     }
 
     @Override
-    public void salvaNuovoUtente(Utente u) {
+    public void salvaNuovoUtente(Utente u) throws DAOException {
+        if (u == null) {
+            throw new DAOException("Impossibile salvare un utente nullo.");
+        }
         utenti.add(u);
         LogManager.info("Utente salvato: "+ u.getEmail());
     }
 
     @Override
-    public Utente trovaUtente(String email, String password) {
+    public Utente trovaUtente(String email, String password) throws UserNotFoundException {
         for (Utente u : utenti) {
             if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
                 return u;
             }
         }
-        return null;
+        throw new UserNotFoundException("Credenziali errate per l'utente: " + email);
     }
 
     @Override
-    public Utente trovaUtentePerEmail(String email) {
+    public Utente trovaUtentePerEmail(String email) throws UserNotFoundException {
         for (Utente u : utenti) {
             if (u.getEmail().equals(email)) {
                 return u;
             }
         }
-        return null;
+        throw new UserNotFoundException("Nessun utente trovato con email: " + email);
     }
 }

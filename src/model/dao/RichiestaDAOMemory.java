@@ -2,34 +2,50 @@ package model.dao;
 
 import model.entity.RichiestaScheda;
 import util.LogManager;
-
+import model.exception.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RichiestaDAOMemory implements RichiestaDAO {
-    private static List<RichiestaScheda> storage = new ArrayList<>();
+    private static final List<RichiestaScheda> storage = new ArrayList<>();
 
     @Override
-    public void salvaRichiesta(RichiestaScheda richiesta){
+    public void salvaRichiesta(RichiestaScheda richiesta) throws DAOException {
+        if (richiesta == null) {
+            throw new DAOException("Impossibile salvare una richiesta nulla.");
+        }
         storage.add(richiesta);
         LogManager.info("Richiesta salvata con successo per il PT: " + richiesta.getIdPersonalTrainer());
     }
 
     @Override
-    public List<RichiestaScheda> prendiTutteLeRichieste() {
+    public List<RichiestaScheda> prendiTutteLeRichieste() throws DAOException {
         return new ArrayList<>(storage);
     }
 
     @Override
     public List<RichiestaScheda> prendiRichiestePerPT(String idPersonalTrainer){
+        if (idPersonalTrainer == null) return new ArrayList<>();
+
         return storage.stream()
                 .filter(r -> r.getIdPersonalTrainer().equals(idPersonalTrainer))
                 .toList();
     }
 
     @Override
-    public void cancellaRichiesta(RichiestaScheda richiesta) {
-        storage.remove(richiesta);
-        LogManager.info("Richiesta rimossa con successo.");
+    public void cancellaRichiesta(RichiestaScheda richiesta) throws DAOException {
+        if (richiesta == null) {
+            throw new DAOException("Impossibile cancellare una richiesta nulla.");
+        }
+        boolean rimosso = storage.removeIf(r ->
+                r.getClienteEmail().equals(richiesta.getClienteEmail()) &&
+                        r.getObiettivo().equals(richiesta.getObiettivo())
+        );
+
+        if (rimosso) {
+            LogManager.info("Richiesta rimossa con successo dalla memoria.");
+        } else {
+            LogManager.warn("Tentativo di rimozione di una richiesta non esistente.");
+        }
     }
 }

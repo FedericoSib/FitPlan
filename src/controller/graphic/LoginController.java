@@ -4,7 +4,9 @@ import model.Sessione;
 import model.dao.UtenteDAO;
 import model.dao.DAOFactory;
 import model.entity.Utente;
+import model.exception.UserNotFoundException;
 import model.exception.LoginException;
+import model.exception.DAOException;
 import util.LogManager;
 
 public class LoginController {
@@ -14,15 +16,16 @@ public class LoginController {
             UtenteDAO dao = DAOFactory.getUtenteDAO();
             Utente utente = dao.trovaUtente(email, password);
 
-            if (utente == null) {
-                LogManager.warn("Tentativo di accesso con email o password errata");
-                throw new LoginException("Email o Password errati. Riprova.");
-            }
-
             Sessione.getInstance().setUtente(utente);
-        } catch (Exception e) {
-            LogManager.error("Errore critico durante l'accesso", e);
-            throw new LoginException("Errore tecnico durante l'accesso: " + e.getMessage());
+            LogManager.info("Login effettuato con successo per: " + email);
+
+        } catch (UserNotFoundException e) {
+            LogManager.warn("Autenticazione fallita: " + e.getMessage());
+            throw new LoginException("Credenziali non valide. Riprova.");
+
+        } catch (DAOException e) {
+            LogManager.error("Errore persistenza durante login", e);
+            throw new LoginException("Servizio momentaneamente non disponibile.");
         }
     }
 }
