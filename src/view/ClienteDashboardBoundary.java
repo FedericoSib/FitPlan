@@ -15,8 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import model.Sessione;
-import model.entity.Utente;
-import model.entity.Cliente;
+import model.entity.*;
 import util.LogManager;
 
 import java.time.LocalDate;
@@ -26,6 +25,7 @@ import java.util.Locale;
 
 public class ClienteDashboardBoundary {
 
+    private static final String STYLE_CSS_PATH = "/view/style.css";
     @FXML private Label lblNomeUtente;
     @FXML private Label lblMeseAnno;
     @FXML private GridPane gridCalendario;
@@ -117,6 +117,40 @@ public class ClienteDashboardBoundary {
         }
     }
 
+    private void mostraPopupErroreNoPT() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SchermataErroreNoPT.fxml"));
+        Parent root = loader.load();
+
+        Stage popupStage = new Stage();
+        // Assicurati che imgFitplan sia accessibile (o usa un altro nodo della scena)
+        popupStage.initOwner(imgFitplan.getScene().getWindow());
+        popupStage.initModality(Modality.WINDOW_MODAL);
+        popupStage.initStyle(StageStyle.TRANSPARENT);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+
+        String cssPath = getClass().getResource(STYLE_CSS_PATH).toExternalForm();
+        scene.getStylesheets().add(cssPath);
+
+        popupStage.setScene(scene);
+        popupStage.show();
+    }
+
+    private void mostraAlert(String titolo, String messaggio) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titolo);
+        alert.setHeaderText(null); // Toglie l'intestazione standard per un look più pulito
+        alert.setContentText(messaggio);
+
+        // Se vuoi applicare il tuo CSS anche all'alert
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource(STYLE_CSS_PATH).toExternalForm());
+        dialogPane.getStyleClass().add("corpo-banner"); // Usa una delle tue classi CSS
+
+        alert.showAndWait();
+    }
+
     // --- LOGICA DI NAVIGAZIONE (SCROLL) ---
 
     @FXML
@@ -141,30 +175,19 @@ public class ClienteDashboardBoundary {
 
     @FXML
     public void avviaRichiestaScheda() {
+        // Recupero dell'utente dalla sessione
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+        StatoAssociazione stato = cliente.getStatoAssociazione();
 
-        if (!cliente.isAssociated()) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SchermataErroreNoPT.fxml"));
-                Parent root = loader.load();
-
-                Stage popupStage = new Stage();
-                popupStage.initOwner(imgFitplan.getScene().getWindow());
-                popupStage.initModality(Modality.WINDOW_MODAL);
-                popupStage.initStyle(StageStyle.TRANSPARENT); // Chiamato una sola volta
-
-                Scene scene = new Scene(root);
-                scene.setFill(Color.TRANSPARENT);
-                scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
-
-                popupStage.setScene(scene);
-                popupStage.show();
-
-            } catch (IOException e) {
-                LogManager.error("Errore caricamento popup errore NoPT", e);
+        try {
+            switch (stato) {
+                case NESSUNA -> mostraPopupErroreNoPT();
+                case PENDING -> mostraAlert("Richiesta in attesa", "Il tuo Trainer non ha ancora accettato la richiesta.");
+                case ASSOCIATO -> Navigator.pushScene("/view/RichiestaScheda.fxml", "FitPlan - Nuova Richiesta");
+                default -> LogManager.warn("Stato associazione non gestito: " + stato);
             }
-        } else {
-            Navigator.pushScene("/view/RichiestaScheda.fxml", "FitPlan - Nuova Richiesta");
+        } catch (IOException e) {
+            LogManager.error("Errore durante l'avvio della richiesta scheda", e);
         }
     }
 
@@ -197,6 +220,17 @@ public class ClienteDashboardBoundary {
 
     @FXML
     public void apriRicercaPT() {
+        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+
+        if (cliente.getStatoAssociazione() == StatoAssociazione.PENDING) {
+            mostraAlert("Richiesta in corso", "Hai già una richiesta pendente. Attendi la risposta del Trainer.");
+            return;
+        }
+
+        if (cliente.getStatoAssociazione() == StatoAssociazione.ASSOCIATO) {
+            mostraAlert("Già Associato", "Sei già associato a un Trainer!");
+            return;
+        }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ClienteRicercaPT.fxml"));
             Parent root = loader.load();
@@ -209,7 +243,7 @@ public class ClienteDashboardBoundary {
 
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
-            scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(STYLE_CSS_PATH).toExternalForm());
 
             popupStage.setScene(scene);
             popupStage.show();

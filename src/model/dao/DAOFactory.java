@@ -40,4 +40,12 @@ public class DAOFactory {
             return new PersonalTrainerDAOFile(); //Versione FULL
         }
     }
+
+    public static AssociazioneDAO getAssociazioneDAO() {
+        if (demoMode) {
+            return new AssociazioneDAOMemory();
+        } else {
+            return new AssociazioneDAOFile();
+        }
+    }
 }

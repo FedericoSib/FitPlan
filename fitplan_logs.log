@@ -298,3 +298,135 @@ apr 28, 2026 1:45:40 PM util.LogManager info
 INFO: Richiesta inviata a: PT-VR-2841345
 apr 28, 2026 1:45:40 PM util.LogManager info
 INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [ValerioR@gmail.com]
+apr 28, 2026 7:04:51 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 28, 2026 7:04:55 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:04:59 PM util.LogManager info
+INFO: Ricerca completata per: Valerio
+apr 28, 2026 7:05:00 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VS-2841904
+apr 28, 2026 7:05:00 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [Valerio@gmail.com]
+apr 28, 2026 7:05:03 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:05:08 PM util.LogManager info
+INFO: Ricerca completata per: Valerio
+apr 28, 2026 7:05:10 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VS-2841905
+apr 28, 2026 7:05:10 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [Valerio@gmail.com]
+apr 28, 2026 7:05:12 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:06:07 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 28, 2026 7:06:13 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:06:24 PM util.LogManager info
+INFO: Ricerca completata per: Valerio
+apr 28, 2026 7:06:32 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VR-2841906
+apr 28, 2026 7:06:32 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [ValerioR@gmail.com]
+apr 28, 2026 7:06:37 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:07:48 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 28, 2026 7:07:55 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:07:58 PM util.LogManager info
+INFO: Ricerca completata per: Valerio
+apr 28, 2026 7:08:08 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VR-2841907
+apr 28, 2026 7:08:08 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [ValerioR@gmail.com]
+apr 28, 2026 7:08:27 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:08:32 PM util.LogManager info
+INFO: Ricerca completata per: Valerio
+apr 28, 2026 7:08:34 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VR-2841908
+apr 28, 2026 7:08:34 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [ValerioR@gmail.com]
+apr 28, 2026 7:08:37 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:22:37 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 28, 2026 7:22:47 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:22:52 PM util.LogManager info
+INFO: Ricerca completata per: valerio
+apr 28, 2026 7:22:54 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VR-2841922
+apr 28, 2026 7:22:54 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [ValerioR@gmail.com]
+apr 28, 2026 7:22:55 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:23:01 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:23:02 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:23:35 PM util.LogManager warn
+WARNING: Autenticazione fallita: Credenziali non valide per l'utente: Federico@gmial.com
+apr 28, 2026 7:23:46 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 28, 2026 7:23:49 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:23:52 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: vA
+apr 28, 2026 7:23:56 PM util.LogManager info
+INFO: Ricerca completata per: vALERIO
+apr 28, 2026 7:23:57 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VR-2841923
+apr 28, 2026 7:23:57 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [ValerioR@gmail.com]
+apr 28, 2026 7:23:59 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:35:02 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 28, 2026 7:35:05 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:35:11 PM util.LogManager info
+INFO: Ricerca completata per: Valerio
+apr 28, 2026 7:35:13 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VR-2841935
+apr 28, 2026 7:35:13 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [ValerioR@gmail.com]
+apr 28, 2026 7:35:17 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:35:22 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:41:03 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 28, 2026 7:41:06 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:41:11 PM util.LogManager info
+INFO: Ricerca completata per: Valerio
+apr 28, 2026 7:41:12 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VR-2841941
+apr 28, 2026 7:41:12 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [ValerioR@gmail.com]
+apr 28, 2026 7:41:13 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:46:10 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 28, 2026 7:46:12 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:46:18 PM util.LogManager info
+INFO: Ricerca completata per: Valerio
+apr 28, 2026 7:46:20 PM util.LogManager info
+INFO: Richiesta inviata a: PT-VR-2841946
+apr 28, 2026 7:46:20 PM util.LogManager info
+INFO: Associazione completata: Cliente [Federico@gmail.com] collegato a PT [ValerioR@gmail.com]
+apr 28, 2026 7:46:23 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:55:30 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 28, 2026 7:55:32 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 28, 2026 7:55:38 PM util.LogManager info
+INFO: Ricerca completata per: Valerio
+apr 28, 2026 7:55:40 PM util.LogManager info
+INFO: Tentativo invio richiesta a: PT-VR-2841955
+apr 28, 2026 7:55:40 PM util.LogManager info
+INFO: Richiesta inviata: Federico@gmail.com -> ValerioR@gmail.com

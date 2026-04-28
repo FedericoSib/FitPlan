@@ -1,11 +1,9 @@
 package controller.graphic;
 
-import model.dao.DAOFactory;
-import model.dao.PersonalTrainerDAO;
-import model.entity.PersonalTrainer;
-import model.entity.Cliente;
+import model.dao.*;
+import model.entity.*;
 import model.Sessione;
-import model.exception.TrainerNotFoundException;
+import model.exception.*;
 import util.LogManager;
 import java.util.List;
 import java.util.ArrayList;
@@ -37,14 +35,18 @@ public class AssociaPTController {
         return risultati;
     }
 
-    public void handleAssocia(PersonalTrainer pt) {
-        // Recuperiamo il cliente dalla sessione
+    public void inviaRichiestaAssociazione(PersonalTrainer pt) throws DAOException {
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
 
-        // Aggiornamento dello stato dell'Entity
+        // 1. Salviamo la richiesta nel DAO delle associazioni
+        AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
+        dao.salvaRichiesta(cliente.getEmail(), pt.getEmail());
+
+        // 2. Aggiorniamo l'oggetto in sessione
+        cliente.setStatoAssociazione(StatoAssociazione.PENDING);
         cliente.setIdPersonalTrainer(pt.getEmail());
-        cliente.setAssociated(true);
-        LogManager.info("Associazione completata: Cliente [" + cliente.getEmail() +
-                "] collegato a PT [" + pt.getEmail() + "]");
+
+        LogManager.info("Richiesta inviata: " + cliente.getEmail() + " -> " + pt.getEmail());
     }
+
 }

@@ -1,6 +1,7 @@
 package model.entity;
 
 public class Cliente extends Utente {
+    private StatoAssociazione statoAssociazione = StatoAssociazione.NESSUNA;
     private String idPersonalTrainer; // L'ID del PT a cui è associato
     private boolean associated;
 
@@ -17,4 +18,11 @@ public class Cliente extends Utente {
     public void setIdPersonalTrainer(String idPersonalTrainer) { this.idPersonalTrainer = idPersonalTrainer; }
     public boolean isAssociated() { return associated; }
     public void setAssociated(boolean associated) { this.associated = associated; }
+
+    public StatoAssociazione getStatoAssociazione() {
+        return statoAssociazione;
+    }
+    public void setStatoAssociazione(StatoAssociazione stato) {
+        this.statoAssociazione = stato;
+    }
 }

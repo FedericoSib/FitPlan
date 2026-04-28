@@ -48,7 +48,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.entity.PersonalTrainer;
-import model.exception.TrainerNotFoundException;
+import model.exception.*;
 import util.LogManager;
 import controller.graphic.AssociaPTController;
 
@@ -119,11 +119,24 @@ public class ClienteRicercaPTBoundary {
     public void handleAssocia() {
         PersonalTrainer selezionato = listaPT.getSelectionModel().getSelectedItem();
         if (selezionato != null) {
-            LogManager.info("Richiesta inviata a: " + selezionato.getId());
-            // Qui chiama il metodo del controller per creare la richiesta nel DB
-            controller.handleAssocia(selezionato);
+            try {
+                LogManager.info("Tentativo invio richiesta a: " + selezionato.getId());
 
-            mostraAlert("Successo", "Richiesta di associazione inviata correttamente!");
+                // 1. Chiamata al controller logico
+                controller.inviaRichiestaAssociazione(selezionato);
+
+                // 2. Chiudi il popup solo se l'operazione ha avuto successo
+                ((Stage) btnAssocia.getScene().getWindow()).close();
+
+                mostraAlert("Inviata", "Richiesta inviata correttamente! Ora sei in stato PENDING.");
+
+            } catch (DAOException e) {
+                // Gestione dell'errore (es. file non trovato o db offline)
+                LogManager.error("Errore durante l'invio della richiesta", e);
+                mostraAlert("Errore", "Impossibile inviare la richiesta: " + e.getMessage());
+            }
+        } else {
+            mostraAlert("Attenzione", "Seleziona un Personal Trainer dalla lista!");
         }
     }
 
