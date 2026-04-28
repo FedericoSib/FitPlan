@@ -1,5 +1,6 @@
 package controller.graphic;
 
+import bean.*;
 import model.dao.*;
 import model.entity.*;
 import model.Sessione;
@@ -11,42 +12,51 @@ import java.util.ArrayList;
 
 public class AssociaPTController {
 
-    public List<PersonalTrainer> cercaTrainer(String ricerca) throws TrainerNotFoundException {
+    public List<PersonalTrainerBean> cercaTrainer(String ricerca) throws TrainerNotFoundException {
         PersonalTrainerDAO dao = DAOFactory.getPersonalTrainerDAO();
-        List<PersonalTrainer> risultati = new ArrayList<>();
+        List<PersonalTrainer> entitaTrovate = new ArrayList<>();
 
+        // 1. Logica di ricerca (rimane invariata rispetto a prima)
         if (ricerca.toUpperCase().startsWith("PT-")) {
             PersonalTrainer pT = dao.getPTById(ricerca);
-            if (pT != null) risultati.add(pT);
+            if (pT != null) entitaTrovate.add(pT);
         } else if (ricerca.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
             PersonalTrainer pT = dao.getPTByEmail(ricerca);
-            if (pT != null) risultati.add(pT);
-        }
-        else {
+            if (pT != null) entitaTrovate.add(pT);
+        } else {
             List<PersonalTrainer> trovatiPerNome = dao.getPTByName(ricerca);
-            if (trovatiPerNome != null) {
-                risultati.addAll(trovatiPerNome);
-            }
+            if (trovatiPerNome != null) entitaTrovate.addAll(trovatiPerNome);
         }
-        if (risultati.isEmpty()) {
+
+        if (entitaTrovate.isEmpty()) {
             throw new TrainerNotFoundException("Nessun Personal Trainer trovato per: " + ricerca);
         }
 
-        return risultati;
+        // 2. TRASFORMAZIONE: Da List<PersonalTrainer> a List<PersonalTrainerBean>
+        List<PersonalTrainerBean> risultatiBean = new ArrayList<>();
+        for (PersonalTrainer pt : entitaTrovate) {
+            PersonalTrainerBean bean = new PersonalTrainerBean();
+            bean.setNome(pt.getNome());
+            bean.setCognome(pt.getCognome());
+            bean.setEmail(pt.getEmail());
+            bean.setId(pt.getId());
+            // Aggiungi solo i campi che servono davvero alla UI
+
+            risultatiBean.add(bean);
+        }
+
+        return risultatiBean;
     }
 
-    public void inviaRichiestaAssociazione(PersonalTrainer pt) throws DAOException {
+    public void inviaRichiestaAssociazione(AssociazioneBean bean) throws DAOException {
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
 
-        // 1. Salviamo la richiesta nel DAO delle associazioni
         AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
-        dao.salvaRichiesta(cliente.getEmail(), pt.getEmail());
+        dao.salvaRichiesta(bean.getEmailCliente(), bean.getEmailPT());
 
-        // 2. Aggiorniamo l'oggetto in sessione
         cliente.setStatoAssociazione(StatoAssociazione.PENDING);
-        cliente.setIdPersonalTrainer(pt.getEmail());
+        cliente.setIdPersonalTrainer(bean.getEmailPT());
 
-        LogManager.info("Richiesta inviata: " + cliente.getEmail() + " -> " + pt.getEmail());
-    }
+        LogManager.info("Stato aggiornato in sessione a PENDING per: " + bean.getEmailCliente());    }
 
 }

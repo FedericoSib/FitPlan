@@ -1,0 +1,30 @@
+package bean;
+
+public class UtenteBean {
+    private String email;
+    private String password;
+    private String nome;
+    private String cognome;
+    private int ruolo;
+
+    // Costruttore vuoto obbligatorio per i Java Bean
+    public UtenteBean() {
+        //evitiamo il costruttore di default
+    }
+
+    // Getter e Setter per tutti i campi
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getCognome() { return cognome; }
+    public void setCognome(String cognome) { this.cognome = cognome; }
+
+    public int getRuolo() { return ruolo; }
+    public void setRuolo(int ruolo) { this.ruolo = ruolo; }
+}

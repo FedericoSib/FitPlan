@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.exception.LoginException;
 import model.Sessione;
+import bean.*;
 import model.entity.Utente;
 import model.entity.Cliente;
 import model.entity.PersonalTrainer;
@@ -32,16 +33,17 @@ public class LoginBoundary {
 
     @FXML
     public void gestisciAccesso() {
-        String email = txtEmail.getText();
-        String pass = txtPass.getText();
+        LoginBean loginBean = new LoginBean();
+        loginBean.setEmail(txtEmail.getText());
+        loginBean.setPassword(txtPass.getText());
 
-        if (email.isEmpty() || pass.isEmpty()) {
+        if (!loginBean.isValid()) {
             mostraAlert(Alert.AlertType.WARNING, "Campi Vuoti", "Inserisci email e password per accedere.");
             return;
         }
 
         try {
-            loginController.autentica(email, pass);
+            loginController.autentica(loginBean);
             procediAllaDashboard();
 
         } catch (LoginException e) {

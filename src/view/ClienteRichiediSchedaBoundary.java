@@ -8,6 +8,7 @@ import model.entity.RichiestaScheda;
 import model.entity.Cliente;
 import model.entity.DatiFisici;
 import model.Sessione;
+import bean.*;
 import model.exception.InvalidFormException;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
@@ -51,26 +52,22 @@ public class ClienteRichiediSchedaBoundary {
         }
     }
 
-    public RichiestaScheda raccogliDatiRichiesta() {
-        // 1. Recuperiamo l'utente dalla sessione (sappiamo che è un Cliente grazie ai controlli preventivi)
+    public RichiestaSchedaBean raccogliDatiRichiesta() {
+        // Recuperiamo i dati del cliente dalla sessione
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
 
-        // 2. Creiamo il Value Object DatiFisici raggruppando i 3 parametri
-        DatiFisici datiFisici = new DatiFisici(
-                cbSesso.getValue(),
-                Integer.parseInt(txtEta.getText()),
-                Double.parseDouble(txtPeso.getText())
-        );
+        // Popoliamo il Bean invece di creare le entity
+        RichiestaSchedaBean bean = new RichiestaSchedaBean();
+        bean.setClienteEmail(cliente.getEmail());
+        bean.setIdPersonalTrainer(cliente.getIdPersonalTrainer());
+        bean.setSesso(cbSesso.getValue());
+        bean.setEta(Integer.parseInt(txtEta.getText()));
+        bean.setPeso(Double.parseDouble(txtPeso.getText()));
+        bean.setObiettivo(cbObiettivo.getValue());
+        bean.setFrequenzaSettimanale(spFrequenza.getValue());
+        bean.setNote(txtNote.getText());
 
-        // 3. Creiamo l'oggetto RichiestaScheda passando l'oggetto datiFisici (totale 6 parametri)
-        return new RichiestaScheda(
-                datiFisici,
-                cbObiettivo.getValue(),
-                spFrequenza.getValue(),
-                txtNote.getText(),
-                cliente.getEmail(),
-                cliente.getIdPersonalTrainer()
-        );
+        return bean;
     }
 
     public void mostraMessaggioConferma(String messaggio) {
@@ -92,25 +89,16 @@ public class ClienteRichiediSchedaBoundary {
     @FXML
     public void gestisciInvio() {
         try {
-            // 1. Validazione Formale (Campi testuali vuoti?)
             List<String> campiVuoti = verificaInputTestuali();
             if (!campiVuoti.isEmpty()) {
                 evidenziaCampiMancanti(campiVuoti);
                 return;
             }
 
-            // 2. Raccolta Dati (Ora siamo sicuri che il Cliente ha un PT)
-            // Il metodo raccogliDatiRichiesta() userà l'ID del PT reale dalla sessione
-            RichiestaScheda richiesta = raccogliDatiRichiesta();
+            RichiestaSchedaBean bean = raccogliDatiRichiesta();
+            controller.elaboraRichiesta(bean);
 
-            // 3. Delegazione al Controller di Business
-            // Questo metodo interagirà con il DAO per salvare la richiesta nel DB/Memoria
-            controller.elaboraRichiesta(richiesta);
-
-            // 4. Feedback di Successo e Ritorno alla Dashboard
             mostraMessaggioConferma("La tua richiesta è stata inviata con successo al tuo Personal Trainer!");
-
-            // Opzionale: Dopo l'invio, riportiamo l'utente alla Home
             Navigator.pushScene("/view/ClienteDashboard.fxml", "FitPlan - Dashboard");
 
         } catch (NumberFormatException _) {

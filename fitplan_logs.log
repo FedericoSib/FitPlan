@@ -432,3 +432,15 @@ apr 28, 2026 7:55:40 PM util.LogManager info
 INFO: Richiesta inviata: Federico@gmail.com -> ValerioR@gmail.com
 apr 28, 2026 8:34:32 PM util.LogManager info
 INFO: Login effettuato con successo per: Federico@gmail.com
+apr 29, 2026 12:13:33 AM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 29, 2026 12:41:30 AM util.LogManager info
+INFO: Email disponibile: Matt@gmail.com
+apr 29, 2026 12:41:30 AM util.LogManager info
+INFO: Utente salvato su file: Matt@gmail.com
+apr 29, 2026 12:41:30 AM util.LogManager info
+INFO: Registrazione completata con successo. ID Generato: C-MC-2940041
+apr 29, 2026 12:41:47 AM util.LogManager info
+INFO: Login effettuato con successo per: Matt@gmail.com
+apr 29, 2026 12:41:56 AM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.

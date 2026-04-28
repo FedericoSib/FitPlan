@@ -40,6 +40,7 @@ public class ClienteRicercaPTBoundary {
 
 package view;
 
+import bean.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -47,7 +48,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.entity.PersonalTrainer;
+import model.*;
 import model.exception.*;
 import util.LogManager;
 import controller.graphic.AssociaPTController;
@@ -61,7 +62,7 @@ public class ClienteRicercaPTBoundary {
     @FXML private Button btnCerca;
     @FXML private Button btnChiudi;
     @FXML private Button btnAnnulla;
-    @FXML private ListView<PersonalTrainer> listaPT;
+    @FXML private ListView<PersonalTrainerBean> listaPT;
 
     // Controller logico (Sarebbe meglio iniettarlo o averlo come attributo)
     private final AssociaPTController controller = new AssociaPTController();
@@ -71,7 +72,7 @@ public class ClienteRicercaPTBoundary {
         // 1. Configura come i PT appaiono nella lista (Nome Cognome [ID])
         listaPT.setCellFactory(lv -> new ListCell<>() {
             @Override
-            protected void updateItem(PersonalTrainer item, boolean empty) {
+            protected void updateItem(PersonalTrainerBean item, boolean empty) {
                 super.updateItem(item, empty);
                 if (empty || item == null) {
                     setText(null);
@@ -101,9 +102,9 @@ public class ClienteRicercaPTBoundary {
         try {
             // Supponiamo che il controller restituisca una lista di risultati
             // o un singolo PT incapsulato in una lista
-            List<PersonalTrainer> risultati = controller.cercaTrainer(query);
+            List<PersonalTrainerBean> risultati = controller.cercaTrainer(query);
 
-            ObservableList<PersonalTrainer> data = FXCollections.observableArrayList(risultati);
+            ObservableList<PersonalTrainerBean> data = FXCollections.observableArrayList(risultati);
             listaPT.setItems(data);
 
             LogManager.info("Ricerca completata per: " + query);
@@ -117,26 +118,36 @@ public class ClienteRicercaPTBoundary {
 
     @FXML
     public void handleAssocia() {
-        PersonalTrainer selezionato = listaPT.getSelectionModel().getSelectedItem();
-        if (selezionato != null) {
-            try {
-                LogManager.info("Tentativo invio richiesta a: " + selezionato.getId());
+        PersonalTrainerBean selezionato = listaPT.getSelectionModel().getSelectedItem();
 
-                // 1. Chiamata al controller logico
-                controller.inviaRichiestaAssociazione(selezionato);
-
-                // 2. Chiudi il popup solo se l'operazione ha avuto successo
-                ((Stage) btnAssocia.getScene().getWindow()).close();
-
-                mostraAlert("Inviata", "Richiesta inviata correttamente! Ora sei in stato PENDING.");
-
-            } catch (DAOException e) {
-                // Gestione dell'errore (es. file non trovato o db offline)
-                LogManager.error("Errore durante l'invio della richiesta", e);
-                mostraAlert("Errore", "Impossibile inviare la richiesta: " + e.getMessage());
-            }
-        } else {
+        if (selezionato == null) {
             mostraAlert("Attenzione", "Seleziona un Personal Trainer dalla lista!");
+            return;
+        }
+
+        try {
+            // 1. Creazione e popolamento del Bean
+            AssociazioneBean associazioneBean = new AssociazioneBean();
+
+            // Prendiamo l'email del cliente dalla sessione
+            String emailCliente = Sessione.getInstance().getUtente().getEmail();
+            associazioneBean.setEmailCliente(emailCliente);
+
+            // Prendiamo l'email del PT selezionato dalla riga della lista
+            associazioneBean.setEmailPT(selezionato.getEmail());
+
+            LogManager.info("Invio richiesta tramite Bean da: " + emailCliente + " a: " + selezionato.getEmail());
+
+            // 2. Chiamata al controller logico passando il BEAN
+            controller.inviaRichiestaAssociazione(associazioneBean);
+
+            // 3. Feedback e chiusura
+            ((Stage) btnAssocia.getScene().getWindow()).close();
+            mostraAlert("Inviata", "Richiesta inviata correttamente! Ora sei in stato PENDING.");
+
+        } catch (DAOException e) {
+            LogManager.error("Errore durante l'invio della richiesta", e);
+            mostraAlert("Errore", "Impossibile inviare la richiesta: " + e.getMessage());
         }
     }
 

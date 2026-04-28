@@ -1,5 +1,6 @@
 package view;
 
+import bean.*;
 import controller.graphic.RegistrazioneController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -38,38 +39,43 @@ public class RegistrazioneBoundary {
     }
 
     @FXML
+
     public void finalizzaRegistrazione() {
-        String nome = txtNome.getText();
-        String cognome = txtCognome.getText();
-        String email = txtEmail.getText();
+        // 1. Raccolta dati dalla UI
         String pass = txtPass.getText();
         String conferma = txtConfermaPass.getText();
         String ruoloSelezionato = cbRuolo.getValue();
 
-        // 1. Validazione sintattica base
-        if (nome.isEmpty() || cognome.isEmpty() || email.isEmpty() || pass.isEmpty() || ruoloSelezionato == null) {
-            mostraAlert("Errore", "Tutti i campi sono obbligatori.");
-            return;
-        }
-
+        // 2. Controllo specifico della Boundary (conferma password)
+        // Questo rimane qui perché è un controllo di "interfaccia"
         if (!pass.equals(conferma)) {
             mostraAlert("Errore Password", "Le password non coincidono!");
             return;
         }
 
         try {
-            // Convertiamo la selezione della ChoiceBox in ruolo numerico
-            int ruolo = ruoloSelezionato.equals("Personal Trainer") ? 2 : 1;
+            // 3. Creazione e popolamento del Bean
+            RegistrazioneBean bean = new RegistrazioneBean();
+            bean.setNome(txtNome.getText());
+            bean.setCognome(txtCognome.getText());
+            bean.setEmail(txtEmail.getText());
+            bean.setPassword(pass);
 
-            // 2. Chiamata al controller
-            controller.registraNuovoUtente(nome, cognome, email, pass, ruolo);
+            // Conversione logica del ruolo
+            int ruolo = "Personal Trainer".equals(ruoloSelezionato) ? 2 : 1;
+            bean.setRuolo(ruolo);
+
+            // 4. Delega al controller (che ora accetta solo il Bean)
+            controller.registraNuovoUtente(bean);
 
             mostraAlert("Successo", "Registrazione completata! Ora puoi effettuare il login.");
             tornaAlLogin();
 
         } catch (RegistrazioneException e) {
+            // Qui catturiamo sia gli errori di validazione del Bean che quelli del DB
             mostraAlert("Errore Registrazione", e.getMessage());
         } catch (Exception e) {
+            LogManager.error("Errore generico in registrazione", e);
             mostraAlert("Errore Sistema", "Si è verificato un errore imprevisto.");
         }
     }
