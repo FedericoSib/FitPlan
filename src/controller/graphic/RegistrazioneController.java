@@ -16,8 +16,14 @@ public class RegistrazioneController {
 
         // Creazione dell'istanza specifica
         if (ruolo == 1) {
+            if (nome == null || nome.isEmpty() || cognome == null || cognome.isEmpty()) {
+                throw new RegistrazioneException("Dati incompleti: nome e cognome sono obbligatori.");
+            }
             nuovoUtente = new Cliente(nome, cognome, email, pass);
         } else {
+            if (nome == null || nome.isEmpty() || cognome == null || cognome.isEmpty()) {
+                throw new RegistrazioneException("Dati incompleti: nome e cognome sono obbligatori.");
+            }
             nuovoUtente = new PersonalTrainer(nome, cognome, email, pass);
         }
 

@@ -2,9 +2,10 @@ package test;
 
 import controller.graphic.AssociaPTController;
 import model.dao.DAOFactory;
+import model.dao.UtenteDAO;
 import model.entity.PersonalTrainer;
 import java.util.List;
-import model.exception.TrainerNotFoundException;
+import model.exception.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,10 +15,17 @@ class AssociaPTControllerTest {
     private AssociaPTController controller;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws DAOException {
+        DAOFactory.setMode(1); // Memory
         controller = new AssociaPTController();
-        // Forza la modalità Memory per i test così non sporchiamo i file reali
-        DAOFactory.setMode(1);
+
+        PersonalTrainer pt1 = new PersonalTrainer("Mario", "Rossi", "mario@pt.it", "pass");
+        PersonalTrainer pt2 = new PersonalTrainer("Valerio", "S", "Valerio@gmail.com", "ValerioS");
+
+        // Oppure, se il tuo DAOMemory ha una lista accessibile o un metodo di salvataggio:
+        UtenteDAO utenteDao = DAOFactory.getUtenteDAO();
+        utenteDao.salvaNuovoUtente(pt1);
+        utenteDao.salvaNuovoUtente(pt2);
     }
 
     @Test

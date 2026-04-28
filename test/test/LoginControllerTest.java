@@ -3,8 +3,8 @@ package test;
 import controller.graphic.LoginController;
 import model.Sessione;
 import model.dao.DAOFactory;
-import model.entity.Utente;
-import model.exception.LoginException;
+import model.entity.*;
+import model.exception.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,9 +14,13 @@ class LoginControllerTest {
     private LoginController loginController;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws DAOException {
+        DAOFactory.setMode(1);
         loginController = new LoginController();
-        DAOFactory.setMode(1); // Forza Memory per i test
+
+        // Aggiungi l'utente che userai nel test
+        PersonalTrainer peppe = new PersonalTrainer("Peppe", "Z", "PeppeZ@gmail.com", "Peppez");
+        DAOFactory.getUtenteDAO().salvaNuovoUtente(peppe);
     }
 
     @Test
