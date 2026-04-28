@@ -43,7 +43,7 @@ class RegistrazioneControllerTest {
     void testRegistrazioneEmailGiaEsistente() {
         // Supponiamo che questa email sia già presente nel DAOMemory (es. caricata nello static block)
         String emailEsistente = "luca@test.it";
-
+        registrazioneController.registraNuovoUtente("Mario", "Rossi", emailEsistente, "pass123", 1);
         // Verifichiamo che il controller lanci RegistrationException
         assertThrows(RegistrazioneException.class, () -> {
             registrazioneController.registraNuovoUtente("Luca", "Verdi", emailEsistente, "pass", 1);

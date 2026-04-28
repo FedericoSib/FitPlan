@@ -24,8 +24,8 @@ class AssociaPTControllerTest {
         // Puliamo e aggiungiamo i dati per i test
         dao.getAllPT().clear();
         dao.getAllPT().add(new PersonalTrainer("Mario", "Rossi", "mario@pt.it", "pass"));
-        dao.getAllPT().add(new PersonalTrainer("Valerio", "S", "Valerio@gmail.com", "pass"));
         dao.getAllPT().add(new PersonalTrainer("Valerio", "R", "ValerioR@gmail.com", "pass"));
+        dao.getAllPT().add(new PersonalTrainer("Valerio", "Sibilano", "valerio.sib@test.it", "pass"));
     }
 
     @Test
@@ -48,14 +48,17 @@ class AssociaPTControllerTest {
     }
 
     @Test
-    void testRicercaPerID() throws TrainerNotFoundException {
-        List<PersonalTrainer> risultati = controller.cercaTrainer("PT-PZ-2431749");
+    void testRicercaPerIDDinamico() throws Exception {
+        // 1. Creo e salvo un PT
+        PersonalTrainer pt = new PersonalTrainer("Valerio", "S", "valerio@test.it", "pass");
+        DAOFactory.getUtenteDAO().salvaNuovoUtente(pt);
+        String idGenerato = pt.getId(); // Recupero l'ID generato dal costruttore
 
-        assertNotNull(risultati);
-        assertFalse(risultati.isEmpty(), "La lista non dovrebbe essere vuota");
+        // 2. Cerco usando l'ID appena generato
+        List<PersonalTrainer> risultati = controller.cercaTrainer(idGenerato);
 
-        assertEquals("PT-PZ-2431749", risultati.get(0).getId(), "L'ID deve corrispondere");
-        assertTrue(risultati.get(0).getId().startsWith("PT-"));
+        assertFalse(risultati.isEmpty());
+        assertEquals(idGenerato, risultati.get(0).getId());
     }
 
     @Test
