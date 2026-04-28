@@ -2,7 +2,6 @@ package model.dao;
 
 import model.entity.RichiestaScheda;
 import model.exception.DAOException;
-import util.LogManager;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +10,15 @@ public class RichiestaDAOFile implements RichiestaDAO {
     private static final String FILE_NAME = "richieste_fitplan.dat";
 
     @Override
-    public void salvaRichiesta(RichiestaScheda richiesta) throws DAOException, IOException {
-        // Leggiamo prima le richieste esistenti per non sovrascriverle
-        List<RichiestaScheda> listaAttuale = prendiTutteLeRichieste();
-        listaAttuale.add(richiesta);
-
-        // Scriviamo l'intera lista aggiornata sul file
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            oos.writeObject(listaAttuale);
-            LogManager.info("Richiesta salvata correttamente su disco.");
+    public void salvaRichiesta(RichiestaScheda richiesta) throws DAOException {
+        try {
+            List<RichiestaScheda> listaAttuale = prendiTutteLeRichieste();
+            listaAttuale.add(richiesta);
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
+                oos.writeObject(listaAttuale);
+            }
+        } catch (IOException e) {
+            throw new DAOException("Errore durante il salvataggio: " + e.getMessage());
         }
     }
 

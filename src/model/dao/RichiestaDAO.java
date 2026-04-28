@@ -8,7 +8,7 @@ import java.util.List;
 public interface RichiestaDAO {
 
     // Metodo per salvare una richiesta
-    void salvaRichiesta(RichiestaScheda richiesta) throws DAOException, IOException;
+    void salvaRichiesta(RichiestaScheda richiesta) throws DAOException;
 
     // Recupera tutte le richieste
     List<RichiestaScheda> prendiTutteLeRichieste() throws DAOException;
