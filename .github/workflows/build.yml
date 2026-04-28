@@ -15,8 +15,38 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Crea cartella binari fake
-        run: mkdir dummy_binaries
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Compila sorgenti
+        run: |
+          mkdir -p out/production out/test
+          javac -cp lib/* \
+            -d out/production \
+            $(find src -name "*.java")
+
+      - name: Compila test
+        run: |
+          javac -cp lib/*:out/production \
+            -d out/test \
+            $(find test -name "*.java")
+
+      - name: Esegui test con JaCoCo
+        run: |
+          java -javaagent:lib/jacocoagent.jar=destfile=jacoco.exec \
+            -cp lib/*:out/production:out/test \
+            org.junit.platform.console.standalone.ConsoleLauncher \
+            --scan-class-path out/test
+
+      - name: Genera report JaCoCo XML
+        run: |
+          java -jar lib/jacococli.jar report jacoco.exec \
+            --classfiles out/production \
+            --sourcefiles src \
+            --xml jacoco.xml
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0

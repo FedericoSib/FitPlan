@@ -25,7 +25,10 @@ public class AssociaPTController {
             if (pT != null) risultati.add(pT);
         }
         else {
-            risultati.addAll(dao.getPTByName(ricerca));
+            List<PersonalTrainer> trovatiPerNome = dao.getPTByName(ricerca);
+            if (trovatiPerNome != null) {
+                risultati.addAll(trovatiPerNome);
+            }
         }
         if (risultati.isEmpty()) {
             throw new TrainerNotFoundException("Nessun Personal Trainer trovato per: " + ricerca);
