@@ -24,20 +24,23 @@ jobs:
       - name: Compila sorgenti
         run: |
           mkdir -p out/production out/test
-          javac -cp lib/* \
+          CLASSPATH=$(find lib -name "*.jar" | tr '\n' ':')
+          javac -cp "$CLASSPATH" \
             -d out/production \
             $(find src -name "*.java")
 
       - name: Compila test
         run: |
-          javac -cp lib/*:out/production \
+          CLASSPATH=$(find lib -name "*.jar" | tr '\n' ':')
+          javac -cp "$CLASSPATH:out/production" \
             -d out/test \
             $(find test -name "*.java")
 
       - name: Esegui test con JaCoCo
         run: |
+          CLASSPATH=$(find lib -name "*.jar" | tr '\n' ':')
           java -javaagent:lib/jacocoagent.jar=destfile=jacoco.exec \
-            -cp lib/*:out/production:out/test \
+            -cp "$CLASSPATH:out/production:out/test" \
             org.junit.platform.console.standalone.ConsoleLauncher \
             --scan-class-path out/test
 
