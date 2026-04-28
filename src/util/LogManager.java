@@ -23,9 +23,7 @@ public class LogManager {
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
 
-            // Opzionale: impedisce ai log di apparire anche nella console standard
-            // se vuoi pulire l'output di IntelliJ
-            // GLOBAL_LOGGER.setUseParentHandlers(false);
+            GLOBAL_LOGGER.setUseParentHandlers(false);
 
         } catch (IOException | SecurityException e) {
             GLOBAL_LOGGER.log(Level.SEVERE, "Impossibile inizializzare il file di log", e);
