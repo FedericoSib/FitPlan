@@ -21,36 +21,8 @@ jobs:
           java-version: '23'
           distribution: 'temurin'
 
-      - name: Compila sorgenti
-        run: |
-          mkdir -p out/production out/test
-          CLASSPATH=$(find lib -name "*.jar" | tr '\n' ':')
-          javac --enable-preview --release 23 -cp "$CLASSPATH" \
-            -d out/production \
-            $(find src -name "*.java")
-
-      - name: Compila test
-        run: |
-          CLASSPATH=$(find lib -name "*.jar" | tr '\n' ':')
-          javac --enable-preview --release 23 -cp "$CLASSPATH:out/production" \
-            -d out/test \
-            $(find test -name "*.java")
-
-      - name: Esegui test con JaCoCo
-        run: |
-          CLASSPATH=$(find lib -name "*.jar" | tr '\n' ':')
-          java --enable-preview \
-            -javaagent:lib/jacocoagent.jar=destfile=jacoco.exec \
-            -cp "$CLASSPATH:out/production:out/test" \
-            org.junit.platform.console.standalone.ConsoleLauncher \
-            --scan-class-path out/test
-
-      - name: Genera report JaCoCo XML
-        run: |
-          java -jar lib/jacococli.jar report jacoco.exec \
-            --classfiles out/production \
-            --sourcefiles src \
-            --xml jacoco.xml
+      - name: Build, Test e Coverage con Maven
+        run: mvn verify --no-transfer-progress
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0
