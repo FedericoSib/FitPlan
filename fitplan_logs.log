@@ -444,3 +444,17 @@ apr 29, 2026 12:41:47 AM util.LogManager info
 INFO: Login effettuato con successo per: Matt@gmail.com
 apr 29, 2026 12:41:56 AM util.LogManager info
 INFO: Popup Ricerca PT aperto correttamente.
+apr 29, 2026 1:52:17 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+apr 29, 2026 1:52:44 PM util.LogManager info
+INFO: Login effettuato con successo per: Matt@gmail.com
+apr 29, 2026 1:52:46 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 29, 2026 1:53:02 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 29, 2026 1:58:20 PM util.LogManager info
+INFO: Login effettuato con successo per: Matt@gmail.com
+apr 29, 2026 1:58:22 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+apr 29, 2026 1:58:28 PM util.LogManager info
+INFO: Ricerca completata per: Valerio

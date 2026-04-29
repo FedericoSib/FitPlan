@@ -18,6 +18,10 @@ public class Navigator {
         primaryStage = stage;
     }
 
+    public static Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
     public static void pushScene(String fxmlPath, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(Navigator.class.getResource(fxmlPath));

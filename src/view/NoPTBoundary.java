@@ -1,12 +1,19 @@
 package view;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
+import javafx.scene.paint.Color;
 import util.LogManager;
+import java.io.IOException;
 
 public class NoPTBoundary {
 
@@ -24,9 +31,32 @@ public class NoPTBoundary {
 
     @FXML
     public void vaiAssociaPT(ActionEvent event) {
+        // 1. Chiudi il popup di errore
         Stage popupStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         popupStage.close();
-        Navigator.pushScene("/view/ClienteRicercaPT.fxml", "FitPlan - Cerca il tuo Trainer");
+
+        // 2. Apri il caso d'uso come popup sopra la dashboard
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ClienteRicercaPT.fxml"));
+            Parent root = loader.load();
+
+            Stage ricercaStage = new Stage();
+            ricercaStage.initModality(Modality.WINDOW_MODAL);
+            ricercaStage.initStyle(StageStyle.TRANSPARENT);
+
+            // Usa il Navigator per ottenere il primaryStage come owner
+            ricercaStage.initOwner(Navigator.getPrimaryStage());
+
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
+
+            ricercaStage.setScene(scene);
+            ricercaStage.show();
+
+        } catch (IOException e) {
+            LogManager.error("Impossibile aprire il popup di ricerca PT", e);
+        }
     }
 
     @FXML

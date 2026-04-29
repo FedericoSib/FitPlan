@@ -37,6 +37,14 @@ jobs:
             -d out/test \
             $(find test -name "*.java")
 
+      - name: Copia risorse FXML e CSS
+        run: |
+          find src -name "*.fxml" -o -name "*.css" -o -name "*.png" | while read f; do
+            dest="out/production/${f#src/}"
+            mkdir -p "$(dirname "$dest")"
+            cp "$f" "$dest"
+          done
+
       - name: Esegui test con JaCoCo
         run: |
           CLASSPATH=$(find lib -name "*.jar" | grep -v "console-standalone" | tr '\n' ':')
