@@ -98,3 +98,14 @@
     -fx-background-color: #e8f5e9;
     -fx-text-fill: black;
 }
+
+.text-area {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 14px;
+    -fx-text-alignment: center;
+}
+
+.text-area .content {
+    -fx-background-color: transparent;
+}

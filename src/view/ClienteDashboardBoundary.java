@@ -16,7 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import model.Sessione;
 import model.entity.*;
-import util.LogManager;
+import util.*;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -137,7 +137,7 @@ public class ClienteDashboardBoundary {
         popupStage.show();
     }
 
-    private void mostraAlert(String titolo, String messaggio) {
+   /* private void mostraAlert(String titolo, String messaggio) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titolo);
         alert.setHeaderText(null); // Toglie l'intestazione standard per un look più pulito
@@ -149,7 +149,7 @@ public class ClienteDashboardBoundary {
         dialogPane.getStyleClass().add("corpo-banner"); // Usa una delle tue classi CSS
 
         alert.showAndWait();
-    }
+    }*/
 
     // --- LOGICA DI NAVIGAZIONE (SCROLL) ---
 
@@ -182,7 +182,7 @@ public class ClienteDashboardBoundary {
         try {
             switch (stato) {
                 case NESSUNA -> mostraPopupErroreNoPT();
-                case PENDING -> mostraAlert("Richiesta in attesa", "Il tuo Trainer non ha ancora accettato la richiesta.");
+                case PENDING -> AlertManager.mostra("Il tuo Trainer non ha ancora accettato la richiesta.");
                 case ASSOCIATO -> Navigator.pushScene("/view/RichiestaScheda.fxml", "FitPlan - Nuova Richiesta");
                 default -> LogManager.warn("Stato associazione non gestito: " + stato);
             }
@@ -223,12 +223,12 @@ public class ClienteDashboardBoundary {
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
 
         if (cliente.getStatoAssociazione() == StatoAssociazione.PENDING) {
-            mostraAlert("Richiesta in corso", "Hai già una richiesta pendente. Attendi la risposta del Trainer.");
+            AlertManager.mostra("Hai una richiesta pendente. Attendi la risposta del Trainer.");
             return;
         }
 
         if (cliente.getStatoAssociazione() == StatoAssociazione.ASSOCIATO) {
-            mostraAlert("Già Associato", "Sei già associato a un Trainer!");
+            AlertManager.mostra("Sei già associato a un Trainer!");
             return;
         }
         try {
