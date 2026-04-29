@@ -137,20 +137,6 @@ public class ClienteDashboardBoundary {
         popupStage.show();
     }
 
-   /* private void mostraAlert(String titolo, String messaggio) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(titolo);
-        alert.setHeaderText(null); // Toglie l'intestazione standard per un look più pulito
-        alert.setContentText(messaggio);
-
-        // Se vuoi applicare il tuo CSS anche all'alert
-        DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add(getClass().getResource(STYLE_CSS_PATH).toExternalForm());
-        dialogPane.getStyleClass().add("corpo-banner"); // Usa una delle tue classi CSS
-
-        alert.showAndWait();
-    }*/
-
     // --- LOGICA DI NAVIGAZIONE (SCROLL) ---
 
     @FXML

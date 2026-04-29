@@ -24,21 +24,6 @@ public class AlertCustomBoundary {
 
     public void setMessaggio(String messaggio) {
         lblMessaggio.setText(messaggio);
-
-        // Quando la larghezza della label è nota, calcola l'altezza necessaria
-        lblMessaggio.widthProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal.doubleValue() > 0) {
-                // Forza il ricalcolo del layout
-                lblMessaggio.setPrefHeight(Label.USE_COMPUTED_SIZE);
-                lblMessaggio.getParent().layout();
-
-                // Ridimensiona lo stage
-                Stage stage = (Stage) lblMessaggio.getScene().getWindow();
-                if (stage != null) {
-                    stage.sizeToScene();
-                }
-            }
-        });
     }
 
     @FXML
