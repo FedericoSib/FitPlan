@@ -3,3 +3,17 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+# Cartella di build Maven
+target/
+
+# File di log
+*.log
+
+# File IntelliJ
+.idea/
+*.iml
+
+# File di sistema
+.DS_Store
+Thumbs.db

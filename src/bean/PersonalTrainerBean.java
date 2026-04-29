@@ -2,10 +2,6 @@ package bean;
 
 import java.io.Serializable;
 
-/**
- * Bean per il trasporto dei dati del Personal Trainer verso la UI.
- * Implementa Serializable per permettere l'eventuale passaggio tra scene.
- */
 public class PersonalTrainerBean implements Serializable {
     private String id;
     private String nome;

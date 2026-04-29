@@ -1,5 +1,6 @@
 package test;
 
+import bean.LoginBean;
 import controller.graphic.LoginController;
 import model.Sessione;
 import model.dao.DAOFactory;
@@ -18,15 +19,17 @@ class LoginControllerTest {
         DAOFactory.setMode(1);
         loginController = new LoginController();
 
-        // Aggiungi l'utente che userai nel test
         PersonalTrainer peppe = new PersonalTrainer("Peppe", "Z", "PeppeZ@gmail.com", "Peppez");
         DAOFactory.getUtenteDAO().salvaNuovoUtente(peppe);
     }
 
     @Test
     void testLoginSuccesso() throws LoginException {
-        // Supponendo che il PT PeppeZ sia nel tuo DAOMemory
-        loginController.autentica("PeppeZ@gmail.com", "Peppez");
+        LoginBean bean = new LoginBean();
+        bean.setEmail("PeppeZ@gmail.com");
+        bean.setPassword("Peppez");
+
+        loginController.autentica(bean);
 
         Utente loggato = Sessione.getInstance().getUtente();
         assertNotNull(loggato);
@@ -35,8 +38,13 @@ class LoginControllerTest {
 
     @Test
     void testLoginCredenzialiErrate() {
-        assertThrows(LoginException.class, () -> {
-            loginController.autentica("PeppeZ@gmail.com", "password_sbagliata");
-        }, "Dovrebbe lanciare LoginException per password errata");
+        LoginBean bean = new LoginBean();
+        bean.setEmail("PeppeZ@gmail.com");
+        bean.setPassword("password_sbagliata");
+
+        assertThrows(LoginException.class, () ->
+                        loginController.autentica(bean),
+                "Dovrebbe lanciare LoginException per password errata"
+        );
     }
 }
