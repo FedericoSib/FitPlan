@@ -12,25 +12,13 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Test per LoginController.
- * Usa DAOFactory in modalità DEMO (in-memory) — nessun file su disco.
- *
- * Casi coperti:
- *  - Email null              → LoginException "Email obbligatoria"
- *  - Email vuota             → LoginException "Email obbligatoria"
- *  - Utente non registrato   → LoginException "Credenziali non valide"
- *  - Password errata         → LoginException "Credenziali non valide"
- *  - Login OK come Cliente   → sessione impostata correttamente
- *  - Login OK come PT        → sessione impostata correttamente
- */
 class LoginControllerTest {
 
     private LoginController controller;
 
     @BeforeEach
     void setUp() {
-        DAOFactory.setMode(1); // DEMO: usa DAO in-memory
+        DAOFactory.setMode(1);
         controller = new LoginController();
         Sessione.getInstance().setUtente(null);
     }
@@ -40,9 +28,7 @@ class LoginControllerTest {
         Sessione.getInstance().setUtente(null);
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // VALIDAZIONE INPUT
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── VALIDAZIONE INPUT ────────────────────────────────────────────────────
 
     @Test
     @DisplayName("Email null → LoginException 'Email obbligatoria'")
@@ -66,9 +52,7 @@ class LoginControllerTest {
         assertTrue(ex.getMessage().contains("Email obbligatoria"));
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // CREDENZIALI ERRATE
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── CREDENZIALI ERRATE ───────────────────────────────────────────────────
 
     @Test
     @DisplayName("Utente non registrato → LoginException 'Credenziali non valide'")
@@ -94,9 +78,7 @@ class LoginControllerTest {
         assertTrue(ex.getMessage().contains("Credenziali non valide"));
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // LOGIN CORRETTO
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── LOGIN CORRETTO ───────────────────────────────────────────────────────
 
     @Test
     @DisplayName("Login OK come Cliente → sessione impostata")
@@ -132,20 +114,16 @@ class LoginControllerTest {
         assertEquals("carlo@pt.it", inSessione.getEmail());
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // Helper
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── Helper ───────────────────────────────────────────────────────────────
 
     private void registraCliente(String email, String password) throws Exception {
         RegistrazioneController reg = new RegistrazioneController();
-        RegistrazioneBean b = buildBean(email, password, 1);
-        reg.registraNuovoUtente(b);
+        reg.registraNuovoUtente(buildBean(email, password, 1));
     }
 
     private void registraPT(String email, String password) throws Exception {
         RegistrazioneController reg = new RegistrazioneController();
-        RegistrazioneBean b = buildBean(email, password, 2);
-        reg.registraNuovoUtente(b);
+        reg.registraNuovoUtente(buildBean(email, password, 2));
     }
 
     private RegistrazioneBean buildBean(String email, String password, int ruolo) {
@@ -154,7 +132,6 @@ class LoginControllerTest {
         b.setCognome("User");
         b.setEmail(email);
         b.setPassword(password);
-        b.setConfermaPassword(password);
         b.setRuolo(ruolo);
         return b;
     }

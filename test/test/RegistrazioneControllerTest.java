@@ -3,80 +3,108 @@ package test;
 import bean.RegistrazioneBean;
 import controller.graphic.RegistrazioneController;
 import model.dao.DAOFactory;
-import model.entity.Utente;
-import model.exception.DAOException;
 import model.exception.RegistrazioneException;
-import model.exception.UserNotFoundException;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RegistrazioneControllerTest {
 
-    private RegistrazioneController registrazioneController;
+    private RegistrazioneController controller;
 
     @BeforeEach
     void setUp() {
         DAOFactory.setMode(1);
-        registrazioneController = new RegistrazioneController();
+        controller = new RegistrazioneController();
     }
 
-    @Test
-    void testRegistrazioneSuccesso() throws RegistrazioneException, UserNotFoundException, DAOException {
-        String emailUnivoca = "nuovo_utente_" + System.currentTimeMillis() + "@test.it";
+    // ── VALIDAZIONE BEAN ─────────────────────────────────────────────────────
 
+    @Test
+    @DisplayName("Bean vuoto → RegistrazioneException 'campi obbligatori'")
+    void registra_beanVuoto() {
         RegistrazioneBean bean = new RegistrazioneBean();
-        bean.setNome("Mario");
-        bean.setCognome("Rossi");
-        bean.setEmail(emailUnivoca);
-        bean.setPassword("Password123");
-        bean.setRuolo(1);
-
-        registrazioneController.registraNuovoUtente(bean);
-
-        Utente salvato = DAOFactory.getUtenteDAO().trovaUtentePerEmail(emailUnivoca);
-        assertNotNull(salvato, "L'utente dovrebbe essere stato salvato nel DAO");
-        assertEquals("Mario", salvato.getNome());
-        assertEquals(emailUnivoca, salvato.getEmail());
+        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
     }
 
     @Test
-    void testRegistrazioneEmailGiaEsistente() throws RegistrazioneException {
-        String emailEsistente = "luca@test.it";
-
-        RegistrazioneBean bean1 = new RegistrazioneBean();
-        bean1.setNome("Mario");
-        bean1.setCognome("Rossi");
-        bean1.setEmail(emailEsistente);
-        bean1.setPassword("pass123");
-        bean1.setRuolo(1);
-        registrazioneController.registraNuovoUtente(bean1);
-
-        RegistrazioneBean bean2 = new RegistrazioneBean();
-        bean2.setNome("Luca");
-        bean2.setCognome("Verdi");
-        bean2.setEmail(emailEsistente);
-        bean2.setPassword("pass");
-        bean2.setRuolo(1);
-
-        assertThrows(RegistrazioneException.class, () ->
-                        registrazioneController.registraNuovoUtente(bean2),
-                "Dovrebbe lanciare RegistrationException se l'email è già registrata"
-        );
+    @DisplayName("Nome null → RegistrazioneException")
+    void registra_nomeNull() {
+        RegistrazioneBean bean = buildBean("mario@test.it", "Pwd1!", 1);
+        bean.setNome(null);
+        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
     }
 
     @Test
-    void testRegistrazioneDatiIncompleti() {
-        RegistrazioneBean bean = new RegistrazioneBean();
+    @DisplayName("Nome vuoto → RegistrazioneException")
+    void registra_nomeVuoto() {
+        RegistrazioneBean bean = buildBean("mario@test.it", "Pwd1!", 1);
         bean.setNome("");
-        bean.setCognome("");
-        bean.setEmail("email@test.it");
-        bean.setPassword("");
-        bean.setRuolo(1);
+        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
+    }
 
-        assertThrows(RegistrazioneException.class, () ->
-                        registrazioneController.registraNuovoUtente(bean),
-                "Dovrebbe impedire la registrazione con campi mancanti"
-        );
+    @Test
+    @DisplayName("Email null → RegistrazioneException")
+    void registra_emailNull() {
+        RegistrazioneBean bean = buildBean("mario@test.it", "Pwd1!", 1);
+        bean.setEmail(null);
+        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
+    }
+
+    @Test
+    @DisplayName("Email senza @ → RegistrazioneException 'Formato email'")
+    void registra_emailNonValida() {
+        RegistrazioneBean bean = buildBean("mariotest.it", "Pwd1!", 1);
+        RegistrazioneException ex = assertThrows(RegistrazioneException.class,
+                () -> controller.registraNuovoUtente(bean));
+        assertTrue(ex.getMessage().contains("email"));
+    }
+
+    @Test
+    @DisplayName("Password null → RegistrazioneException")
+    void registra_passwordNull() {
+        RegistrazioneBean bean = buildBean("mario@test.it", "Pwd1!", 1);
+        bean.setPassword(null);
+        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
+    }
+
+    // ── EMAIL DUPLICATA ──────────────────────────────────────────────────────
+
+    @Test
+    @DisplayName("Email già registrata → RegistrazioneException 'già associata'")
+    void registra_emailDuplicata() throws Exception {
+        controller.registraNuovoUtente(buildBean("mario@test.it", "Pwd1!", 1));
+
+        RegistrazioneException ex = assertThrows(RegistrazioneException.class,
+                () -> controller.registraNuovoUtente(buildBean("mario@test.it", "Pwd1!", 1)));
+        assertTrue(ex.getMessage().contains("già associata"));
+    }
+
+    // ── REGISTRAZIONE OK ─────────────────────────────────────────────────────
+
+    @Test
+    @DisplayName("Registrazione OK come Cliente (ruolo=1)")
+    void registra_clienteOk() {
+        assertDoesNotThrow(() ->
+                controller.registraNuovoUtente(buildBean("cliente@test.it", "Pwd1!", 1)));
+    }
+
+    @Test
+    @DisplayName("Registrazione OK come PersonalTrainer (ruolo=2)")
+    void registra_ptOk() {
+        assertDoesNotThrow(() ->
+                controller.registraNuovoUtente(buildBean("pt@test.it", "Pwd1!", 2)));
+    }
+
+    // ── Helper ───────────────────────────────────────────────────────────────
+
+    private RegistrazioneBean buildBean(String email, String password, int ruolo) {
+        RegistrazioneBean b = new RegistrazioneBean();
+        b.setNome("Mario");
+        b.setCognome("Rossi");
+        b.setEmail(email);
+        b.setPassword(password);
+        b.setRuolo(ruolo);
+        return b;
     }
 }

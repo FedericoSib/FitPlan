@@ -3,6 +3,9 @@ package test;
 import bean.AssociazioneBean;
 import bean.PersonalTrainerBean;
 import bean.RegistrazioneBean;
+import controller.graphic.AssociaPTController;
+import controller.graphic.GestisciRichiestePTController;
+import controller.graphic.RegistrazioneController;
 import model.Sessione;
 import model.dao.DAOFactory;
 import model.entity.*;
@@ -13,22 +16,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Test per AssociaPTController.
- * Usa DAOFactory in modalità DEMO (in-memory).
- *
- * Casi coperti — cercaTrainer():
- *  - Ricerca per ID (prefisso "PT-") → trovato
- *  - Ricerca per ID → non trovato    → TrainerNotFoundException
- *  - Ricerca per email → trovato
- *  - Ricerca per email → non trovata → TrainerNotFoundException
- *  - Ricerca per nome → trovato
- *  - Ricerca per nome → non trovato  → TrainerNotFoundException
- *  - Mapping corretto Entity → Bean
- *
- * Casi coperti — inviaRichiestaAssociazione():
- *  - Richiesta salvata → stato cliente in sessione diventa PENDING
- */
 class AssociaPTControllerTest {
 
     private AssociaPTController controller;
@@ -40,18 +27,17 @@ class AssociaPTControllerTest {
         controller = new AssociaPTController();
         Sessione.getInstance().setUtente(null);
 
-        // Registriamo un PT nel DAO in-memory che useremo nelle ricerche
+        // Registra un PT nel DAO in-memory da usare nelle ricerche
         RegistrazioneController reg = new RegistrazioneController();
         RegistrazioneBean b = new RegistrazioneBean();
         b.setNome("Luca");
         b.setCognome("Neri");
         b.setEmail("luca@pt.it");
         b.setPassword("Pwd1!");
-        b.setConfermaPassword("Pwd1!");
         b.setRuolo(2);
         reg.registraNuovoUtente(b);
 
-        // Recuperiamo il PT per avere il suo ID generato
+        // Recupera il PT per avere l'ID generato
         ptDiTest = (PersonalTrainer) DAOFactory.getUtenteDAO()
                 .trovaUtentePerEmail("luca@pt.it");
     }
@@ -61,15 +47,12 @@ class AssociaPTControllerTest {
         Sessione.getInstance().setUtente(null);
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // RICERCA PER ID
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── RICERCA PER ID ───────────────────────────────────────────────────────
 
     @Test
     @DisplayName("Ricerca per ID esistente → restituisce 1 bean")
     void cercaTrainer_perId_trovato() throws TrainerNotFoundException {
-        String id = ptDiTest.getId(); // es. "PT-0001"
-
+        String id = ptDiTest.getId();
         List<PersonalTrainerBean> risultati = controller.cercaTrainer(id);
 
         assertEquals(1, risultati.size());
@@ -84,9 +67,7 @@ class AssociaPTControllerTest {
                 () -> controller.cercaTrainer("PT-9999"));
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // RICERCA PER EMAIL
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── RICERCA PER EMAIL ────────────────────────────────────────────────────
 
     @Test
     @DisplayName("Ricerca per email esistente → restituisce 1 bean")
@@ -104,12 +85,10 @@ class AssociaPTControllerTest {
                 () -> controller.cercaTrainer("nessuno@pt.it"));
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // RICERCA PER NOME
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── RICERCA PER NOME ─────────────────────────────────────────────────────
 
     @Test
-    @DisplayName("Ricerca per nome esistente → restituisce almeno 1 bean")
+    @DisplayName("Ricerca per nome → restituisce almeno 1 bean")
     void cercaTrainer_perNome_trovato() throws TrainerNotFoundException {
         List<PersonalTrainerBean> risultati = controller.cercaTrainer("Luca");
 
@@ -118,10 +97,9 @@ class AssociaPTControllerTest {
     }
 
     @Test
-    @DisplayName("Ricerca per cognome esistente → restituisce almeno 1 bean")
+    @DisplayName("Ricerca per cognome → restituisce almeno 1 bean")
     void cercaTrainer_perCognome_trovato() throws TrainerNotFoundException {
         List<PersonalTrainerBean> risultati = controller.cercaTrainer("Neri");
-
         assertFalse(risultati.isEmpty());
     }
 
@@ -132,12 +110,10 @@ class AssociaPTControllerTest {
                 () -> controller.cercaTrainer("Inesistente"));
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // MAPPING Entity → Bean
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── MAPPING Entity → Bean ────────────────────────────────────────────────
 
     @Test
-    @DisplayName("Mapping corretto: tutti i campi copiati nel Bean")
+    @DisplayName("Tutti i campi copiati correttamente nel Bean")
     void cercaTrainer_mappingBean() throws TrainerNotFoundException {
         List<PersonalTrainerBean> risultati = controller.cercaTrainer("luca@pt.it");
         PersonalTrainerBean bean = risultati.get(0);
@@ -148,14 +124,11 @@ class AssociaPTControllerTest {
         assertNotNull(bean.getId());
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // inviaRichiestaAssociazione
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── inviaRichiestaAssociazione ───────────────────────────────────────────
 
     @Test
     @DisplayName("Invio richiesta → stato cliente in sessione diventa PENDING")
     void inviaRichiesta_statoDiventaPending() throws Exception {
-        // Creiamo un cliente e lo mettiamo in sessione
         Cliente cliente = new Cliente("Anna", "Bianchi", "anna@test.it", "pwd");
         Sessione.getInstance().setUtente(cliente);
 
@@ -170,7 +143,7 @@ class AssociaPTControllerTest {
     }
 
     @Test
-    @DisplayName("Invio richiesta → la richiesta appare nelle richieste del PT")
+    @DisplayName("Invio richiesta → visibile nelle richieste sospese del PT")
     void inviaRichiesta_visibileAlPT() throws Exception {
         Cliente cliente = new Cliente("Anna", "Bianchi", "anna@test.it", "pwd");
         Sessione.getInstance().setUtente(cliente);
@@ -181,7 +154,6 @@ class AssociaPTControllerTest {
 
         controller.inviaRichiestaAssociazione(bean);
 
-        // Verifica lato PT: la richiesta è visibile
         GestisciRichiestePTController ptController = new GestisciRichiestePTController();
         List<AssociazioneBean> richieste = ptController.getRichiesteSospese("luca@pt.it");
 
