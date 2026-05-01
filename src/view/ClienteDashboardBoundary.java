@@ -16,7 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import model.Sessione;
-import bean.*;
 import model.entity.*;
 import util.*;
 

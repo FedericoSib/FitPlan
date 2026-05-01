@@ -19,7 +19,6 @@ import model.entity.PersonalTrainer;
 import model.entity.Utente;
 import controller.graphic.*;
 import bean.*;
-import model.exception.*;
 import util.*;
 
 import java.time.LocalDate;
@@ -44,8 +43,6 @@ public class PTDashboardBoundary {
     @FXML private ImageView imgAvatar;
     @FXML private ListView<AssociazioneBean> lvRichieste;
     @FXML private Label lblBenvenuto;
-
-    private GestisciRichiestePTController richiesteController = new GestisciRichiestePTController();
 
     @FXML
     public void initialize() {
