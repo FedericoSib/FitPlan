@@ -17,7 +17,10 @@ import javafx.scene.layout.GridPane;
 import model.Sessione;
 import model.entity.PersonalTrainer;
 import model.entity.Utente;
-import util.LogManager;
+import controller.graphic.*;
+import bean.*;
+import model.exception.*;
+import util.*;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -39,7 +42,10 @@ public class PTDashboardBoundary {
     @FXML private ImageView imgNotifiche2;
     @FXML private ImageView imgAssemblaScheda2;
     @FXML private ImageView imgAvatar;
-    @FXML private ImageView imgCopia;
+    @FXML private ListView<AssociazioneBean> lvRichieste;
+    @FXML private Label lblBenvenuto;
+
+    private GestisciRichiestePTController richiesteController = new GestisciRichiestePTController();
 
     @FXML
     public void initialize() {
@@ -135,8 +141,28 @@ public class PTDashboardBoundary {
 
     @FXML
     public void apriRichiesteClienti() {
-        // Caricherà la schermata con la lista delle richieste pendenti
-        Navigator.pushScene("/view/PTRichiestePendenti.fxml", "FitPlan - Richieste Scheda");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PTRichiestePendenti.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+
+            // 1. RIMUOVE LA BARRA DI DEFAULT (X, ridimensionamento, ecc.)
+            popupStage.initStyle(StageStyle.TRANSPARENT);
+
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.initOwner(lblNomeUtente.getScene().getWindow());
+
+            Scene scene = new Scene(root);
+            // 2. RENDE LO SFONDO DELLA SCENA TRASPARENTE (utile se hai bordi arrotondati nel CSS)
+            scene.setFill(Color.TRANSPARENT);
+
+            popupStage.setScene(scene);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            LogManager.error("Errore apertura pop-up richieste", e);
+        }
     }
 
     @FXML
@@ -149,13 +175,18 @@ public class PTDashboardBoundary {
     public void apriProfiloPersonale() {
         Utente utenteCorrente = Sessione.getInstance().getUtente();
 
+        UtenteBean bean = new UtenteBean();
+        bean.setNome(utenteCorrente.getNome());
+        bean.setCognome(utenteCorrente.getCognome());
+        bean.setEmail(utenteCorrente.getEmail());
+        bean.setRuolo(utenteCorrente.getRuolo());
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ProfiloPersonalePT.fxml"));
             Parent root = loader.load();
 
             // Otteniamo il controller generico
             ProfiloPersonaleBoundary controller = loader.getController();
-            controller.setDatiUtente(utenteCorrente); // Passiamo l'utente (Atleta o PT)
+            controller.setDatiUtente(bean); // Passiamo l'utente (Atleta o PT)
 
             Stage popupStage = new Stage();
             popupStage.initModality(Modality.WINDOW_MODAL);

@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix pop ups">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/AssociazioneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/AssociazioneDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteDashboardBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ClienteRicercaPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteRicercaPTBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PTDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PTDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PTDashboardBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ProfiloPersonaleBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ProfiloPersonaleBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/immages/AssemblaScheda.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/immages/AssemblaScheda.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/immages/GestioneClienti.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/immages/GestioneClienti.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/immages/Notifiche.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/immages/Notifiche.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,41 +34,41 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "FedericoSib"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;FedericoSib&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/FedericoSib/ISPW-PROJECT-SOLO.git",
-    "accountId": "c5155f5a-8d59-47c3-ae5f-b22ccdf4336f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/FedericoSib/ISPW-PROJECT-SOLO.git&quot;,
+    &quot;accountId&quot;: &quot;c5155f5a-8d59-47c3-ae5f-b22ccdf4336f&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3D1vfT3EQ5JxQ6V7ILgGw5mqPIz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainApp.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="MainApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.MainApp" />
@@ -114,11 +126,30 @@
       <option name="project" value="LOCAL" />
       <updated>1777469349572</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix pop ups">
+      <option name="closed" value="true" />
+      <created>1777474044696</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1777474044696</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix pop ups" />
     <option name="LAST_COMMIT_MESSAGE" value="Fix pop ups" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/dao/AssociazioneDAOFile.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

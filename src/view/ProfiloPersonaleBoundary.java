@@ -1,6 +1,6 @@
 package view;
 
-import model.entity.Utente;
+import bean.UtenteBean;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -10,6 +10,7 @@ import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import model.Sessione;
 import util.LogManager;
 
 public class ProfiloPersonaleBoundary {
@@ -21,9 +22,8 @@ public class ProfiloPersonaleBoundary {
     @FXML private Label lblNome;
     @FXML private Label lblCognome;
 
-    // Metodo polimorfico: accetta un 'Utente' generico
-    public void setDatiUtente(Utente utente) {
-        if (utente == null) return;
+    public void setDatiUtente(UtenteBean bean) {
+        if (bean == null) return;
         try {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
             imgFitplan.setImage(logo);
@@ -43,9 +43,9 @@ public class ProfiloPersonaleBoundary {
             LogManager.error("Impossibile caricare l'immagine dell'avatar: ", e);
         }
         // Impostiamo i dati comuni
-        lblNome.setText(utente.getNome());
-        lblCognome.setText(utente.getCognome() );
-        lblCodiceUnivoco.setText(utente.getId());
+        lblNome.setText(bean.getNome());
+        lblCognome.setText(bean.getCognome() );
+        lblCodiceUnivoco.setText(Sessione.getInstance().getUtente().getId());
     }
 
     @FXML

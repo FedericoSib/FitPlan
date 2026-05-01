@@ -76,4 +76,38 @@ public class AssociazioneDAOFile implements AssociazioneDAO {
         } catch (IOException _) { return null; }
         return null;
     }
+
+    @Override
+    public List<String> getRichiestePerPT(String emailPT) throws DAOException {
+        List<String> clientiTrovati = new ArrayList<>();
+        File file = new File(FILE_NAME);
+
+        // Se il file non esiste ancora, restituiamo semplicemente una lista vuota
+        if (!file.exists()) {
+            return clientiTrovati;
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Formato CSV: emailCliente;emailPT;stato
+                String[] parts = line.split(";");
+
+                if (parts.length >= 3) {
+                    String clienteInRiga = parts[0];
+                    String ptInRiga = parts[1];
+                    String statoInRiga = parts[2];
+
+                    // Filtriamo: deve essere il PT loggato e lo stato deve essere PENDING
+                    if (ptInRiga.equals(emailPT) && StatoAssociazione.PENDING.name().equals(statoInRiga)) {
+                        clientiTrovati.add(clienteInRiga);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new DAOException("Errore durante la lettura delle richieste per il PT: " + e.getMessage());
+        }
+
+        return clientiTrovati;
+    }
 }

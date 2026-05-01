@@ -1,5 +1,6 @@
 package view;
 
+import bean.UtenteBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import model.Sessione;
+import bean.*;
 import model.entity.*;
 import util.*;
 
@@ -181,13 +183,19 @@ public class ClienteDashboardBoundary {
     public void apriProfiloPersonale() {
         Utente utenteCorrente = Sessione.getInstance().getUtente();
 
+        UtenteBean bean = new UtenteBean();
+        bean.setNome(utenteCorrente.getNome());
+        bean.setCognome(utenteCorrente.getCognome());
+        bean.setEmail(utenteCorrente.getEmail());
+        bean.setRuolo(utenteCorrente.getRuolo());
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ProfiloPersonaleCliente.fxml"));
             Parent root = loader.load();
 
             // Otteniamo il controller generico
             ProfiloPersonaleBoundary controller = loader.getController();
-            controller.setDatiUtente(utenteCorrente); // Passiamo l'utente (Atleta o PT)
+            controller.setDatiUtente(bean); // Passiamo l'utente (Atleta o PT)
 
             Stage popupStage = new Stage();
             popupStage.initModality(Modality.WINDOW_MODAL);

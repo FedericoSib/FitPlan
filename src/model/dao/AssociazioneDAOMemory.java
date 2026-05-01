@@ -3,6 +3,8 @@ package model.dao;
 import model.entity.StatoAssociazione;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 public class AssociazioneDAOMemory implements AssociazioneDAO {
     // Mappa: EmailCliente -> [EmailPT, Stato]
@@ -28,5 +30,16 @@ public class AssociazioneDAOMemory implements AssociazioneDAO {
     @Override
     public void aggiornaStato(String emailCliente, StatoAssociazione nuovoStato) {
         stati.put(emailCliente, nuovoStato);
+    }
+
+    @Override
+    public List<String> getRichiestePerPT(String emailPT) {
+        List<String> risultati = new ArrayList<>();
+        for (Map.Entry<String, String> entry : richiestePT.entrySet()) {
+            if (entry.getValue().equals(emailPT) && stati.get(entry.getKey()) == StatoAssociazione.PENDING) {
+                risultati.add(entry.getKey());
+            }
+        }
+        return risultati;
     }
 }

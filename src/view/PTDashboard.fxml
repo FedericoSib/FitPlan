@@ -33,7 +33,7 @@
                      <graphic>
                         <ImageView fx:id="imgGestioneClienti2" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/GestisciScheda.png" />
+                              <Image url="@immages/GestioneClienti.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -48,7 +48,7 @@
                      <graphic>
                         <ImageView fx:id="imgNotifiche2" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/AssociaPT.png" />
+                              <Image url="@immages/GestisciScheda.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -63,7 +63,7 @@
                      <graphic>
                         <ImageView fx:id="imgAssemblaScheda2" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/RichiediScheda.png" />
+                              <Image url="@immages/AssemblaScheda.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -80,7 +80,7 @@
                         <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                      </padding>
                      <children>
-                        <AnchorPane fx:id="paneGestione" minHeight="400.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                        <AnchorPane fx:id="paneGestione" minHeight="400.0" onMouseClicked="#apriRichiesteClienti" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;">
                            <children>
                               <VBox prefHeight="399.0" prefWidth="628.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
                                  <padding>
@@ -91,7 +91,7 @@
                                        <children>
                                           <ImageView fx:id="imgGestioneClienti" fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/GestisciScheda.png" />
+                                                <Image url="@immages/GestioneClienti.png" />
                                              </image>
                                           </ImageView>
                                           <Label text="GESTIONE CLIENTI" textAlignment="CENTER" textFill="#2d3436">
@@ -116,7 +116,7 @@
                                        <children>
                                           <ImageView fx:id="imgNotifiche" fitHeight="200.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/AssociaPT.png" />
+                                                <Image url="@immages/GestisciScheda.png" />
                                              </image>
                                           </ImageView>
                                           <Label text="RICHIESTE SCHEDE" textAlignment="CENTER">
@@ -141,7 +141,7 @@
                                        <children>
                                           <ImageView fx:id="imgAssemblaScheda" fitHeight="150.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/RichiediScheda.png" />
+                                                <Image url="@immages/AssemblaScheda.png" />
                                              </image>
                                           </ImageView>
                                           <Label text="ASSEMBLA SCHEDA">

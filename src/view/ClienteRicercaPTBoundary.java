@@ -120,11 +120,6 @@ public class ClienteRicercaPTBoundary {
     public void handleAssocia() {
         PersonalTrainerBean selezionato = listaPT.getSelectionModel().getSelectedItem();
 
-        if (selezionato == null) {
-            mostraAlert("Attenzione", "Seleziona un Personal Trainer dalla lista!");
-            return;
-        }
-
         try {
             // 1. Creazione e popolamento del Bean
             AssociazioneBean associazioneBean = new AssociazioneBean();
