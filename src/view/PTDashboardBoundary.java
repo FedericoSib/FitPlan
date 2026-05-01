@@ -17,7 +17,6 @@ import javafx.scene.layout.GridPane;
 import model.Sessione;
 import model.entity.PersonalTrainer;
 import model.entity.Utente;
-import controller.graphic.*;
 import bean.*;
 import util.*;
 
