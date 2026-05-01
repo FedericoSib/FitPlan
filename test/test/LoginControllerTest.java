@@ -68,10 +68,10 @@ class LoginControllerTest {
     @Test
     @DisplayName("Password errata → LoginException 'Credenziali non valide'")
     void autentica_passwordErrata() throws Exception {
-        registraCliente("mario@test.it", "passwordGiusta");
+        registraCliente("mario1@test.it", "passwordGiusta");
 
         LoginBean bean = new LoginBean();
-        bean.setEmail("mario@test.it");
+        bean.setEmail("mario1@test.it");
         bean.setPassword("passwordSbagliata");
 
         LoginException ex = assertThrows(LoginException.class, () -> controller.autentica(bean));

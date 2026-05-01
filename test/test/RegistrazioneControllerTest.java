@@ -73,8 +73,6 @@ class RegistrazioneControllerTest {
     @Test
     @DisplayName("Email già registrata → RegistrazioneException 'già associata'")
     void registra_emailDuplicata() throws Exception {
-        controller.registraNuovoUtente(buildBean("mario@test.it", "Pwd1!", 1));
-
         RegistrazioneException ex = assertThrows(RegistrazioneException.class,
                 () -> controller.registraNuovoUtente(buildBean("mario@test.it", "Pwd1!", 1)));
         assertTrue(ex.getMessage().contains("già associata"));
