@@ -31,4 +31,10 @@ public class GestisciRichiestePTController {
         // Aggiorna lo stato nel file/memoria
         dao.aggiornaStato(bean.getEmailCliente(), StatoAssociazione.ASSOCIATO);
     }
+
+    public void rifiutaAssociazione(AssociazioneBean bean) throws DAOException {
+        AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
+        // Aggiorna lo stato nel file/memoria
+        dao.aggiornaStato(bean.getEmailCliente(), StatoAssociazione.NESSUNA);
+    }
 }

@@ -170,11 +170,30 @@ public class ClienteDashboardBoundary {
             switch (stato) {
                 case NESSUNA -> mostraPopupErroreNoPT();
                 case PENDING -> AlertManager.mostra("Il tuo Trainer non ha ancora accettato la richiesta.");
-                case ASSOCIATO -> Navigator.pushScene("/view/RichiestaScheda.fxml", "FitPlan - Nuova Richiesta");
+                case ASSOCIATO -> caricaInterfacciaRichiesta();
                 default -> LogManager.warn("Stato associazione non gestito: " + stato);
             }
         } catch (IOException e) {
             LogManager.error("Errore durante l'avvio della richiesta scheda", e);
+        }
+    }
+    private void caricaInterfacciaRichiesta() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/RichiestaScheda.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.WINDOW_MODAL);
+            popupStage.initOwner(lblNomeUtente.getScene().getWindow()); // Usa una label qualsiasi della dashboard
+            popupStage.initStyle(StageStyle.TRANSPARENT);
+
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            popupStage.setScene(scene);
+            popupStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

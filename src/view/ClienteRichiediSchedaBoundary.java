@@ -1,5 +1,8 @@
 package view;
 
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.stage.Stage;
 import util.LogManager;
 import controller.graphic.RichiediSchedaController;
 import javafx.fxml.FXML;
@@ -113,8 +116,16 @@ public class ClienteRichiediSchedaBoundary {
     }
 
     @FXML
-    public void tornaAllaDashboard() {
-        Navigator.pushScene("/view/ClienteDashboard.fxml", "FitPlan - ClienteDashboard");
+    public void tornaAllaDashboard(ActionEvent event) {
+        // Chiude semplicemente il banner sovrapposto
+        chiudiFinestra(event);
+    }
+
+    // Metodo privato di utility per non ripetere il codice
+    private void chiudiFinestra(ActionEvent event) {
+        // Risaliamo dal bottone (source) fino alla finestra (Stage) per chiuderla
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 
     // Metodo di utility interna per validare i campi prima della raccolta

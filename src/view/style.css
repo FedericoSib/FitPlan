@@ -70,6 +70,15 @@
     -fx-min-width: 100;
 }
 
+.btn-rifiuto {
+    -fx-background-color: #E81123;
+    -fx-text-fill: white; /* Testo bianco su fondo verde, perfetto */
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-min-width: 100;
+}
+
 .button-close {
     -fx-background-color: transparent; /* Sfondo trasparente */
     -fx-text-fill: #95a5a6;             /* Grigio chiaro */

@@ -16,7 +16,7 @@ public class PTRichiestePendentiBoundary {
 
     @FXML private Button btnAccetta;
     @FXML private Button btnChiudi;
-    @FXML private Button btnAnnulla;
+    @FXML private Button btnRifiuta;
     @FXML private ListView<AssociazioneBean> lvRichieste;
 
     private GestisciRichiestePTController controller = new GestisciRichiestePTController();
@@ -48,8 +48,12 @@ public class PTRichiestePendentiBoundary {
             String emailPT = Sessione.getInstance().getUtente().getEmail();
             lvRichieste.getItems().setAll(controller.getRichiesteSospese(emailPT));
             btnAccetta.setDisable(true);
+            btnRifiuta.setDisable(true);
             lvRichieste.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) ->
                     btnAccetta.setDisable(newVal == null)
+            );
+            lvRichieste.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) ->
+                    btnRifiuta.setDisable(newVal == null)
             );
         } catch (DAOException _) {
             AlertManager.mostra("Impossibile caricare le richieste.");
@@ -67,6 +71,20 @@ public class PTRichiestePendentiBoundary {
             caricaRichieste();
         } catch (DAOException _) {
             AlertManager.mostra("Impossibile accettare la richiesta.");
+        }
+    }
+
+    @FXML
+    public void handleRifiuta() {
+        List<AssociazioneBean> selezionate = lvRichieste.getSelectionModel().getSelectedItems();
+        try {
+            for (AssociazioneBean bean : selezionate) {
+                controller.rifiutaAssociazione(bean);
+            }
+            AlertManager.mostra("Cliente rifiutato con successo!");
+            caricaRichieste();
+        } catch (DAOException _) {
+            AlertManager.mostra("Impossibile rifiutare la richiesta.");
         }
     }
 

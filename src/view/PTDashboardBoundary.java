@@ -142,22 +142,21 @@ public class PTDashboardBoundary {
             Parent root = loader.load();
 
             Stage popupStage = new Stage();
-
-            // 1. RIMUOVE LA BARRA DI DEFAULT (X, ridimensionamento, ecc.)
             popupStage.initStyle(StageStyle.TRANSPARENT);
-
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.initOwner(lblNomeUtente.getScene().getWindow());
 
             Scene scene = new Scene(root);
-            // 2. RENDE LO SFONDO DELLA SCENA TRASPARENTE (utile se hai bordi arrotondati nel CSS)
             scene.setFill(Color.TRANSPARENT);
-
             popupStage.setScene(scene);
             popupStage.showAndWait();
 
         } catch (IOException e) {
-            LogManager.error("Errore apertura pop-up richieste", e);
+            LogManager.error("Errore apertura pop-up richieste (IO)", e);
+            e.printStackTrace(); // <-- aggiungi questo
+        } catch (Exception e) {  // <-- QUESTO MANCAVA
+            LogManager.error("Errore generico apertura pop-up richieste", e);
+            e.printStackTrace(); // così vedi la vera causa
         }
     }
 

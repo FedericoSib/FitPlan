@@ -35,7 +35,7 @@
                         <Insets right="200.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <Button fx:id="btnAnnula" mnemonicParsing="false" onAction="#tornaAllaDashboard" style="-fx-background-color: #A3C14A; -fx-text-fill: white;" styleClass="btn-secondario" text="Annulla" />
+                  <Button fx:id="btnRifiuta" disable="true" mnemonicParsing="false" onAction="#handleRifiuta" style="-fx-background-color: #E81123; -fx-text-fill: white;" styleClass="btn-rifiuto" text="Rifiuta" />
                   <Button fx:id="btnAccetta" disable="true" mnemonicParsing="false" onAction="#handleAccetta" style="-fx-background-color: #A3C14A; -fx-text-fill: white;" styleClass="btn-primario" text="Accetta" />
                </children>
             </HBox>
