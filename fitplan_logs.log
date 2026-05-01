@@ -4863,3 +4863,11 @@ mag 01, 2026 9:23:51 PM util.LogManager info
 INFO: Login effettuato con successo per: ValerioR@gmail.com
 mag 01, 2026 9:24:35 PM util.LogManager info
 INFO: Login effettuato con successo per: ValerioR@gmail.com
+mag 01, 2026 9:37:01 PM util.LogManager info
+INFO: Login effettuato con successo per: Federico@gmail.com
+mag 01, 2026 9:37:04 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 01, 2026 9:37:05 PM util.LogManager warn
+WARNING: Campo ricerca vuoto
+mag 01, 2026 9:37:15 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: dafafa

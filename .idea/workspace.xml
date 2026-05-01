@@ -7,16 +7,9 @@
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix smells">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/richieste_associazione.csv" beforeDir="false" afterPath="$PROJECT_DIR$/richieste_associazione.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/GestisciRichiestePTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/GestisciRichiestePTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/LogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/LogManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ClienteRichiediSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteRichiediSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PTDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/PTRichiestePendenti.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PTRichiestePendenti.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/PTRichiestePendentiBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PTRichiestePendentiBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/RichiestaScheda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RichiestaScheda.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/AssociaPTControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/AssociaPTControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/LoginControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/RegistrazioneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/RegistrazioneControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777659917890</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix smells">
+      <option name="closed" value="true" />
+      <created>1777663583637</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1777663583637</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
