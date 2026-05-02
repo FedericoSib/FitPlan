@@ -1,27 +1,74 @@
-package model.dao;
+package test;
 
+import model.dao.*;
 import model.entity.*;
 import model.exception.DAOException;
 import model.exception.UserNotFoundException;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Test per le implementazioni DAO In-Memory.
- * Copre: UtenteDAOMemory, AssociazioneDAOMemory, RichiestaDAOMemory, PersonalTrainerDAOMemory
+ * Test per le implementazioni DAO In-Memory e per DAOFactory.
+ * Ogni test è indipendente dall'ordine di esecuzione grazie al @BeforeEach.
  */
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DAOMemoryTest {
+
+    // ════════════════════════════════════════════════════
+    //  DAOFactory
+    // ════════════════════════════════════════════════════
+
+    @Nested
+    @DisplayName("DAOFactory")
+    class DAOFactoryTest {
+
+        @Test
+        @DisplayName("Modalità DEMO → getRichiestaDAO restituisce RichiestaDAOMemory")
+        void testDemoModeRichiesta() {
+            DAOFactory.setMode(1);
+            assertInstanceOf(RichiestaDAOMemory.class, DAOFactory.getRichiestaDAO());
+        }
+
+        @Test
+        @DisplayName("Modalità DEMO → getUtenteDAO restituisce UtenteDAOMemory")
+        void testDemoModeUtente() {
+            DAOFactory.setMode(1);
+            assertInstanceOf(UtenteDAOMemory.class, DAOFactory.getUtenteDAO());
+        }
+
+        @Test
+        @DisplayName("Modalità DEMO → getPersonalTrainerDAO restituisce PersonalTrainerDAOMemory")
+        void testDemoModePT() {
+            DAOFactory.setMode(1);
+            assertInstanceOf(PersonalTrainerDAOMemory.class, DAOFactory.getPersonalTrainerDAO());
+        }
+
+        @Test
+        @DisplayName("Modalità DEMO → getAssociazioneDAO restituisce AssociazioneDAOMemory")
+        void testDemoModeAssociazione() {
+            DAOFactory.setMode(1);
+            assertInstanceOf(AssociazioneDAOMemory.class, DAOFactory.getAssociazioneDAO());
+        }
+
+        @Test
+        @DisplayName("DAOFactory non è istanziabile")
+        void testNonInstanziabile() throws Exception {
+            java.lang.reflect.Constructor<DAOFactory> c =
+                    DAOFactory.class.getDeclaredConstructor();
+            c.setAccessible(true);
+            assertThrows(java.lang.reflect.InvocationTargetException.class, c::newInstance);
+        }
+    }
 
     // ════════════════════════════════════════════════════
     //  UtenteDAOMemory
     // ════════════════════════════════════════════════════
 
     @Nested
-    @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
     @DisplayName("UtenteDAOMemory")
     class UtenteDAOMemoryTest {
 
@@ -29,15 +76,13 @@ class DAOMemoryTest {
 
         @BeforeEach
         void setUp() throws Exception {
-            // Puliamo la lista statica e ricarichiamo i dati di default
-            java.lang.reflect.Field field = UtenteDAOMemory.class.getDeclaredField("utenti");
+            Field field = UtenteDAOMemory.class.getDeclaredField("utenti");
             field.setAccessible(true);
             ((List<?>) field.get(null)).clear();
-            dao = new UtenteDAOMemory(); // richiama il costruttore che pre-carica mario e coach
+            dao = new UtenteDAOMemory(); // pre-carica mario@test.it e coach@test.it
         }
 
         @Test
-        @Order(1)
         @DisplayName("trovaUtente: credenziali corrette → utente restituito")
         void testTrovaUtenteOk() throws UserNotFoundException {
             Utente u = dao.trovaUtente("mario@test.it", "pass123");
@@ -46,7 +91,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(2)
         @DisplayName("trovaUtente: password errata → UserNotFoundException")
         void testTrovaUtentePasswordErrata() {
             assertThrows(UserNotFoundException.class,
@@ -54,7 +98,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(3)
         @DisplayName("trovaUtente: email inesistente → UserNotFoundException")
         void testTrovaUtenteEmailInesistente() {
             assertThrows(UserNotFoundException.class,
@@ -62,8 +105,7 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(4)
-        @DisplayName("trovaUtentePerEmail: email esistente → utente restituito")
+        @DisplayName("trovaUtentePerEmail: email esistente → PersonalTrainer restituito")
         void testTrovaPerEmailOk() throws UserNotFoundException {
             Utente u = dao.trovaUtentePerEmail("coach@test.it");
             assertNotNull(u);
@@ -71,7 +113,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(5)
         @DisplayName("trovaUtentePerEmail: email inesistente → UserNotFoundException")
         void testTrovaPerEmailNonEsistente() {
             assertThrows(UserNotFoundException.class,
@@ -79,7 +120,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(6)
         @DisplayName("salvaNuovoUtente: utente valido → trovabile dopo salvataggio")
         void testSalvaNuovoUtenteOk() throws DAOException, UserNotFoundException {
             Utente nuovo = new Cliente("Nuovo", "Utente", "nuovo@test.it", "pwd");
@@ -89,7 +129,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(7)
         @DisplayName("salvaNuovoUtente: utente null → DAOException")
         void testSalvaNuovoUtenteNull() {
             assertThrows(DAOException.class, () -> dao.salvaNuovoUtente(null));
@@ -101,7 +140,6 @@ class DAOMemoryTest {
     // ════════════════════════════════════════════════════
 
     @Nested
-    @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
     @DisplayName("AssociazioneDAOMemory")
     class AssociazioneDAOMemoryTest {
 
@@ -115,14 +153,12 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(1)
         @DisplayName("getStato: cliente senza richiesta → NESSUNA")
         void testGetStatoDefault() {
             assertEquals(StatoAssociazione.NESSUNA, dao.getStato("sconosciuto@test.it"));
         }
 
         @Test
-        @Order(2)
         @DisplayName("salvaRichiesta → stato diventa PENDING")
         void testSalvaRichiesta() {
             dao.salvaRichiesta("cli@test.it", "pt@test.it");
@@ -130,7 +166,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(3)
         @DisplayName("salvaRichiesta → getEmailPTAssociato restituisce email PT corretta")
         void testGetEmailPTAssociato() {
             dao.salvaRichiesta("cli@test.it", "pt@test.it");
@@ -138,7 +173,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(4)
         @DisplayName("aggiornaStato ASSOCIATO → stato aggiornato")
         void testAggiornaStatoAssociato() {
             dao.salvaRichiesta("cli@test.it", "pt@test.it");
@@ -147,7 +181,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(5)
         @DisplayName("aggiornaStato NESSUNA → stato aggiornato")
         void testAggiornaStatoNessuna() {
             dao.salvaRichiesta("cli@test.it", "pt@test.it");
@@ -156,13 +189,12 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(6)
         @DisplayName("getRichiestePerPT: restituisce solo i PENDING per quel PT")
         void testGetRichiestePerPT() {
             dao.salvaRichiesta("a@test.it", "pt@test.it");
             dao.salvaRichiesta("b@test.it", "pt@test.it");
             dao.salvaRichiesta("c@test.it", "altropt@test.it");
-            dao.aggiornaStato("b@test.it", StatoAssociazione.ASSOCIATO); // non deve comparire
+            dao.aggiornaStato("b@test.it", StatoAssociazione.ASSOCIATO); // escluso
 
             List<String> richieste = dao.getRichiestePerPT("pt@test.it");
             assertEquals(1, richieste.size());
@@ -170,7 +202,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(7)
         @DisplayName("getRichiestePerPT: PT senza richieste → lista vuota")
         void testGetRichiestePerPT_Vuota() {
             List<String> richieste = dao.getRichiestePerPT("nessunpt@test.it");
@@ -178,9 +209,9 @@ class DAOMemoryTest {
         }
 
         private void pulisciMappa(String fieldName) throws Exception {
-            java.lang.reflect.Field f = AssociazioneDAOMemory.class.getDeclaredField(fieldName);
+            Field f = AssociazioneDAOMemory.class.getDeclaredField(fieldName);
             f.setAccessible(true);
-            ((java.util.Map<?, ?>) f.get(null)).clear();
+            ((Map<?, ?>) f.get(null)).clear();
         }
     }
 
@@ -189,7 +220,6 @@ class DAOMemoryTest {
     // ════════════════════════════════════════════════════
 
     @Nested
-    @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
     @DisplayName("RichiestaDAOMemory")
     class RichiestaDAOMemoryTest {
 
@@ -197,44 +227,36 @@ class DAOMemoryTest {
 
         @BeforeEach
         void setUp() throws Exception {
-            java.lang.reflect.Field field = RichiestaDAOMemory.class.getDeclaredField("storage");
+            Field field = RichiestaDAOMemory.class.getDeclaredField("storage");
             field.setAccessible(true);
             ((List<?>) field.get(null)).clear();
             dao = new RichiestaDAOMemory();
         }
 
         @Test
-        @Order(1)
         @DisplayName("salvaRichiesta: richiesta valida → trovata in prendiTutte")
         void testSalvaEPrendiTutte() throws DAOException {
-            RichiestaScheda r = creaRichiesta("cli@test.it", "pt@test.it", "Massa");
-            dao.salvaRichiesta(r);
-
-            List<RichiestaScheda> tutte = dao.prendiTutteLeRichieste();
-            assertEquals(1, tutte.size());
+            dao.salvaRichiesta(creaRichiesta("cli@test.it", "pt@test.it", "Massa"));
+            assertEquals(1, dao.prendiTutteLeRichieste().size());
         }
 
         @Test
-        @Order(2)
         @DisplayName("salvaRichiesta: richiesta null → DAOException")
         void testSalvaNull() {
             assertThrows(DAOException.class, () -> dao.salvaRichiesta(null));
         }
 
         @Test
-        @Order(3)
         @DisplayName("prendiRichiestePerPT: filtra correttamente per PT")
         void testPrendiRichiestePerPT() throws DAOException {
             dao.salvaRichiesta(creaRichiesta("a@test.it", "pt1@test.it", "Forza"));
             dao.salvaRichiesta(creaRichiesta("b@test.it", "pt1@test.it", "Cardio"));
             dao.salvaRichiesta(creaRichiesta("c@test.it", "pt2@test.it", "Massa"));
 
-            List<RichiestaScheda> perPT1 = dao.prendiRichiestePerPT("pt1@test.it");
-            assertEquals(2, perPT1.size());
+            assertEquals(2, dao.prendiRichiestePerPT("pt1@test.it").size());
         }
 
         @Test
-        @Order(4)
         @DisplayName("prendiRichiestePerPT: id null → lista vuota")
         void testPrendiRichiestePerPT_Null() {
             List<RichiestaScheda> result = dao.prendiRichiestePerPT(null);
@@ -243,33 +265,29 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(5)
         @DisplayName("cancellaRichiesta: richiesta esistente → rimossa")
         void testCancellaRichiesta() throws DAOException {
             RichiestaScheda r = creaRichiesta("cli@test.it", "pt@test.it", "Dimagrimento");
             dao.salvaRichiesta(r);
             dao.cancellaRichiesta(r);
-
             assertTrue(dao.prendiTutteLeRichieste().isEmpty());
         }
 
         @Test
-        @Order(6)
         @DisplayName("cancellaRichiesta: richiesta null → DAOException")
         void testCancellaNull() {
             assertThrows(DAOException.class, () -> dao.cancellaRichiesta(null));
         }
 
         @Test
-        @Order(7)
-        @DisplayName("cancellaRichiesta: richiesta non esistente → lista invariata (warning)")
+        @DisplayName("cancellaRichiesta: obiettivo diverso → richiesta originale non rimossa")
         void testCancellaRichiestaNonEsistente() throws DAOException {
             RichiestaScheda r = creaRichiesta("cli@test.it", "pt@test.it", "Forza");
             dao.salvaRichiesta(r);
 
             RichiestaScheda fantasma = creaRichiesta("cli@test.it", "pt@test.it", "ObiettivoDiverso");
             assertDoesNotThrow(() -> dao.cancellaRichiesta(fantasma));
-            assertEquals(1, dao.prendiTutteLeRichieste().size()); // quella originale è ancora lì
+            assertEquals(1, dao.prendiTutteLeRichieste().size());
         }
 
         private RichiestaScheda creaRichiesta(String emailCliente, String emailPT, String obiettivo) {
@@ -283,7 +301,6 @@ class DAOMemoryTest {
     // ════════════════════════════════════════════════════
 
     @Nested
-    @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
     @DisplayName("PersonalTrainerDAOMemory")
     class PersonalTrainerDAOMemoryTest {
 
@@ -291,7 +308,7 @@ class DAOMemoryTest {
 
         @BeforeEach
         void setUp() throws Exception {
-            java.lang.reflect.Field field = PersonalTrainerDAOMemory.class.getDeclaredField("listaPT");
+            Field field = PersonalTrainerDAOMemory.class.getDeclaredField("listaPT");
             field.setAccessible(true);
             @SuppressWarnings("unchecked")
             List<PersonalTrainer> lista = (List<PersonalTrainer>) field.get(null);
@@ -302,7 +319,6 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(1)
         @DisplayName("getPTByEmail: email esistente → PT trovato")
         void testGetPTByEmailOk() {
             PersonalTrainer pt = dao.getPTByEmail("marco@gym.it");
@@ -311,68 +327,54 @@ class DAOMemoryTest {
         }
 
         @Test
-        @Order(2)
         @DisplayName("getPTByEmail: case insensitive")
         void testGetPTByEmailCaseInsensitive() {
-            PersonalTrainer pt = dao.getPTByEmail("MARCO@GYM.IT");
-            assertNotNull(pt);
+            assertNotNull(dao.getPTByEmail("MARCO@GYM.IT"));
         }
 
         @Test
-        @Order(3)
         @DisplayName("getPTByEmail: email inesistente → null")
-        void testGetPTByEmailNull() {
+        void testGetPTByEmailNonEsistente() {
             assertNull(dao.getPTByEmail("nessuno@gym.it"));
         }
 
         @Test
-        @Order(4)
         @DisplayName("getPTByName: nome esistente → lista con 1 elemento")
         void testGetPTByNome() {
-            List<PersonalTrainer> risultati = dao.getPTByName("Marco");
-            assertEquals(1, risultati.size());
+            assertEquals(1, dao.getPTByName("Marco").size());
         }
 
         @Test
-        @Order(5)
         @DisplayName("getPTByName: cognome esistente → lista con 1 elemento")
         void testGetPTByCognome() {
-            List<PersonalTrainer> risultati = dao.getPTByName("Blu");
-            assertEquals(1, risultati.size());
+            assertEquals(1, dao.getPTByName("Blu").size());
         }
 
         @Test
-        @Order(6)
         @DisplayName("getPTByName: nome inesistente → lista vuota")
         void testGetPTByNomeInesistente() {
-            List<PersonalTrainer> risultati = dao.getPTByName("Fantasma");
-            assertTrue(risultati.isEmpty());
+            assertTrue(dao.getPTByName("Fantasma").isEmpty());
         }
 
         @Test
-        @Order(7)
-        @DisplayName("getAllPT → restituisce tutti i PT")
+        @DisplayName("getAllPT → restituisce tutti i PT caricati")
         void testGetAllPT() {
-            List<PersonalTrainer> tutti = dao.getAllPT();
-            assertEquals(2, tutti.size());
+            assertEquals(2, dao.getAllPT().size());
         }
 
         @Test
-        @Order(8)
         @DisplayName("getPTById: id esistente → PT trovato")
         void testGetPTById() throws Exception {
-            java.lang.reflect.Field field = PersonalTrainerDAOMemory.class.getDeclaredField("listaPT");
+            Field field = PersonalTrainerDAOMemory.class.getDeclaredField("listaPT");
             field.setAccessible(true);
             @SuppressWarnings("unchecked")
             List<PersonalTrainer> lista = (List<PersonalTrainer>) field.get(null);
             String idReale = lista.get(0).getId();
 
-            PersonalTrainer pt = dao.getPTById(idReale);
-            assertNotNull(pt);
+            assertNotNull(dao.getPTById(idReale));
         }
 
         @Test
-        @Order(9)
         @DisplayName("getPTById: id inesistente → null")
         void testGetPTByIdNonEsistente() {
             assertNull(dao.getPTById("PT-INESISTENTE"));

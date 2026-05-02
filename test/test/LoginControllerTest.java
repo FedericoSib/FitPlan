@@ -1,11 +1,11 @@
-package controller.graphic;
+package test;
 
+import controller.graphic.LoginController;
 import bean.LoginBean;
 import model.Sessione;
 import model.dao.DAOFactory;
 import model.entity.Cliente;
 import model.entity.PersonalTrainer;
-import model.entity.StatoAssociazione;
 import model.exception.LoginException;
 import org.junit.jupiter.api.*;
 
@@ -18,21 +18,18 @@ import static org.junit.jupiter.api.Assertions.*;
  * mario@test.it / pass123  (Cliente)
  * coach@test.it / pass123  (PersonalTrainer)
  */
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class LoginControllerTest {
 
     private LoginController controller;
 
     @BeforeAll
     static void setupDAO() {
-        // Avviamo in modalità DEMO: tutti i DAO usano le implementazioni In-Memory
         DAOFactory.setMode(1);
     }
 
     @BeforeEach
     void setUp() {
         controller = new LoginController();
-        // Resettiamo la sessione prima di ogni test
         Sessione.getInstance().setUtente(null);
     }
 
@@ -41,14 +38,9 @@ class LoginControllerTest {
     // ─────────────────────────────────────────────
 
     @Test
-    @Order(1)
     @DisplayName("Login Cliente con credenziali corrette → sessione valorizzata")
     void testLoginClienteOk() throws LoginException {
-        LoginBean bean = new LoginBean();
-        bean.setEmail("mario@test.it");
-        bean.setPassword("pass123");
-
-        controller.autentica(bean);
+        controller.autentica(creaBean("mario@test.it", "pass123"));
 
         assertNotNull(Sessione.getInstance().getUtente());
         assertInstanceOf(Cliente.class, Sessione.getInstance().getUtente());
@@ -56,31 +48,20 @@ class LoginControllerTest {
     }
 
     @Test
-    @Order(2)
     @DisplayName("Login PersonalTrainer con credenziali corrette → sessione valorizzata")
     void testLoginPTOk() throws LoginException {
-        LoginBean bean = new LoginBean();
-        bean.setEmail("coach@test.it");
-        bean.setPassword("pass123");
-
-        controller.autentica(bean);
+        controller.autentica(creaBean("coach@test.it", "pass123"));
 
         assertNotNull(Sessione.getInstance().getUtente());
         assertInstanceOf(PersonalTrainer.class, Sessione.getInstance().getUtente());
     }
 
     @Test
-    @Order(3)
     @DisplayName("Login Cliente → stato associazione viene caricato (NESSUNA di default)")
     void testLoginClienteCaricaStatoAssociazione() throws LoginException {
-        LoginBean bean = new LoginBean();
-        bean.setEmail("mario@test.it");
-        bean.setPassword("pass123");
-
-        controller.autentica(bean);
+        controller.autentica(creaBean("mario@test.it", "pass123"));
 
         Cliente c = (Cliente) Sessione.getInstance().getUtente();
-        // In memoria non ci sono associazioni pre-esistenti → NESSUNA
         assertNotNull(c.getStatoAssociazione());
     }
 
@@ -89,47 +70,44 @@ class LoginControllerTest {
     // ─────────────────────────────────────────────
 
     @Test
-    @Order(4)
     @DisplayName("Login con password sbagliata → LoginException")
     void testLoginPasswordErrata() {
-        LoginBean bean = new LoginBean();
-        bean.setEmail("mario@test.it");
-        bean.setPassword("passwordSbagliata");
-
-        assertThrows(LoginException.class, () -> controller.autentica(bean));
+        assertLoginFails("mario@test.it", "passwordSbagliata");
     }
 
     @Test
-    @Order(5)
     @DisplayName("Login con email inesistente → LoginException")
     void testLoginEmailInesistente() {
-        LoginBean bean = new LoginBean();
-        bean.setEmail("nonEsisto@test.it");
-        bean.setPassword("pass123");
-
-        assertThrows(LoginException.class, () -> controller.autentica(bean));
+        assertLoginFails("nonEsisto@test.it", "pass123");
     }
 
     @Test
-    @Order(6)
+    @DisplayName("Login con email vuota → LoginException")
+    void testLoginEmailVuota() {
+        assertLoginFails("", "pass123");
+    }
+
+    @Test
     @DisplayName("Login con email null → LoginException con messaggio 'obbligatoria'")
     void testLoginEmailNull() {
-        LoginBean bean = new LoginBean();
-        bean.setEmail(null);
-        bean.setPassword("pass123");
-
+        LoginBean bean = creaBean(null, "pass123");
         LoginException ex = assertThrows(LoginException.class, () -> controller.autentica(bean));
         assertTrue(ex.getMessage().toLowerCase().contains("obbligatoria"));
     }
 
-    @Test
-    @Order(7)
-    @DisplayName("Login con email vuota → LoginException")
-    void testLoginEmailVuota() {
-        LoginBean bean = new LoginBean();
-        bean.setEmail("");
-        bean.setPassword("pass123");
+    // ─────────────────────────────────────────────
+    //  HELPER
+    // ─────────────────────────────────────────────
 
+    private LoginBean creaBean(String email, String password) {
+        LoginBean bean = new LoginBean();
+        bean.setEmail(email);
+        bean.setPassword(password);
+        return bean;
+    }
+
+    private void assertLoginFails(String email, String password) {
+        LoginBean bean = creaBean(email, password);
         assertThrows(LoginException.class, () -> controller.autentica(bean));
     }
 }

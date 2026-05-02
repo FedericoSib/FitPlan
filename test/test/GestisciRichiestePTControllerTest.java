@@ -1,5 +1,6 @@
-package controller.graphic;
+package test;
 
+import controller.graphic.*;
 import bean.AssociazioneBean;
 import model.dao.AssociazioneDAOMemory;
 import model.dao.DAOFactory;

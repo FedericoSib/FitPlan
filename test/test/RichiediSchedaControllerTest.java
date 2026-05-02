@@ -1,5 +1,6 @@
-package controller.graphic;
+package test;
 
+import controller.graphic.*;
 import bean.RichiestaSchedaBean;
 import model.Sessione;
 import model.dao.DAOFactory;

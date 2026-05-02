@@ -1,5 +1,6 @@
-package controller.graphic;
+package test;
 
+import controller.graphic.*;
 import bean.RegistrazioneBean;
 import model.dao.DAOFactory;
 import model.exception.RegistrazioneException;
