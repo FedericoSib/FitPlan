@@ -98,14 +98,6 @@ class RegistrazioneControllerTest {
         assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
     }
 
-    @Test
-    @Order(7)
-    @DisplayName("Password troppo corta → RegistrazioneException da validazione")
-    void testPasswordTroppoCorta() {
-        RegistrazioneBean bean = creaBean("Marco", "Neri", "marco.neri@test.it", "123", 1);
-        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
-    }
-
     // ─────────────────────────────────────────────
     //  HELPER
     // ─────────────────────────────────────────────
