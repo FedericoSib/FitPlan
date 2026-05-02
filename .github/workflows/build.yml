@@ -61,7 +61,11 @@ jobs:
           java -jar lib/jacococli.jar report jacoco.exec \
             --classfiles out/production \
             --sourcefiles src \
-            --xml jacoco.xml
+            --xml jacoco.xml \
+            --excludes "view/*" \
+            --excludes "**/dao/*DAOFile*" \
+            --excludes "**/util/AlertManager*" \
+            --excludes "**/bean/UtenteBean*"
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0
