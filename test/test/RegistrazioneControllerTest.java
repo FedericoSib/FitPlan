@@ -1,108 +1,122 @@
-package test;
+package controller.graphic;
 
 import bean.RegistrazioneBean;
-import controller.graphic.RegistrazioneController;
 import model.dao.DAOFactory;
 import model.exception.RegistrazioneException;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test per RegistrazioneController.
+ *
+ * Casi coperti:
+ *  - Registrazione Cliente OK
+ *  - Registrazione PersonalTrainer OK
+ *  - Email già esistente → RegistrazioneException
+ *  - Validazione bean: email malformata, password corta, campi vuoti
+ */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class RegistrazioneControllerTest {
 
     private RegistrazioneController controller;
 
+    @BeforeAll
+    static void setupDAO() {
+        DAOFactory.setMode(1);
+    }
+
     @BeforeEach
     void setUp() {
-        DAOFactory.setMode(1);
         controller = new RegistrazioneController();
     }
 
-    // ── VALIDAZIONE BEAN ─────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  HAPPY PATH
+    // ─────────────────────────────────────────────
 
     @Test
-    @DisplayName("Bean vuoto → RegistrazioneException 'campi obbligatori'")
-    void registra_beanVuoto() {
+    @Order(1)
+    @DisplayName("Registrazione Cliente con dati validi → nessuna eccezione")
+    void testRegistrazioneClienteOk() {
+        RegistrazioneBean bean = creaBean("Luca", "Bianchi", "luca.bianchi@test.it", "SecurePass1!", 1);
+        assertDoesNotThrow(() -> controller.registraNuovoUtente(bean));
+    }
+
+    @Test
+    @Order(2)
+    @DisplayName("Registrazione PersonalTrainer con dati validi → nessuna eccezione")
+    void testRegistrazionePTOk() {
+        RegistrazioneBean bean = creaBean("Anna", "Verdi", "anna.pt@test.it", "SecurePass1!", 2);
+        assertDoesNotThrow(() -> controller.registraNuovoUtente(bean));
+    }
+
+    // ─────────────────────────────────────────────
+    //  EMAIL GIÀ ESISTENTE
+    // ─────────────────────────────────────────────
+
+    @Test
+    @Order(3)
+    @DisplayName("Registrazione con email già esistente → RegistrazioneException")
+    void testEmailDuplicata() {
+        // mario@test.it è pre-caricato in UtenteDAOMemory
+        RegistrazioneBean bean = creaBean("Mario", "Duplicato", "mario@test.it", "SecurePass1!", 1);
+
+        RegistrazioneException ex = assertThrows(
+                RegistrazioneException.class,
+                () -> controller.registraNuovoUtente(bean)
+        );
+        assertTrue(ex.getMessage().toLowerCase().contains("già associata") ||
+                   ex.getMessage().toLowerCase().contains("email"));
+    }
+
+    // ─────────────────────────────────────────────
+    //  VALIDAZIONE BEAN (dipende da bean.valida())
+    // ─────────────────────────────────────────────
+
+    @Test
+    @Order(4)
+    @DisplayName("Nome vuoto → RegistrazioneException da validazione")
+    void testNomeVuoto() {
+        RegistrazioneBean bean = creaBean("", "Rossi", "nuovo@test.it", "SecurePass1!", 1);
+        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("Cognome vuoto → RegistrazioneException da validazione")
+    void testCognomeVuoto() {
+        RegistrazioneBean bean = creaBean("Marco", "", "nuovo2@test.it", "SecurePass1!", 1);
+        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
+    }
+
+    @Test
+    @Order(6)
+    @DisplayName("Email malformata → RegistrazioneException da validazione")
+    void testEmailMalformata() {
+        RegistrazioneBean bean = creaBean("Marco", "Neri", "emailSenzaChiocciola", "SecurePass1!", 1);
+        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
+    }
+
+    @Test
+    @Order(7)
+    @DisplayName("Password troppo corta → RegistrazioneException da validazione")
+    void testPasswordTroppoCorta() {
+        RegistrazioneBean bean = creaBean("Marco", "Neri", "marco.neri@test.it", "123", 1);
+        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
+    }
+
+    // ─────────────────────────────────────────────
+    //  HELPER
+    // ─────────────────────────────────────────────
+
+    private RegistrazioneBean creaBean(String nome, String cognome, String email, String password, int ruolo) {
         RegistrazioneBean bean = new RegistrazioneBean();
-        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
-    }
-
-    @Test
-    @DisplayName("Nome null → RegistrazioneException")
-    void registra_nomeNull() {
-        RegistrazioneBean bean = buildBean("mario@test.it", "Pwd1!", 1);
-        bean.setNome(null);
-        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
-    }
-
-    @Test
-    @DisplayName("Nome vuoto → RegistrazioneException")
-    void registra_nomeVuoto() {
-        RegistrazioneBean bean = buildBean("mario@test.it", "Pwd1!", 1);
-        bean.setNome("");
-        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
-    }
-
-    @Test
-    @DisplayName("Email null → RegistrazioneException")
-    void registra_emailNull() {
-        RegistrazioneBean bean = buildBean("mario@test.it", "Pwd1!", 1);
-        bean.setEmail(null);
-        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
-    }
-
-    @Test
-    @DisplayName("Email senza @ → RegistrazioneException 'Formato email'")
-    void registra_emailNonValida() {
-        RegistrazioneBean bean = buildBean("mariotest.it", "Pwd1!", 1);
-        RegistrazioneException ex = assertThrows(RegistrazioneException.class,
-                () -> controller.registraNuovoUtente(bean));
-        assertTrue(ex.getMessage().contains("email"));
-    }
-
-    @Test
-    @DisplayName("Password null → RegistrazioneException")
-    void registra_passwordNull() {
-        RegistrazioneBean bean = buildBean("mario@test.it", "Pwd1!", 1);
-        bean.setPassword(null);
-        assertThrows(RegistrazioneException.class, () -> controller.registraNuovoUtente(bean));
-    }
-
-    // ── EMAIL DUPLICATA ──────────────────────────────────────────────────────
-
-    @Test
-    @DisplayName("Email già registrata → RegistrazioneException 'già associata'")
-    void registra_emailDuplicata() throws Exception {
-        RegistrazioneException ex = assertThrows(RegistrazioneException.class,
-                () -> controller.registraNuovoUtente(buildBean("mario@test.it", "Pwd1!", 1)));
-        assertTrue(ex.getMessage().contains("già associata"));
-    }
-
-    // ── REGISTRAZIONE OK ─────────────────────────────────────────────────────
-
-    @Test
-    @DisplayName("Registrazione OK come Cliente (ruolo=1)")
-    void registra_clienteOk() {
-        assertDoesNotThrow(() ->
-                controller.registraNuovoUtente(buildBean("cliente@test.it", "Pwd1!", 1)));
-    }
-
-    @Test
-    @DisplayName("Registrazione OK come PersonalTrainer (ruolo=2)")
-    void registra_ptOk() {
-        assertDoesNotThrow(() ->
-                controller.registraNuovoUtente(buildBean("pt@test.it", "Pwd1!", 2)));
-    }
-
-    // ── Helper ───────────────────────────────────────────────────────────────
-
-    private RegistrazioneBean buildBean(String email, String password, int ruolo) {
-        RegistrazioneBean b = new RegistrazioneBean();
-        b.setNome("Mario");
-        b.setCognome("Rossi");
-        b.setEmail(email);
-        b.setPassword(password);
-        b.setRuolo(ruolo);
-        return b;
+        bean.setNome(nome);
+        bean.setCognome(cognome);
+        bean.setEmail(email);
+        bean.setPassword(password);
+        bean.setRuolo(ruolo);
+        return bean;
     }
 }

@@ -11,10 +11,40 @@ public class AssociazioneDAOFile implements AssociazioneDAO {
 
     @Override
     public void salvaRichiesta(String emailCliente, String emailPT) throws DAOException {
-        try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(FILE_NAME, true)))) {
-            out.println(emailCliente + ";" + emailPT + ";" + StatoAssociazione.PENDING.name());
-        } catch (IOException _) {
-            throw new DAOException("Errore nel salvataggio della richiesta su file");
+        List<String> lines = new ArrayList<>();
+        boolean found = false;
+        File file = new File(FILE_NAME);
+
+        if (file.exists()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] parts = line.split(";");
+                    if (parts[0].equals(emailCliente)) {
+                        // Trovata vecchia riga del cliente: la sostituiamo con la nuova richiesta
+                        lines.add(emailCliente + ";" + emailPT + ";" + StatoAssociazione.PENDING.name());
+                        found = true;
+                    } else {
+                        lines.add(line);
+                    }
+                }
+            } catch (IOException e) {
+                throw new DAOException("Errore lettura per sovrascrittura richiesta");
+            }
+        }
+
+        // 2. Se il cliente non era nel file, aggiungiamo la nuova riga alla lista
+        if (!found) {
+            lines.add(emailCliente + ";" + emailPT + ";" + StatoAssociazione.PENDING.name());
+        }
+
+        // 3. Riscriviamo l'intero file con la lista aggiornata
+        try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(FILE_NAME)))) {
+            for (String l : lines) {
+                out.println(l);
+            }
+        } catch (IOException e) {
+            throw new DAOException("Errore nella scrittura della richiesta univoca");
         }
     }
 

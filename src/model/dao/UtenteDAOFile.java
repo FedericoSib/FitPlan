@@ -20,14 +20,6 @@ public class UtenteDAOFile implements UtenteDAO {
                     .append(u.getCognome()).append(";")
                     .append(u.getEmail()).append(";")
                     .append(u.getPassword());
-
-            if (u instanceof Cliente c) { // Pattern matching (Java 16+)
-                sb.append(";").append(c.isAssociated())
-                        .append(";").append(c.getIdPersonalTrainer() != null ? c.getIdPersonalTrainer() : "null");
-            } else {
-                sb.append(";false;null");
-            }
-
             out.println(sb.toString());
             LogManager.info("Utente salvato su file: " + u.getEmail());
 
@@ -79,12 +71,7 @@ public class UtenteDAOFile implements UtenteDAO {
     private Utente ricomponiUtente(String[] d) {
         int ruolo = Integer.parseInt(d[1]);
         if (ruolo == 1) {
-            Cliente c = new Cliente(d[2], d[3], d[4], d[5]);
-            // Qui dobbiamo forzare l'ID originale e lo stato associazione
-            // In un progetto reale servirebbe un costruttore specifico o dei setter
-            c.setAssociated(Boolean.parseBoolean(d[6]));
-            c.setIdPersonalTrainer(d[7].equals("null") ? null : d[7]);
-            return c;
+            return new Cliente(d[2], d[3], d[4], d[5]);
         } else {
             return new PersonalTrainer(d[2], d[3], d[4], d[5]);
         }

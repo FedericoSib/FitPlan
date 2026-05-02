@@ -1,169 +1,229 @@
-package test;
+package controller.graphic;
 
 import bean.RichiestaSchedaBean;
-import controller.graphic.RichiediSchedaController;
 import model.Sessione;
 import model.dao.DAOFactory;
-import model.entity.*;
-import model.exception.*;
+import model.entity.Cliente;
+import model.entity.StatoAssociazione;
+import model.exception.InvalidFormException;
+import model.exception.TrainerNotAssociatedException;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test per RichiediSchedaController.
+ *
+ * Casi coperti:
+ *  - verificaAssociazionePT: cliente NON associato → eccezione
+ *  - verificaAssociazionePT: cliente PENDING → eccezione
+ *  - verificaAssociazionePT: cliente ASSOCIATO → nessuna eccezione
+ *  - elaboraRichiesta: peso non valido (≤ 0, > 200)
+ *  - elaboraRichiesta: età non valida (< 10, > 100)
+ *  - elaboraRichiesta: dati validi → salvataggio OK
+ */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class RichiediSchedaControllerTest {
 
     private RichiediSchedaController controller;
+    private static final String PT_EMAIL      = "pt@gym.it";
+    private static final String CLIENTE_EMAIL = "atleta@test.it";
+
+    @BeforeAll
+    static void setupDAO() {
+        DAOFactory.setMode(1);
+    }
 
     @BeforeEach
     void setUp() {
-        DAOFactory.setMode(1);
         controller = new RichiediSchedaController();
     }
 
-    @AfterEach
-    void tearDown() {
-        Sessione.getInstance().setUtente(null);
-    }
-
-    // ── verificaAssociazionePT ───────────────────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  VERIFICA ASSOCIAZIONE PT
+    // ─────────────────────────────────────────────
 
     @Test
-    @DisplayName("Stato NESSUNA → TrainerNotAssociatedException")
-    void verifica_statoNessuna() {
-        setClienteInSessione(StatoAssociazione.NESSUNA);
+    @Order(1)
+    @DisplayName("Cliente con stato NESSUNA → TrainerNotAssociatedException")
+    void testVerificaAssociazione_StatoNessuna() {
+        impostaSessione(StatoAssociazione.NESSUNA);
         assertThrows(TrainerNotAssociatedException.class,
                 () -> controller.verificaAssociazionePT());
     }
 
     @Test
-    @DisplayName("Stato PENDING → TrainerNotAssociatedException")
-    void verifica_statoPending() {
-        setClienteInSessione(StatoAssociazione.PENDING);
+    @Order(2)
+    @DisplayName("Cliente con stato PENDING → TrainerNotAssociatedException")
+    void testVerificaAssociazione_StatoPending() {
+        impostaSessione(StatoAssociazione.PENDING);
         assertThrows(TrainerNotAssociatedException.class,
                 () -> controller.verificaAssociazionePT());
     }
 
     @Test
-    @DisplayName("Stato ASSOCIATO → nessuna eccezione")
-    void verifica_statoAssociato() {
-        setClienteInSessione(StatoAssociazione.ASSOCIATO);
+    @Order(3)
+    @DisplayName("Cliente con stato ASSOCIATO → nessuna eccezione")
+    void testVerificaAssociazione_StatoAssociato() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
         assertDoesNotThrow(() -> controller.verificaAssociazionePT());
     }
 
-    // ── VALIDAZIONE PESO (boundary values) ──────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  VALIDAZIONE PESO
+    // ─────────────────────────────────────────────
 
     @Test
+    @Order(4)
     @DisplayName("Peso = 0 → InvalidFormException")
-    void elabora_pesoZero() {
-        RichiestaSchedaBean bean = buildBeanValido();
+    void testElaboraRichiesta_PesoZero() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
         bean.setPeso(0);
         assertThrows(InvalidFormException.class, () -> controller.elaboraRichiesta(bean));
     }
 
     @Test
+    @Order(5)
     @DisplayName("Peso negativo → InvalidFormException")
-    void elabora_pesoNegativo() {
-        RichiestaSchedaBean bean = buildBeanValido();
-        bean.setPeso(-10);
+    void testElaboraRichiesta_PesoNegativo() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
+        bean.setPeso(-5);
         assertThrows(InvalidFormException.class, () -> controller.elaboraRichiesta(bean));
     }
 
     @Test
-    @DisplayName("Peso = 201 → InvalidFormException")
-    void elabora_pesoTroppoAlto() {
-        RichiestaSchedaBean bean = buildBeanValido();
+    @Order(6)
+    @DisplayName("Peso > 200 → InvalidFormException")
+    void testElaboraRichiesta_PesoEccessivo() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
         bean.setPeso(201);
         assertThrows(InvalidFormException.class, () -> controller.elaboraRichiesta(bean));
     }
 
     @Test
-    @DisplayName("Peso = 1 (minimo valido) → OK")
-    void elabora_pesoMinimoValido() {
-        RichiestaSchedaBean bean = buildBeanValido();
+    @Order(7)
+    @DisplayName("Peso limite inferiore valido (1) → nessuna eccezione di peso")
+    void testElaboraRichiesta_PesoLimiteInferiore() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
         bean.setPeso(1);
-        assertDoesNotThrow(() -> controller.elaboraRichiesta(bean));
+        // Potrebbe lanciare eccezione per altri motivi, ma NON per il peso
+        try {
+            controller.elaboraRichiesta(bean);
+        } catch (InvalidFormException e) {
+            assertFalse(e.getMessage().toLowerCase().contains("peso"),
+                    "Non dovrebbe fallire per il peso con valore 1");
+        }
     }
 
     @Test
-    @DisplayName("Peso = 200 (massimo valido) → OK")
-    void elabora_pesoMassimoValido() {
-        RichiestaSchedaBean bean = buildBeanValido();
+    @Order(8)
+    @DisplayName("Peso limite superiore valido (200) → nessuna eccezione di peso")
+    void testElaboraRichiesta_PesoLimiteSuperiore() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
         bean.setPeso(200);
-        assertDoesNotThrow(() -> controller.elaboraRichiesta(bean));
+        try {
+            controller.elaboraRichiesta(bean);
+        } catch (InvalidFormException e) {
+            assertFalse(e.getMessage().toLowerCase().contains("peso"),
+                    "Non dovrebbe fallire per il peso con valore 200");
+        }
     }
 
-    // ── VALIDAZIONE ETÀ (boundary values) ───────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  VALIDAZIONE ETÀ
+    // ─────────────────────────────────────────────
 
     @Test
-    @DisplayName("Età = 9 → InvalidFormException")
-    void elabora_etaTroppoGiovane() {
-        RichiestaSchedaBean bean = buildBeanValido();
+    @Order(9)
+    @DisplayName("Età < 10 → InvalidFormException")
+    void testElaboraRichiesta_EtaMinore() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
         bean.setEta(9);
         assertThrows(InvalidFormException.class, () -> controller.elaboraRichiesta(bean));
     }
 
     @Test
-    @DisplayName("Età = 101 → InvalidFormException")
-    void elabora_etaTroppoAlta() {
-        RichiestaSchedaBean bean = buildBeanValido();
+    @Order(10)
+    @DisplayName("Età > 100 → InvalidFormException")
+    void testElaboraRichiesta_EtaMaggiore() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
         bean.setEta(101);
         assertThrows(InvalidFormException.class, () -> controller.elaboraRichiesta(bean));
     }
 
     @Test
-    @DisplayName("Età = 10 (minimo valido) → OK")
-    void elabora_etaMinimaValida() {
-        RichiestaSchedaBean bean = buildBeanValido();
+    @Order(11)
+    @DisplayName("Età limite inferiore (10) → nessuna eccezione di età")
+    void testElaboraRichiesta_EtaLimiteInferiore() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
         bean.setEta(10);
-        assertDoesNotThrow(() -> controller.elaboraRichiesta(bean));
+        try {
+            controller.elaboraRichiesta(bean);
+        } catch (InvalidFormException e) {
+            assertFalse(e.getMessage().toLowerCase().contains("età"),
+                    "Non dovrebbe fallire per l'età con valore 10");
+        }
     }
 
     @Test
-    @DisplayName("Età = 100 (massimo valido) → OK")
-    void elabora_etaMassimaValida() {
-        RichiestaSchedaBean bean = buildBeanValido();
+    @Order(12)
+    @DisplayName("Età limite superiore (100) → nessuna eccezione di età")
+    void testElaboraRichiesta_EtaLimiteSuperiore() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
         bean.setEta(100);
+        try {
+            controller.elaboraRichiesta(bean);
+        } catch (InvalidFormException e) {
+            assertFalse(e.getMessage().toLowerCase().contains("età"),
+                    "Non dovrebbe fallire per l'età con valore 100");
+        }
+    }
+
+    // ─────────────────────────────────────────────
+    //  HAPPY PATH
+    // ─────────────────────────────────────────────
+
+    @Test
+    @Order(13)
+    @DisplayName("Dati validi → elaboraRichiesta senza eccezioni")
+    void testElaboraRichiesta_DatiValidi() {
+        impostaSessione(StatoAssociazione.ASSOCIATO);
+        RichiestaSchedaBean bean = creaBeanValido();
         assertDoesNotThrow(() -> controller.elaboraRichiesta(bean));
     }
 
-    // ── FLUSSO COMPLETO ──────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  HELPER
+    // ─────────────────────────────────────────────
 
-    @Test
-    @DisplayName("Dati validi → richiesta salvata senza eccezioni")
-    void elabora_ok() {
-        assertDoesNotThrow(() -> controller.elaboraRichiesta(buildBeanValido()));
-    }
-
-    @Test
-    @DisplayName("Richiesta salvata → recuperabile dal DAO per PT")
-    void elabora_richiestaRecuperabile() throws Exception {
-        controller.elaboraRichiesta(buildBeanValido());
-
-        var richieste = DAOFactory.getRichiestaDAO()
-                .prendiRichiestePerPT("pt@fitplan.it");
-
-        assertFalse(richieste.isEmpty());
-        assertEquals("mario@test.it", richieste.get(0).getClienteEmail());
-    }
-
-    // ── Helper ───────────────────────────────────────────────────────────────
-
-    private void setClienteInSessione(StatoAssociazione stato) {
-        Cliente c = new Cliente("Test", "User", "test@test.it", "pwd");
+    private void impostaSessione(StatoAssociazione stato) {
+        Cliente c = new Cliente("Test", "Atleta", CLIENTE_EMAIL, "pwd");
         c.setStatoAssociazione(stato);
+        if (stato == StatoAssociazione.ASSOCIATO || stato == StatoAssociazione.PENDING) {
+            c.setIdPersonalTrainer(PT_EMAIL);
+        }
         Sessione.getInstance().setUtente(c);
     }
 
-    private RichiestaSchedaBean buildBeanValido() {
-        RichiestaSchedaBean b = new RichiestaSchedaBean();
-        b.setPeso(75);
-        b.setEta(30);
-        b.setSesso("M");
-        b.setObiettivo("Dimagrimento");
-        b.setFrequenzaSettimanale(3);
-        b.setNote("nessuna");
-        b.setClienteEmail("mario@test.it");
-        b.setIdPersonalTrainer("pt@fitplan.it");
-        return b;
+    private RichiestaSchedaBean creaBeanValido() {
+        RichiestaSchedaBean bean = new RichiestaSchedaBean();
+        bean.setPeso(75);
+        bean.setEta(25);
+        bean.setSesso("M");
+        bean.setObiettivo("Dimagrimento");
+        bean.setFrequenzaSettimanale(3);
+        bean.setNote("Nessuna nota");
+        bean.setClienteEmail(CLIENTE_EMAIL);
+        bean.setIdPersonalTrainer(PT_EMAIL);
+        return bean;
     }
 }

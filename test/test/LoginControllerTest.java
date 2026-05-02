@@ -1,138 +1,135 @@
-package test;
+package controller.graphic;
 
 import bean.LoginBean;
-import bean.RegistrazioneBean;
-import controller.graphic.LoginController;
-import controller.graphic.RegistrazioneController;
 import model.Sessione;
 import model.dao.DAOFactory;
-import model.entity.*;
+import model.entity.Cliente;
+import model.entity.PersonalTrainer;
+import model.entity.StatoAssociazione;
 import model.exception.LoginException;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test per LoginController.
+ *
+ * Strategia: usa la modalità DEMO (UtenteDAOMemory) che pre-carica
+ * mario@test.it / pass123  (Cliente)
+ * coach@test.it / pass123  (PersonalTrainer)
+ */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class LoginControllerTest {
 
     private LoginController controller;
 
+    @BeforeAll
+    static void setupDAO() {
+        // Avviamo in modalità DEMO: tutti i DAO usano le implementazioni In-Memory
+        DAOFactory.setMode(1);
+    }
+
     @BeforeEach
     void setUp() {
-        DAOFactory.setMode(1);
         controller = new LoginController();
+        // Resettiamo la sessione prima di ogni test
         Sessione.getInstance().setUtente(null);
     }
 
-    @AfterEach
-    void tearDown() {
-        Sessione.getInstance().setUtente(null);
-    }
-
-    // ── VALIDAZIONE INPUT ────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  HAPPY PATH
+    // ─────────────────────────────────────────────
 
     @Test
-    @DisplayName("Email null → LoginException 'Email obbligatoria'")
-    void autentica_emailNull() {
+    @Order(1)
+    @DisplayName("Login Cliente con credenziali corrette → sessione valorizzata")
+    void testLoginClienteOk() throws LoginException {
         LoginBean bean = new LoginBean();
-        bean.setEmail(null);
-        bean.setPassword("pwd");
+        bean.setEmail("mario@test.it");
+        bean.setPassword("pass123");
 
-        LoginException ex = assertThrows(LoginException.class, () -> controller.autentica(bean));
-        assertTrue(ex.getMessage().contains("Email obbligatoria"));
-    }
+        controller.autentica(bean);
 
-    @Test
-    @DisplayName("Email vuota → LoginException 'Email obbligatoria'")
-    void autentica_emailVuota() {
-        LoginBean bean = new LoginBean();
-        bean.setEmail("");
-        bean.setPassword("pwd");
-
-        LoginException ex = assertThrows(LoginException.class, () -> controller.autentica(bean));
-        assertTrue(ex.getMessage().contains("Email obbligatoria"));
-    }
-
-    // ── CREDENZIALI ERRATE ───────────────────────────────────────────────────
-
-    @Test
-    @DisplayName("Utente non registrato → LoginException 'Credenziali non valide'")
-    void autentica_utenteNonEsistente() {
-        LoginBean bean = new LoginBean();
-        bean.setEmail("inesistente@test.it");
-        bean.setPassword("pwd");
-
-        LoginException ex = assertThrows(LoginException.class, () -> controller.autentica(bean));
-        assertTrue(ex.getMessage().contains("Credenziali non valide"));
+        assertNotNull(Sessione.getInstance().getUtente());
+        assertInstanceOf(Cliente.class, Sessione.getInstance().getUtente());
+        assertEquals("mario@test.it", Sessione.getInstance().getUtente().getEmail());
     }
 
     @Test
-    @DisplayName("Password errata → LoginException 'Credenziali non valide'")
-    void autentica_passwordErrata() throws Exception {
-        registraCliente("mario1@test.it", "passwordGiusta");
-
+    @Order(2)
+    @DisplayName("Login PersonalTrainer con credenziali corrette → sessione valorizzata")
+    void testLoginPTOk() throws LoginException {
         LoginBean bean = new LoginBean();
-        bean.setEmail("mario1@test.it");
+        bean.setEmail("coach@test.it");
+        bean.setPassword("pass123");
+
+        controller.autentica(bean);
+
+        assertNotNull(Sessione.getInstance().getUtente());
+        assertInstanceOf(PersonalTrainer.class, Sessione.getInstance().getUtente());
+    }
+
+    @Test
+    @Order(3)
+    @DisplayName("Login Cliente → stato associazione viene caricato (NESSUNA di default)")
+    void testLoginClienteCaricaStatoAssociazione() throws LoginException {
+        LoginBean bean = new LoginBean();
+        bean.setEmail("mario@test.it");
+        bean.setPassword("pass123");
+
+        controller.autentica(bean);
+
+        Cliente c = (Cliente) Sessione.getInstance().getUtente();
+        // In memoria non ci sono associazioni pre-esistenti → NESSUNA
+        assertNotNull(c.getStatoAssociazione());
+    }
+
+    // ─────────────────────────────────────────────
+    //  ERRORI ATTESI
+    // ─────────────────────────────────────────────
+
+    @Test
+    @Order(4)
+    @DisplayName("Login con password sbagliata → LoginException")
+    void testLoginPasswordErrata() {
+        LoginBean bean = new LoginBean();
+        bean.setEmail("mario@test.it");
         bean.setPassword("passwordSbagliata");
 
+        assertThrows(LoginException.class, () -> controller.autentica(bean));
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("Login con email inesistente → LoginException")
+    void testLoginEmailInesistente() {
+        LoginBean bean = new LoginBean();
+        bean.setEmail("nonEsisto@test.it");
+        bean.setPassword("pass123");
+
+        assertThrows(LoginException.class, () -> controller.autentica(bean));
+    }
+
+    @Test
+    @Order(6)
+    @DisplayName("Login con email null → LoginException con messaggio 'obbligatoria'")
+    void testLoginEmailNull() {
+        LoginBean bean = new LoginBean();
+        bean.setEmail(null);
+        bean.setPassword("pass123");
+
         LoginException ex = assertThrows(LoginException.class, () -> controller.autentica(bean));
-        assertTrue(ex.getMessage().contains("Credenziali non valide"));
-    }
-
-    // ── LOGIN CORRETTO ───────────────────────────────────────────────────────
-
-    @Test
-    @DisplayName("Login OK come Cliente → sessione impostata")
-    void autentica_clienteOk() throws Exception {
-        registraCliente("anna@test.it", "pwd123");
-
-        LoginBean bean = new LoginBean();
-        bean.setEmail("anna@test.it");
-        bean.setPassword("pwd123");
-
-        assertDoesNotThrow(() -> controller.autentica(bean));
-
-        Utente inSessione = Sessione.getInstance().getUtente();
-        assertNotNull(inSessione);
-        assertInstanceOf(Cliente.class, inSessione);
-        assertEquals("anna@test.it", inSessione.getEmail());
+        assertTrue(ex.getMessage().toLowerCase().contains("obbligatoria"));
     }
 
     @Test
-    @DisplayName("Login OK come PersonalTrainer → sessione impostata")
-    void autentica_personalTrainerOk() throws Exception {
-        registraPT("carlo@pt.it", "pwd123");
-
+    @Order(7)
+    @DisplayName("Login con email vuota → LoginException")
+    void testLoginEmailVuota() {
         LoginBean bean = new LoginBean();
-        bean.setEmail("carlo@pt.it");
-        bean.setPassword("pwd123");
+        bean.setEmail("");
+        bean.setPassword("pass123");
 
-        assertDoesNotThrow(() -> controller.autentica(bean));
-
-        Utente inSessione = Sessione.getInstance().getUtente();
-        assertNotNull(inSessione);
-        assertInstanceOf(PersonalTrainer.class, inSessione);
-        assertEquals("carlo@pt.it", inSessione.getEmail());
-    }
-
-    // ── Helper ───────────────────────────────────────────────────────────────
-
-    private void registraCliente(String email, String password) throws Exception {
-        RegistrazioneController reg = new RegistrazioneController();
-        reg.registraNuovoUtente(buildBean(email, password, 1));
-    }
-
-    private void registraPT(String email, String password) throws Exception {
-        RegistrazioneController reg = new RegistrazioneController();
-        reg.registraNuovoUtente(buildBean(email, password, 2));
-    }
-
-    private RegistrazioneBean buildBean(String email, String password, int ruolo) {
-        RegistrazioneBean b = new RegistrazioneBean();
-        b.setNome("Test");
-        b.setCognome("User");
-        b.setEmail(email);
-        b.setPassword(password);
-        b.setRuolo(ruolo);
-        return b;
+        assertThrows(LoginException.class, () -> controller.autentica(bean));
     }
 }

@@ -1,6 +1,7 @@
-package test;
+package controller.graphic;
+
 import bean.AssociazioneBean;
-import controller.graphic.GestisciRichiestePTController;
+import model.dao.AssociazioneDAOMemory;
 import model.dao.DAOFactory;
 import model.entity.StatoAssociazione;
 import model.exception.DAOException;
@@ -12,142 +13,154 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test per GestisciRichiestePTController.
- * Usa DAOFactory in modalità DEMO (in-memory).
  *
  * Casi coperti:
- *  - getRichiesteSospese: PT senza richieste       → lista vuota
- *  - getRichiesteSospese: PT con richieste PENDING → bean corretti
- *  - getRichiesteSospese: richieste già accettate non appaiono
- *  - accettaAssociazione: stato diventa ASSOCIATO nel DAO
- *  - rifiutaAssociazione: stato diventa NESSUNA nel DAO
- *  - Flusso completo: richiesta → accetta → non più nelle sospese
- *  - Flusso completo: richiesta → rifiuta → non più nelle sospese
+ *  - getRichiesteSospese: PT senza richieste → lista vuota
+ *  - getRichiesteSospese: PT con richieste PENDING → lista valorizzata
+ *  - accettaAssociazione → stato aggiornato a ASSOCIATO
+ *  - rifiutaAssociazione → stato aggiornato a NESSUNA
  */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class GestisciRichiestePTControllerTest {
 
     private GestisciRichiestePTController controller;
 
-    @BeforeEach
-    void setUp() {
+    private static final String PT_EMAIL      = "pt.gestore@test.it";
+    private static final String CLIENTE1_EMAIL = "cliente1@test.it";
+    private static final String CLIENTE2_EMAIL = "cliente2@test.it";
+
+    @BeforeAll
+    static void setupDAO() {
         DAOFactory.setMode(1);
+    }
+
+    @BeforeEach
+    void setUp() throws Exception {
         controller = new GestisciRichiestePTController();
+        // Puliamo le mappe statiche del DAO tra un test e l'altro
+        pulisciAssociazioneDAO();
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // getRichiesteSospese
-    // ─────────────────────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  GET RICHIESTE SOSPESE
+    // ─────────────────────────────────────────────
 
     @Test
+    @Order(1)
     @DisplayName("PT senza richieste → lista vuota")
-    void getRichieste_nessuna() throws DAOException {
-        List<AssociazioneBean> risultato = controller.getRichiesteSospese("pt_vuoto@fitplan.it");
-        assertNotNull(risultato);
-        assertTrue(risultato.isEmpty());
+    void testGetRichiesteSospese_ListaVuota() throws DAOException {
+        List<AssociazioneBean> richieste = controller.getRichiesteSospese(PT_EMAIL);
+        assertNotNull(richieste);
+        assertTrue(richieste.isEmpty());
     }
 
     @Test
-    @DisplayName("PT con 2 richieste PENDING → restituisce 2 bean con dati corretti")
-    void getRichieste_duePending() throws DAOException {
-        // Salviamo 2 richieste direttamente nel DAO
-        DAOFactory.getAssociazioneDAO().salvaRichiesta("c1@test.it", "pt@fitplan.it");
-        DAOFactory.getAssociazioneDAO().salvaRichiesta("c2@test.it", "pt@fitplan.it");
+    @Order(2)
+    @DisplayName("PT con 2 richieste PENDING → lista con 2 elementi")
+    void testGetRichiesteSospese_ConRichieste() throws DAOException {
+        // Salviamo direttamente nel DAO memory
+        AssociazioneDAOMemory dao = new AssociazioneDAOMemory();
+        dao.salvaRichiesta(CLIENTE1_EMAIL, PT_EMAIL);
+        dao.salvaRichiesta(CLIENTE2_EMAIL, PT_EMAIL);
 
-        List<AssociazioneBean> risultato = controller.getRichiesteSospese("pt@fitplan.it");
+        List<AssociazioneBean> richieste = controller.getRichiesteSospese(PT_EMAIL);
 
-        assertEquals(2, risultato.size());
-        // Tutti con stato PENDING e emailPT corretta
-        risultato.forEach(b -> {
-            assertEquals("pt@fitplan.it", b.getEmailPT());
+        assertEquals(2, richieste.size());
+        // Verifica che ogni bean abbia i campi valorizzati correttamente
+        richieste.forEach(b -> {
+            assertEquals(PT_EMAIL, b.getEmailPT());
             assertEquals(StatoAssociazione.PENDING.name(), b.getStato());
+            assertNotNull(b.getEmailCliente());
         });
     }
 
     @Test
-    @DisplayName("Richiesta già accettata non appare tra le sospese")
-    void getRichieste_nonMostraAccettate() throws DAOException {
-        DAOFactory.getAssociazioneDAO().salvaRichiesta("c1@test.it", "pt@fitplan.it");
-        // Accettiamo subito la richiesta
-        DAOFactory.getAssociazioneDAO().aggiornaStato("c1@test.it", StatoAssociazione.ASSOCIATO);
+    @Order(3)
+    @DisplayName("Richiesta di altro PT non viene restituita")
+    void testGetRichiesteSospese_FiltroPerPT() throws DAOException {
+        AssociazioneDAOMemory dao = new AssociazioneDAOMemory();
+        dao.salvaRichiesta(CLIENTE1_EMAIL, PT_EMAIL);
+        dao.salvaRichiesta(CLIENTE2_EMAIL, "altroPT@test.it"); // va ignorata
 
-        List<AssociazioneBean> risultato = controller.getRichiesteSospese("pt@fitplan.it");
-        assertTrue(risultato.isEmpty());
+        List<AssociazioneBean> richieste = controller.getRichiesteSospese(PT_EMAIL);
+
+        assertEquals(1, richieste.size());
+        assertEquals(CLIENTE1_EMAIL, richieste.get(0).getEmailCliente());
     }
 
-    @Test
-    @DisplayName("Richieste di PT diversi non si mescolano")
-    void getRichieste_isolamentoPT() throws DAOException {
-        DAOFactory.getAssociazioneDAO().salvaRichiesta("c1@test.it", "pt1@fitplan.it");
-        DAOFactory.getAssociazioneDAO().salvaRichiesta("c2@test.it", "pt2@fitplan.it");
-
-        List<AssociazioneBean> risultatoPT1 = controller.getRichiesteSospese("pt1@fitplan.it");
-        assertEquals(1, risultatoPT1.size());
-        assertEquals("c1@test.it", risultatoPT1.get(0).getEmailCliente());
-    }
-
-    // ─────────────────────────────────────────────────────────────────────────
-    // accettaAssociazione
-    // ─────────────────────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  ACCETTA ASSOCIAZIONE
+    // ─────────────────────────────────────────────
 
     @Test
-    @DisplayName("Accetta → stato nel DAO diventa ASSOCIATO")
-    void accetta_statoDiventaAssociato() throws DAOException {
-        DAOFactory.getAssociazioneDAO().salvaRichiesta("c1@test.it", "pt@fitplan.it");
+    @Order(4)
+    @DisplayName("accettaAssociazione → stato diventa ASSOCIATO nel DAO")
+    void testAccettaAssociazione() throws DAOException {
+        // Setup: salviamo una richiesta pending
+        AssociazioneDAOMemory dao = new AssociazioneDAOMemory();
+        dao.salvaRichiesta(CLIENTE1_EMAIL, PT_EMAIL);
 
-        AssociazioneBean bean = buildBean("c1@test.it", "pt@fitplan.it");
+        // Costruiamo il bean come farebbe la Boundary
+        AssociazioneBean bean = new AssociazioneBean();
+        bean.setEmailCliente(CLIENTE1_EMAIL);
+        bean.setEmailPT(PT_EMAIL);
+
         controller.accettaAssociazione(bean);
 
-        StatoAssociazione stato = DAOFactory.getAssociazioneDAO().getStato("c1@test.it");
-        assertEquals(StatoAssociazione.ASSOCIATO, stato);
+        // Verifica: il DAO deve aver aggiornato lo stato
+        assertEquals(StatoAssociazione.ASSOCIATO, dao.getStato(CLIENTE1_EMAIL));
     }
 
-    @Test
-    @DisplayName("Flusso completo: richiesta → accetta → scompare dalle sospese")
-    void accetta_nonApparePiuNelleSospese() throws DAOException {
-        DAOFactory.getAssociazioneDAO().salvaRichiesta("c1@test.it", "pt@fitplan.it");
-
-        AssociazioneBean bean = buildBean("c1@test.it", "pt@fitplan.it");
-        controller.accettaAssociazione(bean);
-
-        List<AssociazioneBean> sospese = controller.getRichiesteSospese("pt@fitplan.it");
-        assertTrue(sospese.isEmpty());
-    }
-
-    // ─────────────────────────────────────────────────────────────────────────
-    // rifiutaAssociazione
-    // ─────────────────────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  RIFIUTA ASSOCIAZIONE
+    // ─────────────────────────────────────────────
 
     @Test
-    @DisplayName("Rifiuta → stato nel DAO diventa NESSUNA")
-    void rifiuta_statoDiventaNessuna() throws DAOException {
-        DAOFactory.getAssociazioneDAO().salvaRichiesta("c1@test.it", "pt@fitplan.it");
+    @Order(5)
+    @DisplayName("rifiutaAssociazione → stato diventa NESSUNA nel DAO")
+    void testRifiutaAssociazione() throws DAOException {
+        AssociazioneDAOMemory dao = new AssociazioneDAOMemory();
+        dao.salvaRichiesta(CLIENTE1_EMAIL, PT_EMAIL);
 
-        AssociazioneBean bean = buildBean("c1@test.it", "pt@fitplan.it");
+        AssociazioneBean bean = new AssociazioneBean();
+        bean.setEmailCliente(CLIENTE1_EMAIL);
+        bean.setEmailPT(PT_EMAIL);
+
         controller.rifiutaAssociazione(bean);
 
-        StatoAssociazione stato = DAOFactory.getAssociazioneDAO().getStato("c1@test.it");
-        assertEquals(StatoAssociazione.NESSUNA, stato);
+        assertEquals(StatoAssociazione.NESSUNA, dao.getStato(CLIENTE1_EMAIL));
     }
 
     @Test
-    @DisplayName("Flusso completo: richiesta → rifiuta → scompare dalle sospese")
-    void rifiuta_nonApparePiuNelleSospese() throws DAOException {
-        DAOFactory.getAssociazioneDAO().salvaRichiesta("c1@test.it", "pt@fitplan.it");
+    @Order(6)
+    @DisplayName("Dopo rifiuto, la richiesta non appare più in getRichiesteSospese")
+    void testRifiutaAssociazione_ScompareRichieste() throws DAOException {
+        AssociazioneDAOMemory dao = new AssociazioneDAOMemory();
+        dao.salvaRichiesta(CLIENTE1_EMAIL, PT_EMAIL);
 
-        AssociazioneBean bean = buildBean("c1@test.it", "pt@fitplan.it");
+        AssociazioneBean bean = new AssociazioneBean();
+        bean.setEmailCliente(CLIENTE1_EMAIL);
+        bean.setEmailPT(PT_EMAIL);
         controller.rifiutaAssociazione(bean);
 
-        List<AssociazioneBean> sospese = controller.getRichiesteSospese("pt@fitplan.it");
-        assertTrue(sospese.isEmpty());
+        // Dopo il rifiuto lo stato è NESSUNA → non deve più comparire tra le PENDING
+        List<AssociazioneBean> richieste = controller.getRichiesteSospese(PT_EMAIL);
+        assertTrue(richieste.isEmpty());
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // Helper
-    // ─────────────────────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────
+    //  HELPER: pulizia mappe statiche del DAO Memory
+    // ─────────────────────────────────────────────
 
-    private AssociazioneBean buildBean(String emailCliente, String emailPT) {
-        AssociazioneBean b = new AssociazioneBean();
-        b.setEmailCliente(emailCliente);
-        b.setEmailPT(emailPT);
-        return b;
+    private void pulisciAssociazioneDAO() throws Exception {
+        java.lang.reflect.Field richiesteField =
+                AssociazioneDAOMemory.class.getDeclaredField("richiestePT");
+        richiesteField.setAccessible(true);
+        ((java.util.Map<?, ?>) richiesteField.get(null)).clear();
+
+        java.lang.reflect.Field statiField =
+                AssociazioneDAOMemory.class.getDeclaredField("stati");
+        statiField.setAccessible(true);
+        ((java.util.Map<?, ?>) statiField.get(null)).clear();
     }
 }

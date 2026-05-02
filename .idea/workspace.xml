@@ -6,7 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix smells">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/richieste_associazione.csv" beforeDir="false" afterPath="$PROJECT_DIR$/richieste_associazione.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/UtenteDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/UtenteDAOFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ClienteDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PTDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PTDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/GestisciRichiestePTControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/GestisciRichiestePTControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/LoginControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test/RegistrazioneControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/RegistrazioneControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/RichiediSchedaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/RichiediSchedaControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utenti_fitplan.dat" beforeDir="false" afterPath="$PROJECT_DIR$/utenti_fitplan.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,23 +183,28 @@
       <option name="project" value="LOCAL" />
       <updated>1777667125465</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fix smells">
+      <option name="closed" value="true" />
+      <created>1777668270442</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1777668270442</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fix smells">
+      <option name="closed" value="true" />
+      <created>1777668442412</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1777668442412</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix pop ups" />
     <MESSAGE value="Fix smells" />
     <option name="LAST_COMMIT_MESSAGE" value="Fix smells" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/dao/AssociazioneDAOFile.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

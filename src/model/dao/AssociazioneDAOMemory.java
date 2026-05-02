@@ -13,7 +13,7 @@ public class AssociazioneDAOMemory implements AssociazioneDAO {
 
     @Override
     public void salvaRichiesta(String emailCliente, String emailPT) {
-        richiestePT.put(emailCliente, emailPT);
+        richiestePT.put(emailCliente, emailPT); // put sovrascrive automaticamente il vecchio valore se la chiave esiste
         stati.put(emailCliente, StatoAssociazione.PENDING);
     }
 

@@ -114,7 +114,7 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <ImageView fx:id="imgNotifiche" fitHeight="200.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgNotifiche" fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@immages/GestisciScheda.png" />
                                              </image>
@@ -139,7 +139,7 @@
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <ImageView fx:id="imgAssemblaScheda" fitHeight="150.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgAssemblaScheda" fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@immages/AssemblaScheda.png" />
                                              </image>
