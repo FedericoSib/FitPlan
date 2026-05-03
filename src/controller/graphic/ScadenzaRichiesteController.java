@@ -2,13 +2,9 @@ package controller.graphic;
 
 import model.dao.AssociazioneDAO;
 import model.dao.DAOFactory;
-import model.entity.Notifica;
 import model.exception.DAOException;
 import util.LogManager;
 import util.observer.NotificaObservableBase;
-import util.observer.NotificaObserver;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -24,24 +20,6 @@ public class ScadenzaRichiesteController extends NotificaObservableBase {
 
     private final ScheduledExecutorService scheduler =
             Executors.newSingleThreadScheduledExecutor();
-    private final List<NotificaObserver> observers = new ArrayList<>();
-
-    @Override
-    public void aggiungiObserver(NotificaObserver observer) {
-        observers.add(observer);
-    }
-
-    @Override
-    public void rimuoviObserver(NotificaObserver observer) {
-        observers.remove(observer);
-    }
-
-    @Override
-    public void notificaObserver(String emailDestinatario, String testo) {
-        for (NotificaObserver o : observers) {
-            o.onNotifica(new Notifica(emailDestinatario, testo));
-        }
-    }
 
     public void avvia() {
         scheduler.scheduleAtFixedRate(

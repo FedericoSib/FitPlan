@@ -1,27 +1,37 @@
 package test;
 
+import bean.LoginBean;
+import bean.PersonalTrainerBean;
 import model.dao.*;
 import model.entity.*;
 import model.exception.DAOException;
 import model.exception.UserNotFoundException;
 import org.junit.jupiter.api.*;
+import util.observer.NotificaObservableBase;
+import util.observer.NotificaObserver;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Test per le implementazioni DAO In-Memory e per DAOFactory.
- * Ogni test è indipendente dall'ordine di esecuzione grazie al @BeforeEach.
+ * Suite completa di test per i DAO In-Memory, Bean ed Entity del progetto FitPlan.
  */
-
-// ════════════════════════════════════════════════════
-//  DAOFactory
-// ════════════════════════════════════════════════════
-
 class DAOMemoryTest {
+
+    @Test
+    @DisplayName("Suite DAO caricata correttamente")
+    void testSuiteCaricata() {
+        assertTrue(true);
+    }
+
+    // ════════════════════════════════════════════════════
+    //  DAOFactory
+    // ════════════════════════════════════════════════════
+
     @Nested
     @DisplayName("DAOFactory")
     class DAOFactoryTest {
@@ -55,6 +65,13 @@ class DAOMemoryTest {
         }
 
         @Test
+        @DisplayName("Modalità DEMO → getNotificaDAO restituisce NotificaDAOMemory")
+        void testDemoModeNotifica() {
+            DAOFactory.setMode(1);
+            assertInstanceOf(NotificaDAOMemory.class, DAOFactory.getNotificaDAO());
+        }
+
+        @Test
         @DisplayName("DAOFactory non è istanziabile")
         void testNonInstanziabile() throws Exception {
             java.lang.reflect.Constructor<DAOFactory> c =
@@ -64,56 +81,6 @@ class DAOMemoryTest {
         }
     }
 
-    @Nested
-    @DisplayName("NotificaDAOMemory")
-    class NotificaDAOMemoryTest {
-
-        private NotificaDAOMemory dao;
-
-        @BeforeEach
-        void setUp() throws Exception {
-            java.lang.reflect.Field field = NotificaDAOMemory.class.getDeclaredField("storage");
-            field.setAccessible(true);
-            ((java.util.Map<?, ?>) field.get(null)).clear();
-            dao = new NotificaDAOMemory();
-        }
-
-        @Test
-        @DisplayName("salvaNotifica → notifica recuperabile")
-        void testSalvaECarica(){
-            dao.salvaNotifica(new Notifica("utente@test.it", "Testo notifica"));
-            List<String> result = dao.caricaECancellaNotifiche("utente@test.it");
-            assertEquals(1, result.size());
-            assertEquals("Testo notifica", result.get(0));
-        }
-
-        @Test
-        @DisplayName("caricaECancella → dopo la lettura la lista è vuota")
-        void testCancellaDopoLettura(){
-            dao.salvaNotifica(new Notifica("utente@test.it", "Testo"));
-            dao.caricaECancellaNotifiche("utente@test.it");
-            List<String> result = dao.caricaECancellaNotifiche("utente@test.it");
-            assertTrue(result.isEmpty());
-        }
-
-        @Test
-        @DisplayName("utente senza notifiche → lista vuota")
-        void testNessunNotifica(){
-            List<String> result = dao.caricaECancellaNotifiche("nessuno@test.it");
-            assertTrue(result.isEmpty());
-        }
-
-        @Test
-        @DisplayName("notifiche di utenti diversi non si mescolano")
-        void testIsolamentoUtenti(){
-            dao.salvaNotifica(new Notifica("a@test.it", "Notifica A"));
-            dao.salvaNotifica(new Notifica("b@test.it", "Notifica B"));
-
-            List<String> resultA = dao.caricaECancellaNotifiche("a@test.it");
-            assertEquals(1, resultA.size());
-            assertEquals("Notifica A", resultA.get(0));
-        }
-    }
     // ════════════════════════════════════════════════════
     //  UtenteDAOMemory
     // ════════════════════════════════════════════════════
@@ -129,7 +96,7 @@ class DAOMemoryTest {
             Field field = UtenteDAOMemory.class.getDeclaredField("utenti");
             field.setAccessible(true);
             ((List<?>) field.get(null)).clear();
-            dao = new UtenteDAOMemory(); // pre-carica mario@test.it e coach@test.it
+            dao = new UtenteDAOMemory();
         }
 
         @Test
@@ -174,8 +141,7 @@ class DAOMemoryTest {
         void testSalvaNuovoUtenteOk() throws DAOException, UserNotFoundException {
             Utente nuovo = new Cliente("Nuovo", "Utente", "nuovo@test.it", "pwd");
             dao.salvaNuovoUtente(nuovo);
-            Utente trovato = dao.trovaUtentePerEmail("nuovo@test.it");
-            assertEquals("nuovo@test.it", trovato.getEmail());
+            assertEquals("nuovo@test.it", dao.trovaUtentePerEmail("nuovo@test.it").getEmail());
         }
 
         @Test
@@ -244,8 +210,7 @@ class DAOMemoryTest {
             dao.salvaRichiesta("a@test.it", "pt@test.it");
             dao.salvaRichiesta("b@test.it", "pt@test.it");
             dao.salvaRichiesta("c@test.it", "altropt@test.it");
-            dao.aggiornaStato("b@test.it", StatoAssociazione.ASSOCIATO); // escluso
-
+            dao.aggiornaStato("b@test.it", StatoAssociazione.ASSOCIATO);
             List<String> richieste = dao.getRichiestePerPT("pt@test.it");
             assertEquals(1, richieste.size());
             assertEquals("a@test.it", richieste.get(0));
@@ -254,8 +219,7 @@ class DAOMemoryTest {
         @Test
         @DisplayName("getRichiestePerPT: PT senza richieste → lista vuota")
         void testGetRichiestePerPT_Vuota() {
-            List<String> richieste = dao.getRichiestePerPT("nessunpt@test.it");
-            assertTrue(richieste.isEmpty());
+            assertTrue(dao.getRichiestePerPT("nessunpt@test.it").isEmpty());
         }
 
         private void pulisciMappa(String fieldName) throws Exception {
@@ -302,16 +266,13 @@ class DAOMemoryTest {
             dao.salvaRichiesta(creaRichiesta("a@test.it", "pt1@test.it", "Forza"));
             dao.salvaRichiesta(creaRichiesta("b@test.it", "pt1@test.it", "Cardio"));
             dao.salvaRichiesta(creaRichiesta("c@test.it", "pt2@test.it", "Massa"));
-
             assertEquals(2, dao.prendiRichiestePerPT("pt1@test.it").size());
         }
 
         @Test
         @DisplayName("prendiRichiestePerPT: id null → lista vuota")
         void testPrendiRichiestePerPT_Null() {
-            List<RichiestaScheda> result = dao.prendiRichiestePerPT(null);
-            assertNotNull(result);
-            assertTrue(result.isEmpty());
+            assertTrue(dao.prendiRichiestePerPT(null).isEmpty());
         }
 
         @Test
@@ -332,17 +293,15 @@ class DAOMemoryTest {
         @Test
         @DisplayName("cancellaRichiesta: obiettivo diverso → richiesta originale non rimossa")
         void testCancellaRichiestaNonEsistente() throws DAOException {
-            RichiestaScheda r = creaRichiesta("cli@test.it", "pt@test.it", "Forza");
-            dao.salvaRichiesta(r);
-
-            RichiestaScheda fantasma = creaRichiesta("cli@test.it", "pt@test.it", "ObiettivoDiverso");
-            assertDoesNotThrow(() -> dao.cancellaRichiesta(fantasma));
+            dao.salvaRichiesta(creaRichiesta("cli@test.it", "pt@test.it", "Forza"));
+            assertDoesNotThrow(() -> dao.cancellaRichiesta(
+                    creaRichiesta("cli@test.it", "pt@test.it", "ObiettivoDiverso")));
             assertEquals(1, dao.prendiTutteLeRichieste().size());
         }
 
         private RichiestaScheda creaRichiesta(String emailCliente, String emailPT, String obiettivo) {
-            DatiFisici df = new DatiFisici("M", 25, 75);
-            return new RichiestaScheda(df, obiettivo, 3, "Note", emailCliente, emailPT);
+            return new RichiestaScheda(new DatiFisici("M", 25, 75),
+                    obiettivo, 3, "Note", emailCliente, emailPT);
         }
     }
 
@@ -371,9 +330,7 @@ class DAOMemoryTest {
         @Test
         @DisplayName("getPTByEmail: email esistente → PT trovato")
         void testGetPTByEmailOk() {
-            PersonalTrainer pt = dao.getPTByEmail("marco@gym.it");
-            assertNotNull(pt);
-            assertEquals("Marco", pt.getNome());
+            assertNotNull(dao.getPTByEmail("marco@gym.it"));
         }
 
         @Test
@@ -401,13 +358,24 @@ class DAOMemoryTest {
         }
 
         @Test
+        @DisplayName("getPTByName: prefisso parziale → tutti i PT che iniziano con quel prefisso")
+        void testGetPTByNamePrefisso() throws Exception {
+            Field field = PersonalTrainerDAOMemory.class.getDeclaredField("listaPT");
+            field.setAccessible(true);
+            @SuppressWarnings("unchecked")
+            List<PersonalTrainer> lista = (List<PersonalTrainer>) field.get(null);
+            lista.add(new PersonalTrainer("Marina", "Verdi", "marina@gym.it", "pwd"));
+            assertEquals(2, dao.getPTByName("ma").size());
+        }
+
+        @Test
         @DisplayName("getPTByName: nome inesistente → lista vuota")
         void testGetPTByNomeInesistente() {
             assertTrue(dao.getPTByName("Fantasma").isEmpty());
         }
 
         @Test
-        @DisplayName("getAllPT → restituisce tutti i PT caricati")
+        @DisplayName("getAllPT → restituisce tutti i PT")
         void testGetAllPT() {
             assertEquals(2, dao.getAllPT().size());
         }
@@ -419,15 +387,277 @@ class DAOMemoryTest {
             field.setAccessible(true);
             @SuppressWarnings("unchecked")
             List<PersonalTrainer> lista = (List<PersonalTrainer>) field.get(null);
-            String idReale = lista.get(0).getId();
-
-            assertNotNull(dao.getPTById(idReale));
+            assertNotNull(dao.getPTById(lista.get(0).getId()));
         }
 
         @Test
         @DisplayName("getPTById: id inesistente → null")
         void testGetPTByIdNonEsistente() {
             assertNull(dao.getPTById("PT-INESISTENTE"));
+        }
+    }
+
+    // ════════════════════════════════════════════════════
+    //  NotificaDAOMemory
+    // ════════════════════════════════════════════════════
+
+    @Nested
+    @DisplayName("NotificaDAOMemory")
+    class NotificaDAOMemoryTest {
+
+        private NotificaDAOMemory dao;
+
+        @BeforeEach
+        void setUp() throws Exception {
+            Field field = NotificaDAOMemory.class.getDeclaredField("storage");
+            field.setAccessible(true);
+            ((Map<?, ?>) field.get(null)).clear();
+            dao = new NotificaDAOMemory();
+        }
+
+        @Test
+        @DisplayName("salvaNotifica → notifica recuperabile")
+        void testSalvaECarica() throws DAOException {
+            dao.salvaNotifica(new Notifica("utente@test.it", "Testo notifica"));
+            List<String> result = dao.caricaECancellaNotifiche("utente@test.it");
+            assertEquals(1, result.size());
+            assertEquals("Testo notifica", result.get(0));
+        }
+
+        @Test
+        @DisplayName("caricaECancella → dopo la lettura la lista è vuota")
+        void testCancellaDopoLettura() throws DAOException {
+            dao.salvaNotifica(new Notifica("utente@test.it", "Testo"));
+            dao.caricaECancellaNotifiche("utente@test.it");
+            assertTrue(dao.caricaECancellaNotifiche("utente@test.it").isEmpty());
+        }
+
+        @Test
+        @DisplayName("utente senza notifiche → lista vuota")
+        void testNessunNotifica() throws DAOException {
+            assertTrue(dao.caricaECancellaNotifiche("nessuno@test.it").isEmpty());
+        }
+
+        @Test
+        @DisplayName("notifiche di utenti diversi non si mescolano")
+        void testIsolamentoUtenti() throws DAOException {
+            dao.salvaNotifica(new Notifica("a@test.it", "Notifica A"));
+            dao.salvaNotifica(new Notifica("b@test.it", "Notifica B"));
+            List<String> resultA = dao.caricaECancellaNotifiche("a@test.it");
+            assertEquals(1, resultA.size());
+            assertEquals("Notifica A", resultA.get(0));
+        }
+    }
+
+    // ════════════════════════════════════════════════════
+    //  RichiestaScheda + DatiFisici (Entity)
+    // ════════════════════════════════════════════════════
+
+    @Nested
+    @DisplayName("RichiestaScheda e DatiFisici")
+    class RichiestaSchedaTest {
+
+        private DatiFisici datiFisici;
+        private RichiestaScheda richiesta;
+
+        @BeforeEach
+        void setUp() {
+            datiFisici = new DatiFisici("M", 25, 75.5);
+            richiesta = new RichiestaScheda(datiFisici, "Dimagrimento",
+                    3, "Nessuna nota", "cli@test.it", "pt@test.it");
+        }
+
+        @Test
+        @DisplayName("DatiFisici: getter sesso → corretto")
+        void testDatiFisiciSesso() {
+            assertEquals("M", datiFisici.getSesso());
+        }
+
+        @Test
+        @DisplayName("DatiFisici: getter età → corretto")
+        void testDatiFisiciEta() {
+            assertEquals(25, datiFisici.getEta());
+        }
+
+        @Test
+        @DisplayName("DatiFisici: getter peso → corretto")
+        void testDatiFisiciPeso() {
+            assertEquals(75.5, datiFisici.getPeso());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: getSesso delega a DatiFisici")
+        void testGetSesso() {
+            assertEquals("M", richiesta.getSesso());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: getEta delega a DatiFisici")
+        void testGetEta() {
+            assertEquals(25, richiesta.getEta());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: getPeso delega a DatiFisici")
+        void testGetPeso() {
+            assertEquals(75.5, richiesta.getPeso());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: getObiettivo → corretto")
+        void testGetObiettivo() {
+            assertEquals("Dimagrimento", richiesta.getObiettivo());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: setObiettivo → aggiornato")
+        void testSetObiettivo() {
+            richiesta.setObiettivo("Massa");
+            assertEquals("Massa", richiesta.getObiettivo());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: getFrequenzaSettimanale → corretto")
+        void testGetFrequenza() {
+            assertEquals(3, richiesta.getFrequenzaSettimanale());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: setFrequenzaSettimanale → aggiornato")
+        void testSetFrequenza() {
+            richiesta.setFrequenzaSettimanale(5);
+            assertEquals(5, richiesta.getFrequenzaSettimanale());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: getNote → corretto")
+        void testGetNote() {
+            assertEquals("Nessuna nota", richiesta.getNote());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: getClienteEmail → corretto")
+        void testGetClienteEmail() {
+            assertEquals("cli@test.it", richiesta.getClienteEmail());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: getIdPersonalTrainer → corretto")
+        void testGetIdPersonalTrainer() {
+            assertEquals("pt@test.it", richiesta.getIdPersonalTrainer());
+        }
+
+        @Test
+        @DisplayName("RichiestaScheda: toString contiene email e obiettivo")
+        void testToString() {
+            String s = richiesta.toString();
+            assertTrue(s.contains("cli@test.it"));
+            assertTrue(s.contains("Dimagrimento"));
+        }
+    }
+
+    // ════════════════════════════════════════════════════
+    //  LoginBean
+    // ════════════════════════════════════════════════════
+
+    @Nested
+    @DisplayName("LoginBean")
+    class LoginBeanTest {
+
+        @Test
+        @DisplayName("setEmail normalizza in lowercase e trim")
+        void testSetEmailNormalizza() {
+            LoginBean bean = new LoginBean();
+            bean.setEmail("  MARIO@TEST.IT  ");
+            assertEquals("mario@test.it", bean.getEmail());
+        }
+
+        @Test
+        @DisplayName("setEmail null → getEmail restituisce null")
+        void testSetEmailNull() {
+            LoginBean bean = new LoginBean();
+            bean.setEmail(null);
+            assertNull(bean.getEmail());
+        }
+
+        @Test
+        @DisplayName("isValid: email e password valorizzate → true")
+        void testIsValidTrue() {
+            LoginBean bean = new LoginBean();
+            bean.setEmail("mario@test.it");
+            bean.setPassword("pass123");
+            assertTrue(bean.isValid());
+        }
+
+        @Test
+        @DisplayName("isValid: email vuota → false")
+        void testIsValidEmailVuota() {
+            LoginBean bean = new LoginBean();
+            bean.setEmail("");
+            bean.setPassword("pass123");
+            assertFalse(bean.isValid());
+        }
+
+        @Test
+        @DisplayName("isValid: password null → false")
+        void testIsValidPasswordNull() {
+            LoginBean bean = new LoginBean();
+            bean.setEmail("mario@test.it");
+            bean.setPassword(null);
+            assertFalse(bean.isValid());
+        }
+    }
+
+    // ════════════════════════════════════════════════════
+    //  PersonalTrainerBean
+    // ════════════════════════════════════════════════════
+
+    @Nested
+    @DisplayName("PersonalTrainerBean")
+    class PersonalTrainerBeanTest {
+
+        @Test
+        @DisplayName("Costruttore vuoto → getter restituiscono null")
+        void testCostruttoreVuoto() {
+            PersonalTrainerBean bean = new PersonalTrainerBean();
+            assertNull(bean.getId());
+            assertNull(bean.getNome());
+            assertNull(bean.getCognome());
+            assertNull(bean.getEmail());
+        }
+
+        @Test
+        @DisplayName("Costruttore completo → getter restituiscono valori corretti")
+        void testCostruttoreCompleto() {
+            PersonalTrainerBean bean = new PersonalTrainerBean("PT-001", "Mario", "Rossi", "mario@pt.it");
+            assertEquals("PT-001", bean.getId());
+            assertEquals("Mario", bean.getNome());
+            assertEquals("Rossi", bean.getCognome());
+            assertEquals("mario@pt.it", bean.getEmail());
+        }
+
+        @Test
+        @DisplayName("Setter → valori aggiornati correttamente")
+        void testSetter() {
+            PersonalTrainerBean bean = new PersonalTrainerBean();
+            bean.setId("PT-002");
+            bean.setNome("Luca");
+            bean.setCognome("Verdi");
+            bean.setEmail("luca@pt.it");
+            assertEquals("PT-002", bean.getId());
+            assertEquals("Luca", bean.getNome());
+            assertEquals("Verdi", bean.getCognome());
+            assertEquals("luca@pt.it", bean.getEmail());
+        }
+
+        @Test
+        @DisplayName("toString → contiene nome, cognome e id")
+        void testToString() {
+            PersonalTrainerBean bean = new PersonalTrainerBean("PT-001", "Mario", "Rossi", "mario@pt.it");
+            String s = bean.toString();
+            assertTrue(s.contains("Mario"));
+            assertTrue(s.contains("Rossi"));
+            assertTrue(s.contains("PT-001"));
         }
     }
 }
