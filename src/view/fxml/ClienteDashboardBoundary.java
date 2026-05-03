@@ -1,5 +1,6 @@
 package view.fxml;
 
+import config.*;
 import model.dao.DAOFactory;
 import util.observer.*;
 import bean.UtenteBean;
@@ -28,7 +29,8 @@ import java.util.Locale;
 
 public class ClienteDashboardBoundary {
 
-    private static final String STYLE_CSS_PATH = "/view/fxml/style.css";
+    private static final String CSS_PATH_KEY = "style.css.path";
+    String cssPath = AppConfig.get(CSS_PATH_KEY);
     @FXML private Label lblNomeUtente;
     @FXML private Label lblMeseAnno;
     @FXML private GridPane gridCalendario;
@@ -136,8 +138,9 @@ public class ClienteDashboardBoundary {
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
 
-        String cssPath = getClass().getResource(STYLE_CSS_PATH).toExternalForm();
-        scene.getStylesheets().add(cssPath);
+        scene.getStylesheets().add(
+                getClass().getResource(AppConfig.get(CSS_PATH_KEY)).toExternalForm()
+        );
 
         popupStage.setScene(scene);
         popupStage.show();
@@ -260,7 +263,9 @@ public class ClienteDashboardBoundary {
 
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
-            scene.getStylesheets().add(getClass().getResource(STYLE_CSS_PATH).toExternalForm());
+            scene.getStylesheets().add(
+                    getClass().getResource(AppConfig.get(CSS_PATH_KEY)).toExternalForm()
+            );
 
             popupStage.setScene(scene);
             popupStage.show();
