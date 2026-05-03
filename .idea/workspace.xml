@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="continuo del precedente commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/richieste_fitplan.dat" beforeDir="false" afterPath="$PROJECT_DIR$/richieste_fitplan.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/RichiestaDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/RichiestaDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Caso d'usso Accetta/Assembla scheda" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -366,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777814531960</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Caso d'usso Accetta/Assembla scheda">
+      <option name="closed" value="true" />
+      <created>1777817179352</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1777817179352</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -378,6 +378,7 @@
     <MESSAGE value="Fix smells" />
     <MESSAGE value="Fix errori come il pop up richiedi scheda che non va giu dopo aver inviato la richiesta e la possibilita di mandare 2 richieste di scheda" />
     <MESSAGE value="continuo del precedente commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="continuo del precedente commit" />
+    <MESSAGE value="Caso d'usso Accetta/Assembla scheda" />
+    <option name="LAST_COMMIT_MESSAGE" value="Caso d'usso Accetta/Assembla scheda" />
   </component>
 </project>
