@@ -231,7 +231,7 @@ public class ClienteDashboardBoundary {
             popupStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LogManager.error("Errore generico apertura pop-up profilo personale", e);
         }
     }
 
@@ -269,7 +269,6 @@ public class ClienteDashboardBoundary {
 
         } catch (IOException e) {
             LogManager.error("Impossibile aprire il popup di ricerca PT", e);
-            e.printStackTrace();
         }
     }
 

@@ -109,8 +109,7 @@ public class ClienteRichiediSchedaBoundary {
             // Eccezione di business (es: età negativa, peso assurdo)
             mostraMessaggioErrore(e.getMessage());
         } catch (Exception e) {
-            // Paracadute per errori imprevisti (es: database offline)
-            e.printStackTrace(); // Utile in fase di sviluppo
+            LogManager.error("Errore nel salvataggio della richiesta scheda", e);
             mostraMessaggioErrore("Si è verificato un errore imprevisto durante l'invio.");
         }
     }

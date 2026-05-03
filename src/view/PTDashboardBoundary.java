@@ -196,7 +196,7 @@ public class PTDashboardBoundary {
             popupStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LogManager.error("Errore generico apertura pop-up profilo personale", e);
         }
     }
 
