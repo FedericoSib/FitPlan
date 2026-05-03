@@ -2,6 +2,7 @@ package model.dao;
 
 import model.entity.RichiestaScheda;
 import model.exception.DAOException;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,5 +58,11 @@ public class RichiestaDAOFile implements RichiestaDAO {
         } catch (IOException | ClassNotFoundException e) {
             throw new DAOException("Errore nel caricamento delle richieste da file: " + e.getMessage());
         }
+    }
+
+    @Override
+    public boolean esisteRichiestaAttiva(String emailCliente) throws DAOException {
+        return prendiTutteLeRichieste().stream()
+                .anyMatch(r -> r.getClienteEmail().equalsIgnoreCase(emailCliente));
     }
 }

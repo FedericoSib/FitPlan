@@ -5,6 +5,7 @@ import model.dao.DAOFactory;
 import util.LogManager;
 import util.observer.NotificaManager;
 import view.cli.MenuPrincipaleCLI;
+import view.fxml.Navigator;
 
 import java.util.Scanner;
 
@@ -35,8 +36,9 @@ public class MainApp extends javafx.application.Application {
 
     @Override
     public void start(javafx.stage.Stage primaryStage) throws Exception {
+        Navigator.setPrimaryStage(primaryStage);
         javafx.fxml.FXMLLoader loader =
-                new javafx.fxml.FXMLLoader(getClass().getResource("/view/Login.fxml"));
+                new javafx.fxml.FXMLLoader(getClass().getResource("/view/fxml/Login.fxml"));
         javafx.scene.Parent root = loader.load();
         primaryStage.setTitle("FitPlan");
         primaryStage.setScene(new javafx.scene.Scene(root));

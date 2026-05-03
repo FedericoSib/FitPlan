@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.entity.RichiestaScheda;
+import model.entity.StatoAssociazione;
 import util.LogManager;
 import model.exception.*;
 import java.util.ArrayList;
@@ -48,4 +49,11 @@ public class RichiestaDAOMemory implements RichiestaDAO {
             LogManager.warn("Tentativo di rimozione di una richiesta non esistente.");
         }
     }
+
+    @Override
+    public boolean esisteRichiestaAttiva(String emailCliente) throws DAOException {
+        return storage.stream()
+                .anyMatch(r -> r.getClienteEmail().equalsIgnoreCase(emailCliente));
+    }
+
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
  //Classe Entity che rappresenta il form di richiesta di una nuova scheda.
 
 public class RichiestaScheda implements Serializable {
-
+    private static final long serialVersionUID = 1L;
     private DatiFisici datiFisici;
     private String obiettivo; // Dimagrimento, Aumento massa, Mantenimento
     private int frequenzaSettimanale;

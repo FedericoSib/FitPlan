@@ -3,6 +3,7 @@ package model.entity;
 import java.io.Serializable;
 
 public class DatiFisici implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final String sesso;
     private final int eta;
     private final double peso;

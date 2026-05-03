@@ -1,6 +1,7 @@
 package view.fxml;
 
 import config.*;
+import controller.graphic.RichiediSchedaController;
 import model.dao.DAOFactory;
 import util.observer.*;
 import bean.UtenteBean;
@@ -29,6 +30,7 @@ import java.util.Locale;
 
 public class ClienteDashboardBoundary {
 
+    private RichiediSchedaController richiestaController = new RichiediSchedaController();
     private static final String CSS_PATH_KEY = "style.css.path";
     String cssPath = AppConfig.get(CSS_PATH_KEY);
     @FXML private Label lblNomeUtente;
@@ -178,7 +180,13 @@ public class ClienteDashboardBoundary {
             switch (stato) {
                 case NESSUNA -> mostraPopupErroreNoPT();
                 case PENDING -> AlertManager.mostra("Il tuo Trainer non ha ancora accettato la richiesta.");
-                case ASSOCIATO -> caricaInterfacciaRichiesta();
+                case ASSOCIATO -> {
+                    if (richiestaController.verificaPresenzaRichiesta(cliente.getEmail())) {
+                        AlertManager.mostra("Hai già una richiesta di scheda in sospeso. Attendi la risposta del PT.");
+                    } else {
+                        caricaInterfacciaRichiesta();
+                    }
+                }
                 default -> LogManager.warn("Stato associazione non gestito: " + stato);
             }
         } catch (IOException e) {

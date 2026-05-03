@@ -303,6 +303,26 @@ class DAOMemoryTest {
             return new RichiestaScheda(new DatiFisici("M", 25, 75),
                     obiettivo, 3, "Note", emailCliente, emailPT);
         }
+
+        @Test
+        @DisplayName("esisteRichiestaAttiva: cliente con richiesta → true")
+        void testEsisteRichiestaAttiva_True() throws DAOException {
+            dao.salvaRichiesta(creaRichiesta("cli@test.it", "pt@test.it", "Forza"));
+            assertTrue(dao.esisteRichiestaAttiva("cli@test.it"));
+        }
+
+        @Test
+        @DisplayName("esisteRichiestaAttiva: cliente senza richiesta → false")
+        void testEsisteRichiestaAttiva_False() throws DAOException {
+            assertFalse(dao.esisteRichiestaAttiva("nessuno@test.it"));
+        }
+
+        @Test
+        @DisplayName("esisteRichiestaAttiva: case insensitive")
+        void testEsisteRichiestaAttiva_CaseInsensitive() throws DAOException {
+            dao.salvaRichiesta(creaRichiesta("CLI@TEST.IT", "pt@test.it", "Massa"));
+            assertTrue(dao.esisteRichiestaAttiva("cli@test.it"));
+        }
     }
 
     // ════════════════════════════════════════════════════
@@ -417,7 +437,7 @@ class DAOMemoryTest {
 
         @Test
         @DisplayName("salvaNotifica → notifica recuperabile")
-        void testSalvaECarica() throws DAOException {
+        void testSalvaECarica(){
             dao.salvaNotifica(new Notifica("utente@test.it", "Testo notifica"));
             List<String> result = dao.caricaECancellaNotifiche("utente@test.it");
             assertEquals(1, result.size());
@@ -426,7 +446,7 @@ class DAOMemoryTest {
 
         @Test
         @DisplayName("caricaECancella → dopo la lettura la lista è vuota")
-        void testCancellaDopoLettura() throws DAOException {
+        void testCancellaDopoLettura(){
             dao.salvaNotifica(new Notifica("utente@test.it", "Testo"));
             dao.caricaECancellaNotifiche("utente@test.it");
             assertTrue(dao.caricaECancellaNotifiche("utente@test.it").isEmpty());
@@ -434,13 +454,13 @@ class DAOMemoryTest {
 
         @Test
         @DisplayName("utente senza notifiche → lista vuota")
-        void testNessunNotifica() throws DAOException {
+        void testNessunNotifica(){
             assertTrue(dao.caricaECancellaNotifiche("nessuno@test.it").isEmpty());
         }
 
         @Test
         @DisplayName("notifiche di utenti diversi non si mescolano")
-        void testIsolamentoUtenti() throws DAOException {
+        void testIsolamentoUtenti(){
             dao.salvaNotifica(new Notifica("a@test.it", "Notifica A"));
             dao.salvaNotifica(new Notifica("b@test.it", "Notifica B"));
             List<String> resultA = dao.caricaECancellaNotifiche("a@test.it");

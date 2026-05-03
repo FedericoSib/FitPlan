@@ -95,22 +95,19 @@ public class ClienteRichiediSchedaBoundary {
                 evidenziaCampiMancanti(campiVuoti);
                 return;
             }
-
             RichiestaSchedaBean bean = raccogliDatiRichiesta();
+            bean.setClienteEmail(bean.getClienteEmail().toLowerCase());
             controller.elaboraRichiesta(bean);
-
-            mostraMessaggioConferma("La tua richiesta è stata inviata con successo al tuo Personal Trainer!");
-            Navigator.pushScene("/view/fxml/ClienteDashboard.fxml", "FitPlan - Dashboard");
-
-        } catch (NumberFormatException _) {
-            // Errore se l'utente scrive lettere dove servono numeri (Età/Peso)
-            mostraMessaggioErrore("Assicurati che Età e Peso siano numeri validi (es: 25, 70.5).");
+            mostraMessaggioConferma("Richiesta inviata correttamente!");
+            Stage stage = (Stage) imgFitplan.getScene().getWindow();
+            stage.close();
         } catch (InvalidFormException e) {
-            // Eccezione di business (es: età negativa, peso assurdo)
             mostraMessaggioErrore(e.getMessage());
+        } catch (NumberFormatException _) {
+            mostraMessaggioErrore("Inserisci numeri validi per Età e Peso.");
         } catch (Exception e) {
-            LogManager.error("Errore nel salvataggio della richiesta scheda", e);
-            mostraMessaggioErrore("Si è verificato un errore imprevisto durante l'invio.");
+            LogManager.error("Errore critico invio scheda", e);
+            mostraMessaggioErrore("Errore tecnico imprevisto.");
         }
     }
 

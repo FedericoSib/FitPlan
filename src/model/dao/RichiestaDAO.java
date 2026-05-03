@@ -18,4 +18,6 @@ public interface RichiestaDAO {
 
     // Metodo per rimuovere una richiesta
     void cancellaRichiesta(RichiestaScheda richiesta) throws DAOException, IOException;
+
+    boolean esisteRichiestaAttiva(String emailCliente) throws DAOException;
 }
