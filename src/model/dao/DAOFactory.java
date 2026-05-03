@@ -56,4 +56,9 @@ public class DAOFactory {
             return new NotificaDAOFile();
         }
     }
+
+    public static SchedaDAO getSchedaDAO() {
+        if (demoMode) return new SchedaDAOMemory();
+        else return new SchedaDAOFile();
+    }
 }

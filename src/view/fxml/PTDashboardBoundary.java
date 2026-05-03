@@ -163,9 +163,22 @@ public class PTDashboardBoundary {
     }
 
     @FXML
-    public void apriListaAtleti() {
-        // Caricherà la lista dei clienti associati
-        Navigator.pushScene("/view/PTMieiAtleti.fxml", "FitPlan - I Miei Atleti");
+    public void apriRichiesteScheda() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/view/fxml/PTRichiesteScheda.fxml"));
+            Parent root = loader.load();
+            Stage popupStage = new Stage();
+            popupStage.initStyle(StageStyle.TRANSPARENT);
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.initOwner(lblNomeUtente.getScene().getWindow());
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            popupStage.setScene(scene);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            LogManager.error("Errore apertura richieste scheda", e);
+        }
     }
 
     @FXML

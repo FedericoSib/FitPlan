@@ -1,7 +1,6 @@
 package model.dao;
 
 import model.entity.RichiestaScheda;
-import model.entity.StatoAssociazione;
 import util.LogManager;
 import model.exception.*;
 import java.util.ArrayList;

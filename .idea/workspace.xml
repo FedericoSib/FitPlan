@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix smells">
+    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="continuo del precedente commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifiche/notifiche_Federico@gmail.com.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/richieste_fitplan.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/RichiediSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/RichiediSchedaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/RichiestaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/RichiestaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/RichiestaDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/RichiestaDAOFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/richieste_fitplan.dat" beforeDir="false" afterPath="$PROJECT_DIR$/richieste_fitplan.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/DAOFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/dao/RichiestaDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/RichiestaDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/DatiFisici.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/DatiFisici.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/RichiestaScheda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/RichiestaScheda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteRichiediSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRichiediSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test/DAOMemoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/DAOMemoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -357,7 +350,23 @@
       <option name="project" value="LOCAL" />
       <updated>1777810730489</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Fix errori come il pop up richiedi scheda che non va giu dopo aver inviato la richiesta e la possibilita di mandare 2 richieste di scheda">
+      <option name="closed" value="true" />
+      <created>1777814513207</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1777814513207</updated>
+    </task>
+    <task id="LOCAL-00034" summary="continuo del precedente commit">
+      <option name="closed" value="true" />
+      <created>1777814531960</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1777814531960</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -367,6 +376,8 @@
     <MESSAGE value="Fix coverage" />
     <MESSAGE value="Aggiunta di scadenza per la richiesta di associazione, tolto il match preciso della mail per il login (federico@gmail.com = FeDeRiCo@GmAiL.cOm), aggiunta la possibilita di cercare il PT per prefisso, se ci sono PT di Nome Alessandro e Alessio cercando Ale escono entrambi" />
     <MESSAGE value="Fix smells" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix smells" />
+    <MESSAGE value="Fix errori come il pop up richiedi scheda che non va giu dopo aver inviato la richiesta e la possibilita di mandare 2 richieste di scheda" />
+    <MESSAGE value="continuo del precedente commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="continuo del precedente commit" />
   </component>
 </project>
