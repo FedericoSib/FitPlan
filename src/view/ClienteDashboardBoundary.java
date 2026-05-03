@@ -1,5 +1,6 @@
 package view;
 
+import util.observer.*;
 import bean.UtenteBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -82,6 +83,8 @@ public class ClienteDashboardBoundary {
 
         // 2. Setup dinamico del calendario
         costruisciCalendarioDinamico();
+        Cliente c = (Cliente) Sessione.getInstance().getUtente();
+        NotificaManager.getInstance().mostraNotifichePendenti(c.getEmail());
     }
 
     private void costruisciCalendarioDinamico() {

@@ -1,5 +1,6 @@
 package view;
 
+import util.observer.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -83,8 +84,9 @@ public class PTDashboardBoundary {
             LogManager.error(IMAGE_LOAD_ERROR ,e);
         }
 
-        // 2. Setup dinamico del calendario
         costruisciCalendarioDinamico();
+        PersonalTrainer pt = (PersonalTrainer) Sessione.getInstance().getUtente();
+        NotificaManager.getInstance().mostraNotifichePendenti(pt.getEmail());
     }
 
     private void costruisciCalendarioDinamico() {

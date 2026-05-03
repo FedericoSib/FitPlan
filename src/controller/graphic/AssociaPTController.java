@@ -5,6 +5,7 @@ import model.dao.*;
 import model.entity.*;
 import model.Sessione;
 import model.exception.*;
+import util.observer.*;
 import util.LogManager;
 import java.util.List;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class AssociaPTController {
             PersonalTrainer pT = dao.getPTById(ricerca);
             if (pT != null) entitaTrovate.add(pT);
         } else if (ricerca.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-            PersonalTrainer pT = dao.getPTByEmail(ricerca);
+            PersonalTrainer pT = dao.getPTByEmail(ricerca.toLowerCase().trim());
             if (pT != null) entitaTrovate.add(pT);
         } else {
             List<PersonalTrainer> trovatiPerNome = dao.getPTByName(ricerca);
@@ -50,13 +51,19 @@ public class AssociaPTController {
 
     public void inviaRichiestaAssociazione(AssociazioneBean bean) throws DAOException {
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
-
         AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
         dao.salvaRichiesta(bean.getEmailCliente(), bean.getEmailPT());
 
         cliente.setStatoAssociazione(StatoAssociazione.PENDING);
         cliente.setIdPersonalTrainer(bean.getEmailPT());
 
-        LogManager.info("Stato aggiornato in sessione a PENDING per: " + bean.getEmailCliente());    }
+        // Notifica al PT
+        NotificaManager.getInstance().onNotifica(new Notifica(
+                bean.getEmailPT(),
+                "Il cliente " + bean.getEmailCliente() + " ha richiesto l'associazione."
+        ));
+
+        LogManager.info("Stato aggiornato in sessione a PENDING per: " + bean.getEmailCliente());
+    }
 
 }

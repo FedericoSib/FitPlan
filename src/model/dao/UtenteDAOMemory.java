@@ -33,7 +33,7 @@ public class UtenteDAOMemory implements UtenteDAO {
     @Override
     public Utente trovaUtente(String email, String password) throws UserNotFoundException {
         for (Utente u : utenti) {
-            if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
+            if (u.getEmail().equalsIgnoreCase(email) && u.getPassword().equals(password)) {
                 return u;
             }
         }
@@ -43,7 +43,7 @@ public class UtenteDAOMemory implements UtenteDAO {
     @Override
     public Utente trovaUtentePerEmail(String email) throws UserNotFoundException {
         for (Utente u : utenti) {
-            if (u.getEmail().equals(email)) {
+            if (u.getEmail().equalsIgnoreCase(email)) {
                 return u;
             }
         }

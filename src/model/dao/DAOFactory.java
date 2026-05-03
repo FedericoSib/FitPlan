@@ -48,4 +48,12 @@ public class DAOFactory {
             return new AssociazioneDAOFile();
         }
     }
+
+    public static NotificaDAO getNotificaDAO() {
+        if (demoMode) {
+            return new NotificaDAOMemory();
+        } else {
+            return new NotificaDAOFile();
+        }
+    }
 }

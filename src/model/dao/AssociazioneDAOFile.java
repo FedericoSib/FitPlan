@@ -21,29 +21,30 @@ public class AssociazioneDAOFile implements AssociazioneDAO {
                 while ((line = br.readLine()) != null) {
                     String[] parts = line.split(";");
                     if (parts[0].equals(emailCliente)) {
-                        // Trovata vecchia riga del cliente: la sostituiamo con la nuova richiesta
-                        lines.add(emailCliente + ";" + emailPT + ";" + StatoAssociazione.PENDING.name());
+                        lines.add(emailCliente + ";" + emailPT + ";" +
+                                StatoAssociazione.PENDING.name() + ";" +
+                                System.currentTimeMillis());
                         found = true;
                     } else {
                         lines.add(line);
                     }
                 }
-            } catch (IOException e) {
+            } catch (IOException _) {
                 throw new DAOException("Errore lettura per sovrascrittura richiesta");
             }
         }
 
-        // 2. Se il cliente non era nel file, aggiungiamo la nuova riga alla lista
         if (!found) {
-            lines.add(emailCliente + ";" + emailPT + ";" + StatoAssociazione.PENDING.name());
+            lines.add(emailCliente + ";" + emailPT + ";" +
+                    StatoAssociazione.PENDING.name() + ";" +
+                    System.currentTimeMillis());
         }
 
-        // 3. Riscriviamo l'intero file con la lista aggiornata
         try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(FILE_NAME)))) {
             for (String l : lines) {
                 out.println(l);
             }
-        } catch (IOException e) {
+        } catch (IOException _) {
             throw new DAOException("Errore nella scrittura della richiesta univoca");
         }
     }
@@ -139,5 +140,42 @@ public class AssociazioneDAOFile implements AssociazioneDAO {
         }
 
         return clientiTrovati;
+    }
+
+    @Override
+    public List<String> rimuoviRichiesteScadute(long limiteMs) throws DAOException {
+        List<String> lines = new ArrayList<>();
+        List<String> clientiScaduti = new ArrayList<>();
+        File file = new File(FILE_NAME);
+
+        if (!file.exists()) return clientiScaduti;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(";");
+                if (parts.length >= 4 && StatoAssociazione.PENDING.name().equals(parts[2])) {
+                    long timestamp = Long.parseLong(parts[3]);
+                    if (System.currentTimeMillis() - timestamp > limiteMs) {
+                        // Scaduta: non la riscriviamo e salviamo l'email del cliente
+                        clientiScaduti.add(parts[0]);
+                    } else {
+                        lines.add(line);
+                    }
+                } else {
+                    lines.add(line); // righe non PENDING le lasciamo sempre
+                }
+            }
+        } catch (IOException _) {
+            throw new DAOException("Errore lettura per controllo scadenze");
+        }
+
+        try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(FILE_NAME)))) {
+            for (String l : lines) out.println(l);
+        } catch (IOException _) {
+            throw new DAOException("Errore scrittura dopo rimozione scadute");
+        }
+
+        return clientiScaduti; // il controller userà questi per notificare i clienti
     }
 }

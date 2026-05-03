@@ -5005,3 +5005,75 @@ mag 02, 2026 3:06:02 PM util.LogManager info
 INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: Valerio@gmail.com
 mag 02, 2026 3:06:02 PM util.LogManager info
 INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 03, 2026 8:26:19 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 03, 2026 8:41:30 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 8:41:57 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 03, 2026 8:42:13 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 8:42:37 AM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 03, 2026 8:43:24 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 8:43:34 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 03, 2026 8:43:37 AM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 03, 2026 8:43:40 AM util.LogManager info
+INFO: Ricerca completata per: vale
+mag 03, 2026 8:43:44 AM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: Valerio@gmail.com
+mag 03, 2026 8:43:44 AM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 03, 2026 8:48:03 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 8:48:11 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 03, 2026 8:48:29 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 8:48:37 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 03, 2026 8:48:39 AM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 03, 2026 8:48:42 AM util.LogManager info
+INFO: Ricerca completata per: vale
+mag 03, 2026 8:48:47 AM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: Valerio@gmail.com
+mag 03, 2026 8:48:47 AM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 03, 2026 8:49:11 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 8:49:39 AM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 03, 2026 8:51:11 AM util.LogManager warn
+WARNING: Richiesta scaduta per cliente: Federico@gmail.com
+mag 03, 2026 8:52:59 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 9:08:27 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 9:08:38 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 03, 2026 9:08:40 AM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 03, 2026 9:08:44 AM util.LogManager info
+INFO: Ricerca completata per: vale
+mag 03, 2026 9:08:48 AM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: ValerioR@gmail.com
+mag 03, 2026 9:08:48 AM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 03, 2026 9:09:01 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 9:09:25 AM util.LogManager info
+INFO: Login effettuato con successo per: valerior@gmail.com
+mag 03, 2026 9:10:16 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 9:10:26 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 03, 2026 9:11:16 AM util.LogManager warn
+WARNING: Richiesta scaduta per cliente: Federico@gmail.com
+mag 03, 2026 9:14:17 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 9:14:28 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com

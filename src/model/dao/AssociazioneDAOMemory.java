@@ -42,4 +42,10 @@ public class AssociazioneDAOMemory implements AssociazioneDAO {
         }
         return risultati;
     }
+
+    @Override
+    public List<String> rimuoviRichiesteScadute(long limiteMs) {
+        // In memory non abbiamo timestamp, restituiamo lista vuota
+        return new ArrayList<>();
+    }
 }

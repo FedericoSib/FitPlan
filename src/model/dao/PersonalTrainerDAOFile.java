@@ -46,11 +46,11 @@ public class PersonalTrainerDAOFile implements PersonalTrainerDAO {
 
     @Override
     public List<PersonalTrainer> getPTByName(String name) {
-        // Modificato: ora filtra tutti i PT che hanno quel nome o cognome
-        // e li restituisce come lista
+        String ricercaNormalizzata = name.toLowerCase().trim();
         return caricaTutti().stream()
-                .filter(pt -> pt.getNome().equalsIgnoreCase(name) ||
-                        pt.getCognome().equalsIgnoreCase(name)).toList();
+                .filter(pt -> pt.getNome().toLowerCase().startsWith(ricercaNormalizzata) ||
+                        pt.getCognome().toLowerCase().startsWith(ricercaNormalizzata))
+                .toList();
     }
 
     @Override

@@ -1,10 +1,12 @@
 package controller.graphic;
 
 import bean.AssociazioneBean;
+import model.entity.Notifica;
 import model.dao.AssociazioneDAO;
 import model.dao.DAOFactory;
 import model.entity.StatoAssociazione;
 import model.exception.DAOException;
+import util.observer.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +30,21 @@ public class GestisciRichiestePTController {
 
     public void accettaAssociazione(AssociazioneBean bean) throws DAOException {
         AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
-        // Aggiorna lo stato nel file/memoria
         dao.aggiornaStato(bean.getEmailCliente(), StatoAssociazione.ASSOCIATO);
+
+        NotificaManager.getInstance().onNotifica(new Notifica(
+                bean.getEmailCliente(),
+                "Il tuo Personal Trainer ha accettato la tua richiesta di associazione."
+        ));
     }
 
     public void rifiutaAssociazione(AssociazioneBean bean) throws DAOException {
         AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
-        // Aggiorna lo stato nel file/memoria
         dao.aggiornaStato(bean.getEmailCliente(), StatoAssociazione.NESSUNA);
+
+        NotificaManager.getInstance().onNotifica(new Notifica(
+                bean.getEmailCliente(),
+                "Il tuo Personal Trainer ha rifiutato la tua richiesta di associazione."
+        ));
     }
 }

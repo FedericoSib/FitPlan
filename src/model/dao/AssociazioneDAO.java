@@ -10,4 +10,5 @@ public interface AssociazioneDAO {
     String getEmailPTAssociato(String emailCliente) throws DAOException;
     void aggiornaStato(String emailCliente, StatoAssociazione nuovoStato) throws DAOException;
     List<String> getRichiestePerPT(String emailPT) throws DAOException;
+    List<String> rimuoviRichiesteScadute(long limiteMs) throws DAOException;
 }

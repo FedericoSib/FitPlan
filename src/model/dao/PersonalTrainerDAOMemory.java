@@ -30,8 +30,10 @@ public class PersonalTrainerDAOMemory implements PersonalTrainerDAO {
     @Override
     public List<PersonalTrainer> getPTByName(String name) {
         List<PersonalTrainer> trovati = new ArrayList<>();
+        String ricercaNormalizzata = name.toLowerCase().trim();
         for (PersonalTrainer pt : listaPT) {
-            if (pt.getNome().equalsIgnoreCase(name) || pt.getCognome().equalsIgnoreCase(name)) {
+            if (pt.getNome().toLowerCase().startsWith(ricercaNormalizzata) ||
+                    pt.getCognome().toLowerCase().startsWith(ricercaNormalizzata)) {
                 trovati.add(pt);
             }
         }

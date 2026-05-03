@@ -2,12 +2,15 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import controller.graphic.*;
 import view.Navigator;
 
 public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        ScadenzaRichiesteController scadenzaController = new ScadenzaRichiesteController();
+        scadenzaController.avvia();
         // 1. Diamo lo Stage al Navigatore
         Navigator.setPrimaryStage(primaryStage);
 
