@@ -1,4 +1,4 @@
-package view;
+package view.fxml;
 
 import bean.*;
 import controller.graphic.RegistrazioneController;
@@ -82,7 +82,7 @@ public class RegistrazioneBoundary {
 
     @FXML
     public void annullaRegistrazione() {
-        Navigator.pushScene("/view/Login.fxml", "FitPlan - Login");
+        Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
     }
 
     private void mostraAlert(String titolo, String msg) {
@@ -94,6 +94,6 @@ public class RegistrazioneBoundary {
     }
 
     private void tornaAlLogin() {
-        Navigator.pushScene("/view/Login.fxml", "FitPlan - Login");
+        Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
     }
 }

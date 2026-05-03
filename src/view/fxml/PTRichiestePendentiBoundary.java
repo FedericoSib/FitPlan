@@ -1,4 +1,4 @@
-package view;
+package view.fxml;
 
 import bean.AssociazioneBean;
 import controller.graphic.GestisciRichiestePTController;

@@ -1,4 +1,4 @@
-package view;
+package view.fxml;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -100,7 +100,7 @@ public class ClienteRichiediSchedaBoundary {
             controller.elaboraRichiesta(bean);
 
             mostraMessaggioConferma("La tua richiesta è stata inviata con successo al tuo Personal Trainer!");
-            Navigator.pushScene("/view/ClienteDashboard.fxml", "FitPlan - Dashboard");
+            Navigator.pushScene("/view/fxml/ClienteDashboard.fxml", "FitPlan - Dashboard");
 
         } catch (NumberFormatException _) {
             // Errore se l'utente scrive lettere dove servono numeri (Età/Peso)

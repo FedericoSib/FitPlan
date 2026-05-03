@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="popupOverlay" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="608.0" style="-fx-background-color: transparent;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProfiloPersonaleBoundary">
+<AnchorPane fx:id="popupOverlay" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="608.0" style="-fx-background-color: transparent;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxml.ProfiloPersonaleBoundary">
    <children>
       <StackPane layoutX="60.0" layoutY="37.0" prefHeight="451.0" prefWidth="489.0">
          <children>

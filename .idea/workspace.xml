@@ -6,8 +6,34 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix smells">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ClienteRichiediSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteRichiediSchedaBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/richieste_associazione.csv" beforeDir="false" afterPath="$PROJECT_DIR$/richieste_associazione.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sonar-project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/AlertManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/AlertManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AlertCustom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/AlertCustom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AlertCustomBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/AlertCustomBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ClienteDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ClienteRicercaPT.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPT.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ClienteRicercaPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ClienteRichiediSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRichiediSchedaBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/LoginBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/LoginBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/NoPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/NoPTBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PTDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PTRichiestePendenti.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendenti.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PTRichiestePendentiBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendentiBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ProfiloPersonaleBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ProfiloPersonaleBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ProfiloPersonaleCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ProfiloPersonaleCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ProfiloPersonalePT.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ProfiloPersonalePT.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Registrazione.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/Registrazione.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RegistrazioneBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/RegistrazioneBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RichiestaScheda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/RichiestaScheda.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SchermataErroreNoPT.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/SchermataErroreNoPT.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +86,11 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\Università\ISPW\Progetto ISPW\src\view\fxml" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="MainApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.MainApp" />
@@ -277,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777795988557</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fix smells">
+      <option name="closed" value="true" />
+      <created>1777796739678</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1777796739678</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

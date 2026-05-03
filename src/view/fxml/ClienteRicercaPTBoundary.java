@@ -1,4 +1,4 @@
-package view;
+package view.fxml;
 
 import bean.*;
 import util.observer.*;

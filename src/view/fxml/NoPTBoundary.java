@@ -1,4 +1,4 @@
-package view;
+package view.fxml;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +37,7 @@ public class NoPTBoundary {
 
         // 2. Apri il caso d'uso come popup sopra la dashboard
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ClienteRicercaPT.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/ClienteRicercaPT.fxml"));
             Parent root = loader.load();
 
             Stage ricercaStage = new Stage();
@@ -49,7 +49,7 @@ public class NoPTBoundary {
 
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
-            scene.getStylesheets().add(getClass().getResource("/view/style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/view/fxml/style.css").toExternalForm());
 
             ricercaStage.setScene(scene);
             ricercaStage.show();

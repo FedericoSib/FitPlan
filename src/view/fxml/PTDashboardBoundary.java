@@ -1,4 +1,4 @@
-package view;
+package view.fxml;
 
 import model.dao.DAOFactory;
 import util.observer.*;
@@ -142,7 +142,7 @@ public class PTDashboardBoundary {
     @FXML
     public void apriRichiesteClienti() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PTRichiestePendenti.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/PTRichiestePendenti.fxml"));
             Parent root = loader.load();
 
             Stage popupStage = new Stage();
@@ -178,7 +178,7 @@ public class PTDashboardBoundary {
         bean.setEmail(utenteCorrente.getEmail());
         bean.setRuolo(utenteCorrente.getRuolo());
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ProfiloPersonalePT.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/ProfiloPersonalePT.fxml"));
             Parent root = loader.load();
 
             // Otteniamo il controller generico
@@ -202,6 +202,6 @@ public class PTDashboardBoundary {
 
     @FXML
     public void tornaAllaDashboard() {
-        Navigator.pushScene("/view/PTDashboard.fxml", "FitPlan - PersonalTrainerDashboard");
+        Navigator.pushScene("/view/fxml/PTDashboard.fxml", "FitPlan - PersonalTrainerDashboard");
     }
 }

@@ -1,4 +1,4 @@
-package view;
+package view.fxml;
 
 import model.dao.DAOFactory;
 import util.observer.*;
@@ -28,7 +28,7 @@ import java.util.Locale;
 
 public class ClienteDashboardBoundary {
 
-    private static final String STYLE_CSS_PATH = "/view/style.css";
+    private static final String STYLE_CSS_PATH = "/view/fxml/style.css";
     @FXML private Label lblNomeUtente;
     @FXML private Label lblMeseAnno;
     @FXML private GridPane gridCalendario;
@@ -124,7 +124,7 @@ public class ClienteDashboardBoundary {
     }
 
     private void mostraPopupErroreNoPT() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SchermataErroreNoPT.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/SchermataErroreNoPT.fxml"));
         Parent root = loader.load();
 
         Stage popupStage = new Stage();
@@ -184,7 +184,7 @@ public class ClienteDashboardBoundary {
     }
     private void caricaInterfacciaRichiesta() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/RichiestaScheda.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/RichiestaScheda.fxml"));
             Parent root = loader.load();
 
             Stage popupStage = new Stage();
@@ -213,7 +213,7 @@ public class ClienteDashboardBoundary {
         bean.setRuolo(utenteCorrente.getRuolo());
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ProfiloPersonaleCliente.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/ProfiloPersonaleCliente.fxml"));
             Parent root = loader.load();
 
             // Otteniamo il controller generico
@@ -249,7 +249,7 @@ public class ClienteDashboardBoundary {
             return;
         }
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ClienteRicercaPT.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/ClienteRicercaPT.fxml"));
             Parent root = loader.load();
 
             Stage popupStage = new Stage();
@@ -275,6 +275,6 @@ public class ClienteDashboardBoundary {
     @FXML
     public void logout() {
         Sessione.getInstance().setUtente(null);
-        Navigator.pushScene("/view/Login.fxml", "FitPlan - Login");
+        Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
     }
 }

@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import view.AlertCustomBoundary;
+import view.fxml.AlertCustomBoundary;
 
 public class AlertManager {
 
@@ -16,7 +16,7 @@ public class AlertManager {
     public static void mostra(String messaggio) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    AlertManager.class.getResource("/view/AlertCustom.fxml")
+                    AlertManager.class.getResource("/view/fxml/AlertCustom.fxml")
             );
             Parent root = loader.load();
 

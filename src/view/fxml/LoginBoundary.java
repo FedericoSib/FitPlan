@@ -1,4 +1,4 @@
-package view;
+package view.fxml;
 
 import controller.graphic.LoginController;
 import javafx.fxml.FXML;
@@ -53,17 +53,17 @@ public class LoginBoundary {
 
     @FXML
     public void gestisciRegistrazione() {
-        Navigator.pushScene("/view/Registrazione.fxml", "FitPlan - Crea il tuo Account");
+        Navigator.pushScene("/view/fxml/Registrazione.fxml", "FitPlan - Crea il tuo Account");
     }
 
     private void procediAllaDashboard() {
         Utente loggato = Sessione.getInstance().getUtente();
         mostraAlert(Alert.AlertType.INFORMATION, "Benvenuto", "Accesso effettuato come: " + loggato.getId());
         if (loggato instanceof Cliente) {
-            Navigator.pushScene("/view/ClienteDashboard.fxml", "FitPlan - Dashboard Cliente");
+            Navigator.pushScene("/view/fxml/ClienteDashboard.fxml", "FitPlan - Dashboard Cliente");
         } else if (loggato instanceof PersonalTrainer) {
             // Qui caricherai la dashboard specifica per il PT che creeremo
-            Navigator.pushScene("/view/PTDashboard.fxml", "FitPlan - Dashboard Trainer");
+            Navigator.pushScene("/view/fxml/PTDashboard.fxml", "FitPlan - Dashboard Trainer");
         }
     }
 
