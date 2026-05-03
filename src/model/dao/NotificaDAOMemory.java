@@ -16,8 +16,7 @@ public class NotificaDAOMemory implements NotificaDAO {
 
     @Override
     public List<String> caricaECancellaNotifiche(String emailUtente) {
-        return storage.remove(emailUtente.toLowerCase()) != null
-                ? storage.getOrDefault(emailUtente.toLowerCase(), new ArrayList<>())
-                : new ArrayList<>();
+        List<String> notifiche = storage.remove(emailUtente.toLowerCase());
+        return notifiche != null ? notifiche : new ArrayList<>();
     }
 }
