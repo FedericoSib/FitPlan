@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class AssociaPTController {
+public class AssociaPTController extends NotificaObservableBase{
 
     public List<PersonalTrainerBean> cercaTrainer(String ricerca) throws TrainerNotFoundException {
         PersonalTrainerDAO dao = DAOFactory.getPersonalTrainerDAO();
@@ -57,13 +57,9 @@ public class AssociaPTController {
         cliente.setStatoAssociazione(StatoAssociazione.PENDING);
         cliente.setIdPersonalTrainer(bean.getEmailPT());
 
-        // Notifica al PT
-        NotificaManager.getInstance().onNotifica(new Notifica(
-                bean.getEmailPT(),
-                "Il cliente " + bean.getEmailCliente() + " ha richiesto l'associazione."
-        ));
+        notificaObserver(bean.getEmailPT(),
+                "Il cliente " + bean.getEmailCliente() + " ha richiesto l'associazione.");
 
         LogManager.info("Stato aggiornato in sessione a PENDING per: " + bean.getEmailCliente());
     }
-
 }

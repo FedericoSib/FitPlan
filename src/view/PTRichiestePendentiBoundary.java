@@ -9,8 +9,10 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.util.List;
 import model.Sessione;
+import model.dao.DAOFactory;
 import model.exception.DAOException;
 import util.AlertManager;
+import util.observer.NotificaManager;
 
 public class PTRichiestePendentiBoundary {
 
@@ -23,6 +25,8 @@ public class PTRichiestePendentiBoundary {
 
     @FXML
     public void initialize() {
+        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
+        controller.aggiungiObserver(manager);
         lvRichieste.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         lvRichieste.setCellFactory(lv -> new ListCell<AssociazioneBean>() {

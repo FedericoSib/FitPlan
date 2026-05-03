@@ -2,34 +2,52 @@ package controller.graphic;
 
 import model.dao.AssociazioneDAO;
 import model.dao.DAOFactory;
+import model.entity.Notifica;
 import model.exception.DAOException;
 import util.LogManager;
-import model.entity.Notifica;
-import util.observer.*;
+import util.observer.NotificaObservableBase;
+import util.observer.NotificaObserver;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class ScadenzaRichiesteController {
+public class ScadenzaRichiesteController extends NotificaObservableBase {
 
-    // true = demo (2 minuti), false = produzione (7 giorni)
     private static final boolean DEMO_MODE = true;
-
     private static final long SCADENZA_MS = DEMO_MODE
             ? TimeUnit.MINUTES.toMillis(2)
             : TimeUnit.DAYS.toMillis(7);
-
-    private static final long INTERVALLO_CONTROLLO_SECONDI = DEMO_MODE ? 30 : 3600;
+    private static final long INTERVALLO_SECONDI = DEMO_MODE ? 30 : 3600;
 
     private final ScheduledExecutorService scheduler =
             Executors.newSingleThreadScheduledExecutor();
+    private final List<NotificaObserver> observers = new ArrayList<>();
+
+    @Override
+    public void aggiungiObserver(NotificaObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void rimuoviObserver(NotificaObserver observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notificaObserver(String emailDestinatario, String testo) {
+        for (NotificaObserver o : observers) {
+            o.onNotifica(new Notifica(emailDestinatario, testo));
+        }
+    }
 
     public void avvia() {
         scheduler.scheduleAtFixedRate(
                 this::controllaScadenze,
                 0,
-                INTERVALLO_CONTROLLO_SECONDI,
+                INTERVALLO_SECONDI,
                 TimeUnit.SECONDS
         );
         LogManager.info("ScadenzaRichiesteController avviato. Scadenza: " +
@@ -47,10 +65,8 @@ public class ScadenzaRichiesteController {
 
             for (String emailCliente : scaduti) {
                 LogManager.warn("Richiesta scaduta per cliente: " + emailCliente);
-                NotificaManager.getInstance().onNotifica(new Notifica(
-                        emailCliente,
-                        "La tua richiesta di associazione è scaduta. Puoi inviarne una nuova."
-                ));
+                notificaObserver(emailCliente,
+                        "La tua richiesta di associazione è scaduta. Puoi inviarne una nuova.");
             }
         } catch (DAOException e) {
             LogManager.error("Errore nel controllo scadenze", e);

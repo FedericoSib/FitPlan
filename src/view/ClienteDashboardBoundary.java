@@ -1,5 +1,6 @@
 package view;
 
+import model.dao.DAOFactory;
 import util.observer.*;
 import bean.UtenteBean;
 import javafx.fxml.FXML;
@@ -84,7 +85,8 @@ public class ClienteDashboardBoundary {
         // 2. Setup dinamico del calendario
         costruisciCalendarioDinamico();
         Cliente c = (Cliente) Sessione.getInstance().getUtente();
-        NotificaManager.getInstance().mostraNotifichePendenti(c.getEmail());
+        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
+        manager.mostraNotifichePendenti(c.getEmail());
     }
 
     private void costruisciCalendarioDinamico() {
@@ -196,7 +198,7 @@ public class ClienteDashboardBoundary {
             popupStage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LogManager.error("Errore generico apertura pop-up richieste", e);
         }
     }
 

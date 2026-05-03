@@ -2,6 +2,8 @@ package model.dao;
 
 import model.entity.Notifica;
 import model.exception.DAOException;
+import util.LogManager;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +43,11 @@ public class NotificaDAOFile implements NotificaDAO {
         }
 
         // Cancella il file dopo la lettura — notifiche consumate
-        file.delete();
+        try {
+            java.nio.file.Files.delete(file.toPath());
+        } catch (IOException e) {
+            LogManager.warn("Impossibile eliminare il file notifiche: " + file.getName());
+        }
         return notifiche;
     }
 }

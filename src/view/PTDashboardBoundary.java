@@ -1,5 +1,6 @@
 package view;
 
+import model.dao.DAOFactory;
 import util.observer.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -86,7 +87,8 @@ public class PTDashboardBoundary {
 
         costruisciCalendarioDinamico();
         PersonalTrainer pt = (PersonalTrainer) Sessione.getInstance().getUtente();
-        NotificaManager.getInstance().mostraNotifichePendenti(pt.getEmail());
+        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
+        manager.mostraNotifichePendenti(pt.getEmail());
     }
 
     private void costruisciCalendarioDinamico() {
@@ -155,10 +157,8 @@ public class PTDashboardBoundary {
 
         } catch (IOException e) {
             LogManager.error("Errore apertura pop-up richieste (IO)", e);
-            e.printStackTrace(); // <-- aggiungi questo
-        } catch (Exception e) {  // <-- QUESTO MANCAVA
+        } catch (Exception e) {
             LogManager.error("Errore generico apertura pop-up richieste", e);
-            e.printStackTrace(); // così vedi la vera causa
         }
     }
 

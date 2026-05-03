@@ -1,46 +1,8 @@
-/*package view;
-
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import model.entity.PersonalTrainer;
-import model.exception.TrainerNotFoundException;
-import util.LogManager;
-import controller.graphic.AssociaPTController;
-
-
-public class ClienteRicercaPTBoundary {
-
-    @FXML private TextField txtSearch;
-    @FXML private Button btnAssocia;
-    @FXML private ListView<PersonalTrainer> listaPT;
-
-    @FXML
-    public void handleCerca() {
-        String stringaDiRicerca = txtSearch.getText();
-        if (stringaDiRicerca == null || stringaDiRicerca.isEmpty()) {
-            LogManager.warn("Campo ricerca vuoto");
-            return;
-        }
-
-        try {
-            AssociaPTController controller = new AssociaPTController();
-            PersonalTrainer trovato = controller.cercaTrainer(stringaDiRicerca);
-
-            // Aggiorna la UI (es. mostra una Label col nome del PT trovato)
-            lblRisultato.setText("Trovato: " + trovato.getNome() + " " + trovato.getCognome());
-            btnAssocia.setVisible(true);
-
-        } catch (TrainerNotFoundException e) {
-            lblRisultato.setText("Nessun Personal Trainer trovato.");
-            btnAssocia.setVisible(false);
-        }
-    }
-}
-*/
-
 package view;
 
 import bean.*;
+import util.observer.*;
+import model.dao.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -64,12 +26,12 @@ public class ClienteRicercaPTBoundary {
     @FXML private Button btnAnnulla;
     @FXML private ListView<PersonalTrainerBean> listaPT;
 
-    // Controller logico (Sarebbe meglio iniettarlo o averlo come attributo)
     private final AssociaPTController controller = new AssociaPTController();
 
     @FXML
     public void initialize() {
-        // 1. Configura come i PT appaiono nella lista (Nome Cognome [ID])
+        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
+        controller.aggiungiObserver(manager);
         listaPT.setCellFactory(lv -> new ListCell<>() {
             @Override
             protected void updateItem(PersonalTrainerBean item, boolean empty) {

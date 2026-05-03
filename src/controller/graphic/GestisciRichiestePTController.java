@@ -10,7 +10,25 @@ import util.observer.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestisciRichiestePTController {
+public class GestisciRichiestePTController extends NotificaObservableBase{
+    private final List<NotificaObserver> observers = new ArrayList<>();
+
+    @Override
+    public void aggiungiObserver(NotificaObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void rimuoviObserver(NotificaObserver observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notificaObserver(String emailDestinatario, String testo) {
+        for (NotificaObserver o : observers) {
+            o.onNotifica(new Notifica(emailDestinatario, testo));
+        }
+    }
 
     public List<AssociazioneBean> getRichiesteSospese(String emailPT) throws DAOException {
         AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
@@ -32,19 +50,15 @@ public class GestisciRichiestePTController {
         AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
         dao.aggiornaStato(bean.getEmailCliente(), StatoAssociazione.ASSOCIATO);
 
-        NotificaManager.getInstance().onNotifica(new Notifica(
-                bean.getEmailCliente(),
-                "Il tuo Personal Trainer ha accettato la tua richiesta di associazione."
-        ));
+        notificaObserver(bean.getEmailCliente(),
+                "Il tuo Personal Trainer ha accettato la tua richiesta di associazione.");
     }
 
     public void rifiutaAssociazione(AssociazioneBean bean) throws DAOException {
         AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
         dao.aggiornaStato(bean.getEmailCliente(), StatoAssociazione.NESSUNA);
 
-        NotificaManager.getInstance().onNotifica(new Notifica(
-                bean.getEmailCliente(),
-                "Il tuo Personal Trainer ha rifiutato la tua richiesta di associazione."
-        ));
+        notificaObserver(bean.getEmailCliente(),
+                "Il tuo Personal Trainer ha rifiutato la tua richiesta di associazione.");
     }
 }
