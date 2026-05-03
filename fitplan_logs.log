@@ -5077,3 +5077,5 @@ mag 03, 2026 9:14:17 AM util.LogManager info
 INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
 mag 03, 2026 9:14:28 AM util.LogManager info
 INFO: Login effettuato con successo per: federico@gmail.com
+mag 03, 2026 9:48:26 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)

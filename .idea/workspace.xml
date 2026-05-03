@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Aggiunta di scadenza per la richiesta di associazione, tolto il match preciso della mail per il login (federico@gmail.com = FeDeRiCo@GmAiL.cOm), aggiunta la possibilita di cercare il PT per prefisso, se ci sono PT di Nome Alessandro e Alessio cercando Ale escono entrambi">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/AssociaPTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/AssociaPTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/GestisciRichiestePTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/GestisciRichiestePTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/ScadenzaRichiesteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/ScadenzaRichiesteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/NotificaDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/NotificaDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/observer/NotificaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/observer/NotificaManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ClienteRicercaPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteRicercaPTBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PTDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/PTRichiestePendentiBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PTRichiestePendentiBoundary.java" afterDir="false" />
+    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix smells">
+      <change beforePath="$PROJECT_DIR$/test/test/DAOMemoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/DAOMemoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,16 +235,24 @@
       <option name="project" value="LOCAL" />
       <updated>1777792665236</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fix smells">
+      <option name="closed" value="true" />
+      <created>1777794530618</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1777794530618</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix pop ups" />
-    <MESSAGE value="Fix smells" />
     <MESSAGE value="Fix AssociazionePT" />
     <MESSAGE value="Fix Test classes" />
     <MESSAGE value="Fix coverage" />
     <MESSAGE value="Aggiunta di scadenza per la richiesta di associazione, tolto il match preciso della mail per il login (federico@gmail.com = FeDeRiCo@GmAiL.cOm), aggiunta la possibilita di cercare il PT per prefisso, se ci sono PT di Nome Alessandro e Alessio cercando Ale escono entrambi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta di scadenza per la richiesta di associazione, tolto il match preciso della mail per il login (federico@gmail.com = FeDeRiCo@GmAiL.cOm), aggiunta la possibilita di cercare il PT per prefisso, se ci sono PT di Nome Alessandro e Alessio cercando Ale escono entrambi" />
+    <MESSAGE value="Fix smells" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix smells" />
   </component>
 </project>

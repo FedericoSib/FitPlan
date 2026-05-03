@@ -16,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test per le implementazioni DAO In-Memory e per DAOFactory.
  * Ogni test è indipendente dall'ordine di esecuzione grazie al @BeforeEach.
  */
+
+// ════════════════════════════════════════════════════
+//  DAOFactory
+// ════════════════════════════════════════════════════
+
 class DAOMemoryTest {
-
-    // ════════════════════════════════════════════════════
-    //  DAOFactory
-    // ════════════════════════════════════════════════════
-
     @Nested
     @DisplayName("DAOFactory")
     class DAOFactoryTest {
@@ -64,6 +64,56 @@ class DAOMemoryTest {
         }
     }
 
+    @Nested
+    @DisplayName("NotificaDAOMemory")
+    class NotificaDAOMemoryTest {
+
+        private NotificaDAOMemory dao;
+
+        @BeforeEach
+        void setUp() throws Exception {
+            java.lang.reflect.Field field = NotificaDAOMemory.class.getDeclaredField("storage");
+            field.setAccessible(true);
+            ((java.util.Map<?, ?>) field.get(null)).clear();
+            dao = new NotificaDAOMemory();
+        }
+
+        @Test
+        @DisplayName("salvaNotifica → notifica recuperabile")
+        void testSalvaECarica(){
+            dao.salvaNotifica(new Notifica("utente@test.it", "Testo notifica"));
+            List<String> result = dao.caricaECancellaNotifiche("utente@test.it");
+            assertEquals(1, result.size());
+            assertEquals("Testo notifica", result.get(0));
+        }
+
+        @Test
+        @DisplayName("caricaECancella → dopo la lettura la lista è vuota")
+        void testCancellaDopoLettura(){
+            dao.salvaNotifica(new Notifica("utente@test.it", "Testo"));
+            dao.caricaECancellaNotifiche("utente@test.it");
+            List<String> result = dao.caricaECancellaNotifiche("utente@test.it");
+            assertTrue(result.isEmpty());
+        }
+
+        @Test
+        @DisplayName("utente senza notifiche → lista vuota")
+        void testNessunNotifica(){
+            List<String> result = dao.caricaECancellaNotifiche("nessuno@test.it");
+            assertTrue(result.isEmpty());
+        }
+
+        @Test
+        @DisplayName("notifiche di utenti diversi non si mescolano")
+        void testIsolamentoUtenti() throws{
+            dao.salvaNotifica(new Notifica("a@test.it", "Notifica A"));
+            dao.salvaNotifica(new Notifica("b@test.it", "Notifica B"));
+
+            List<String> resultA = dao.caricaECancellaNotifiche("a@test.it");
+            assertEquals(1, resultA.size());
+            assertEquals("Notifica A", resultA.get(0));
+        }
+    }
     // ════════════════════════════════════════════════════
     //  UtenteDAOMemory
     // ════════════════════════════════════════════════════

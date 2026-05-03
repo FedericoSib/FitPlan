@@ -23,8 +23,6 @@ public class LogManager {
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
 
-            //GLOBAL_LOGGER.setUseParentHandlers(false);
-
         } catch (IOException | SecurityException e) {
             GLOBAL_LOGGER.log(Level.SEVERE, "Impossibile inizializzare il file di log", e);
         }
