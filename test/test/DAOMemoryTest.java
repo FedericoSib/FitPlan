@@ -105,7 +105,7 @@ class DAOMemoryTest {
 
         @Test
         @DisplayName("notifiche di utenti diversi non si mescolano")
-        void testIsolamentoUtenti() throws{
+        void testIsolamentoUtenti(){
             dao.salvaNotifica(new Notifica("a@test.it", "Notifica A"));
             dao.salvaNotifica(new Notifica("b@test.it", "Notifica B"));
 
