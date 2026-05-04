@@ -41,7 +41,6 @@ public class PTDashboardBoundary {
     @FXML private ImageView imgGestioneClienti2;
     @FXML private ImageView imgNotifiche2;
     @FXML private ImageView imgAssemblaScheda2;
-    @FXML private ImageView imgAvatar;
     @FXML private ListView<AssociazioneBean> lvRichieste;
     @FXML private Label lblBenvenuto;
 
@@ -75,12 +74,6 @@ public class PTDashboardBoundary {
             Image assemblaScheda = new Image(getClass().getResourceAsStream("/view/Immages/AssemblaScheda.png"));
             imgAssemblaScheda.setImage(assemblaScheda);
             imgAssemblaScheda2.setImage(assemblaScheda);
-        } catch (Exception e) {
-            LogManager.error(IMAGE_LOAD_ERROR ,e);
-        }
-        try {
-            Image avatarBase = new Image(getClass().getResourceAsStream("/view/Immages/AvatarBase.png"));
-            imgAvatar.setImage(avatarBase);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR ,e);
         }
@@ -165,8 +158,7 @@ public class PTDashboardBoundary {
     @FXML
     public void apriRichiesteScheda() {
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/view/fxml/PTRichiesteScheda.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/PTRichiesteScheda.fxml"));
             Parent root = loader.load();
             Stage popupStage = new Stage();
             popupStage.initStyle(StageStyle.TRANSPARENT);
@@ -178,6 +170,26 @@ public class PTDashboardBoundary {
             popupStage.showAndWait();
         } catch (IOException e) {
             LogManager.error("Errore apertura richieste scheda", e);
+        }
+    }
+
+    @FXML
+    public void apriAssemblaScheda() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/PTRichiesteScheda.fxml"));
+            Parent root = loader.load();
+            Stage popupStage = new Stage();
+            popupStage.initStyle(StageStyle.TRANSPARENT);
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            PTRichiesteSchedaBoundary boundary = loader.getController();
+            boundary.setModalita(PTRichiesteSchedaBoundary.Modalita.IN_LAVORAZIONE);
+            boundary.caricaRichieste();
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            popupStage.setScene(scene);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -216,5 +228,19 @@ public class PTDashboardBoundary {
     @FXML
     public void tornaAllaDashboard() {
         Navigator.pushScene("/view/fxml/PTDashboard.fxml", "FitPlan - PersonalTrainerDashboard");
+    }
+
+    @FXML
+    public void handleLogout() {
+        // 1. Pulizia della sessione: impostiamo l'utente a null
+        // Questo è fondamentale per la sicurezza e per i check dei controller
+        Sessione.getInstance().setUtente(null);
+
+        // 2. Feedback (opzionale ma consigliato)
+        LogManager.info("Logout effettuato con successo. Reindirizzamento al login...");
+
+        // 3. Navigazione verso la schermata di Login
+        // Usiamo il tuo Navigator per cambiare scena
+        Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
     }
 }

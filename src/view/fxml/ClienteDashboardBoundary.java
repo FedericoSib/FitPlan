@@ -44,7 +44,6 @@ public class ClienteDashboardBoundary {
     @FXML private ImageView imgGestisciScheda2;
     @FXML private ImageView imgRichiediScheda2;
     @FXML private ImageView imgAssociaPT2;
-    @FXML private ImageView imgAvatar;
 
     @FXML
     public void initialize() {
@@ -76,12 +75,6 @@ public class ClienteDashboardBoundary {
             Image richiediScheda = new Image(getClass().getResourceAsStream("/view/Immages/RichiediScheda.png"));
             imgRichiediScheda.setImage(richiediScheda);
             imgRichiediScheda2.setImage(richiediScheda);
-        } catch (Exception e) {
-            LogManager.error(IMAGE_LOAD_ERROR, e);
-        }
-        try {
-            Image avatarBase = new Image(getClass().getResourceAsStream("/view/Immages/AvatarBase.png"));
-            imgAvatar.setImage(avatarBase);
         } catch (Exception e) {
             LogManager.error(IMAGE_LOAD_ERROR, e);
         }
@@ -286,8 +279,16 @@ public class ClienteDashboardBoundary {
     }
 
     @FXML
-    public void logout() {
+    public void handleLogout() {
+        // 1. Pulizia della sessione: impostiamo l'utente a null
+        // Questo è fondamentale per la sicurezza e per i check dei controller
         Sessione.getInstance().setUtente(null);
+
+        // 2. Feedback (opzionale ma consigliato)
+        LogManager.info("Logout effettuato con successo. Reindirizzamento al login...");
+
+        // 3. Navigazione verso la schermata di Login
+        // Usiamo il tuo Navigator per cambiare scena
         Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
     }
 }

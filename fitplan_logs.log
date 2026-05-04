@@ -5545,3 +5545,943 @@ mag 03, 2026 4:04:07 PM util.LogManager info
 INFO: ScadenzaRichiesteController avviato.
 mag 03, 2026 4:04:19 PM util.LogManager info
 INFO: Login effettuato con successo per: valerio@gmail.com
+mag 03, 2026 7:05:07 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 03, 2026 7:05:07 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 7:05:07 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 03, 2026 7:05:37 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 03, 2026 7:21:17 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 03, 2026 7:21:17 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 03, 2026 7:21:17 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 03, 2026 7:21:28 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 11:44:41 AM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 11:44:41 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 11:44:41 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 11:45:06 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 11:45:31 AM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 11:45:31 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 11:45:31 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 11:45:54 AM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 11:47:10 AM util.LogManager info
+INFO: Scheda inviata al cliente: federico@gmail.com
+mag 04, 2026 11:47:35 AM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 11:47:35 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 11:47:35 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 2:45:27 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 2:45:27 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 2:45:27 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 2:45:50 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 2:46:34 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 2:46:34 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 2:46:34 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 2:48:03 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 2:48:03 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 2:48:03 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 2:48:18 PM util.LogManager info
+INFO: Login effettuato con successo per: luca@test.it
+mag 04, 2026 2:48:41 PM util.LogManager info
+INFO: Richiesta salvata per cliente: luca@test.it
+mag 04, 2026 2:48:57 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 2:48:57 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 2:48:57 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 2:49:12 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 2:50:56 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 2:50:56 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 2:50:56 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 2:51:26 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 2:58:51 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 2:58:51 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 2:58:51 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 2:59:23 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 4:43:36 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 4:43:36 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 4:43:36 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 4:43:48 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 4:43:49 PM util.LogManager error
+SEVERE: ERRORE NAVIGATORE: Impossibile caricare /view/fxml/ClienteDashboard.fxml
+javafx.fxml.LoadException: Error resolving onAction='#handleLogout', either the event handler is not in the Namespace or there is an error in the script.
+/Z:/Universit%c3%a0/ISPW/Progetto%20ISPW/out/production/Progetto%20ISPW/view/fxml/ClienteDashboard.fxml:182
+
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2688)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$Element.processEventHandlerAttributes(FXMLLoader.java:610)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$ValueElement.processEndElement(FXMLLoader.java:770)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.processEndElement(FXMLLoader.java:2939)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2624)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at view.fxml.Navigator.pushScene(Navigator.java:28)
+	at view.fxml.LoginBoundary.procediAllaDashboard(LoginBoundary.java:63)
+	at view.fxml.LoginBoundary.gestisciAccesso(LoginBoundary.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1847)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Node.fireEvent(Node.java:9067)
+	at javafx.controls@25.0.2/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$MouseHandler.process(Scene.java:4061)
+	at javafx.graphics@25.0.2/javafx.scene.Scene.processMouseEvent(Scene.java:1947)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2784)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:353)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:255)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:387)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.handleMouseEvent(View.java:573)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.notifyMouse(View.java:975)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 04, 2026 4:45:26 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 4:45:26 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 4:45:26 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 4:45:39 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 4:45:40 PM util.LogManager error
+SEVERE: Impossibile caricare immagine: 
+java.lang.NullPointerException: Cannot invoke "javafx.scene.image.ImageView.setImage(javafx.scene.image.Image)" because "this.imgAvatar" is null
+	at view.fxml.ClienteDashboardBoundary.initialize(ClienteDashboardBoundary.java:84)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2658)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at view.fxml.Navigator.pushScene(Navigator.java:28)
+	at view.fxml.LoginBoundary.procediAllaDashboard(LoginBoundary.java:63)
+	at view.fxml.LoginBoundary.gestisciAccesso(LoginBoundary.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1847)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Node.fireEvent(Node.java:9067)
+	at javafx.controls@25.0.2/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$MouseHandler.process(Scene.java:4061)
+	at javafx.graphics@25.0.2/javafx.scene.Scene.processMouseEvent(Scene.java:1947)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2784)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:353)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:255)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:387)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.handleMouseEvent(View.java:573)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.notifyMouse(View.java:975)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 04, 2026 4:47:36 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 04, 2026 4:47:45 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 4:48:19 PM util.LogManager info
+INFO: Login effettuato con successo per: luca@test.it
+mag 04, 2026 4:48:20 PM util.LogManager error
+SEVERE: Impossibile caricare immagine: 
+java.lang.NullPointerException: Cannot invoke "javafx.scene.image.ImageView.setImage(javafx.scene.image.Image)" because "this.imgAvatar" is null
+	at view.fxml.ClienteDashboardBoundary.initialize(ClienteDashboardBoundary.java:84)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2658)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at view.fxml.Navigator.pushScene(Navigator.java:28)
+	at view.fxml.LoginBoundary.procediAllaDashboard(LoginBoundary.java:63)
+	at view.fxml.LoginBoundary.gestisciAccesso(LoginBoundary.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1847)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Node.fireEvent(Node.java:9067)
+	at javafx.controls@25.0.2/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$MouseHandler.process(Scene.java:4061)
+	at javafx.graphics@25.0.2/javafx.scene.Scene.processMouseEvent(Scene.java:1947)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2784)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:353)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:255)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:387)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.handleMouseEvent(View.java:573)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.notifyMouse(View.java:975)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 04, 2026 4:48:34 PM util.LogManager info
+INFO: Richiesta salvata per cliente: luca@test.it
+mag 04, 2026 4:48:41 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 4:48:53 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 4:48:55 PM util.LogManager error
+SEVERE: Impossibile caricare immagine: 
+java.lang.NullPointerException: Cannot invoke "javafx.scene.image.ImageView.setImage(javafx.scene.image.Image)" because "this.imgAvatar" is null
+	at view.fxml.PTDashboardBoundary.initialize(PTDashboardBoundary.java:83)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2658)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at view.fxml.Navigator.pushScene(Navigator.java:28)
+	at view.fxml.LoginBoundary.procediAllaDashboard(LoginBoundary.java:66)
+	at view.fxml.LoginBoundary.gestisciAccesso(LoginBoundary.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1847)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Node.fireEvent(Node.java:9067)
+	at javafx.controls@25.0.2/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$MouseHandler.process(Scene.java:4061)
+	at javafx.graphics@25.0.2/javafx.scene.Scene.processMouseEvent(Scene.java:1947)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2784)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:353)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:255)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:387)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.handleMouseEvent(View.java:573)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.notifyMouse(View.java:975)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 04, 2026 4:49:54 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 4:50:09 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 4:50:10 PM util.LogManager error
+SEVERE: Impossibile caricare immagine: 
+java.lang.NullPointerException: Cannot invoke "javafx.scene.image.ImageView.setImage(javafx.scene.image.Image)" because "this.imgAvatar" is null
+	at view.fxml.PTDashboardBoundary.initialize(PTDashboardBoundary.java:83)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2658)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at view.fxml.Navigator.pushScene(Navigator.java:28)
+	at view.fxml.LoginBoundary.procediAllaDashboard(LoginBoundary.java:66)
+	at view.fxml.LoginBoundary.gestisciAccesso(LoginBoundary.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1847)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Node.fireEvent(Node.java:9067)
+	at javafx.controls@25.0.2/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@25.0.2/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$MouseHandler.process(Scene.java:4061)
+	at javafx.graphics@25.0.2/javafx.scene.Scene.processMouseEvent(Scene.java:1947)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2784)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:353)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:255)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:387)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.handleMouseEvent(View.java:573)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.notifyMouse(View.java:975)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 04, 2026 4:59:49 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 4:59:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 4:59:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:00:06 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 5:00:30 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 04, 2026 5:00:33 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:00:45 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 5:06:41 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 5:06:41 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 5:06:41 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:06:57 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 5:07:06 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 04, 2026 5:07:09 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:07:22 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 5:13:00 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 5:13:00 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 5:13:00 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:13:11 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 5:13:21 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 04, 2026 5:13:23 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:13:37 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 5:22:40 PM util.LogManager info
+INFO: Sistema avviato in modalità: DEMO (In-Memory)
+mag 04, 2026 5:22:40 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 5:22:40 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:23:28 PM util.LogManager info
+INFO: Email disponibile: utente1@gmail.com
+mag 04, 2026 5:23:28 PM util.LogManager info
+INFO: Utente salvato: utente1@gmail.com
+mag 04, 2026 5:23:28 PM util.LogManager info
+INFO: Registrazione completata con successo. ID Generato: C-U1-0451723
+mag 04, 2026 5:23:53 PM util.LogManager info
+INFO: Email disponibile: trainer1@gmail.com
+mag 04, 2026 5:23:53 PM util.LogManager info
+INFO: Utente salvato: trainer1@gmail.com
+mag 04, 2026 5:23:53 PM util.LogManager info
+INFO: Registrazione completata con successo. ID Generato: PT-T1-0451723
+mag 04, 2026 5:24:05 PM util.LogManager info
+INFO: Login effettuato con successo per: utente1@gmail.com
+mag 04, 2026 5:24:08 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 04, 2026 5:24:12 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: tr
+mag 04, 2026 5:24:20 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: trainer
+mag 04, 2026 5:24:44 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: PT-T1-0451723
+mag 04, 2026 5:24:55 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: PT-T1-0451723
+mag 04, 2026 5:25:11 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: trainer1@gmail.com
+mag 04, 2026 5:25:22 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:25:35 PM util.LogManager info
+INFO: Login effettuato con successo per: trainer1@gmail.com
+mag 04, 2026 5:25:44 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:25:54 PM util.LogManager info
+INFO: Login effettuato con successo per: utente1@gmail.com
+mag 04, 2026 5:25:56 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 04, 2026 5:26:02 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: tr
+mag 04, 2026 5:26:12 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: Trainer
+mag 04, 2026 5:27:28 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 04, 2026 5:27:31 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: Coach
+mag 04, 2026 5:27:34 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: Coach
+mag 04, 2026 5:29:23 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 04, 2026 5:29:28 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: trainer
+mag 04, 2026 5:29:35 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: Zanna 
+mag 04, 2026 5:29:38 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: Zanna
+mag 04, 2026 5:29:53 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: Zanna
+mag 04, 2026 5:30:01 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:30:31 PM util.LogManager info
+INFO: Login effettuato con successo per: coach@test.it
+mag 04, 2026 5:30:42 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:30:58 PM util.LogManager info
+INFO: Login effettuato con successo per: mario@test.it
+mag 04, 2026 5:31:08 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 04, 2026 5:31:11 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: coach@test.it
+mag 04, 2026 5:31:17 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: coach@test.it
+mag 04, 2026 5:31:22 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:33:49 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 5:33:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 5:33:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:34:09 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 5:34:09 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 5:34:09 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:34:23 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 5:34:32 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 04, 2026 5:34:34 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:34:47 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 5:38:54 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 5:38:54 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 5:38:54 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:39:04 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 5:39:12 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 04, 2026 5:39:14 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:39:25 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 5:39:47 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:40:05 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 5:40:05 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 5:40:05 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:40:18 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 5:40:29 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 04, 2026 5:40:31 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:40:43 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 5:43:56 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 5:43:56 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 5:43:56 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:44:08 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 5:44:15 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 04, 2026 5:44:17 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 5:44:29 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 5:47:23 PM util.LogManager info
+INFO: Sistema avviato in modalità: DEMO (In-Memory)
+mag 04, 2026 5:47:23 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 5:47:23 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 5:49:26 PM util.LogManager info
+INFO: Login effettuato con successo per: mario@test.it
+mag 04, 2026 5:49:39 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 04, 2026 5:49:43 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: Coach
+mag 04, 2026 5:49:48 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 6:17:42 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 6:17:42 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 6:17:42 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 6:17:55 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 6:17:55 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 6:17:55 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 6:18:08 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 6:18:19 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 04, 2026 6:18:22 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 6:18:36 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 6:19:04 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 6:19:28 PM util.LogManager info
+INFO: Login effettuato con successo per: luca@test.it
+mag 04, 2026 6:19:41 PM util.LogManager info
+INFO: Richiesta salvata per cliente: luca@test.it
+mag 04, 2026 6:19:43 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 6:19:52 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 6:20:28 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 6:35:33 PM util.LogManager info
+INFO: Sistema avviato in modalità: DEMO (In-Memory)
+mag 04, 2026 6:35:33 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 6:35:33 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 6:35:46 PM util.LogManager info
+INFO: Sistema avviato in modalità: DEMO (In-Memory)
+mag 04, 2026 6:35:46 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 6:35:46 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 6:35:58 PM util.LogManager info
+INFO: Login effettuato con successo per: mario@test.it
+mag 04, 2026 6:36:00 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 04, 2026 6:36:07 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: Coach
+mag 04, 2026 6:45:51 PM util.LogManager info
+INFO: Sistema avviato in modalità: DEMO (In-Memory)
+mag 04, 2026 6:45:51 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 6:45:51 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 6:46:18 PM util.LogManager info
+INFO: Email disponibile: ttest@gmail.com
+mag 04, 2026 6:46:18 PM util.LogManager info
+INFO: Utente salvato: ttest@gmail.com
+mag 04, 2026 6:46:18 PM util.LogManager info
+INFO: Registrazione completata con successo. ID Generato: PT-T1-0451846
+mag 04, 2026 6:46:41 PM util.LogManager info
+INFO: Login effettuato con successo per: mario@test.it
+mag 04, 2026 6:46:44 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 04, 2026 6:46:52 PM util.LogManager info
+INFO: Ricerca completata per: Coach
+mag 04, 2026 6:46:58 PM util.LogManager info
+INFO: Ricerca completata per: trainer
+mag 04, 2026 6:47:00 PM util.LogManager info
+INFO: Invio richiesta tramite Bean da: mario@test.it a: ttest@gmail.com
+mag 04, 2026 6:47:00 PM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: mario@test.it
+mag 04, 2026 6:47:10 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 6:47:18 PM util.LogManager info
+INFO: Login effettuato con successo per: ttest@gmail.com
+mag 04, 2026 6:47:31 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 6:47:47 PM util.LogManager info
+INFO: Login effettuato con successo per: mario@test.it
+mag 04, 2026 6:48:12 PM util.LogManager info
+INFO: Richiesta salvata con successo per il PT: ttest@gmail.com
+mag 04, 2026 6:48:12 PM util.LogManager info
+INFO: Richiesta salvata per cliente: mario@test.it
+mag 04, 2026 6:48:14 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 6:48:25 PM util.LogManager info
+INFO: Login effettuato con successo per: ttest@gmail.com
+mag 04, 2026 6:49:01 PM util.LogManager info
+INFO: Scheda inviata al cliente: mario@test.it
+mag 04, 2026 6:49:08 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 7:01:23 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 7:01:23 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 7:01:23 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 7:01:37 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 7:01:44 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 7:01:57 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 7:07:43 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 7:07:43 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 7:07:43 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 7:08:08 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 7:08:48 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 7:08:48 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 7:08:48 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 7:09:00 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 04, 2026 7:09:56 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 04, 2026 7:10:09 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 7:25:30 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 7:25:30 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 7:25:30 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 7:25:42 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 7:25:44 PM util.LogManager error
+SEVERE: Errore apertura pop-up richieste (IO)
+javafx.fxml.LoadException: 
+/Z:/Universit%c3%a0/ISPW/Progetto%20ISPW/out/production/Progetto%20ISPW/view/fxml/PTRichiestePendenti.fxml:31
+
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2692)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2670)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at view.fxml.PTDashboardBoundary.apriRichiesteClienti(PTDashboardBoundary.java:139)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1847)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$ClickGenerator.postProcess(Scene.java:3765)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$MouseHandler.process(Scene.java:4070)
+	at javafx.graphics@25.0.2/javafx.scene.Scene.processMouseEvent(Scene.java:1947)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2784)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:353)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:255)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:387)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.handleMouseEvent(View.java:573)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.notifyMouse(View.java:975)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.UnsupportedOperationException: Cannot determine type for property.
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.BeanAdapter.getSetterMethod(BeanAdapter.java:168)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.BeanAdapter.isReadOnly(BeanAdapter.java:296)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$PropertyElement.<init>(FXMLLoader.java:1371)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.createElement(FXMLLoader.java:2847)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.processStartElement(FXMLLoader.java:2820)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2619)
+	... 42 more
+
+mag 04, 2026 7:31:49 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 7:31:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 7:31:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 7:32:01 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 7:32:02 PM util.LogManager error
+SEVERE: Errore apertura pop-up richieste (IO)
+javafx.fxml.LoadException: 
+/Z:/Universit%c3%a0/ISPW/Progetto%20ISPW/out/production/Progetto%20ISPW/view/fxml/PTRichiestePendenti.fxml:31
+
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2692)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2670)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2533)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2503)
+	at view.fxml.PTDashboardBoundary.apriRichiesteClienti(PTDashboardBoundary.java:139)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at javafx.base@25.0.2/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:112)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:78)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1847)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1718)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@25.0.2/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@25.0.2/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@25.0.2/javafx.event.Event.fireEvent(Event.java:199)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$ClickGenerator.postProcess(Scene.java:3765)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$MouseHandler.process(Scene.java:4070)
+	at javafx.graphics@25.0.2/javafx.scene.Scene.processMouseEvent(Scene.java:1947)
+	at javafx.graphics@25.0.2/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2784)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:353)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.get(GlassViewEventHandler.java:255)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@25.0.2/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:387)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.handleMouseEvent(View.java:573)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.View.notifyMouse(View.java:975)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.lang.UnsupportedOperationException: Cannot determine type for property.
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.BeanAdapter.getSetterMethod(BeanAdapter.java:168)
+	at javafx.fxml@25.0.2/com.sun.javafx.fxml.BeanAdapter.isReadOnly(BeanAdapter.java:296)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader$PropertyElement.<init>(FXMLLoader.java:1371)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.createElement(FXMLLoader.java:2847)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.processStartElement(FXMLLoader.java:2820)
+	at javafx.fxml@25.0.2/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2619)
+	... 42 more
+
+mag 04, 2026 7:32:36 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 7:32:36 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 7:32:36 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 7:32:50 PM util.LogManager info
+INFO: Login effettuato con successo per: valerio@gmail.com
+mag 04, 2026 7:33:25 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 04, 2026 7:33:25 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 04, 2026 7:33:25 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 04, 2026 7:33:44 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com

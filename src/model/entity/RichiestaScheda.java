@@ -10,6 +10,7 @@ public class RichiestaScheda implements Serializable {
     private String obiettivo; // Dimagrimento, Aumento massa, Mantenimento
     private int frequenzaSettimanale;
     private String note;
+    private StatoRichiesta stato = StatoRichiesta.PENDING;
 
     // Identificativi per collegare la richiesta agli utenti
     private String clienteEmail;
@@ -44,6 +45,9 @@ public class RichiestaScheda implements Serializable {
 
     public String getClienteEmail() { return clienteEmail; }
     public String getIdPersonalTrainer() { return idPersonalTrainer; }
+
+    public StatoRichiesta getStato() { return stato; }
+    public void setStato(StatoRichiesta stato) { this.stato = stato; }
 
     @Override
     public String toString() {

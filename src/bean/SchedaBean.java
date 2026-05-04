@@ -6,10 +6,10 @@ import java.util.List;
 public class SchedaBean {
     private String emailCliente;
     private String emailPT;
-    private List<EsercizioBean> esercizi = new ArrayList<>();
+    private List<GiornoSchedaBean> giorni = new ArrayList<>();
 
     public SchedaBean() {
-        //evitiamo il costruttore di default
+        //Evitiamo il costruttore di default
     }
 
     public String getEmailCliente() { return emailCliente; }
@@ -18,8 +18,6 @@ public class SchedaBean {
     public String getEmailPT() { return emailPT; }
     public void setEmailPT(String emailPT) { this.emailPT = emailPT; }
 
-    public List<EsercizioBean> getEsercizi() { return esercizi; }
-    public void setEsercizi(List<EsercizioBean> esercizi) { this.esercizi = esercizi; }
-
-    public void aggiungiEsercizio(EsercizioBean e) { this.esercizi.add(e); }
+    public List<GiornoSchedaBean> getGiorni() { return giorni; }
+    public void setGiorni(List<GiornoSchedaBean> giorni) { this.giorni = giorni; }
 }

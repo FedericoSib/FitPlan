@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.entity.RichiestaScheda;
+import model.entity.StatoRichiesta;
 import model.exception.DAOException;
 
 import java.io.*;
@@ -64,5 +65,37 @@ public class RichiestaDAOFile implements RichiestaDAO {
     public boolean esisteRichiestaAttiva(String emailCliente) throws DAOException {
         return prendiTutteLeRichieste().stream()
                 .anyMatch(r -> r.getClienteEmail().equalsIgnoreCase(emailCliente));
+    }
+
+    @Override
+    public void aggiornaStato(String emailCliente, StatoRichiesta nuovoStato) throws DAOException {
+        List<RichiestaScheda> tutte = prendiTutteLeRichieste();
+        boolean rigaModificata = false;
+
+        for (RichiestaScheda r : tutte) {
+            if (r.getClienteEmail().equalsIgnoreCase(emailCliente)) {
+                r.setStato(nuovoStato);
+                rigaModificata = true;
+            }
+        }
+        if (rigaModificata) {
+            salvaTuttaLaLista(tutte);
+        }
+    }
+
+    private void salvaTuttaLaLista(List<RichiestaScheda> lista) throws DAOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME, false))) {
+            oos.writeObject(lista);
+        } catch (IOException _) {
+            throw new DAOException("Errore critico durante la scrittura del file .dat");
+        }
+    }
+
+    @Override
+    public List<RichiestaScheda> prendiRichiestePerPTEStato(String emailPT, StatoRichiesta stato) throws DAOException {
+        return prendiTutteLeRichieste().stream()
+                .filter(r -> r.getIdPersonalTrainer().equalsIgnoreCase(emailPT)
+                        && r.getStato() == stato)
+                .toList();
     }
 }

@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.entity.RichiestaScheda;
+import model.entity.StatoRichiesta;
 import util.LogManager;
 import model.exception.*;
 import java.util.ArrayList;
@@ -53,6 +54,22 @@ public class RichiestaDAOMemory implements RichiestaDAO {
     public boolean esisteRichiestaAttiva(String emailCliente) throws DAOException {
         return storage.stream()
                 .anyMatch(r -> r.getClienteEmail().equalsIgnoreCase(emailCliente));
+    }
+
+    @Override
+    public void aggiornaStato(String emailCliente, StatoRichiesta stato) throws DAOException {
+        storage.stream()
+                .filter(r -> r.getClienteEmail().equalsIgnoreCase(emailCliente))
+                .findFirst()
+                .ifPresent(r -> r.setStato(stato));
+    }
+
+    @Override
+    public List<RichiestaScheda> prendiRichiestePerPTEStato(String emailPT, StatoRichiesta stato) {
+        return storage.stream()
+                .filter(r -> r.getIdPersonalTrainer().equalsIgnoreCase(emailPT)
+                        && r.getStato() == stato)
+                .toList();
     }
 
 }

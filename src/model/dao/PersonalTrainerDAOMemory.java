@@ -7,6 +7,10 @@ import java.util.List;
 public class PersonalTrainerDAOMemory implements PersonalTrainerDAO {
     private static final List<PersonalTrainer> listaPT = new ArrayList<>();
 
+    public static void aggiungiPT(PersonalTrainer pt) {
+        listaPT.add(pt);
+    }
+
     @Override
     public PersonalTrainer getPTByEmail(String email) {
         for (PersonalTrainer pt : listaPT) {
@@ -20,7 +24,7 @@ public class PersonalTrainerDAOMemory implements PersonalTrainerDAO {
     @Override
     public PersonalTrainer getPTById(String id) {
         for (PersonalTrainer pt : listaPT) {
-            if (pt.getId().equalsIgnoreCase(id)) {
+            if (pt.getId() != null && pt.getId().equalsIgnoreCase(id)) {
                 return pt;
             }
         }

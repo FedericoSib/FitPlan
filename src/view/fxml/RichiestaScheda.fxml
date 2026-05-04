@@ -49,8 +49,7 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <TextArea fx:id="txtNote" layoutX="80.0" layoutY="370.0" prefHeight="160.0" prefWidth="338.0" />
-      <Text fill="#aba2a2" layoutX="89.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aggiungi qui note come patologie, problematiche o eventuali interventi medici..." wrappingWidth="320.0" />
+      <TextArea fx:id="txtNote" layoutX="80.0" layoutY="365.0" prefHeight="160.0" prefWidth="338.0" promptText="Aggiungi qui note come patologie, problematiche o eventuali interventi medici..." wrapText="true" />
       <ImageView fx:id="imgFitplan" fitHeight="80.0" fitWidth="97.0" layoutX="183.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Progetto/LogoAppFitPlan.png" />

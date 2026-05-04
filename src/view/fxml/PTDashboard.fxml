@@ -130,7 +130,7 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="paneRichiedi" minHeight="400.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                        <AnchorPane fx:id="paneRichiedi" minHeight="400.0" onMouseClicked="#apriAssemblaScheda" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;">
                            <children>
                               <VBox prefHeight="399.0" prefWidth="628.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
                                  <padding>
@@ -166,11 +166,6 @@
                <children>
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#apriProfiloPersonale" prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="imgAvatar" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Progetto/AvatarBase.png" />
-                           </image>
-                        </ImageView>
                         <Label prefHeight="27.0" prefWidth="114.0" text="   Benvenuto" textAlignment="CENTER" textFill="#7f8c8d">
                            <font>
                               <Font size="16.0" />
@@ -184,6 +179,7 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
+                        <Button minWidth="63.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #FF5F56;" text="Logout" />
                      </children>
                      <VBox.margin>
                         <Insets />

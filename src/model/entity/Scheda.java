@@ -8,15 +8,15 @@ public class Scheda implements Serializable {
 
     private final String emailCliente;
     private final String emailPT;
-    private final List<Esercizio> esercizi;
+    private final List<GiornoScheda> giorni;
 
-    public Scheda(String emailCliente, String emailPT, List<Esercizio> esercizi) {
+    public Scheda(String emailCliente, String emailPT, List<GiornoScheda> giorni) {
         this.emailCliente = emailCliente;
         this.emailPT = emailPT;
-        this.esercizi = esercizi;
+        this.giorni = giorni;
     }
 
     public String getEmailCliente() { return emailCliente; }
     public String getEmailPT() { return emailPT; }
-    public List<Esercizio> getEsercizi() { return esercizi; }
+    public List<GiornoScheda> getGiorni() { return giorni; }
 }

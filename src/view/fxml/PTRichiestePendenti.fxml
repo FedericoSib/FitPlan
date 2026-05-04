@@ -27,7 +27,11 @@
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" />
-            <ListView fx:id="lvRichieste" prefHeight="438.0" prefWidth="504.0" VBox.vgrow="ALWAYS" />
+             <ListView fx:id="lvRichieste" prefHeight="438.0" prefWidth="504.0" VBox.vgrow="ALWAYS">
+                 <placeholder>
+                     <Label text="Nessuna nuova richiesta di associazione in attesa." />
+                 </placeholder>
+             </ListView>
             <HBox alignment="CENTER_RIGHT" prefHeight="25.0" spacing="10.0">
                <children>
                   <CheckBox maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleSelezionaTutti" text="Seleziona Tutti" HBox.hgrow="ALWAYS">

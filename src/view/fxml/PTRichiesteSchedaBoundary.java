@@ -37,6 +37,14 @@ public class PTRichiesteSchedaBoundary {
     @FXML private Button btnAssemblaSubito;
     @FXML private Button btnDopoAssembla;
 
+    public enum Modalita { NUOVE, IN_LAVORAZIONE }
+
+    private Modalita modalita = Modalita.NUOVE;
+
+    public void setModalita(Modalita modalita) {
+        this.modalita = modalita;
+    }
+
     private final AssemblaSchedaController controller = new AssemblaSchedaController();
 
     @FXML
@@ -66,16 +74,6 @@ public class PTRichiesteSchedaBoundary {
                         btnDopoAssembla.setDisable(false);
                     }
                 });
-    }
-
-    private void caricaRichieste() {
-        PersonalTrainer pt = (PersonalTrainer) Sessione.getInstance().getUtente();
-        try {
-            List<RichiestaSchedaBean> richieste = controller.getRichiestePerPT(pt.getEmail());
-            lvRichieste.setItems(FXCollections.observableArrayList(richieste));
-        } catch (DAOException e) {
-            LogManager.error("Errore caricamento richieste scheda", e);
-        }
     }
 
     private void mostraDettagli(RichiestaSchedaBean r) {
@@ -128,8 +126,38 @@ public class PTRichiesteSchedaBoundary {
 
     @FXML
     public void handleDopoAssembla() {
-        // Il PT decide di farlo dopo — chiude il popup
-        ((Stage) lvRichieste.getScene().getWindow()).close();
+        RichiestaSchedaBean selezionata = lvRichieste.getSelectionModel().getSelectedItem();
+        if (selezionata == null) return;
+
+        try {
+            controller.segnaInLavorazione(selezionata.getClienteEmail());
+            // Rimuove dalla lista visuale
+            lvRichieste.getItems().remove(selezionata);
+            vboxDettagli.setVisible(false);
+            vboxDettagli.setManaged(false);
+            btnAssemblaSubito.setDisable(true);
+            btnDopoAssembla.setDisable(true);
+        } catch (DAOException e) {
+            LogManager.error("Errore aggiornamento stato richiesta", e);
+        }
+    }
+
+    public void caricaRichieste() {
+        PersonalTrainer pt = (PersonalTrainer) Sessione.getInstance().getUtente();
+        try {
+            List<RichiestaSchedaBean> richieste = modalita == Modalita.IN_LAVORAZIONE
+                    ? controller.getRichiesteInLavorazione(pt.getEmail())
+                    : controller.getRichiestePerPT(pt.getEmail());
+            lvRichieste.setItems(FXCollections.observableArrayList(richieste));
+
+            // Nasconde "Assembla in Seguito" se siamo già in lavorazione
+            if (modalita == Modalita.IN_LAVORAZIONE) {
+                btnDopoAssembla.setVisible(false);
+                btnDopoAssembla.setManaged(false);
+            }
+        } catch (DAOException e) {
+            LogManager.error("Errore caricamento richieste scheda", e);
+        }
     }
 
     @FXML

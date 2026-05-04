@@ -14,10 +14,11 @@ public class UtenteDAOMemory implements UtenteDAO {
     private static final List<Utente> utenti = new ArrayList<>();
 
     public UtenteDAOMemory() {
-        // Possiamo aggiungere un utente "pre-caricato" per testare il login subito
         if (utenti.isEmpty()) {
             utenti.add(new Cliente("Mario", "Rossi", "mario@test.it", "pass123"));
-            utenti.add(new PersonalTrainer("Coach", "Zanna", "coach@test.it", "pass123"));
+            PersonalTrainer coachZanna = new PersonalTrainer("Coach", "Zanna", "coach@test.it", "pass123");
+            utenti.add(coachZanna);
+            PersonalTrainerDAOMemory.aggiungiPT(coachZanna);
         }
     }
 
@@ -28,6 +29,10 @@ public class UtenteDAOMemory implements UtenteDAO {
         }
         utenti.add(u);
         LogManager.info("Utente salvato: "+ u.getEmail());
+
+        if (u instanceof PersonalTrainer pt) {
+            PersonalTrainerDAOMemory.aggiungiPT(pt);
+        }
     }
 
     @Override

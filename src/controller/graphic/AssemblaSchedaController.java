@@ -2,11 +2,7 @@ package controller.graphic;
 
 import bean.*;
 import model.dao.DAOFactory;
-import model.dao.RichiestaDAO;
-import model.dao.SchedaDAO;
-import model.entity.Esercizio;
-import model.entity.RichiestaScheda;
-import model.entity.Scheda;
+import model.entity.*;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
 import util.LogManager;
@@ -18,9 +14,21 @@ import java.util.List;
 public class AssemblaSchedaController extends NotificaObservableBase {
 
     public List<RichiestaSchedaBean> getRichiestePerPT(String emailPT) throws DAOException {
-        RichiestaDAO dao = DAOFactory.getRichiestaDAO();
-        List<RichiestaScheda> entita = dao.prendiRichiestePerPT(emailPT);
+        return toBeanList(DAOFactory.getRichiestaDAO()
+                .prendiRichiestePerPTEStato(emailPT, StatoRichiesta.PENDING));
+    }
 
+    public List<RichiestaSchedaBean> getRichiesteInLavorazione(String emailPT) throws DAOException {
+        return toBeanList(DAOFactory.getRichiestaDAO()
+                .prendiRichiestePerPTEStato(emailPT, StatoRichiesta.IN_LAVORAZIONE));
+    }
+
+    public void segnaInLavorazione(String emailCliente) throws DAOException {
+        DAOFactory.getRichiestaDAO()
+                .aggiornaStato(emailCliente, StatoRichiesta.IN_LAVORAZIONE);
+    }
+
+    private List<RichiestaSchedaBean> toBeanList(List<RichiestaScheda> entita) {
         List<RichiestaSchedaBean> beans = new ArrayList<>();
         for (RichiestaScheda r : entita) {
             RichiestaSchedaBean bean = new RichiestaSchedaBean();
@@ -38,57 +46,47 @@ public class AssemblaSchedaController extends NotificaObservableBase {
     }
 
     public void inviaScheda(SchedaBean schedaBean) throws DAOException, InvalidFormException {
-        if (schedaBean.getEsercizi().isEmpty()) {
-            throw new InvalidFormException("La scheda deve contenere almeno un esercizio.");
+        if (schedaBean.getGiorni().isEmpty()) {
+            throw new InvalidFormException("La scheda deve contenere almeno un giorno.");
+        }
+        for (GiornoSchedaBean gb : schedaBean.getGiorni()) {
+            if (gb.getEsercizi().isEmpty()) {
+                throw new InvalidFormException("Il giorno '" + gb.getNome() +
+                        "' non contiene esercizi.");
+            }
         }
 
         // Trasformazione Bean → Entity
-        List<Esercizio> esercizi = new ArrayList<>();
-        for (EsercizioBean eb : schedaBean.getEsercizi()) {
-            esercizi.add(new Esercizio(
-                    eb.getNome(),
-                    eb.getSerie(),
-                    eb.getRipetizioni(),
-                    eb.getRecuperoSecondi(),
-                    eb.getNote() != null ? eb.getNote() : ""
-            ));
+        List<GiornoScheda> giorni = new ArrayList<>();
+        for (GiornoSchedaBean gb : schedaBean.getGiorni()) {
+            GiornoScheda giorno = new GiornoScheda(gb.getNome());
+            for (EsercizioBean eb : gb.getEsercizi()) {
+                giorno.aggiungiEsercizio(new Esercizio(
+                        eb.getNome(), eb.getSerie(), eb.getRipetizioni(),
+                        eb.getRecuperoSecondi(),
+                        eb.getNote() != null ? eb.getNote() : ""
+                ));
+            }
+            giorni.add(giorno);
         }
 
-        Scheda scheda = new Scheda(
-                schedaBean.getEmailCliente(),
-                schedaBean.getEmailPT(),
-                esercizi
-        );
+        Scheda scheda = new Scheda(schedaBean.getEmailCliente(),
+                schedaBean.getEmailPT(), giorni);
+        DAOFactory.getSchedaDAO().salvaScheda(scheda);
 
-        SchedaDAO dao = DAOFactory.getSchedaDAO();
-        dao.salvaScheda(scheda);
-
-        // Notifica al cliente
         notificaObserver(schedaBean.getEmailCliente(),
                 "Il tuo Personal Trainer ha assemblato e inviato la tua scheda di allenamento!");
 
-        // Rimuovi la richiesta soddisfatta
-        rimuoviRichiesta(schedaBean.getEmailCliente(), schedaBean.getEmailPT());
-
+        rimuoviRichiesta(schedaBean.getEmailCliente());
         LogManager.info("Scheda inviata al cliente: " + schedaBean.getEmailCliente());
     }
 
-    private void rimuoviRichiesta(String emailCliente, String emailPT) {
+    private void rimuoviRichiesta(String emailCliente) {
         try {
-            RichiestaDAO dao = DAOFactory.getRichiestaDAO();
-            List<RichiestaScheda> tutte = dao.prendiTutteLeRichieste();
-            tutte.stream()
-                    .filter(r -> r.getClienteEmail().equals(emailCliente) &&
-                                 r.getIdPersonalTrainer().equals(emailPT))
-                    .findFirst()
-                    .ifPresent(r -> {
-                        try { dao.cancellaRichiesta(r); }
-                        catch (Exception e) {
-                            LogManager.error("Errore rimozione richiesta", e);
-                        }
-                    });
+            DAOFactory.getRichiestaDAO()
+                    .aggiornaStato(emailCliente, StatoRichiesta.COMPLETATA);
         } catch (Exception e) {
-            LogManager.error("Errore accesso DAO richiesta", e);
+            LogManager.error("Errore aggiornamento stato richiesta", e);
         }
     }
 }

@@ -23,7 +23,7 @@
                </font>
             </Label>
             <ListView fx:id="lvRichieste" prefHeight="300">
-               <placeholder>
+                <placeholder>
                   <Label text="Nessuna richiesta di scheda in attesa." />
                </placeholder>
             </ListView>

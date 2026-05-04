@@ -12,11 +12,12 @@ import util.LogManager;
 public class RichiediSchedaController {
 
     public void elaboraRichiesta(RichiestaSchedaBean bean) throws InvalidFormException {
-        // Spostiamo la dichiarazione del DAO fuori per usarlo nel try
         RichiestaDAO dao = DAOFactory.getRichiestaDAO();
-
+        SchedaDAO schedaDao = DAOFactory.getSchedaDAO();
         try {
-            // 1. Controllo duplicati (ora è nel blocco try, quindi l'errore è gestito)
+            if (!schedaDao.getSchedePerCliente(bean.getClienteEmail()).isEmpty()) {
+                throw new InvalidFormException("Hai già una scheda assegnata. Per richiederne una nuova contatta il tuo PT.");
+            }
             if (dao.esisteRichiestaAttiva(bean.getClienteEmail())) {
                 throw new InvalidFormException("Attenzione: hai già una richiesta in attesa di valutazione.");
             }

@@ -15,64 +15,127 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="664.0" styleClass="corpo-banner" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxml.PTAssemblaSchedaBoundary">
-   <children>
-      <VBox layoutX="25.0" layoutY="30.0" prefHeight="650" prefWidth="600" spacing="12" styleClass="popup-container">
-         <padding>
-            <Insets bottom="20" left="20" right="20" top="20" />
-         </padding>
-         <children>
-            <Label styleClass="titolo-sezione" text="Assembla Scheda">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblDestinatario" styleClass="sottotitolo" />
-            <Separator />
-            <Label styleClass="sottotitolo" text="Aggiungi Esercizio:" />
-            <GridPane hgap="10" vgap="8">
-               <children>
-                  <Label text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <TextField fx:id="txtNome" prefWidth="200" promptText="es. Squat" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Label text="Serie:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Spinner fx:id="spSerie" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Ripetizioni:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Spinner fx:id="spRipetizioni" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label text="Recupero (sec):" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                  <Spinner fx:id="spRecupero" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label text="Note:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                  <TextField fx:id="txtNoteEsercizio" prefWidth="200" promptText="Opzionale" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-               </children>
-               <columnConstraints>
-                  <ColumnConstraints />
-                  <ColumnConstraints />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints />
-                  <RowConstraints />
-                  <RowConstraints />
-                  <RowConstraints />
-                  <RowConstraints />
-               </rowConstraints>
-            </GridPane>
-            <Button onAction="#handleAggiungiEsercizio" text="+ Aggiungi Esercizio" />
-            <Separator />
-            <Label text="Esercizi nella scheda:" />
-            <ListView fx:id="lvEsercizi" prefHeight="200">
-               <placeholder>
-                  <Label text="Nessun esercizio aggiunto." />
-               </placeholder>
-            </ListView>
-            <Button onAction="#handleRimuoviEsercizio" text="- Rimuovi Selezionato" />
-            <Separator />
-            <HBox alignment="CENTER" spacing="10">
-               <children>
-                  <Button onAction="#handleInviaScheda" styleClass="btn-primario" text="Invia Scheda" />
-                  <Button onAction="#handleAnnulla" styleClass="btn-rifiuto" text="Annulla" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <Button layoutX="642.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleAnnulla" styleClass="button-close" text="X" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="780.0" prefWidth="664.0"
+            styleClass="corpo-banner" stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.fxml.PTAssemblaSchedaBoundary">
+    <children>
+        <VBox layoutX="25.0" layoutY="30.0" prefHeight="720" prefWidth="600"
+              spacing="10" styleClass="popup-container">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <children>
+
+                <!-- TITOLO -->
+                <Label styleClass="titolo-sezione" text="Assembla Scheda">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblDestinatario" styleClass="sottotitolo" />
+
+                <Separator />
+
+                <!-- NAVIGAZIONE GIORNI -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Nome giorno:">
+                        <font><Font name="System Bold" size="13.0" /></font>
+                    </Label>
+                    <TextField fx:id="txtNomeGiorno" prefWidth="220"
+                               promptText="es. Lunedì - Gambe"
+                               onAction="#handleNomeGiornoChanged" />
+                    <Label fx:id="lblProgressoGiorni" styleClass="sottotitolo" />
+                </HBox>
+
+                <HBox alignment="CENTER" spacing="15">
+                    <Button text="← Precedente" onAction="#handleGiornoPrecedente"
+                            styleClass="btn-secondario" prefWidth="140"/>
+                    <Button text="Successivo →" onAction="#handleGiornoSuccessivo"
+                            styleClass="btn-secondario" prefWidth="140"/>
+                </HBox>
+
+                <Separator />
+
+                <!-- FORM AGGIUNTA ESERCIZIO -->
+                <Label styleClass="sottotitolo" text="Aggiungi Esercizio:">
+                    <font><Font name="System Bold" size="13.0" /></font>
+                </Label>
+
+                <GridPane hgap="10" vgap="8">
+                    <children>
+                        <Label text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="txtNome" prefWidth="220"
+                                   promptText="es. Squat"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Serie:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Spinner fx:id="spSerie" prefWidth="100"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Ripetizioni:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Spinner fx:id="spRipetizioni" prefWidth="100"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label text="Recupero (sec):" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Spinner fx:id="spRecupero" prefWidth="100"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        <Label text="Note:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <TextField fx:id="txtNoteEsercizio" prefWidth="220"
+                                   promptText="Opzionale"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120" />
+                        <ColumnConstraints minWidth="230" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="35" />
+                        <RowConstraints minHeight="35" />
+                        <RowConstraints minHeight="35" />
+                        <RowConstraints minHeight="35" />
+                        <RowConstraints minHeight="35" />
+                    </rowConstraints>
+                </GridPane>
+
+                <Button text="+ Aggiungi Esercizio" onAction="#handleAggiungiEsercizio"
+                        styleClass="btn-primario" prefWidth="200"/>
+
+                <Separator />
+
+                <!-- LISTA ESERCIZI GIORNO CORRENTE -->
+                <Label text="Esercizi nel giorno corrente:">
+                    <font><Font name="System Bold" size="13.0" /></font>
+                </Label>
+
+                <ListView fx:id="lvEsercizi" prefHeight="160">
+                    <placeholder>
+                        <Label text="Nessun esercizio aggiunto per questo giorno." />
+                    </placeholder>
+                </ListView>
+
+                <Button text="- Rimuovi Selezionato" onAction="#handleRimuoviEsercizio"
+                        styleClass="btn-rifiuto" prefWidth="200"/>
+
+                <Separator />
+
+                <!-- AZIONI FINALI -->
+                <HBox alignment="CENTER" spacing="15">
+                    <Button text="Invia Scheda" onAction="#handleInviaScheda"
+                            styleClass="btn-primario" prefWidth="160"/>
+                    <Button text="Annulla" onAction="#handleAnnulla"
+                            styleClass="btn-rifiuto" prefWidth="100"/>
+                </HBox>
+
+            </children>
+        </VBox>
+
+        <!-- BOTTONE CHIUDI -->
+        <Button layoutX="642.0" layoutY="6.0" mnemonicParsing="false"
+                onAction="#handleAnnulla" styleClass="button-close" text="X" />
+
+    </children>
 </AnchorPane>
