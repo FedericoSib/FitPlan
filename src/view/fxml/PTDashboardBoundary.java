@@ -189,7 +189,7 @@ public class PTDashboardBoundary {
             popupStage.setScene(scene);
             popupStage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            LogManager.error("Errore apertura assembla scheda", e);
         }
     }
 

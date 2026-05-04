@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Caso d'usso Accetta/Assembla scheda">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/richieste_associazione.csv" beforeDir="false" afterPath="$PROJECT_DIR$/richieste_associazione.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/richieste_fitplan.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schede_fitplan.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/SchedaBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/SchedaBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/AssemblaSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/AssemblaSchedaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/RichiediSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/RichiediSchedaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/PersonalTrainerDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PersonalTrainerDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/RichiestaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/RichiestaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/RichiestaDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/RichiestaDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/RichiestaDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/RichiestaDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/UtenteDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/UtenteDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/RichiestaScheda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/RichiestaScheda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/Scheda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Scheda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTAssemblaScheda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTAssemblaScheda.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTAssemblaSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTAssemblaSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendenti.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendenti.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiesteScheda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiesteScheda.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiesteSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiesteSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/RichiestaScheda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/RichiestaScheda.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix bug generali" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -401,7 +375,23 @@
       <option name="project" value="LOCAL" />
       <updated>1777817885364</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Fix bug generali">
+      <option name="closed" value="true" />
+      <created>1777916052933</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1777916052933</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Fix bug generali">
+      <option name="closed" value="true" />
+      <created>1777916267632</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1777916267632</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -414,6 +404,7 @@
     <MESSAGE value="Fix errori come il pop up richiedi scheda che non va giu dopo aver inviato la richiesta e la possibilita di mandare 2 richieste di scheda" />
     <MESSAGE value="continuo del precedente commit" />
     <MESSAGE value="Caso d'usso Accetta/Assembla scheda" />
-    <option name="LAST_COMMIT_MESSAGE" value="Caso d'usso Accetta/Assembla scheda" />
+    <MESSAGE value="Fix bug generali" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug generali" />
   </component>
 </project>
