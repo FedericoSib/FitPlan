@@ -14,8 +14,6 @@ import model.exception.InvalidFormException;
 import util.LogManager;
 import util.observer.NotificaManager;
 
-import java.util.ArrayList;
-
 public class PTAssemblaSchedaBoundary {
 
     @FXML private Label lblDestinatario;
