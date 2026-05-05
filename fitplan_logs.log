@@ -6601,3 +6601,45 @@ mag 05, 2026 3:05:30 AM util.LogManager info
 INFO: Scheda inviata al cliente: federico@gmail.com
 mag 05, 2026 3:05:36 AM util.LogManager info
 INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 05, 2026 1:03:16 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 05, 2026 1:03:16 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 05, 2026 1:03:16 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 05, 2026 1:03:29 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 05, 2026 1:04:59 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 05, 2026 1:04:59 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 05, 2026 1:04:59 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 05, 2026 1:05:11 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 05, 2026 1:05:45 PM util.LogManager info
+INFO: Progressi salvati per: Federico@gmail.com
+mag 05, 2026 1:06:24 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 05, 2026 1:06:33 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 05, 2026 1:06:50 PM util.LogManager info
+INFO: Progressi salvati per: Federico@gmail.com
+mag 05, 2026 1:10:49 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 05, 2026 1:10:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 05, 2026 1:10:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 05, 2026 1:11:03 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 05, 2026 1:18:08 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 05, 2026 1:18:08 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 05, 2026 1:18:08 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 05, 2026 1:18:22 PM util.LogManager info
+INFO: [CLI] Login effettuato per: federico@gmail.com
+mag 05, 2026 1:19:03 PM util.LogManager info
+INFO: [CLI] Progressi salvati per: Federico@gmail.com

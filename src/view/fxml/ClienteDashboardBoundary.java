@@ -164,6 +164,25 @@ public class ClienteDashboardBoundary {
     // --- AZIONI DEI BOTTONI ---
 
     @FXML
+    public void apriGestisciScheda() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/view/fxml/ClienteGestisciScheda.fxml"));
+            Parent root = loader.load();
+            Stage popupStage = new Stage();
+            popupStage.initStyle(StageStyle.TRANSPARENT);
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.initOwner(lblNomeUtente.getScene().getWindow());
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            popupStage.setScene(scene);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            LogManager.error("Errore apertura gestisci scheda", e);
+        }
+    }
+
+    @FXML
     public void avviaRichiestaScheda() {
         // Recupero dell'utente dalla sessione
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
@@ -193,7 +212,7 @@ public class ClienteDashboardBoundary {
 
             Stage popupStage = new Stage();
             popupStage.initModality(Modality.WINDOW_MODAL);
-            popupStage.initOwner(lblNomeUtente.getScene().getWindow()); // Usa una label qualsiasi della dashboard
+            popupStage.initOwner(lblNomeUtente.getScene().getWindow());
             popupStage.initStyle(StageStyle.TRANSPARENT);
 
             Scene scene = new Scene(root);

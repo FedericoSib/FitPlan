@@ -61,4 +61,8 @@ public class DAOFactory {
         if (demoMode) return new SchedaDAOMemory();
         else return new SchedaDAOFile();
     }
+    public static ProgressiDAO getProgressiDAO() {
+        if (demoMode) return new ProgressiDAOMemory();
+        else return new ProgressiDAOFile();
+    }
 }

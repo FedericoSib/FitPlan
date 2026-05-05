@@ -80,7 +80,7 @@
                         <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                      </padding>
                      <children>
-                        <AnchorPane fx:id="paneGestione" minHeight="400.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                        <AnchorPane fx:id="paneGestione" minHeight="400.0" onMouseClicked="#apriGestisciScheda" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;">
                            <children>
                               <VBox prefHeight="399.0" prefWidth="628.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
                                  <padding>

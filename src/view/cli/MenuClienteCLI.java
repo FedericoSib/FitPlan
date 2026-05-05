@@ -19,6 +19,7 @@ public class MenuClienteCLI {
             System.out.println("0. Logout");
             System.out.println("1. Cerca e associa Personal Trainer");
             System.out.println("2. Richiedi Scheda");
+            System.out.println("3. Gestisci scheda");
             System.out.print("Scelta: ");
 
             String scelta = scanner.nextLine().trim();
@@ -30,6 +31,7 @@ public class MenuClienteCLI {
                 }
                 case "1" -> new AssociaPTCLIBoundary(scanner).avvia();
                 case "2" -> new RichiediSchedaCLIBoundary(scanner).avvia();
+                case "3" -> new GestisciSchedaCLIBoundary(scanner).avvia();
                 default -> System.out.println("Scelta non valida.");
             }
         }
