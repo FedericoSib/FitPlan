@@ -8,7 +8,9 @@ public class ProgressiBean {
     private String note;
     private String data; // stringa formattata per la UI
 
-    public ProgressiBean() {}
+    public ProgressiBean() {
+        //evitiamo il costruttore di default
+    }
 
     public String getEmailCliente() { return emailCliente; }
     public void setEmailCliente(String emailCliente) { this.emailCliente = emailCliente; }

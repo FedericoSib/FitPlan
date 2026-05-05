@@ -16,6 +16,7 @@ public class AssemblaSchedaCLIBoundary {
 
     private final Scanner scanner;
     private final AssemblaSchedaCLIController controller;
+    public static final String SCELTANONVALIDA = "Scelta non valida.";
 
     public AssemblaSchedaCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
@@ -37,7 +38,7 @@ public class AssemblaSchedaCLIBoundary {
                 case "1" -> gestisciRichieste(false);
                 case "2" -> gestisciRichieste(true);
                 case "0" -> esci = true;
-                default  -> System.out.println("Scelta non valida.");
+                default  -> System.out.println(SCELTANONVALIDA);
             }
         }
     }
@@ -93,7 +94,7 @@ public class AssemblaSchedaCLIBoundary {
                         controller.segnaInLavorazione(selezionata.getClienteEmail());
                         System.out.println("Richiesta spostata in lavorazione.");
                     } else {
-                        System.out.println("Scelta non valida.");
+                        System.out.println(SCELTANONVALIDA);
                     }
                 }
                 default -> System.out.println("Operazione annullata.");
@@ -118,77 +119,92 @@ public class AssemblaSchedaCLIBoundary {
     }
 
     private void assemblaScheda(RichiestaSchedaBean richiesta) {
-        System.out.println("\n--- Assembla Scheda per " +
-                richiesta.getClienteEmail() + " ---");
-        System.out.println("Frequenza settimanale: " +
-                richiesta.getFrequenzaSettimanale() + " giorni");
+        System.out.println("\n--- Assembla Scheda per " + richiesta.getClienteEmail() + " ---");
+        System.out.println("Frequenza settimanale: " + richiesta.getFrequenzaSettimanale() + " giorni");
 
+        SchedaBean schedaBean = costruisciSchedaBean(richiesta);
+        inviaSchedaAssemblata(schedaBean, richiesta.getClienteEmail());
+    }
+
+    private SchedaBean costruisciSchedaBean(RichiestaSchedaBean richiesta) {
         SchedaBean schedaBean = new SchedaBean();
         schedaBean.setEmailCliente(richiesta.getClienteEmail());
         schedaBean.setEmailPT(Sessione.getInstance().getUtente().getEmail());
 
-        // Crea i giorni
         int totalGiorni = richiesta.getFrequenzaSettimanale();
         for (int i = 1; i <= totalGiorni; i++) {
             System.out.println("\n=== Giorno " + i + " di " + totalGiorni + " ===");
-
-            // Nome giorno
-            System.out.print("Nome giorno (Invio per 'Giorno " + i + "'): ");
-            String nomeGiorno = scanner.nextLine().trim();
-            if (nomeGiorno.isBlank()) nomeGiorno = "Giorno " + i;
-
-            GiornoSchedaBean giorno = new GiornoSchedaBean(nomeGiorno);
-
-            // Aggiunta esercizi
-            boolean continuaEsercizi = true;
-            while (continuaEsercizi) {
-                System.out.println("\n  Esercizi in " + nomeGiorno + ":");
-
-                // Mostra esercizi già aggiunti
-                List<EsercizioBean> esercizi = giorno.getEsercizi();
-                if (esercizi.isEmpty()) {
-                    System.out.println("  (nessun esercizio)");
-                } else {
-                    for (int j = 0; j < esercizi.size(); j++) {
-                        System.out.println("  " + (j + 1) + ". " + esercizi.get(j));
-                    }
-                }
-
-                System.out.println("\n  1. Aggiungi esercizio");
-                if (!esercizi.isEmpty()) System.out.println("  2. Rimuovi esercizio");
-                System.out.println("  0. Passa al giorno successivo" +
-                        (i == totalGiorni ? " / Invia scheda" : ""));
-                System.out.print("  Scelta: ");
-
-                String scelta = scanner.nextLine().trim();
-                switch (scelta) {
-                    case "1" -> {
-                        EsercizioBean e = raccogliEsercizio();
-                        if (e != null) giorno.aggiungiEsercizio(e);
-                    }
-                    case "2" -> {
-                        if (!esercizi.isEmpty()) rimuoviEsercizio(giorno);
-                    }
-                    case "0" -> {
-                        if (esercizi.isEmpty()) {
-                            System.out.println(
-                                    "  Aggiungi almeno un esercizio prima di continuare.");
-                        } else {
-                            continuaEsercizi = false;
-                        }
-                    }
-                    default -> System.out.println("  Scelta non valida.");
-                }
-            }
-
+            GiornoSchedaBean giorno = creaGiorno(i);
             schedaBean.getGiorni().add(giorno);
         }
+        return schedaBean;
+    }
 
-        // Invio scheda
+    private GiornoSchedaBean creaGiorno(int numeroGiorno) {
+        System.out.print("Nome giorno (Invio per 'Giorno " + numeroGiorno + "'): ");
+        String nomeGiorno = scanner.nextLine().trim();
+        if (nomeGiorno.isBlank()) nomeGiorno = "Giorno " + numeroGiorno;
+
+        GiornoSchedaBean giorno = new GiornoSchedaBean(nomeGiorno);
+        gestisciEserciziGiorno(giorno);
+        return giorno;
+    }
+
+    private void gestisciEserciziGiorno(GiornoSchedaBean giorno) {
+        boolean continua = true;
+        while (continua) {
+            mostraEserciziGiorno(giorno);
+            continua = gestisciAzioneEsercizio(giorno);
+        }
+    }
+
+    private void mostraEserciziGiorno(GiornoSchedaBean giorno) {
+        System.out.println("\n  Esercizi in " + giorno.getNome() + ":");
+        List<EsercizioBean> esercizi = giorno.getEsercizi();
+        if (esercizi.isEmpty()) {
+            System.out.println("  (nessun esercizio)");
+        } else {
+            for (int j = 0; j < esercizi.size(); j++) {
+                System.out.println("  " + (j + 1) + ". " + esercizi.get(j));
+            }
+        }
+        System.out.println("\n  1. Aggiungi esercizio");
+        if (!esercizi.isEmpty()) System.out.println("  2. Rimuovi esercizio");
+        System.out.println("  0. Passa al giorno successivo");
+        System.out.print("  Scelta: ");
+    }
+
+    // Restituisce true se il loop deve continuare, false se il giorno è completato
+    private boolean gestisciAzioneEsercizio(GiornoSchedaBean giorno) {
+        String scelta = scanner.nextLine().trim();
+        return switch (scelta) {
+            case "1" -> {
+                EsercizioBean e = raccogliEsercizio();
+                if (e != null) giorno.aggiungiEsercizio(e);
+                yield true;
+            }
+            case "2" -> {
+                if (!giorno.getEsercizi().isEmpty()) rimuoviEsercizio(giorno);
+                yield true;
+            }
+            case "0" -> {
+                if (giorno.getEsercizi().isEmpty()) {
+                    System.out.println("  Aggiungi almeno un esercizio prima di continuare.");
+                    yield true;
+                }
+                yield false;
+            }
+            default -> {
+                System.out.println("  Scelta non valida.");
+                yield true;
+            }
+        };
+    }
+
+    private void inviaSchedaAssemblata(SchedaBean schedaBean, String emailCliente) {
         try {
             controller.inviaScheda(schedaBean);
-            System.out.println("\nScheda inviata con successo a " +
-                    richiesta.getClienteEmail() + "!");
+            System.out.println("\nScheda inviata con successo a " + emailCliente + "!");
         } catch (InvalidFormException | DAOException e) {
             System.out.println("Errore: " + e.getMessage());
         }
@@ -239,7 +255,7 @@ public class AssemblaSchedaCLIBoundary {
         try {
             return Integer.parseInt(scelta) - 1;
         } catch (NumberFormatException _) {
-            System.out.println("Scelta non valida.");
+            System.out.println(SCELTANONVALIDA);
             return -2;
         }
     }

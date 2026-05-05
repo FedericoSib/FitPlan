@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="implementazione caso d'uso assembla scheda CLI">
+    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="implementazione caso d'uso gestisci scheda, grafico e CLI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notifiche/notifiche_federico@gmail.com.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/LogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/LogManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/ProgressiBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/ProgressiBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +411,23 @@
       <option name="project" value="LOCAL" />
       <updated>1777943446942</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="implementazione caso d'uso gestisci scheda, grafico e CLI">
+      <option name="closed" value="true" />
+      <created>1777980005135</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1777980005135</updated>
+    </task>
+    <task id="LOCAL-00042" summary="implementazione caso d'uso gestisci scheda, grafico e CLI">
+      <option name="closed" value="true" />
+      <created>1777980015599</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1777980015599</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -431,6 +442,7 @@
     <MESSAGE value="Caso d'usso Accetta/Assembla scheda" />
     <MESSAGE value="Fix bug generali" />
     <MESSAGE value="implementazione caso d'uso assembla scheda CLI" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementazione caso d'uso assembla scheda CLI" />
+    <MESSAGE value="implementazione caso d'uso gestisci scheda, grafico e CLI" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementazione caso d'uso gestisci scheda, grafico e CLI" />
   </component>
 </project>
