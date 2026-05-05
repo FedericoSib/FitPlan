@@ -139,10 +139,11 @@ public class PTDashboardBoundary {
             var dao = model.dao.DAOFactory.getAssociazioneDAO();
             java.util.List<String> richieste = dao.getRichiestePerPT(pt.getEmail());
             int count = richieste.size();
-
-            lblRichiesteAssociazione.setText(
-                    count == 0 ? "Nessuna richiesta in attesa"
-                            : count + " richiesta" + (count > 1 ? "e" : "") + " in attesa");
+            String singoplu = (count == 1) ? "a" : "e";
+            String messaggio = (count == 0)
+                    ? "Nessuna richiesta in attesa"
+                    : count + " richiest" + singoplu + " in attesa";
+            lblRichiesteAssociazione.setText(messaggio);
 
             // Ultime 3 email
             java.util.List<Label> labels = java.util.List.of(lblRichiesta1, lblRichiesta2, lblRichiesta3);
@@ -163,10 +164,11 @@ public class PTDashboardBoundary {
             var richieste = model.dao.DAOFactory.getRichiestaDAO()
                     .prendiRichiestePerPTEStato(pt.getEmail(), model.entity.StatoRichiesta.PENDING);
             int count = richieste.size();
-
-            lblRichiesteSchedePending.setText(
-                    count == 0 ? "Nessuna nuova richiesta scheda"
-                            : count + " nuova" + (count > 1 ? "e richieste" : " richiesta") + " in attesa");
+            String testoRichiesta = (count == 1) ? "nuova richiesta" : "nuove richieste";
+            String messaggio = (count == 0)
+                    ? "Nessuna nuova richiesta scheda"
+                    : count + " " + testoRichiesta + " in attesa";
+            lblRichiesteSchedePending.setText(messaggio);
         } catch (Exception e) {
             util.LogManager.error("Errore caricamento richieste schede", e);
         }
@@ -177,10 +179,11 @@ public class PTDashboardBoundary {
             var inLavorazione = model.dao.DAOFactory.getRichiestaDAO()
                     .prendiRichiestePerPTEStato(pt.getEmail(), model.entity.StatoRichiesta.IN_LAVORAZIONE);
             int count = inLavorazione.size();
-
-            lblSchedeInLavorazione.setText(
-                    count == 0 ? "Nessuna scheda in lavorazione"
-                            : count + " scheda" + (count > 1 ? "e" : "") + " in lavorazione");
+            String parolaScheda = (count == 1) ? "scheda" : "schede";
+            String messaggio = (count == 0)
+                    ? "Nessuna scheda in lavorazione"
+                    : count + " " + parolaScheda + " in lavorazione";
+            lblSchedeInLavorazione.setText(messaggio);
         } catch (Exception e) {
             util.LogManager.error("Errore caricamento schede in lavorazione", e);
         }
