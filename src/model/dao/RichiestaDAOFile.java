@@ -13,15 +13,9 @@ public class RichiestaDAOFile implements RichiestaDAO {
 
     @Override
     public void salvaRichiesta(RichiestaScheda richiesta) throws DAOException {
-        try {
-            List<RichiestaScheda> listaAttuale = prendiTutteLeRichieste();
-            listaAttuale.add(richiesta);
-            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-                oos.writeObject(listaAttuale);
-            }
-        } catch (IOException e) {
-            throw new DAOException("Errore durante il salvataggio: " + e.getMessage());
-        }
+            List<RichiestaScheda> lista = prendiTutteLeRichieste();
+            lista.add(richiesta);
+            salvaTuttaLaLista(lista);
     }
 
     @Override
@@ -43,10 +37,7 @@ public class RichiestaDAOFile implements RichiestaDAO {
         // Rimuoviamo la richiesta basandoci sull'uguaglianza dei dati
         lista.removeIf(r -> r.getClienteEmail().equals(richiesta.getClienteEmail()) &&
                 r.getObiettivo().equals(richiesta.getObiettivo()));
-
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            oos.writeObject(lista);
-        }
+        salvaTuttaLaLista(lista);
     }
 
     @Override
