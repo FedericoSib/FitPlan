@@ -94,11 +94,39 @@
                                                 <Image url="@immages/GestioneClienti.png" />
                                              </image>
                                           </ImageView>
-                                          <Label text="GESTIONE CLIENTI" textAlignment="CENTER" textFill="#2d3436">
-                                             <font>
-                                                <Font name="System Bold" size="22.0" />
-                                             </font>
-                                          </Label>
+                                          <VBox alignment="CENTER_LEFT" spacing="10">
+                                             <children>
+                                                <Label text="GESTIONE CLIENTI" textFill="#2d3436">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lblRichiesteAssociazione" text="Caricamento..." textFill="#636e72">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <VBox fx:id="vboxUltimeRichieste" spacing="4">
+                                                   <children>
+                                                      <Label fx:id="lblRichiesta1" text="" textFill="#636e72">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblRichiesta2" text="" textFill="#636e72">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblRichiesta3" text="" textFill="#636e72">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </HBox>
                                  </children>
@@ -112,18 +140,27 @@
                                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                  </padding>
                                  <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <HBox alignment="CENTER_LEFT" prefHeight="180.0" prefWidth="589.0" spacing="20">
                                        <children>
                                           <ImageView fx:id="imgNotifiche" fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@immages/GestisciScheda.png" />
+                                                <Image url="@../../../../../../Federico/Download/immages/GestisciScheda.png" />
                                              </image>
                                           </ImageView>
-                                          <Label text="RICHIESTE SCHEDE" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="System Bold" size="22.0" />
-                                             </font>
-                                          </Label>
+                                          <VBox alignment="CENTER_LEFT" spacing="10">
+                                             <children>
+                                                <Label text="RICHIESTE SCHEDE" textFill="#2d3436">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lblRichiesteSchedePending" text="Caricamento..." textFill="#636e72">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </HBox>
                                  </children>
@@ -137,18 +174,27 @@
                                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                  </padding>
                                  <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <HBox alignment="CENTER_LEFT" prefHeight="180.0" prefWidth="589.0" spacing="20">
                                        <children>
                                           <ImageView fx:id="imgAssemblaScheda" fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@immages/AssemblaScheda.png" />
+                                                <Image url="@../../../../../../Federico/Download/immages/AssemblaScheda.png" />
                                              </image>
                                           </ImageView>
-                                          <Label text="ASSEMBLA SCHEDA">
-                                             <font>
-                                                <Font name="System Bold" size="22.0" />
-                                             </font>
-                                          </Label>
+                                          <VBox alignment="CENTER_LEFT" spacing="10">
+                                             <children>
+                                                <Label text="ASSEMBLA SCHEDA" textFill="#2d3436">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lblSchedeInLavorazione" text="Caricamento..." textFill="#636e72">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </HBox>
                                  </children>

@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxml.ClienteDashboardBoundary">
@@ -94,11 +95,25 @@
                                                 <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/GestisciScheda.png" />
                                              </image>
                                           </ImageView>
-                                          <Label text="GESTIONE SCHEDA" textAlignment="CENTER" textFill="#2d3436">
-                                             <font>
-                                                <Font name="System Bold" size="22.0" />
-                                             </font>
-                                          </Label>
+                                          <VBox alignment="CENTER_LEFT" spacing="10">
+                                             <children>
+                                                <Label text="GESTIONE SCHEDA" textFill="#2d3436">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lblSchedaInfo" text="Caricamento..." textFill="#636e72">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lblSchedaDettaglio" text="" textFill="#636e72">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </HBox>
                                  </children>
@@ -119,11 +134,30 @@
                                                 <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/AssociaPT.png" />
                                              </image>
                                           </ImageView>
-                                          <Label text="ASSOCIA A PERSONAL TRAINER" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="System Bold" size="22.0" />
-                                             </font>
-                                          </Label>
+                                          <VBox alignment="CENTER_LEFT" spacing="12">
+                                             <children>
+                                                <Label text="ASSOCIA A PERSONAL TRAINER" textFill="#2d3436">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                                   <children>
+                                                      <Circle fx:id="cerchioStato" radius="10" />
+                                                      <Label fx:id="lblStatoAssociazione" text="Caricamento..." textFill="#636e72">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="lblNomePT" text="" textFill="#2d3436">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </HBox>
                                  </children>
@@ -144,11 +178,30 @@
                                                 <Image url="@../../../Progetto/Grafiche%20casi%20d'uso/RichiediScheda.png" />
                                              </image>
                                           </ImageView>
-                                          <Label text="RICHIEDI SCHEDA">
-                                             <font>
-                                                <Font name="System Bold" size="22.0" />
-                                             </font>
-                                          </Label>
+                                          <VBox alignment="CENTER_LEFT" spacing="10">
+                                             <children>
+                                                <Label text="RICHIEDI SCHEDA" textFill="#2d3436">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lblStatoRichiesta" text="Caricamento..." textFill="#636e72">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lblObiettivoRichiesta" text="" textFill="#636e72">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lblDataRichiesta" text="" textFill="#b2bec3">
+                                                   <font>
+                                                      <Font size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </HBox>
                                  </children>

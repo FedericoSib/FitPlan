@@ -3,16 +3,17 @@ package model;
 import model.entity.Utente;
 
 public class Sessione {
-    private static Sessione instance = null;
+
     private Utente utenteLoggato;
 
     private Sessione() {}
 
+    private static class SessioneHolder {
+        private static final Sessione INSTANCE = new Sessione();
+    }
+
     public static Sessione getInstance() {
-        if (instance == null) {
-            instance = new Sessione();
-        }
-        return instance;
+        return SessioneHolder.INSTANCE;
     }
 
     public void setUtente(Utente u) { this.utenteLoggato = u; }

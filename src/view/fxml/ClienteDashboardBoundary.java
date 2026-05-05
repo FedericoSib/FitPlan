@@ -2,6 +2,7 @@ package view.fxml;
 
 import config.*;
 import controller.graphic.RichiediSchedaController;
+import javafx.scene.shape.Circle;
 import model.dao.DAOFactory;
 import util.observer.*;
 import bean.UtenteBean;
@@ -44,6 +45,15 @@ public class ClienteDashboardBoundary {
     @FXML private ImageView imgGestisciScheda2;
     @FXML private ImageView imgRichiediScheda2;
     @FXML private ImageView imgAssociaPT2;
+    @FXML private Circle cerchioStato;
+    @FXML private Label lblStatoAssociazione;
+    @FXML private Label lblNomePT;
+    @FXML private Label lblStatoRichiesta;
+    @FXML private Label lblObiettivoRichiesta;
+    @FXML private Label lblDataRichiesta;
+    @FXML private Label lblSchedaInfo;
+    @FXML private Label lblSchedaDettaglio;
+
 
     @FXML
     public void initialize() {
@@ -84,6 +94,8 @@ public class ClienteDashboardBoundary {
         Cliente c = (Cliente) Sessione.getInstance().getUtente();
         NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
         manager.mostraNotifichePendenti(c.getEmail());
+
+        popolaInfoCard();
     }
 
     private void costruisciCalendarioDinamico() {
@@ -140,6 +152,86 @@ public class ClienteDashboardBoundary {
         popupStage.setScene(scene);
         popupStage.show();
     }
+
+    private void popolaInfoCard() {
+        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+        popolaCardAssociazione(cliente);
+        popolaCardRichiesta(cliente);
+        popolaCardScheda(cliente);
+    }
+    private void popolaCardAssociazione(Cliente cliente) {
+        StatoAssociazione stato = cliente.getStatoAssociazione();
+
+        switch (stato) {
+            case ASSOCIATO -> {
+                cerchioStato.setFill(javafx.scene.paint.Color.web("#00b894")); // verde
+                lblStatoAssociazione.setText("Associato");
+                lblNomePT.setText("Personal Trainer: " + cliente.getIdPersonalTrainer());
+            }
+            case PENDING -> {
+                cerchioStato.setFill(javafx.scene.paint.Color.web("#fdcb6e")); // giallo
+                lblStatoAssociazione.setText("Richiesta in attesa...");
+                lblNomePT.setText("In attesa di conferma dal PT");
+            }
+            default -> {
+                cerchioStato.setFill(javafx.scene.paint.Color.web("#d63031")); // rosso
+                lblStatoAssociazione.setText("Nessun Personal Trainer");
+                lblNomePT.setText("Clicca per cercare un PT");
+            }
+        }
+    }
+
+    private void popolaCardRichiesta(Cliente cliente) {
+        try {
+            var dao = model.dao.DAOFactory.getRichiestaDAO();
+            boolean haRichiesta = dao.esisteRichiestaAttiva(cliente.getEmail());
+
+            if (haRichiesta) {
+                // Cerca la richiesta attiva per mostrare i dettagli
+                var richieste = dao.prendiRichiestePerPT(cliente.getIdPersonalTrainer());
+                richieste.stream()
+                        .filter(r -> r.getClienteEmail().equalsIgnoreCase(cliente.getEmail()))
+                        .findFirst()
+                        .ifPresent(r -> {
+                            lblStatoRichiesta.setText("⏳ Richiesta in attesa");
+                            lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web("#fdcb6e"));
+                            lblObiettivoRichiesta.setText("Obiettivo: " + r.getObiettivo());
+                            lblDataRichiesta.setText("Frequenza: " + r.getFrequenzaSettimanale() + " giorni/settimana");
+                        });
+            } else {
+                lblStatoRichiesta.setText("Nessuna richiesta attiva");
+                lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web("#636e72"));
+                lblObiettivoRichiesta.setText(
+                        cliente.getStatoAssociazione() == StatoAssociazione.ASSOCIATO
+                                ? "Clicca per richiedere la tua scheda"
+                                : "Prima associati a un PT");
+                lblDataRichiesta.setText("");
+            }
+        } catch (Exception e) {
+            util.LogManager.error("Errore caricamento info richiesta", e);
+        }
+    }
+
+    private void popolaCardScheda(Cliente cliente) {
+        try {
+            var schede = model.dao.DAOFactory.getSchedaDAO()
+                    .getSchedePerCliente(cliente.getEmail());
+
+            if (schede.isEmpty()) {
+                lblSchedaInfo.setText("Nessuna scheda ancora disponibile");
+                lblSchedaInfo.setTextFill(javafx.scene.paint.Color.web("#d63031"));
+                lblSchedaDettaglio.setText("Richiedila ora al tuo Personal Trainer!");
+            } else {
+                var scheda = schede.get(schede.size() - 1);
+                lblSchedaInfo.setText("✓ Scheda disponibile");
+                lblSchedaInfo.setTextFill(javafx.scene.paint.Color.web("#00b894"));
+                lblSchedaDettaglio.setText(scheda.getGiorni().size() + " giorni di allenamento • Clicca per visualizzarla");
+            }
+        } catch (Exception e) {
+            util.LogManager.error("Errore caricamento info scheda", e);
+        }
+    }
+
 
     // --- LOGICA DI NAVIGAZIONE (SCROLL) ---
 

@@ -43,6 +43,13 @@ public class PTDashboardBoundary {
     @FXML private ImageView imgAssemblaScheda2;
     @FXML private ListView<AssociazioneBean> lvRichieste;
     @FXML private Label lblBenvenuto;
+    @FXML private Label lblRichiesteAssociazione;
+    @FXML private Label lblRichiesta1;
+    @FXML private Label lblRichiesta2;
+    @FXML private Label lblRichiesta3;
+    @FXML private Label lblRichiesteSchedePending;
+    @FXML private Label lblSchedeInLavorazione;
+
 
     @FXML
     public void initialize() {
@@ -82,6 +89,8 @@ public class PTDashboardBoundary {
         PersonalTrainer pt = (PersonalTrainer) Sessione.getInstance().getUtente();
         NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
         manager.mostraNotifichePendenti(pt.getEmail());
+
+        popolaInfoCard();
     }
 
     private void costruisciCalendarioDinamico() {
@@ -117,6 +126,66 @@ public class PTDashboardBoundary {
             gridCalendario.add(lblGiorno, colonna, riga);
         }
     }
+
+    private void popolaInfoCard() {
+        PersonalTrainer pt = (PersonalTrainer) Sessione.getInstance().getUtente();
+        popolaCardGestioneClienti(pt);
+        popolaCardRichiesteSchede(pt);
+        popolaCardAssemblaScheda(pt);
+    }
+
+    private void popolaCardGestioneClienti(PersonalTrainer pt) {
+        try {
+            var dao = model.dao.DAOFactory.getAssociazioneDAO();
+            java.util.List<String> richieste = dao.getRichiestePerPT(pt.getEmail());
+            int count = richieste.size();
+
+            lblRichiesteAssociazione.setText(
+                    count == 0 ? "Nessuna richiesta in attesa"
+                            : count + " richiesta" + (count > 1 ? "e" : "") + " in attesa");
+
+            // Ultime 3 email
+            java.util.List<Label> labels = java.util.List.of(lblRichiesta1, lblRichiesta2, lblRichiesta3);
+            for (int i = 0; i < labels.size(); i++) {
+                if (i < richieste.size()) {
+                    labels.get(i).setText("• " + richieste.get(i));
+                } else {
+                    labels.get(i).setText("");
+                }
+            }
+        } catch (Exception e) {
+            util.LogManager.error("Errore caricamento richieste associazione", e);
+        }
+    }
+
+    private void popolaCardRichiesteSchede(PersonalTrainer pt) {
+        try {
+            var richieste = model.dao.DAOFactory.getRichiestaDAO()
+                    .prendiRichiestePerPTEStato(pt.getEmail(), model.entity.StatoRichiesta.PENDING);
+            int count = richieste.size();
+
+            lblRichiesteSchedePending.setText(
+                    count == 0 ? "Nessuna nuova richiesta scheda"
+                            : count + " nuova" + (count > 1 ? "e richieste" : " richiesta") + " in attesa");
+        } catch (Exception e) {
+            util.LogManager.error("Errore caricamento richieste schede", e);
+        }
+    }
+
+    private void popolaCardAssemblaScheda(PersonalTrainer pt) {
+        try {
+            var inLavorazione = model.dao.DAOFactory.getRichiestaDAO()
+                    .prendiRichiestePerPTEStato(pt.getEmail(), model.entity.StatoRichiesta.IN_LAVORAZIONE);
+            int count = inLavorazione.size();
+
+            lblSchedeInLavorazione.setText(
+                    count == 0 ? "Nessuna scheda in lavorazione"
+                            : count + " scheda" + (count > 1 ? "e" : "") + " in lavorazione");
+        } catch (Exception e) {
+            util.LogManager.error("Errore caricamento schede in lavorazione", e);
+        }
+    }
+
     @FXML
     public void scrollaGestione() {
         scrollPrincipale.setVvalue(0.0);
