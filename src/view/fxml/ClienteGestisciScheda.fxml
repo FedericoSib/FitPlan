@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="650.0" prefWidth="680.0"
+            styleClass="corpo-banner" stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.fxml.ClienteGestisciSchedaBoundary">
+    <children>
+
+        <VBox layoutX="25.0" layoutY="30.0"
+              prefHeight="590" prefWidth="620"
+              spacing="10" styleClass="popup-container">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20"/>
+            </padding>
+            <children>
+
+                <Label text="La mia scheda" styleClass="titolo-sezione">
+                    <font><Font name="System Bold" size="20.0"/></font>
+                </Label>
+
+                <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+
+                    <!-- TAB 1: VISUALIZZA SCHEDA -->
+                    <Tab text="La mia scheda">
+                        <content>
+                            <VBox spacing="10">
+                                <padding>
+                                    <Insets top="10" bottom="10" left="5" right="5"/>
+                                </padding>
+
+                                <!-- Selezione giorno -->
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <Label text="Giorno:">
+                                        <font><Font name="System Bold" size="13.0"/></font>
+                                    </Label>
+                                    <ChoiceBox fx:id="cbGiorni" prefWidth="250"/>
+                                </HBox>
+
+                                <!-- Lista esercizi del giorno -->
+                                <Label text="Esercizi:">
+                                    <font><Font name="System Bold" size="13.0"/></font>
+                                </Label>
+                                <ListView fx:id="lvEsercizi" prefHeight="280">
+                                    <placeholder>
+                                        <Label text="Seleziona un giorno per vedere gli esercizi."/>
+                                    </placeholder>
+                                </ListView>
+                            </VBox>
+                        </content>
+                    </Tab>
+
+                    <!-- TAB 2: REGISTRA SESSIONE -->
+                    <Tab text="Registra sessione">
+                        <content>
+                            <VBox spacing="10">
+                                <padding>
+                                    <Insets top="10" bottom="10" left="5" right="5"/>
+                                </padding>
+
+                                <Label text="Registra i tuoi progressi:">
+                                    <font><Font name="System Bold" size="13.0"/></font>
+                                </Label>
+
+                                <GridPane hgap="10" vgap="8">
+                                    <children>
+                                        <Label text="Esercizio:"
+                                               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                        <ChoiceBox fx:id="cbEsercizi" prefWidth="220"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                                        <Label text="Carico (kg):"
+                                               GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                        <TextField fx:id="txtCarico" prefWidth="100"
+                                                   promptText="es. 80.5"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                                        <Label text="Ripetizioni:"
+                                               GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                        <Spinner fx:id="spRipetizioni" prefWidth="100"
+                                                 GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                                        <Label text="Note:"
+                                               GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                                        <TextField fx:id="txtNote" prefWidth="220"
+                                                   promptText="Opzionale"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints minWidth="110"/>
+                                        <ColumnConstraints minWidth="230"/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="35"/>
+                                        <RowConstraints minHeight="35"/>
+                                        <RowConstraints minHeight="35"/>
+                                        <RowConstraints minHeight="35"/>
+                                    </rowConstraints>
+                                </GridPane>
+
+                                <Button text="Salva Progressi"
+                                        onAction="#handleSalvaProgressi"
+                                        styleClass="btn-primario" prefWidth="180"/>
+
+                                <Separator/>
+
+                                <!-- Storico -->
+                                <Label text="Storico sessioni:">
+                                    <font><Font name="System Bold" size="13.0"/></font>
+                                </Label>
+                                <ListView fx:id="lvStorico" prefHeight="180">
+                                    <placeholder>
+                                        <Label text="Nessuna sessione registrata."/>
+                                    </placeholder>
+                                </ListView>
+                            </VBox>
+                        </content>
+                    </Tab>
+
+                </TabPane>
+
+                <!-- CHIUDI -->
+                <HBox alignment="CENTER_RIGHT">
+                    <Button text="Chiudi" onAction="#handleChiudi"
+                            styleClass="btn-rifiuto"/>
+                </HBox>
+
+            </children>
+        </VBox>
+
+        <Button layoutX="658.0" layoutY="6.0"
+                onAction="#handleChiudi"
+                styleClass="button-close" text="X"/>
+
+    </children>
+</AnchorPane>
