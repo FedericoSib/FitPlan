@@ -7629,3 +7629,15 @@ mag 06, 2026 1:09:59 PM util.LogManager info
 INFO: Stato del cliente in sessione aggiornato a PENDING.
 mag 06, 2026 1:10:04 PM util.LogManager info
 INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 1:21:07 PM util.LogManager info
+INFO: Sistema avviato in modalità: DEMO (In-Memory)
+mag 06, 2026 1:21:07 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 1:21:07 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 1:25:44 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 1:25:44 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 1:25:44 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.

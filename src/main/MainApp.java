@@ -12,21 +12,23 @@ import java.util.Scanner;
 public class MainApp extends javafx.application.Application {
 
     private static ScadenzaRichiesteController scadenzaController;
+    private static final int MAX_TENTATIVI = 3;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("=== FitPlan ===");
-        System.out.println("1. Avvia interfaccia grafica (GUI)");
-        System.out.println("2. Avvia interfaccia testuale (CLI)");
-        System.out.print("Scelta: ");
 
-        String scelta = scanner.nextLine().trim();
+        int modalitaUI = leggiScelta(scanner,
+                "=== FitPlan ===\n1. Avvia interfaccia grafica (GUI)\n2. Avvia interfaccia testuale (CLI)",
+                1, 2);
 
-        // Setup comune a entrambe le modalità
-        DAOFactory.setMode(sceltaModalitaDAO(scanner));
+        int modalitaDAO = leggiScelta(scanner,
+                "Modalità dati:\n1. DEMO (In-Memory)\n2. FULL (File)",
+                1, 2);
+
+        DAOFactory.setMode(modalitaDAO);
         avviaScadenzaController();
 
-        if (scelta.equals("2")) {
+        if (modalitaUI == 2) {
             new MenuPrincipaleCLI(scanner).avvia();
             scadenzaController.ferma();
         } else {
@@ -34,11 +36,42 @@ public class MainApp extends javafx.application.Application {
         }
     }
 
+    private static int leggiScelta(Scanner scanner, String prompt, int min, int max) {
+        System.out.println(prompt);
+        int tentativi = 0;
+
+        while (tentativi < MAX_TENTATIVI) {
+            System.out.print("Scelta (" + min + "-" + max + "): ");
+            String input = scanner.nextLine().trim();
+
+            try {
+                int scelta = Integer.parseInt(input);
+                if (scelta >= min && scelta <= max) {
+                    return scelta;
+                }
+                System.out.println("Inserisci un numero tra " + min + " e " + max + ".");
+            } catch (NumberFormatException _) {
+                System.out.println("Input non valido. Inserisci un numero.");
+            }
+
+            tentativi++;
+            int rimasti = MAX_TENTATIVI - tentativi;
+            if (rimasti > 0) {
+                System.out.println("Tentativi rimanenti: " + rimasti);
+            }
+        }
+
+        System.out.println("Troppi tentativi falliti. Chiusura applicazione.");
+        System.exit(1);
+        return -1; // irraggiungibile, richiesto dal compilatore
+    }
+
     @Override
     public void start(javafx.stage.Stage primaryStage) throws Exception {
         Navigator.setPrimaryStage(primaryStage);
         javafx.fxml.FXMLLoader loader =
-                new javafx.fxml.FXMLLoader(getClass().getResource("/view/fxml/Login.fxml"));
+                new javafx.fxml.FXMLLoader(
+                        getClass().getResource("/view/fxml/Login.fxml"));
         javafx.scene.Parent root = loader.load();
         primaryStage.setTitle("FitPlan");
         primaryStage.setScene(new javafx.scene.Scene(root));
@@ -50,18 +83,9 @@ public class MainApp extends javafx.application.Application {
         if (scadenzaController != null) scadenzaController.ferma();
     }
 
-    private static int sceltaModalitaDAO(Scanner scanner) {
-        System.out.println("Modalità dati:");
-        System.out.println("1. DEMO (In-Memory)");
-        System.out.println("2. FULL (File)");
-        System.out.print("Scelta: ");
-        String s = scanner.nextLine().trim();
-        return s.equals("1") ? 1 : 2;
-    }
-
     private static void avviaScadenzaController() {
         scadenzaController = new ScadenzaRichiesteController();
-        NotificaManager manager = new NotificaManager(model.dao.DAOFactory.getNotificaDAO());
+        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
         scadenzaController.aggiungiObserver(manager);
         scadenzaController.avvia();
         LogManager.info("ScadenzaRichiesteController avviato.");
