@@ -8293,3 +8293,9 @@ mag 06, 2026 4:39:33 PM util.LogManager info
 INFO: StatoRichiesta PRIMA: COMPLETATA
 mag 06, 2026 4:39:33 PM util.LogManager info
 INFO: StatoRichiesta DOPO: COMPLETATA
+mag 06, 2026 5:19:49 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 5:19:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 5:19:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.

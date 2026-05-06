@@ -6,13 +6,19 @@ import util.LogManager;
 import util.observer.NotificaManager;
 import view.cli.MenuPrincipaleCLI;
 import view.fxml.Navigator;
-
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import java.util.Scanner;
 
-public class MainApp extends javafx.application.Application {
-    private static final String ICON_PATH = "/view/immages/logo.png";
+public class MainApp extends Application {
+
     private static ScadenzaRichiesteController scadenzaController;
     private static final int MAX_TENTATIVI = 3;
+    private static final String DEFAULT_ICON = "/view/immages/logo.png";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -67,18 +73,25 @@ public class MainApp extends javafx.application.Application {
     }
 
     @Override
-    public void start(javafx.stage.Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
         Navigator.setPrimaryStage(primaryStage);
-        javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(
-                getClass().getResource("/view/fxml/Login.fxml"));
-        javafx.scene.Parent root = loader.load();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/Login.fxml"));
+        Parent root = loader.load();
+
         primaryStage.setTitle("FitPlan");
-        try {
-            primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResourceAsStream(ICON_PATH)));
-        } catch (Exception e) {
-            LogManager.error("Impossibile caricare l'icona dell'applicazione.", e);
+
+        String iconPath = System.getProperty("app.icon", DEFAULT_ICON);
+        java.net.URL iconUrl = getClass().getResource(iconPath);
+
+        if (iconUrl != null) {
+            primaryStage.getIcons().add(new Image(iconUrl.toExternalForm()));
+        } else {
+            LogManager.info("Icona non trovata al percorso specificato.");
         }
-        primaryStage.setScene(new javafx.scene.Scene(root));
+
+        primaryStage.setScene(new Scene(root));
+
         primaryStage.show();
         primaryStage.requestFocus();
         primaryStage.toFront();
