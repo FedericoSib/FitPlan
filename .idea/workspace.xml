@@ -8,18 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/richieste_associazione.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/richieste_fitplan.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/PersonalTrainerDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PersonalTrainerDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/UtenteDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/UtenteDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/UtenteDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/UtenteDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/PersonalTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/PersonalTrainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Utente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/Registrazione.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/Registrazione.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/RichiestaScheda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/RichiestaScheda.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/SchermataErroreNoPT.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/SchermataErroreNoPT.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utenti_fitplan.dat" beforeDir="false" afterPath="$PROJECT_DIR$/utenti_fitplan.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +53,7 @@
     &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -487,7 +477,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778066768349</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Ultimi ritocchi di stile">
+      <option name="closed" value="true" />
+      <created>1778073262704</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1778073262704</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

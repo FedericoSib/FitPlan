@@ -7811,3 +7811,485 @@ mag 06, 2026 2:24:24 PM util.LogManager info
 INFO: Richieste trovate al login: 0
 mag 06, 2026 2:24:24 PM util.LogManager info
 INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:22:30 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:22:30 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:22:30 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:22:31 PM util.LogManager error
+SEVERE: Impossibile caricare l'icona dell'applicazione.
+java.lang.NullPointerException: Input stream must not be null
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.validateInputStream(Image.java:1142)
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.<init>(Image.java:709)
+	at main.MainApp.start(MainApp.java:77)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$4(LauncherImpl.java:845)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$0(PlatformImpl.java:449)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 06, 2026 3:24:18 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:24:18 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:24:18 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:24:18 PM util.LogManager error
+SEVERE: Impossibile caricare l'icona dell'applicazione.
+java.lang.NullPointerException: Input stream must not be null
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.validateInputStream(Image.java:1142)
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.<init>(Image.java:709)
+	at main.MainApp.start(MainApp.java:77)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$4(LauncherImpl.java:845)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$0(PlatformImpl.java:449)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 06, 2026 3:24:31 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:24:31 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:24:31 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:24:32 PM util.LogManager error
+SEVERE: Impossibile caricare l'icona dell'applicazione.
+java.lang.NullPointerException: Input stream must not be null
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.validateInputStream(Image.java:1142)
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.<init>(Image.java:709)
+	at main.MainApp.start(MainApp.java:77)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$4(LauncherImpl.java:845)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$0(PlatformImpl.java:449)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 06, 2026 3:24:57 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:24:57 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:24:57 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:24:58 PM util.LogManager error
+SEVERE: Impossibile caricare l'icona dell'applicazione.
+java.lang.NullPointerException: Input stream must not be null
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.validateInputStream(Image.java:1142)
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.<init>(Image.java:709)
+	at main.MainApp.start(MainApp.java:77)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$4(LauncherImpl.java:845)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$0(PlatformImpl.java:449)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 06, 2026 3:27:43 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:27:43 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:27:43 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:27:43 PM util.LogManager error
+SEVERE: Impossibile caricare l'icona dell'applicazione.
+java.lang.NullPointerException: Input stream must not be null
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.validateInputStream(Image.java:1142)
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.<init>(Image.java:709)
+	at main.MainApp.start(MainApp.java:77)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$4(LauncherImpl.java:845)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$0(PlatformImpl.java:449)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 06, 2026 3:27:52 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:27:52 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:27:52 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:27:52 PM util.LogManager error
+SEVERE: Impossibile caricare l'icona dell'applicazione.
+java.lang.NullPointerException: Input stream must not be null
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.validateInputStream(Image.java:1142)
+	at javafx.graphics@25.0.2/javafx.scene.image.Image.<init>(Image.java:709)
+	at main.MainApp.start(MainApp.java:77)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$4(LauncherImpl.java:845)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$0(PlatformImpl.java:449)
+	at javafx.graphics@25.0.2/com.sun.javafx.application.PlatformImpl.lambda$runLater$0(PlatformImpl.java:424)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$0(WinApplication.java:173)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+mag 06, 2026 3:29:19 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:29:19 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:29:19 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:45:04 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:45:04 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:45:04 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:46:59 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:46:59 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:46:59 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:47:10 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 3:47:10 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:48:08 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:48:08 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:48:08 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:49:00 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:49:00 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:49:00 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:49:10 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 3:49:10 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:51:35 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:51:35 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:51:35 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:52:12 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:52:12 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:52:12 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:52:25 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 3:52:25 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:52:43 PM util.LogManager info
+INFO: Ricerca completata per: Ale
+mag 06, 2026 3:52:45 PM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: AlessandraR@gmail.com
+mag 06, 2026 3:52:45 PM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 06, 2026 3:52:47 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 3:52:59 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 3:53:48 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:53:48 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:53:48 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:54:31 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:54:31 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:54:31 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:54:41 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 3:54:41 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:56:11 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:56:11 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:56:11 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:56:23 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 3:56:23 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:56:48 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:56:48 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:56:48 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:56:55 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 3:56:55 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:57:08 PM util.LogManager info
+INFO: Ricerca completata per: Ale
+mag 06, 2026 3:57:11 PM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: AlessandraR@gmail.com
+mag 06, 2026 3:57:11 PM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 06, 2026 3:57:46 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:57:46 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:57:46 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:57:54 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 3:57:54 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:58:35 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 3:58:35 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 3:58:35 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 3:58:43 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 3:58:43 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:58:56 PM util.LogManager info
+INFO: Ricerca completata per: ale
+mag 06, 2026 3:58:58 PM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: AlessandraR@gmail.com
+mag 06, 2026 3:58:58 PM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 06, 2026 3:59:00 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 3:59:10 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 3:59:20 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 3:59:29 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 3:59:29 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 3:59:50 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 06, 2026 3:59:50 PM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 06, 2026 4:00:01 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:00:16 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 4:00:33 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:00:59 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 4:00:59 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 4:00:59 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 4:01:13 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 4:01:13 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:01:31 PM util.LogManager info
+INFO: Ricerca completata per: ale
+mag 06, 2026 4:01:32 PM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: AlessandraR@gmail.com
+mag 06, 2026 4:01:32 PM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 06, 2026 4:01:33 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:01:42 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 4:01:50 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:02:00 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 4:02:00 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:02:16 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 06, 2026 4:02:16 PM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 06, 2026 4:02:19 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:03:09 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 4:03:09 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 4:03:09 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 4:03:23 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 4:03:23 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:03:38 PM util.LogManager info
+INFO: Ricerca completata per: Ale
+mag 06, 2026 4:03:40 PM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: AlessandraR@gmail.com
+mag 06, 2026 4:03:40 PM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 06, 2026 4:03:41 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:03:54 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 4:04:03 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:04:12 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 4:04:12 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:04:26 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 06, 2026 4:04:26 PM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 06, 2026 4:04:29 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:04:46 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 4:04:57 PM util.LogManager info
+INFO: Scheda inviata al cliente: federico@gmail.com
+mag 06, 2026 4:05:01 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:05:09 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:05:11 PM util.LogManager info
+INFO: StatoRichiesta PRIMA: COMPLETATA
+mag 06, 2026 4:05:11 PM util.LogManager info
+INFO: StatoRichiesta DOPO: COMPLETATA
+mag 06, 2026 4:05:33 PM util.LogManager info
+INFO: Progressi salvati per: Federico@gmail.com
+mag 06, 2026 4:05:36 PM util.LogManager info
+INFO: StatoRichiesta PRIMA: COMPLETATA
+mag 06, 2026 4:05:36 PM util.LogManager info
+INFO: StatoRichiesta DOPO: COMPLETATA
+mag 06, 2026 4:21:46 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 4:21:46 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 4:21:46 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 4:21:58 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 4:21:58 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:22:10 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:31:44 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 4:31:44 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 4:31:44 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 4:32:59 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 4:32:59 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 4:32:59 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 4:33:06 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 4:33:06 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:33:16 PM util.LogManager info
+INFO: Ricerca completata per: ale
+mag 06, 2026 4:33:18 PM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: AlessandraR@gmail.com
+mag 06, 2026 4:33:18 PM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 06, 2026 4:33:22 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:33:28 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 4:33:35 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:33:43 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 4:33:43 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:33:57 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 06, 2026 4:33:57 PM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 06, 2026 4:34:01 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:34:07 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 4:34:23 PM util.LogManager info
+INFO: Scheda inviata al cliente: federico@gmail.com
+mag 06, 2026 4:34:26 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:34:33 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:34:36 PM util.LogManager info
+INFO: StatoRichiesta PRIMA: COMPLETATA
+mag 06, 2026 4:34:36 PM util.LogManager info
+INFO: StatoRichiesta DOPO: COMPLETATA
+mag 06, 2026 4:35:49 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 4:35:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 4:35:49 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 4:35:57 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:35:59 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:37:05 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 4:37:05 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 4:37:05 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 4:37:33 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 4:37:33 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 4:37:33 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 4:37:39 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 4:37:39 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:37:48 PM util.LogManager info
+INFO: Ricerca completata per: ale
+mag 06, 2026 4:37:51 PM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: AlessandraR@gmail.com
+mag 06, 2026 4:37:51 PM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 06, 2026 4:37:54 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:38:01 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 4:38:09 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:38:16 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 4:38:16 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:38:28 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 06, 2026 4:38:28 PM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 06, 2026 4:38:31 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:38:38 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 4:38:56 PM util.LogManager info
+INFO: Scheda inviata al cliente: federico@gmail.com
+mag 06, 2026 4:39:00 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 4:39:06 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 4:39:10 PM util.LogManager info
+INFO: StatoRichiesta PRIMA: COMPLETATA
+mag 06, 2026 4:39:10 PM util.LogManager info
+INFO: StatoRichiesta DOPO: COMPLETATA
+mag 06, 2026 4:39:28 PM util.LogManager info
+INFO: Progressi salvati per: Federico@gmail.com
+mag 06, 2026 4:39:33 PM util.LogManager info
+INFO: StatoRichiesta PRIMA: COMPLETATA
+mag 06, 2026 4:39:33 PM util.LogManager info
+INFO: StatoRichiesta DOPO: COMPLETATA

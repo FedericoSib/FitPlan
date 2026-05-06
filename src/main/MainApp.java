@@ -10,7 +10,7 @@ import view.fxml.Navigator;
 import java.util.Scanner;
 
 public class MainApp extends javafx.application.Application {
-
+    private static final String ICON_PATH = "/view/immages/logo.png";
     private static ScadenzaRichiesteController scadenzaController;
     private static final int MAX_TENTATIVI = 3;
 
@@ -63,19 +63,26 @@ public class MainApp extends javafx.application.Application {
 
         System.out.println("Troppi tentativi falliti. Chiusura applicazione.");
         System.exit(1);
-        return -1; // irraggiungibile, richiesto dal compilatore
+        return -1;
     }
 
     @Override
     public void start(javafx.stage.Stage primaryStage) throws Exception {
         Navigator.setPrimaryStage(primaryStage);
-        javafx.fxml.FXMLLoader loader =
-                new javafx.fxml.FXMLLoader(
-                        getClass().getResource("/view/fxml/Login.fxml"));
+        javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(
+                getClass().getResource("/view/fxml/Login.fxml"));
         javafx.scene.Parent root = loader.load();
         primaryStage.setTitle("FitPlan");
+        try {
+            primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResourceAsStream(ICON_PATH)));
+        } catch (Exception e) {
+            LogManager.error("Impossibile caricare l'icona dell'applicazione.", e);
+        }
         primaryStage.setScene(new javafx.scene.Scene(root));
         primaryStage.show();
+        primaryStage.requestFocus();
+        primaryStage.toFront();
+        primaryStage.setIconified(false);
     }
 
     @Override
