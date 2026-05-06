@@ -9,6 +9,9 @@ public class Cliente extends Utente {
         super(nome, cognome, email, password, 1); // Passiamo 1 per il ruolo Cliente
         this.idPersonalTrainer = null;
     }
+    public Cliente(String id, String nome, String cognome, String email, String password) {
+        super(id, nome, cognome, email, password, 1);
+    }
     public String getIdPersonalTrainer() {
         return idPersonalTrainer;
     }

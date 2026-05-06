@@ -1,6 +1,11 @@
-C-LV-1031626;1;Luca;Verdi;luca@test.it;password
+C-LV-1031626;1;Luca;Verdi;luca@test.it;12345
 C-FS-1130349;1;Federico;S;Federico@gmail.com;12345
-PT-PZ-2431749;2;Peppe;Z;PeppeZ@gmail.com;Peppez
-PT-VS-2831620;2;Valerio;S;Valerio@gmail.com;ValerioS
-PT-VR-0741739;2;Valerio;R;ValerioR@gmail.com;ValerioR
+PT-PZ-2431749;2;Peppe;Z;PeppeZ@gmail.com;12345
+PT-VS-2831620;2;Valerio;S;Valerios@gmail.com;12345
+PT-VR-0741739;2;Valerio;R;ValerioR@gmail.com;12345
+PT-AV-0942120;2;Alessandro;V;AlessandroV@gmail.com;12345
+PT-AC-0941920;2;Alessio;C;AlessioC@gmail.com;12345
+PT-AR-0942020;2;Alessandra;R;AlessandraR@gmail.com;12345
+PT-AP-0942220;2;Alessia;P;AlessiaP@gmail.com;12345
+PT-AT-0942320;2;Alisa;T;AlisaT@gmail.com;12345
 C-MC-2940041;1;Matteo;Coria ;Matt@gmail.com;12345

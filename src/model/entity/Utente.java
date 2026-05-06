@@ -20,6 +20,16 @@ public abstract class Utente {
         this.id = generaID(); // L'ID viene generato al momento della creazione dell'oggetto
     }
 
+    protected Utente(String id, String nome, String cognome,
+                     String email, String password, int ruolo) {
+        this.id = id;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+        this.password = password;
+        this.ruolo = ruolo;
+    }
+
     private String generaID() {
         // Prefisso in base al ruolo
         String prefisso = (ruolo == 1) ? "C" : "PT";

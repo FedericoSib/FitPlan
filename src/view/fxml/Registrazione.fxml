@@ -20,7 +20,7 @@
       <TextField fx:id="txtNome" layoutX="184.0" layoutY="120.0" />
       <TextField fx:id="txtCognome" layoutX="184.0" layoutY="166.0" />
       <TextField fx:id="txtEmail" layoutX="184.0" layoutY="214.0" />
-      <Button layoutX="231.0" layoutY="406.0" mnemonicParsing="false" onAction="#finalizzaRegistrazione" styleClass="btn-primario" text="Registrati" underline="true" />
+      <Button layoutX="231.0" layoutY="406.0" mnemonicParsing="false" onAction="#finalizzaRegistrazione" styleClass="btn-primario" text="Registrati" />
       <Text layoutX="25.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" wrappingWidth="65.833984375">
          <font>
             <Font size="16.0" />
@@ -54,6 +54,6 @@
       </Text>
       <PasswordField fx:id="txtPass" layoutX="184.0" layoutY="261.0" />
       <PasswordField fx:id="txtConfermaPass" layoutX="184.0" layoutY="305.0" />
-      <Button layoutX="25.0" layoutY="406.0" mnemonicParsing="false" onAction="#annullaRegistrazione" styleClass="btn-secondario" text="Annulla" underline="true" />
+      <Button layoutX="25.0" layoutY="406.0" mnemonicParsing="false" onAction="#annullaRegistrazione" styleClass="btn-secondario" text="Annulla" />
    </children>
 </Pane>

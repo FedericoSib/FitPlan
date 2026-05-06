@@ -15,8 +15,8 @@ public class UtenteDAOMemory implements UtenteDAO {
 
     public UtenteDAOMemory() {
         if (utenti.isEmpty()) {
-            utenti.add(new Cliente("Mario", "Rossi", "mario@test.it", "pass123"));
-            PersonalTrainer coachZanna = new PersonalTrainer("Coach", "Zanna", "coach@test.it", "pass123");
+            utenti.add(new Cliente("C-MR-DEMO01","Mario", "Rossi", "mario@test.it", "pass123"));
+            PersonalTrainer coachZanna = new PersonalTrainer("PT-CZ-DEMO01","Coach", "Zanna", "coach@test.it", "pass123");
             utenti.add(coachZanna);
             PersonalTrainerDAOMemory.aggiungiPT(coachZanna);
         }

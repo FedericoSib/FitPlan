@@ -7641,3 +7641,173 @@ mag 06, 2026 1:25:44 PM util.LogManager info
 INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
 mag 06, 2026 1:25:44 PM util.LogManager info
 INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 1:27:41 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 1:27:42 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 1:27:42 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 1:28:01 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 1:28:01 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 1:29:40 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 1:29:40 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 1:29:40 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 1:29:58 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 1:29:58 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 1:31:22 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: PT-PZ-2431749
+mag 06, 2026 1:31:26 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: PT-PZ-2431749
+mag 06, 2026 1:31:33 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: PT-PZ-2431749
+mag 06, 2026 1:31:43 PM util.LogManager info
+INFO: Ricerca completata per: Peppe
+mag 06, 2026 1:31:51 PM util.LogManager info
+INFO: Ricerca completata per: Vale
+mag 06, 2026 1:32:14 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 1:32:23 PM util.LogManager info
+INFO: Login effettuato con successo per: peppez@gmail.com
+mag 06, 2026 1:32:25 PM util.LogManager info
+INFO: Codice copiato: PT-PZ-0651332
+mag 06, 2026 1:32:29 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 1:32:37 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 1:32:37 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 1:32:39 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 06, 2026 1:32:41 PM util.LogManager info
+INFO: Ricerca completata per: PT-PZ-0651332
+mag 06, 2026 1:33:17 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 1:33:17 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 1:33:17 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 1:33:28 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 1:33:28 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 1:33:32 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 06, 2026 1:33:33 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: PT-PZ-0651332
+mag 06, 2026 2:00:27 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 2:00:27 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 2:00:27 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 2:00:41 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 2:00:41 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 2:00:44 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 06, 2026 2:00:56 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: PT-PZ-2431749
+mag 06, 2026 2:04:01 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 2:04:01 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 2:04:01 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 2:04:10 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 2:04:10 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 2:04:34 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 06, 2026 2:04:48 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: PT-PZ-2431749
+mag 06, 2026 2:04:52 PM util.LogManager warn
+WARNING: Nessun Personal Trainer trovato per: PT-PZ-2431749
+mag 06, 2026 2:06:31 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 2:06:31 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 2:06:31 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 2:06:41 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 2:06:41 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 2:06:43 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 06, 2026 2:06:56 PM util.LogManager info
+INFO: Ricerca completata per: PT-PZ-2431749
+mag 06, 2026 2:07:07 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 2:07:22 PM util.LogManager info
+INFO: Login effettuato con successo per: peppez@gmail.com
+mag 06, 2026 2:07:44 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 2:13:07 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 2:13:08 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 2:13:08 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 2:13:18 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 2:13:18 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 2:13:32 PM util.LogManager info
+INFO: Ricerca completata per: ale
+mag 06, 2026 2:13:36 PM util.LogManager info
+INFO: Ricerca completata per: Ale
+mag 06, 2026 2:14:37 PM util.LogManager info
+INFO: Ricerca completata per: PT-AC-0941920
+mag 06, 2026 2:15:41 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 2:15:41 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 2:15:41 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 2:15:51 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 2:15:51 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 2:16:00 PM util.LogManager info
+INFO: Ricerca completata per: Ale
+mag 06, 2026 2:16:54 PM util.LogManager info
+INFO: Ricerca completata per: PT-AR-0942020
+mag 06, 2026 2:17:32 PM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 06, 2026 2:17:43 PM util.LogManager info
+INFO: Ricerca completata per: ale
+mag 06, 2026 2:17:50 PM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: AlessandraR@gmail.com
+mag 06, 2026 2:17:50 PM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 06, 2026 2:18:09 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 2:18:21 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 06, 2026 2:18:29 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 2:18:37 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 2:18:37 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 06, 2026 2:21:04 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 06, 2026 2:24:02 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 06, 2026 2:24:02 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 06, 2026 2:24:02 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 06, 2026 2:24:24 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 06, 2026 2:24:24 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com

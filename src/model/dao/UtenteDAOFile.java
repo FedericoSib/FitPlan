@@ -71,9 +71,9 @@ public class UtenteDAOFile implements UtenteDAO {
     private Utente ricomponiUtente(String[] d) {
         int ruolo = Integer.parseInt(d[1]);
         if (ruolo == 1) {
-            return new Cliente(d[2], d[3], d[4], d[5]);
+            return new Cliente(d[0], d[2], d[3], d[4], d[5]);
         } else {
-            return new PersonalTrainer(d[2], d[3], d[4], d[5]);
+            return new PersonalTrainer(d[0], d[2], d[3], d[4], d[5]);
         }
     }
 }

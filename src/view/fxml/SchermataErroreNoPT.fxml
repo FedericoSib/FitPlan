@@ -36,8 +36,8 @@
             </Text>
             <HBox prefHeight="40.0" prefWidth="197.0" spacing="120.0">
                <children>
-                  <Button fx:id="btnIndietro" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#tornaAllaDashboard" prefHeight="25.0" prefWidth="83.0" styleClass="btn-secondario" text="Indietro" underline="true" />
-                  <Button mnemonicParsing="false" onAction="#vaiAssociaPT" styleClass="btn-primario" text="Associati ora" underline="true" />
+                  <Button fx:id="btnIndietro" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#tornaAllaDashboard" prefHeight="25.0" prefWidth="83.0" styleClass="btn-secondario" text="Indietro" />
+                  <Button mnemonicParsing="false" onAction="#vaiAssociaPT" styleClass="btn-primario" text="Associati ora" />
                </children>
                <padding>
                   <Insets top="10.0" />

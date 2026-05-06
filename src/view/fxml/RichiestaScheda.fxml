@@ -14,7 +14,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="480.0" styleClass="corpo-banner" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxml.ClienteRichiediSchedaBoundary">
    <children>
-      <Button layoutX="315.0" layoutY="552.0" mnemonicParsing="false" onAction="#gestisciInvio" styleClass="btn-primario" text="Invia Richiesta" underline="true" />
+      <Button layoutX="315.0" layoutY="552.0" mnemonicParsing="false" onAction="#gestisciInvio" styleClass="btn-primario" text="Invia Richiesta" />
       <ChoiceBox fx:id="cbSesso" layoutX="266.0" layoutY="120.0" prefWidth="150.0">
          <opaqueInsets>
             <Insets />
@@ -55,6 +55,7 @@
             <Image url="@../../../Progetto/LogoAppFitPlan.png" />
          </image>
       </ImageView>
-      <Button layoutX="80.0" layoutY="552.0" mnemonicParsing="false" onAction="#tornaAllaDashboard" styleClass="btn-secondario" text="Indietro" underline="true" />
+      <Button layoutX="80.0" layoutY="552.0" mnemonicParsing="false" onAction="#tornaAllaDashboard" styleClass="btn-secondario" text="Indietro" />
+      <Button layoutX="458.0" layoutY="8.0" mnemonicParsing="false" onAction="#tornaAllaDashboard" styleClass="button-close" text="X" />
    </children>
 </Pane>

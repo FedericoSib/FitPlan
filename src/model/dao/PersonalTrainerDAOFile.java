@@ -18,7 +18,7 @@ public class PersonalTrainerDAOFile implements PersonalTrainerDAO {
                 // Se il ruolo (indice 1) è "2", è un Personal Trainer
                 if (parti[1].equals("2")) {
                     // Creiamo l'oggetto PT partendo dalla riga (ID, Nome, Cognome, Email, etc.)
-                    PersonalTrainer pt = new PersonalTrainer(parti[2], parti[3], parti[4], parti[5]);
+                    PersonalTrainer pt = new PersonalTrainer(parti[0], parti[2], parti[3], parti[4], parti[5]);
                     listaPT.add(pt);
                 }
             }
