@@ -6,24 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Ultimi ritocchi di stile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/richieste_associazione.csv" beforeDir="false" afterPath="$PROJECT_DIR$/richieste_associazione.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/cli/AssemblaSchedaCLIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/cli/AssemblaSchedaCLIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/cli/RichiediSchedaCLIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/cli/RichiediSchedaCLIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/AssemblaSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/AssemblaSchedaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/graphic/RichiediSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/graphic/RichiediSchedaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/StatoRichiesta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/StatoRichiesta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/AlertManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/LogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/LogManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/AssociaPTCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/AssociaPTCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/RichiediSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/RichiediSchedaCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendentiBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendentiBoundary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +69,7 @@
     <configuration name="MainApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.MainApp" />
       <module name="Progetto ISPW" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\java-libs\openjfx-25.0.2_windows-x64_bin-sdk\javafx-sdk-25.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media,javafx.swing --enable-preview" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\java-libs\openjfx-25.0.2_windows-x64_bin-sdk\javafx-sdk-25.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media,javafx.swing --enable-native-access=javafx.graphics --enable-preview" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -467,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777985130680</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Ultimi ritocchi di stile">
+      <option name="closed" value="true" />
+      <created>1778065842126</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1778065842126</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
