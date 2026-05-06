@@ -11,7 +11,6 @@ import java.util.List;
 import model.Sessione;
 import model.dao.DAOFactory;
 import model.exception.DAOException;
-import util.AlertManager;
 import util.observer.NotificaManager;
 
 public class PTRichiestePendentiBoundary {
@@ -20,6 +19,9 @@ public class PTRichiestePendentiBoundary {
     @FXML private Button btnChiudi;
     @FXML private Button btnRifiuta;
     @FXML private ListView<AssociazioneBean> lvRichieste;
+    public static final String ERR = "Errore";
+    public static final String SUCC = "Successo";
+
 
     private GestisciRichiestePTController controller = new GestisciRichiestePTController();
 
@@ -60,7 +62,8 @@ public class PTRichiestePendentiBoundary {
                     btnRifiuta.setDisable(newVal == null)
             );
         } catch (DAOException _) {
-            AlertManager.mostra("Impossibile caricare le richieste.");
+            mostraAlert(Alert.AlertType.ERROR, ERR,
+                    "impossibile caricare le richieste");
         }
     }
 
@@ -71,10 +74,12 @@ public class PTRichiestePendentiBoundary {
             for (AssociazioneBean bean : selezionate) {
                 controller.accettaAssociazione(bean);
             }
-            AlertManager.mostra("Cliente associato con successo!");
+            mostraAlert(Alert.AlertType.INFORMATION, SUCC,
+                    "Cliente associato con successo!");
             caricaRichieste();
         } catch (DAOException _) {
-            AlertManager.mostra("Impossibile accettare la richiesta.");
+            mostraAlert(Alert.AlertType.ERROR, ERR,
+                    "impossibile caricare le richieste");
         }
     }
 
@@ -85,10 +90,12 @@ public class PTRichiestePendentiBoundary {
             for (AssociazioneBean bean : selezionate) {
                 controller.rifiutaAssociazione(bean);
             }
-            AlertManager.mostra("Cliente rifiutato con successo!");
+            mostraAlert(Alert.AlertType.INFORMATION, SUCC,
+                    "Cliente rifiutato con successo!");
             caricaRichieste();
         } catch (DAOException _) {
-            AlertManager.mostra("Impossibile rifiutare la richiesta.");
+            mostraAlert(Alert.AlertType.ERROR, ERR,
+                    "Impossibile rifiutare la richiesta.");
         }
     }
 
@@ -106,6 +113,14 @@ public class PTRichiestePendentiBoundary {
     @FXML
     public void handleSelezionaTutti() {
         lvRichieste.getSelectionModel().selectAll();
+    }
+
+    private void mostraAlert(Alert.AlertType tipo, String titolo, String msg) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titolo);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
     }
 
 }

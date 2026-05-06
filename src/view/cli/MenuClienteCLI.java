@@ -1,6 +1,9 @@
 package view.cli;
 
 import model.Sessione;
+import model.dao.DAOFactory;
+import model.entity.Cliente;
+import model.entity.StatoRichiesta;
 
 import java.util.Scanner;
 
@@ -13,6 +16,9 @@ public class MenuClienteCLI {
     }
 
     public void avvia() {
+        sincronizzaStatoCliente();
+
+        // --- 2. AVVIA IL MENU ---
         boolean esci = false;
         while (!esci) {
             System.out.println("\n=== Menu Cliente ===");
@@ -34,6 +40,29 @@ public class MenuClienteCLI {
                 case "3" -> new GestisciSchedaCLIBoundary(scanner).avvia();
                 default -> System.out.println("Scelta non valida.");
             }
+        }
+    }
+    private void sincronizzaStatoCliente() {
+        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+        try {
+            // 1. Ha già una scheda → COMPLETATA
+            if (!DAOFactory.getSchedaDAO()
+                    .getSchedePerCliente(cliente.getEmail()).isEmpty()) {
+                cliente.setStatoRichiesta(StatoRichiesta.COMPLETATA);
+                return;
+            }
+
+            // 2. Cerca la richiesta tra tutte — legge lo stato salvato su file
+            DAOFactory.getRichiestaDAO()
+                    .prendiTutteLeRichieste()
+                    .stream()
+                    .filter(r -> r.getClienteEmail()
+                            .equalsIgnoreCase(cliente.getEmail()))
+                    .findFirst()
+                    .ifPresent(r -> cliente.setStatoRichiesta(r.getStato()));
+
+        } catch (Exception e) {
+            System.out.println("Errore sincronizzazione stato: " + e.getMessage());
         }
     }
 }

@@ -5,11 +5,13 @@ import model.Sessione;
 import model.dao.DAOFactory;
 import model.entity.Cliente;
 import model.entity.StatoAssociazione;
+import model.entity.StatoRichiesta;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
 import model.exception.TrainerNotAssociatedException;
 import model.entity.DatiFisici;
 import model.entity.RichiestaScheda;
+import model.entity.Utente;
 import util.LogManager;
 
 public class RichiediSchedaCLIController {
@@ -27,9 +29,15 @@ public class RichiediSchedaCLIController {
 
         // Verifica richiesta attiva
         var dao = DAOFactory.getRichiestaDAO();
-        if (dao.esisteRichiestaAttiva(bean.getClienteEmail())) {
+        boolean haRichiestaAttiva = dao.prendiTutteLeRichieste()
+                .stream()
+                .anyMatch(r -> r.getClienteEmail()
+                        .equalsIgnoreCase(bean.getClienteEmail())
+                        && r.getStato() != StatoRichiesta.COMPLETATA);
+
+        if (haRichiestaAttiva) {
             throw new InvalidFormException(
-                    "Hai già una richiesta in attesa di valutazione.");
+                    "Hai già una richiesta in corso. Attendi che il PT completi la scheda.");
         }
 
         // Verifica scheda già assegnata
@@ -61,7 +69,15 @@ public class RichiediSchedaCLIController {
                 bean.getIdPersonalTrainer()
         );
 
+        // 1. Salvataggio su file
         dao.salvaRichiesta(entity);
         LogManager.info("[CLI] Richiesta scheda salvata per: " + bean.getClienteEmail());
+
+        // 2. Aggiornamento in Sessione (RAM)
+        Utente utenteAttuale = Sessione.getInstance().getUtente();
+        if (utenteAttuale instanceof Cliente clienteLoggato) {
+            clienteLoggato.setStatoRichiesta(StatoRichiesta.PENDING);
+            LogManager.info("[CLI] Stato del cliente in sessione aggiornato a PENDING.");
+        }
     }
 }

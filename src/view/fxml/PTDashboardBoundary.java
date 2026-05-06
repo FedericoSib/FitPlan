@@ -219,6 +219,7 @@ public class PTDashboardBoundary {
             scene.setFill(Color.TRANSPARENT);
             popupStage.setScene(scene);
             popupStage.showAndWait();
+            popolaInfoCard();
 
         } catch (IOException e) {
             LogManager.error("Errore apertura pop-up richieste (IO)", e);
@@ -240,6 +241,7 @@ public class PTDashboardBoundary {
             scene.setFill(Color.TRANSPARENT);
             popupStage.setScene(scene);
             popupStage.showAndWait();
+            popolaInfoCard();
         } catch (IOException e) {
             LogManager.error("Errore apertura richieste scheda", e);
         }
@@ -260,6 +262,7 @@ public class PTDashboardBoundary {
             scene.setFill(Color.TRANSPARENT);
             popupStage.setScene(scene);
             popupStage.showAndWait();
+            popolaInfoCard();
         } catch (IOException e) {
             LogManager.error("Errore apertura assembla scheda", e);
         }

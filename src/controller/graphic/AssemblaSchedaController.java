@@ -26,6 +26,14 @@ public class AssemblaSchedaController extends NotificaObservableBase {
     public void segnaInLavorazione(String emailCliente) throws DAOException {
         DAOFactory.getRichiestaDAO()
                 .aggiornaStato(emailCliente, StatoRichiesta.IN_LAVORAZIONE);
+        try {
+            Utente utenteCliente = DAOFactory.getUtenteDAO().trovaUtentePerEmail(emailCliente);
+            if (utenteCliente instanceof Cliente cliente) {
+                cliente.setStatoRichiesta(StatoRichiesta.IN_LAVORAZIONE);
+            }
+        } catch (model.exception.UserNotFoundException _) {
+            util.LogManager.warn("Richiesta in lavorazione, ma impossibile aggiornare l'oggetto Cliente in RAM: Utente non trovato.");
+        }
     }
 
     private List<RichiestaSchedaBean> toBeanList(List<RichiestaScheda> entita) {
@@ -85,6 +93,10 @@ public class AssemblaSchedaController extends NotificaObservableBase {
         try {
             DAOFactory.getRichiestaDAO()
                     .aggiornaStato(emailCliente, StatoRichiesta.COMPLETATA);
+            Utente utenteCliente = DAOFactory.getUtenteDAO().trovaUtentePerEmail(emailCliente);
+            if (utenteCliente instanceof Cliente cliente) {
+                cliente.setStatoRichiesta(StatoRichiesta.COMPLETATA);
+            }
         } catch (Exception e) {
             LogManager.error("Errore aggiornamento stato richiesta", e);
         }

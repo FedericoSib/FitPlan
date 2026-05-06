@@ -22,7 +22,7 @@ public class LogManager {
             // Imposta un formato semplice e leggibile
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
-            GLOBAL_LOGGER.setUseParentHandlers(false);
+            //GLOBAL_LOGGER.setUseParentHandlers(false);
 
 
         } catch (IOException | SecurityException e) {

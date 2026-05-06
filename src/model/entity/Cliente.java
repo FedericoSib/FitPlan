@@ -2,6 +2,7 @@ package model.entity;
 
 public class Cliente extends Utente {
     private StatoAssociazione statoAssociazione = StatoAssociazione.NESSUNA;
+    private StatoRichiesta statoRichiesta = StatoRichiesta.NESSUNA;
     private String idPersonalTrainer; // L'ID del PT a cui è associato
 
     public Cliente(String nome, String cognome, String email, String password) {
@@ -17,7 +18,11 @@ public class Cliente extends Utente {
     public StatoAssociazione getStatoAssociazione() {
         return statoAssociazione;
     }
-    public void setStatoAssociazione(StatoAssociazione stato) {
-        this.statoAssociazione = stato;
+    public void setStatoAssociazione(StatoAssociazione statoA) {
+        this.statoAssociazione = statoA;
     }
+    public StatoRichiesta getStatoRichiesta() {
+        return statoRichiesta;
+    }
+    public void setStatoRichiesta(StatoRichiesta statoR) { this.statoRichiesta = statoR;}
 }

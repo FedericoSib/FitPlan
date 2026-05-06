@@ -21,11 +21,7 @@ public class RichiediSchedaController {
             if (dao.esisteRichiestaAttiva(bean.getClienteEmail())) {
                 throw new InvalidFormException("Attenzione: hai già una richiesta in attesa di valutazione.");
             }
-
-            // 2. Validazione form (logica di business, non serve il try per queste)
             validazioneSemplice(bean);
-
-            // 3. Trasformazione: Bean -> Entity
             DatiFisici df = new DatiFisici(bean.getSesso(), bean.getEta(), bean.getPeso());
             RichiestaScheda entity = new RichiestaScheda(
                     df,
@@ -40,8 +36,13 @@ public class RichiediSchedaController {
             dao.salvaRichiesta(entity);
             LogManager.info("Richiesta salvata per cliente: " + bean.getClienteEmail());
 
+            Utente utenteAttuale = Sessione.getInstance().getUtente();
+            if (utenteAttuale instanceof Cliente clienteLoggato) {
+                clienteLoggato.setStatoRichiesta(StatoRichiesta.PENDING);
+                LogManager.info("Stato del cliente in sessione aggiornato a PENDING.");
+            }
+
         } catch (DAOException e) {
-            // Qui catturiamo sia l'errore di esisteRichiestaAttiva che di salvaRichiesta
             LogManager.error("Errore persistenza durante elaborazione richiesta", e);
             throw new InvalidFormException("Servizio momentaneamente non disponibile. Riprova più tardi.");
         }

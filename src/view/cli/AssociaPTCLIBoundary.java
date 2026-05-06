@@ -5,6 +5,8 @@ import bean.PersonalTrainerBean;
 import controller.cli.AssociaPTCLIController;
 import model.Sessione;
 import model.dao.DAOFactory;
+import model.entity.Cliente;
+import model.entity.StatoAssociazione;
 import model.exception.DAOException;
 import model.exception.TrainerNotFoundException;
 import util.observer.NotificaManager;
@@ -24,6 +26,15 @@ public class AssociaPTCLIBoundary {
     }
 
     public void avvia() {
+        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+        if (cliente.getStatoAssociazione() == StatoAssociazione.ASSOCIATO) {
+            System.out.println("\nSei già associato a un Personal Trainer.");
+            return;
+        }
+        if (cliente.getStatoAssociazione() == StatoAssociazione.PENDING) {
+            System.out.println("\nHai già una richiesta di associazione in attesa.");
+            return;
+        }
         System.out.println("\n--- Cerca Personal Trainer ---");
         System.out.println("Puoi cercare per ID (PT-xxx), email o nome/cognome.");
         System.out.print("Ricerca: ");

@@ -4,6 +4,7 @@ import bean.RichiestaSchedaBean;
 import controller.cli.RichiediSchedaCLIController;
 import model.Sessione;
 import model.entity.Cliente;
+import model.entity.StatoRichiesta;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
 import model.exception.TrainerNotAssociatedException;
@@ -12,6 +13,7 @@ import java.util.Scanner;
 
 public class RichiediSchedaCLIBoundary {
 
+    public static final String ERR = "Errore: ";
     private final Scanner scanner;
     private final RichiediSchedaCLIController controller =
             new RichiediSchedaCLIController();
@@ -21,46 +23,43 @@ public class RichiediSchedaCLIBoundary {
     }
 
     public void avvia() {
+        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+        if (cliente.getStatoRichiesta() == StatoRichiesta.PENDING){
+            System.out.println("\nHai già una richiesta in attesa di valutazione.");
+            return;
+        } else if (cliente.getStatoRichiesta() == StatoRichiesta.IN_LAVORAZIONE) {
+            System.out.println("\nHai già una richiesta in corso. Attendi che il PT completi la scheda.");
+            return;
+        }
+        try {
+            controller.verificaAssociazionePT();
+        } catch (TrainerNotAssociatedException e) {
+            System.out.println(ERR + e.getMessage());
+            return;
+        }
         System.out.println("\n--- Richiedi Scheda ---");
 
         // Verifica associazione PT
         try {
             controller.verificaAssociazionePT();
         } catch (TrainerNotAssociatedException e) {
-            System.out.println("Errore: " + e.getMessage());
+            System.out.println(ERR + e.getMessage());
             return;
         }
 
-        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
-
-        // Raccolta dati step by step
         System.out.println("\nCompila il form per richiedere la tua scheda:");
-
-        // Sesso
         String sesso = scegliSesso();
         if (sesso == null) return;
-
-        // Età
         int eta = leggiIntero("Inserisci la tua età: ", 10, 100);
         if (eta == -1) return;
-
-        // Peso
         double peso = leggiDouble("Inserisci il tuo peso (kg): ", 1, 200);
         if (peso == -1) return;
-
-        // Obiettivo
         String obiettivo = scegliObiettivo();
         if (obiettivo == null) return;
-
-        // Frequenza settimanale
         int frequenza = leggiIntero("Quante volte a settimana vuoi allenarti? (1-7): ", 1, 7);
         if (frequenza == -1) return;
-
-        // Note
         System.out.print("Note aggiuntive (premi Invio per saltare): ");
         String note = scanner.nextLine().trim();
-
-        // Costruzione Bean
         RichiestaSchedaBean bean = new RichiestaSchedaBean();
         bean.setClienteEmail(cliente.getEmail());
         bean.setIdPersonalTrainer(cliente.getIdPersonalTrainer());
@@ -70,19 +69,13 @@ public class RichiediSchedaCLIBoundary {
         bean.setObiettivo(obiettivo);
         bean.setFrequenzaSettimanale(frequenza);
         bean.setNote(note);
-
-        // Invio
         try {
             controller.elaboraRichiesta(bean);
             System.out.println("\nRichiesta inviata con successo al tuo Personal Trainer!");
         } catch (InvalidFormException | DAOException e) {
-            System.out.println("Errore: " + e.getMessage());
+            System.out.println(ERR + e.getMessage());
         }
     }
-
-    // ─────────────────────────────────────────────
-    //  HELPER
-    // ─────────────────────────────────────────────
 
     private String scegliSesso() {
         System.out.println("\nSesso:");

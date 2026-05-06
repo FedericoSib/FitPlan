@@ -22,7 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import model.Sessione;
 import model.entity.*;
-import util.*;
+import util.LogManager;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -33,7 +33,9 @@ public class ClienteDashboardBoundary {
 
     private RichiediSchedaController richiestaController = new RichiediSchedaController();
     private static final String CSS_PATH_KEY = "style.css.path";
+    private static final String GIALLO = "#fdcb6e";
     String cssPath = AppConfig.get(CSS_PATH_KEY);
+    public static final String ATT = "Attenzione";
     @FXML private Label lblNomeUtente;
     @FXML private Label lblMeseAnno;
     @FXML private GridPane gridCalendario;
@@ -61,6 +63,7 @@ public class ClienteDashboardBoundary {
         // 1. Recupero dati utente dalla sessione
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
         lblNomeUtente.setText(cliente.getNome() + " " + cliente.getCognome());
+        sincronizzaStatoCliente(cliente);
         try {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
              imgFitplan.setImage(logo);
@@ -96,6 +99,29 @@ public class ClienteDashboardBoundary {
         manager.mostraNotifichePendenti(c.getEmail());
 
         popolaInfoCard();
+    }
+
+    private void sincronizzaStatoCliente(Cliente cliente) {
+        try {
+            // 1. Ha già una scheda → COMPLETATA
+            if (!DAOFactory.getSchedaDAO()
+                    .getSchedePerCliente(cliente.getEmail()).isEmpty()) {
+                cliente.setStatoRichiesta(StatoRichiesta.COMPLETATA);
+                return;
+            }
+
+            // 2. Legge lo stato direttamente dalla richiesta salvata
+            DAOFactory.getRichiestaDAO()
+                    .prendiTutteLeRichieste()
+                    .stream()
+                    .filter(r -> r.getClienteEmail()
+                            .equalsIgnoreCase(cliente.getEmail()))
+                    .findFirst()
+                    .ifPresent(r -> cliente.setStatoRichiesta(r.getStato()));
+
+        } catch (Exception e) {
+            LogManager.error("Errore durante la sincronizzazione dello stato cliente", e);
+        }
     }
 
     private void costruisciCalendarioDinamico() {
@@ -169,7 +195,7 @@ public class ClienteDashboardBoundary {
                 lblNomePT.setText("Personal Trainer: " + cliente.getIdPersonalTrainer());
             }
             case PENDING -> {
-                cerchioStato.setFill(javafx.scene.paint.Color.web("#fdcb6e")); // giallo
+                cerchioStato.setFill(javafx.scene.paint.Color.web(GIALLO)); // giallo
                 lblStatoAssociazione.setText("Richiesta in attesa...");
                 lblNomePT.setText("In attesa di conferma dal PT");
             }
@@ -194,7 +220,7 @@ public class ClienteDashboardBoundary {
                         .findFirst()
                         .ifPresent(r -> {
                             lblStatoRichiesta.setText("⏳ Richiesta in attesa");
-                            lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web("#fdcb6e"));
+                            lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web(GIALLO));
                             lblObiettivoRichiesta.setText("Obiettivo: " + r.getObiettivo());
                             lblDataRichiesta.setText("Frequenza: " + r.getFrequenzaSettimanale() + " giorni/settimana");
                         });
@@ -214,21 +240,44 @@ public class ClienteDashboardBoundary {
 
     private void popolaCardScheda(Cliente cliente) {
         try {
-            var schede = model.dao.DAOFactory.getSchedaDAO()
+            // 1. Ha già una scheda assegnata
+            var schede = DAOFactory.getSchedaDAO()
                     .getSchedePerCliente(cliente.getEmail());
 
-            if (schede.isEmpty()) {
-                lblSchedaInfo.setText("Nessuna scheda ancora disponibile");
-                lblSchedaInfo.setTextFill(javafx.scene.paint.Color.web("#d63031"));
-                lblSchedaDettaglio.setText("Richiedila ora al tuo Personal Trainer!");
-            } else {
+            if (!schede.isEmpty()) {
                 var scheda = schede.get(schede.size() - 1);
                 lblSchedaInfo.setText("✓ Scheda disponibile");
                 lblSchedaInfo.setTextFill(javafx.scene.paint.Color.web("#00b894"));
-                lblSchedaDettaglio.setText(scheda.getGiorni().size() + " giorni di allenamento • Clicca per visualizzarla");
+                lblSchedaDettaglio.setText(scheda.getGiorni().size() +
+                        " giorni di allenamento • Clicca per visualizzarla");
+                return;
             }
+
+            // 2. Nessuna scheda — mostra info in base allo stato richiesta
+            StatoRichiesta statoRichiesta = cliente.getStatoRichiesta();
+            switch (statoRichiesta) {
+                case PENDING -> {
+                    lblSchedaInfo.setText("⏳ Richiesta inviata");
+                    lblSchedaInfo.setTextFill(javafx.scene.paint.Color.web(GIALLO));
+                    lblSchedaDettaglio.setText("Il tuo PT non ha ancora visualizzato la richiesta.");
+                }
+                case IN_LAVORAZIONE -> {
+                    lblSchedaInfo.setText("🔧 Scheda in lavorazione");
+                    lblSchedaInfo.setTextFill(javafx.scene.paint.Color.web("#0984e3"));
+                    lblSchedaDettaglio.setText("Il tuo PT sta assemblando la tua scheda!");
+                }
+                default -> {
+                    lblSchedaInfo.setText("Nessuna scheda ancora disponibile");
+                    lblSchedaInfo.setTextFill(javafx.scene.paint.Color.web("#d63031"));
+                    lblSchedaDettaglio.setText(
+                            cliente.getStatoAssociazione() == StatoAssociazione.ASSOCIATO
+                                    ? "Richiedila ora al tuo Personal Trainer!"
+                                    : "Prima associati a un Personal Trainer.");
+                }
+            }
+
         } catch (Exception e) {
-            util.LogManager.error("Errore caricamento info scheda", e);
+            LogManager.error("Errore caricamento info scheda", e);
         }
     }
 
@@ -257,18 +306,42 @@ public class ClienteDashboardBoundary {
 
     @FXML
     public void apriGestisciScheda() {
+        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+        LogManager.info("StatoRichiesta PRIMA: " + cliente.getStatoRichiesta());
+        verificaAssociazionePTUtente(0);
+        LogManager.info("StatoRichiesta DOPO: " + cliente.getStatoRichiesta());
+        if (cliente.getStatoAssociazione() != StatoAssociazione.ASSOCIATO) {
+            return;
+        }
+        StatoRichiesta stato = cliente.getStatoRichiesta();
+        if (stato == StatoRichiesta.NESSUNA) {
+            mostraAlert(Alert.AlertType.INFORMATION, ATT, "Non hai ancora richiesto una scheda al trainer");
+            return;
+        } else if (stato != StatoRichiesta.COMPLETATA) {
+            if(stato == StatoRichiesta.PENDING) {
+                mostraAlert(Alert.AlertType.INFORMATION, ATT, "Il trainer non ha ancora visualizzato la richiesta di scheda");
+            }
+            else if(stato == StatoRichiesta.IN_LAVORAZIONE){
+                mostraAlert(Alert.AlertType.INFORMATION, ATT, "Il trainer non ha ancora lavorato la richiesta di scheda");
+            }
+            return; // Blocca l'apertura della finestra se la scheda non è ancora pronta
+        }
+
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/view/fxml/ClienteGestisciScheda.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/ClienteGestisciScheda.fxml"));
             Parent root = loader.load();
+
             Stage popupStage = new Stage();
             popupStage.initStyle(StageStyle.TRANSPARENT);
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.initOwner(lblNomeUtente.getScene().getWindow());
+
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             popupStage.setScene(scene);
             popupStage.showAndWait();
+            popolaInfoCard();
+
         } catch (IOException e) {
             LogManager.error("Errore apertura gestisci scheda", e);
         }
@@ -276,19 +349,34 @@ public class ClienteDashboardBoundary {
 
     @FXML
     public void avviaRichiestaScheda() {
-        // Recupero dell'utente dalla sessione
+        verificaAssociazionePTUtente(1);
+    }
+
+    public void verificaAssociazionePTUtente(int mode) {
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
         StatoAssociazione stato = cliente.getStatoAssociazione();
 
         try {
             switch (stato) {
                 case NESSUNA -> mostraPopupErroreNoPT();
-                case PENDING -> AlertManager.mostra("Il tuo Trainer non ha ancora accettato la richiesta.");
-                case ASSOCIATO -> {
-                    if (richiestaController.verificaPresenzaRichiesta(cliente.getEmail())) {
-                        AlertManager.mostra("Hai già una richiesta di scheda in sospeso. Attendi la risposta del PT.");
+                case PENDING -> {
+                    // In Java non puoi usare !mode su un int. Usiamo mode == 0
+                    if (mode == 1) {
+                        mostraAlert(Alert.AlertType.INFORMATION, ATT, "Il tuo Trainer non ha ancora accettato la richiesta.");
                     } else {
-                        caricaInterfacciaRichiesta();
+                        mostraAlert(Alert.AlertType.INFORMATION, ATT, "Il tuo Trainer non ha ancora accettato la richiesta di associazione.");
+                    }
+                }
+                case ASSOCIATO -> {
+                    if (mode == 1) {
+                        if (richiestaController.verificaPresenzaRichiesta(cliente.getEmail())) {
+                            mostraAlert(Alert.AlertType.INFORMATION, ATT, "Hai già una richiesta di scheda in sospeso. Attendi la risposta del PT.");
+                        } else {
+                            caricaInterfacciaRichiesta();
+                        }
+                    }
+                    else{
+                        //Non deve fare niente
                     }
                 }
                 default -> LogManager.warn("Stato associazione non gestito: " + stato);
@@ -297,24 +385,21 @@ public class ClienteDashboardBoundary {
             LogManager.error("Errore durante l'avvio della richiesta scheda", e);
         }
     }
-    private void caricaInterfacciaRichiesta() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/RichiestaScheda.fxml"));
-            Parent root = loader.load();
 
-            Stage popupStage = new Stage();
-            popupStage.initModality(Modality.WINDOW_MODAL);
-            popupStage.initOwner(lblNomeUtente.getScene().getWindow());
-            popupStage.initStyle(StageStyle.TRANSPARENT);
-
-            Scene scene = new Scene(root);
-            scene.setFill(Color.TRANSPARENT);
-            popupStage.setScene(scene);
-            popupStage.show();
-
-        } catch (IOException e) {
-            LogManager.error("Errore generico apertura pop-up richieste", e);
-        }
+    private void caricaInterfacciaRichiesta() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/view/fxml/RichiestaScheda.fxml"));
+        Parent root = loader.load();
+        Stage popupStage = new Stage();
+        popupStage.initStyle(StageStyle.TRANSPARENT);
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.initOwner(lblNomeUtente.getScene().getWindow());
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        popupStage.setScene(scene);
+        popupStage.showAndWait();
+        sincronizzaStatoCliente((Cliente) Sessione.getInstance().getUtente());
+        popolaInfoCard();
     }
 
     @FXML
@@ -355,12 +440,12 @@ public class ClienteDashboardBoundary {
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
 
         if (cliente.getStatoAssociazione() == StatoAssociazione.PENDING) {
-            AlertManager.mostra("Hai una richiesta pendente. Attendi la risposta del Trainer.");
+            mostraAlert(Alert.AlertType.INFORMATION, ATT, "Hai una richiesta pendente. Attendi la risposta del Trainer.");
             return;
         }
 
         if (cliente.getStatoAssociazione() == StatoAssociazione.ASSOCIATO) {
-            AlertManager.mostra("Sei già associato a un Trainer!");
+            mostraAlert(Alert.AlertType.INFORMATION, ATT, "Sei già associato a un Trainer!");
             return;
         }
         try {
@@ -401,5 +486,13 @@ public class ClienteDashboardBoundary {
         // 3. Navigazione verso la schermata di Login
         // Usiamo il tuo Navigator per cambiare scena
         Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
+    }
+
+    private void mostraAlert(Alert.AlertType tipo, String titolo, String msg) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titolo);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
     }
 }

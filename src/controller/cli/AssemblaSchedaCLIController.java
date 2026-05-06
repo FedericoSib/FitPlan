@@ -5,6 +5,7 @@ import model.dao.DAOFactory;
 import model.entity.*;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
+import model.exception.UserNotFoundException;
 import util.LogManager;
 import util.observer.NotificaObservableBase;
 
@@ -27,6 +28,15 @@ public class AssemblaSchedaCLIController extends NotificaObservableBase {
     public void segnaInLavorazione(String emailCliente) throws DAOException {
         DAOFactory.getRichiestaDAO()
                 .aggiornaStato(emailCliente, StatoRichiesta.IN_LAVORAZIONE);
+
+        try {
+            Utente utenteCliente = DAOFactory.getUtenteDAO().trovaUtentePerEmail(emailCliente);
+            if (utenteCliente instanceof Cliente cliente) {
+                cliente.setStatoRichiesta(StatoRichiesta.IN_LAVORAZIONE);
+            }
+        } catch (UserNotFoundException _) {
+            LogManager.warn("[CLI] Impossibile aggiornare l'oggetto Cliente in RAM: Utente non trovato.");
+        }
     }
 
     public void inviaScheda(SchedaBean schedaBean)
@@ -43,7 +53,6 @@ public class AssemblaSchedaCLIController extends NotificaObservableBase {
             }
         }
 
-        // Trasformazione Bean → Entity
         List<GiornoScheda> giorni = new ArrayList<>();
         for (GiornoSchedaBean gb : schedaBean.getGiorni()) {
             GiornoScheda giorno = new GiornoScheda(gb.getNome());
@@ -70,9 +79,17 @@ public class AssemblaSchedaCLIController extends NotificaObservableBase {
         notificaObserver(schedaBean.getEmailCliente(),
                 "Il tuo Personal Trainer ha assemblato e inviato la tua scheda!");
 
-        // Segna richiesta come completata
         DAOFactory.getRichiestaDAO()
                 .aggiornaStato(schedaBean.getEmailCliente(), StatoRichiesta.COMPLETATA);
+
+        try {
+            Utente utenteCliente = DAOFactory.getUtenteDAO().trovaUtentePerEmail(schedaBean.getEmailCliente());
+            if (utenteCliente instanceof Cliente cliente) {
+                cliente.setStatoRichiesta(StatoRichiesta.COMPLETATA);
+            }
+        } catch (UserNotFoundException _) {
+            LogManager.warn("[CLI] Impossibile aggiornare l'oggetto Cliente in RAM per stato COMPLETATA.");
+        }
 
         LogManager.info("[CLI] Scheda inviata al cliente: " + schedaBean.getEmailCliente());
     }
