@@ -1,14 +1,14 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Pagina-1" id="vL8QxXtDiceExFaaUoJF">
-    <mxGraphModel dx="941" dy="537" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1516" dy="866" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=29;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=none;" value="&amp;lt;&amp;lt;Creator&amp;gt;&amp;gt;&lt;div&gt;DAOFactory&lt;/div&gt;" vertex="1">
-          <mxGeometry height="110" width="250" x="1030" y="50" as="geometry" />
+          <mxGeometry height="120" width="250" x="1030" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-2" parent="dNlgnb3P5ZLA7SEH6hWG-1" style="text;html=1;strokeColor=#d79b00;fillColor=#ffcd28;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;gradientColor=#ffa500;" value="&lt;div align=&quot;left&quot;&gt;+getUtenteDAO(): UtenteDAO&lt;br&gt;    +getAssociazioneDAO(): AssociazioneDAO&lt;br&gt;    +getRichiestaDAO(): RichiestaDAO&lt;br&gt;    +getSchedaDAO(): SchedaDAO&lt;/div&gt;" vertex="1">
-          <mxGeometry height="81" width="250" y="29" as="geometry" />
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-2" parent="dNlgnb3P5ZLA7SEH6hWG-1" style="text;html=1;strokeColor=#d79b00;fillColor=#ffcd28;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;gradientColor=#ffa500;" value="&lt;div align=&quot;left&quot;&gt;&lt;u&gt;+getUtenteDAO(): UtenteDAO&lt;br&gt;    +getAssociazioneDAO(): AssociazioneDAO&lt;br&gt;    +getRichiestaDAO(): RichiestaDAO&lt;br&gt;    +getSchedaDAO(): SchedaDAO&lt;/u&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;u&gt;+getNotificaDAO(): NotificaDAO&lt;/u&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;u&gt;+getProgressiDAO(): ProgressiDAO&lt;/u&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="91" width="250" y="29" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-3" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.119;entryY=1.013;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;" target="dNlgnb3P5ZLA7SEH6hWG-2">
           <mxGeometry relative="1" as="geometry">
@@ -58,7 +58,7 @@
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-14" parent="dNlgnb3P5ZLA7SEH6hWG-13" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="-storage: List&amp;lt;RichiestaScheda&amp;gt;" vertex="1">
           <mxGeometry height="24" width="190" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-15" parent="dNlgnb3P5ZLA7SEH6hWG-13" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="+ method(type): type" vertex="1">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-15" parent="dNlgnb3P5ZLA7SEH6hWG-13" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&amp;lt;&amp;gt; Metodi di RichiestaDAO" vertex="1">
           <mxGeometry height="40" width="190" y="50" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-16" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;startArrow=block;startFill=0;endArrow=none;endFill=0;" target="dNlgnb3P5ZLA7SEH6hWG-21">
@@ -84,7 +84,7 @@
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-22" parent="dNlgnb3P5ZLA7SEH6hWG-21" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&lt;div&gt;-richiestePT: Map&amp;lt;String, String&amp;gt;&lt;/div&gt;&lt;div&gt;-stati: Map&amp;lt;String, StatoAssociazione&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="34" width="220" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-23" parent="dNlgnb3P5ZLA7SEH6hWG-21" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="+ method(type): type" vertex="1">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-23" parent="dNlgnb3P5ZLA7SEH6hWG-21" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&amp;lt;&amp;gt; Metodi di AssociazioneDAO" vertex="1">
           <mxGeometry height="40" width="220" y="60" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-24" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-25" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;startArrow=block;startFill=0;endArrow=none;endFill=0;" target="dNlgnb3P5ZLA7SEH6hWG-29">
@@ -105,15 +105,15 @@
           <mxGeometry height="90" width="280" y="52" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-29" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;swimlaneFillColor=default;fillColor=#f5f5f5;strokeColor=#666666;gradientColor=none;" value="&lt;b&gt;UtenteDAO&lt;/b&gt;Memory" vertex="1">
-          <mxGeometry height="122" width="250" x="340" y="330" as="geometry">
+          <mxGeometry height="80" width="200" x="360" y="330" as="geometry">
             <mxRectangle height="30" width="150" x="30" y="320" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-30" parent="dNlgnb3P5ZLA7SEH6hWG-29" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="- utenti: List&amp;lt;Utente&amp;gt;&amp;nbsp;" vertex="1">
-          <mxGeometry height="26" width="250" y="26" as="geometry" />
+          <mxGeometry height="26" width="200" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-31" parent="dNlgnb3P5ZLA7SEH6hWG-29" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="+trovaUtente(String email, String password): Utente&lt;br&gt;+trovaUtentePerEmail(String email): Utente&lt;br&gt;+salvaNuovoUtente(Utente utente): void" vertex="1">
-          <mxGeometry height="70" width="250" y="52" as="geometry" />
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-31" parent="dNlgnb3P5ZLA7SEH6hWG-29" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&amp;lt;&amp;gt; Metodi di UtenteDAO" vertex="1">
+          <mxGeometry height="28" width="200" y="52" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-32" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-33" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;startArrow=block;startFill=0;endArrow=none;endFill=0;" target="dNlgnb3P5ZLA7SEH6hWG-37">
           <mxGeometry relative="1" as="geometry">
@@ -133,13 +133,13 @@
           <mxGeometry height="60" width="270" y="52" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-37" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=none;strokeColor=#666666;" value="SchedaDAOMemory" vertex="1">
-          <mxGeometry height="92" width="140" x="1100" y="330" as="geometry" />
+          <mxGeometry height="92" width="150" x="1100" y="330" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-38" parent="dNlgnb3P5ZLA7SEH6hWG-37" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="storage:&amp;nbsp;List&amp;lt;Scheda&amp;gt;&amp;nbsp;" vertex="1">
-          <mxGeometry height="26" width="140" y="26" as="geometry" />
+          <mxGeometry height="26" width="150" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-39" parent="dNlgnb3P5ZLA7SEH6hWG-37" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="+ method(type): type" vertex="1">
-          <mxGeometry height="40" width="140" y="52" as="geometry" />
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-39" parent="dNlgnb3P5ZLA7SEH6hWG-37" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&amp;lt;&amp;gt; Metodi di SchedaDAO" vertex="1">
+          <mxGeometry height="40" width="150" y="52" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-40" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-41" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;endArrow=none;endFill=0;startArrow=block;startFill=0;" target="dNlgnb3P5ZLA7SEH6hWG-46">
           <mxGeometry relative="1" as="geometry">
@@ -171,7 +171,7 @@
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-47" parent="dNlgnb3P5ZLA7SEH6hWG-46" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&amp;nbsp;storage: Map&amp;lt;String, List&amp;lt;String&amp;gt;&amp;gt;&amp;nbsp;" vertex="1">
           <mxGeometry height="24" width="210" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-48" parent="dNlgnb3P5ZLA7SEH6hWG-46" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="+ method(type): type" vertex="1">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-48" parent="dNlgnb3P5ZLA7SEH6hWG-46" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&amp;lt;&amp;gt; Metodi di NotificaDAO" vertex="1">
           <mxGeometry height="40" width="210" y="50" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-49" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-50" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;startArrow=block;startFill=0;endArrow=none;endFill=0;" target="dNlgnb3P5ZLA7SEH6hWG-54">
@@ -197,7 +197,7 @@
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-55" parent="dNlgnb3P5ZLA7SEH6hWG-54" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="storage: List&amp;lt;Progressi&amp;gt;&amp;nbsp;" vertex="1">
           <mxGeometry height="26" width="170" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-56" parent="dNlgnb3P5ZLA7SEH6hWG-54" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="+ method(type): type" vertex="1">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-56" parent="dNlgnb3P5ZLA7SEH6hWG-54" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&amp;lt;&amp;gt; Metodi di ProgressiDAO" vertex="1">
           <mxGeometry height="40" width="170" y="52" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-57" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.999;exitY=0.8;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;exitPerimeter=0;" target="dNlgnb3P5ZLA7SEH6hWG-50">
