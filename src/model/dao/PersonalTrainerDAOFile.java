@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonalTrainerDAOFile implements PersonalTrainerDAO {
+    private static final String FILE_NAME = "utenti_fitplan.dat";
 
     private List<PersonalTrainer> caricaTutti() {
         List<PersonalTrainer> listaPT = new ArrayList<>();
         // Leggiamo dal file dove tieni TUTTI gli utenti
-        try (BufferedReader br = new BufferedReader(new FileReader("utenti_fitplan.dat"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] parti = linea.split(";");
