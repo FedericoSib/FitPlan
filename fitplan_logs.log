@@ -8299,3 +8299,39 @@ mag 06, 2026 5:19:49 PM util.LogManager info
 INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
 mag 06, 2026 5:19:49 PM util.LogManager info
 INFO: ScadenzaRichiesteController avviato.
+mag 09, 2026 1:58:04 AM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 09, 2026 1:58:04 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 09, 2026 1:58:04 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 09, 2026 1:58:23 AM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 09, 2026 1:58:23 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 09, 2026 1:59:04 AM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 09, 2026 1:59:04 AM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 09, 2026 1:59:06 AM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 09, 2026 1:59:19 AM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 09, 2026 2:09:20 AM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 09, 2026 2:09:20 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 09, 2026 2:09:20 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 09, 2026 2:09:40 AM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 09, 2026 2:09:40 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 09, 2026 2:10:30 AM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 09, 2026 2:10:30 AM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 09, 2026 2:10:32 AM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 09, 2026 2:10:54 AM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com

@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Ultimi ritocchi di stile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/PersonalTrainerDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PersonalTrainerDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/RichiestaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/RichiestaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/exception/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/exception/DAOException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test/ControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test/DAOMemoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/richieste_fitplan.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schede_fitplan.dat" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,14 +92,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Fix pop ups">
-      <option name="closed" value="true" />
-      <created>1777468644026</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1777468644026</updated>
     </task>
     <task id="LOCAL-00004" summary="Fix pop ups">
       <option name="closed" value="true" />
@@ -487,7 +477,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778080804438</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Ultimi ritocchi di stile">
+      <option name="closed" value="true" />
+      <created>1778273189875</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1778273189876</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
