@@ -204,11 +204,11 @@
         <mxCell id="kcHxhj7tJDT94I5BfD8N-7" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="" vertex="1">
           <mxGeometry height="60" width="30" x="760" y="180" as="geometry" />
         </mxCell>
-        <mxCell id="kcHxhj7tJDT94I5BfD8N-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" value="Google pay api" vertex="1">
-          <mxGeometry height="30" width="60" x="750" y="240" as="geometry" />
-        </mxCell>
-        <mxCell id="kcHxhj7tJDT94I5BfD8N-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" value="Gmail api" vertex="1">
+        <mxCell id="kcHxhj7tJDT94I5BfD8N-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;br&gt;&lt;div&gt;Servizio&lt;/div&gt;&lt;div&gt;Email&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="60" x="745" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="uZOt0pQEVDutmimK-NDy-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div&gt;Sistema&lt;/div&gt;&lt;div&gt;Notifiche&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="745" y="240" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
