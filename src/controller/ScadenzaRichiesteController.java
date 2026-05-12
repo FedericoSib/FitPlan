@@ -1,4 +1,4 @@
-package controller.graphic;
+package controller;
 
 import model.dao.AssociazioneDAO;
 import model.dao.DAOFactory;

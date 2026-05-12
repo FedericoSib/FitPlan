@@ -1,7 +1,7 @@
 package view.fxml;
 
 import bean.AssociazioneBean;
-import controller.graphic.GestisciRichiestePTController;
+import controller.GestisciRichiestePTController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

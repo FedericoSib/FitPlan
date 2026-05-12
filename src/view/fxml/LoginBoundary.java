@@ -1,6 +1,6 @@
 package view.fxml;
 
-import controller.graphic.LoginController;
+import controller.LoginController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;

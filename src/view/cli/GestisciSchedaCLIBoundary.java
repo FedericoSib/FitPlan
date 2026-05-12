@@ -1,7 +1,7 @@
 package view.cli;
 
 import bean.*;
-import controller.cli.GestisciSchedaCLIController;
+import controller.GestisciSchedaController;
 import model.Sessione;
 import model.entity.*;
 import model.exception.DAOException;
@@ -14,8 +14,8 @@ import java.util.Scanner;
 public class GestisciSchedaCLIBoundary {
 
     private final Scanner scanner;
-    private final GestisciSchedaCLIController controller =
-            new GestisciSchedaCLIController();
+    private final GestisciSchedaController controller =
+            new GestisciSchedaController();
     public static final String STRINGAERRORE = "Errore";
 
     public GestisciSchedaCLIBoundary(Scanner scanner) {

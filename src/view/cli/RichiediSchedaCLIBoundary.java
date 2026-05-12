@@ -1,7 +1,7 @@
 package view.cli;
 
 import bean.RichiestaSchedaBean;
-import controller.cli.RichiediSchedaCLIController;
+import controller.RichiediSchedaController;
 import model.Sessione;
 import model.entity.Cliente;
 import model.entity.StatoRichiesta;
@@ -15,8 +15,7 @@ public class RichiediSchedaCLIBoundary {
 
     public static final String ERR = "Errore: ";
     private final Scanner scanner;
-    private final RichiediSchedaCLIController controller =
-            new RichiediSchedaCLIController();
+    private final RichiediSchedaController controller = new RichiediSchedaController();
 
     public RichiediSchedaCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
@@ -24,12 +23,19 @@ public class RichiediSchedaCLIBoundary {
 
     public void avvia() {
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
-        if (cliente.getStatoRichiesta() == StatoRichiesta.PENDING){
-            System.out.println("\nHai già una richiesta in attesa di valutazione.");
-            return;
-        } else if (cliente.getStatoRichiesta() == StatoRichiesta.IN_LAVORAZIONE) {
-            System.out.println("\nHai già una richiesta in corso. Attendi che il PT completi la scheda.");
-            return;
+        switch (cliente.getStatoRichiesta()) {
+            case PENDING -> {
+                System.out.println("\nHai già una richiesta in attesa di valutazione.");
+                return;
+            }
+            case IN_LAVORAZIONE -> {
+                System.out.println("\nHai già una richiesta in corso. Attendi che il PT completi la scheda.");
+                return;
+            }
+            case COMPLETATA -> {
+                System.out.println("\nIl tuo PT ti ha inviato la scheda. Visualizzala nel menù.");
+                return;
+            }
         }
         try {
             controller.verificaAssociazionePT();
@@ -38,16 +44,8 @@ public class RichiediSchedaCLIBoundary {
             return;
         }
         System.out.println("\n--- Richiedi Scheda ---");
-
-        // Verifica associazione PT
-        try {
-            controller.verificaAssociazionePT();
-        } catch (TrainerNotAssociatedException e) {
-            System.out.println(ERR + e.getMessage());
-            return;
-        }
-
         System.out.println("\nCompila il form per richiedere la tua scheda:");
+
         String sesso = scegliSesso();
         if (sesso == null) return;
         int eta = leggiIntero("Inserisci la tua età: ", 10, 100);

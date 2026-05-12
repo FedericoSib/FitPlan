@@ -1,7 +1,7 @@
 package view.cli;
 
 import bean.RegistrazioneBean;
-import controller.cli.RegistrazioneCLIController;
+import controller.RegistrazioneController;
 import model.exception.RegistrazioneException;
 
 import java.util.Scanner;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class RegistrazioneCLIBoundary {
 
     private final Scanner scanner;
-    private final RegistrazioneCLIController controller = new RegistrazioneCLIController();
+    private final RegistrazioneController controller = new RegistrazioneController();
 
     public RegistrazioneCLIBoundary(Scanner scanner) {
         this.scanner = scanner;

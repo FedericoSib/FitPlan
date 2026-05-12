@@ -1,6 +1,6 @@
 package main;
 
-import controller.graphic.ScadenzaRichiesteController;
+import controller.ScadenzaRichiesteController;
 import model.dao.DAOFactory;
 import util.LogManager;
 import util.observer.NotificaManager;

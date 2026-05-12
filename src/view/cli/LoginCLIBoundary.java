@@ -1,7 +1,7 @@
 package view.cli;
 
 import bean.LoginBean;
-import controller.cli.LoginCLIController;
+import controller.LoginController;
 import model.Sessione;
 import model.entity.PersonalTrainer;
 import model.exception.LoginException;
@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class LoginCLIBoundary {
 
     private final Scanner scanner;
-    private final LoginCLIController controller = new LoginCLIController();
+    private final LoginController controller = new LoginController();
 
     public LoginCLIBoundary(Scanner scanner) {
         this.scanner = scanner;

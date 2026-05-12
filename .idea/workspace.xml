@@ -7,8 +7,44 @@
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Ultimi ritocchi di stile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progressi_fitplan.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/richieste_associazione.csv" beforeDir="false" afterPath="$PROJECT_DIR$/richieste_associazione.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/richieste_fitplan.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schede_fitplan.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/cli/AssemblaSchedaCLIController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/cli/AssociaPTCLIController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/cli/GestisciRichiestePTCLIController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/cli/GestisciSchedaCLIController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/cli/LoginCLIController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/cli/RegistrazioneCLIController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/cli/RichiediSchedaCLIController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/graphic/AssemblaSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AssemblaSchedaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/graphic/AssociaPTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AssociaPTController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/graphic/GestisciRichiestePTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GestisciRichiestePTController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/graphic/GestisciSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GestisciSchedaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/graphic/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/graphic/RegistrazioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RegistrazioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/graphic/RichiediSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RichiediSchedaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/graphic/ScadenzaRichiesteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ScadenzaRichiesteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/AssociaPTCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/AssociaPTCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/GestisciRichiesteCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/GestisciRichiesteCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/LoginCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/LoginCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/RegistrazioneCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/RegistrazioneCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/RichiediSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/RichiediSchedaCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteGestisciSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteGestisciSchedaBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteRichiediSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRichiediSchedaBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/LoginBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/LoginBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTAssemblaSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTAssemblaSchedaBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendentiBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendentiBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiesteSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiesteSchedaBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/RegistrazioneBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/RegistrazioneBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/AssociazionePTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/AssociazionePTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/AutenticazioneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/AutenticazioneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test/RichiediSchedaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/RichiediSchedaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +55,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -58,6 +94,7 @@
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;Z:/Università/ISPW/FitPlan&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
@@ -92,14 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Fix pop ups">
-      <option name="closed" value="true" />
-      <created>1777469349572</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1777469349572</updated>
     </task>
     <task id="LOCAL-00005" summary="Fix pop ups">
       <option name="closed" value="true" />
@@ -485,7 +514,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778273189876</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Ultimi ritocchi di stile">
+      <option name="closed" value="true" />
+      <created>1778327422409</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1778327422410</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

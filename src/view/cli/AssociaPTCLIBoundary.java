@@ -2,7 +2,7 @@ package view.cli;
 
 import bean.AssociazioneBean;
 import bean.PersonalTrainerBean;
-import controller.cli.AssociaPTCLIController;
+import controller.AssociaPTController;
 import model.Sessione;
 import model.dao.DAOFactory;
 import model.entity.Cliente;
@@ -17,11 +17,11 @@ import java.util.Scanner;
 public class AssociaPTCLIBoundary {
 
     private final Scanner scanner;
-    private final AssociaPTCLIController controller;
+    private final AssociaPTController controller;
 
     public AssociaPTCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
-        this.controller = new AssociaPTCLIController();
+        this.controller = new AssociaPTController();
         controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
     }
 

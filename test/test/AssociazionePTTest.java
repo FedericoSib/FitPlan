@@ -2,8 +2,8 @@ package test;
 
 import bean.AssociazioneBean;
 import bean.PersonalTrainerBean;
-import controller.graphic.AssociaPTController;
-import controller.graphic.GestisciRichiestePTController;
+import controller.AssociaPTController;
+import controller.GestisciRichiestePTController;
 import model.Sessione;
 import model.dao.AssociazioneDAOMemory;
 import model.dao.DAOFactory;

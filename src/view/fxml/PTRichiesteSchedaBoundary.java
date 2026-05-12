@@ -1,7 +1,7 @@
 package view.fxml;
 
 import bean.RichiestaSchedaBean;
-import controller.graphic.AssemblaSchedaController;
+import controller.AssemblaSchedaController;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

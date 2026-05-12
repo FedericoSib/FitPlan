@@ -1,7 +1,7 @@
 package view.fxml;
 
 import bean.*;
-import controller.graphic.AssemblaSchedaController;
+import controller.AssemblaSchedaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

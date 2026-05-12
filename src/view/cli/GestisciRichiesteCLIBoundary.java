@@ -1,7 +1,7 @@
 package view.cli;
 
 import bean.AssociazioneBean;
-import controller.cli.GestisciRichiestePTCLIController;
+import controller.GestisciRichiestePTController;
 import model.Sessione;
 import model.dao.DAOFactory;
 import model.exception.DAOException;
@@ -13,11 +13,11 @@ import java.util.Scanner;
 public class GestisciRichiesteCLIBoundary {
 
     private final Scanner scanner;
-    private final GestisciRichiestePTCLIController controller;
+    private final GestisciRichiestePTController controller;
 
     public GestisciRichiesteCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
-        this.controller = new GestisciRichiestePTCLIController();
+        this.controller = new GestisciRichiestePTController();
         controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
     }
     public void avvia() {

@@ -1,4 +1,4 @@
-package controller.graphic;
+package controller;
 
 import bean.*;
 import model.dao.DAOFactory;

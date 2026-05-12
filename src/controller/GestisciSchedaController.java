@@ -1,6 +1,9 @@
-package controller.cli;
+package controller;
 
-import bean.*;
+import bean.ProgressiBean;
+import bean.SchedaBean;
+import bean.GiornoSchedaBean;
+import bean.EsercizioBean;
 import model.Sessione;
 import model.dao.DAOFactory;
 import model.entity.*;
@@ -11,20 +14,23 @@ import util.LogManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestisciSchedaCLIController {
+public class GestisciSchedaController {
 
     public SchedaBean getSchedaCliente() throws DAOException {
         String email = Sessione.getInstance().getUtente().getEmail();
         List<Scheda> schede = DAOFactory.getSchedaDAO().getSchedePerCliente(email);
+
         if (schede.isEmpty()) return null;
 
+        // Prendiamo l'ultima scheda assegnata
         Scheda scheda = schede.get(schede.size() - 1);
+
         SchedaBean bean = new SchedaBean();
         bean.setEmailCliente(scheda.getEmailCliente());
         bean.setEmailPT(scheda.getEmailPT());
 
         for (GiornoScheda gs : scheda.getGiorni()) {
-            GiornoSchedaBean gb = new GiornoSchedaBean(gs.getNome());
+            GiornoSchedaBean giornoBean = new GiornoSchedaBean(gs.getNome());
             for (Esercizio e : gs.getEsercizi()) {
                 EsercizioBean eb = new EsercizioBean();
                 eb.setNome(e.getNome());
@@ -32,9 +38,9 @@ public class GestisciSchedaCLIController {
                 eb.setRipetizioni(e.getRipetizioni());
                 eb.setRecuperoSecondi(e.getRecuperoSecondi());
                 eb.setNote(e.getNote());
-                gb.aggiungiEsercizio(eb);
+                giornoBean.aggiungiEsercizio(eb);
             }
-            bean.getGiorni().add(gb);
+            bean.getGiorni().add(giornoBean);
         }
         return bean;
     }
@@ -79,6 +85,6 @@ public class GestisciSchedaCLIController {
         );
 
         DAOFactory.getProgressiDAO().salvaProgressi(entity);
-        LogManager.info("[CLI] Progressi salvati per: " + bean.getEmailCliente());
+        LogManager.info("Progressi salvati per: " + bean.getEmailCliente());
     }
 }

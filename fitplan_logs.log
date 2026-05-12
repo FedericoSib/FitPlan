@@ -2298,7 +2298,7 @@ SEVERE: Errore nel salvataggio della richiesta scheda
 model.exception.DAOException: Errore nel caricamento delle richieste da file: model.entity.RichiestaScheda; local class incompatible: stream classdesc serialVersionUID = 1656701053653698753, local class serialVersionUID = 5775299828822760180
 	at model.dao.RichiestaDAOFile.prendiTutteLeRichieste(RichiestaDAOFile.java:58)
 	at model.dao.RichiestaDAOFile.salvaRichiesta(RichiestaDAOFile.java:15)
-	at controller.graphic.RichiediSchedaController.elaboraRichiesta(RichiediSchedaController.java:39)
+	at controller.RichiediSchedaController.elaboraRichiesta(RichiediSchedaController.java:39)
 	at view.ClienteRichiediSchedaBoundary.gestisciInvio(ClienteRichiediSchedaBoundary.java:97)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
@@ -4894,7 +4894,7 @@ SEVERE: Errore nel salvataggio della richiesta scheda
 model.exception.DAOException: Errore nel caricamento delle richieste da file: model.entity.RichiestaScheda; local class incompatible: stream classdesc serialVersionUID = 1656701053653698753, local class serialVersionUID = 5775299828822760180
 	at model.dao.RichiestaDAOFile.prendiTutteLeRichieste(RichiestaDAOFile.java:58)
 	at model.dao.RichiestaDAOFile.salvaRichiesta(RichiestaDAOFile.java:15)
-	at controller.graphic.RichiediSchedaController.elaboraRichiesta(RichiediSchedaController.java:39)
+	at controller.RichiediSchedaController.elaboraRichiesta(RichiediSchedaController.java:39)
 	at view.ClienteRichiediSchedaBoundary.gestisciInvio(ClienteRichiediSchedaBoundary.java:100)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
@@ -5120,7 +5120,7 @@ SEVERE: Errore nel salvataggio della richiesta scheda
 model.exception.DAOException: Errore nel caricamento delle richieste da file: model.entity.RichiestaScheda; local class incompatible: stream classdesc serialVersionUID = 1656701053653698753, local class serialVersionUID = 5775299828822760180
 	at model.dao.RichiestaDAOFile.prendiTutteLeRichieste(RichiestaDAOFile.java:58)
 	at model.dao.RichiestaDAOFile.salvaRichiesta(RichiestaDAOFile.java:15)
-	at controller.graphic.RichiediSchedaController.elaboraRichiesta(RichiediSchedaController.java:39)
+	at controller.RichiediSchedaController.elaboraRichiesta(RichiediSchedaController.java:39)
 	at view.fxml.ClienteRichiediSchedaBoundary.gestisciInvio(ClienteRichiediSchedaBoundary.java:100)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
@@ -8335,3 +8335,129 @@ mag 09, 2026 2:10:32 AM util.LogManager info
 INFO: Logout effettuato con successo. Reindirizzamento al login...
 mag 09, 2026 2:10:54 AM util.LogManager info
 INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 10, 2026 12:27:11 AM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 10, 2026 12:27:11 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 10, 2026 12:27:11 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 10, 2026 12:27:36 AM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 10, 2026 12:27:36 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 10, 2026 12:27:36 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 10, 2026 12:27:52 AM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 10, 2026 12:27:52 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 10, 2026 12:27:54 AM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 10, 2026 12:27:58 AM util.LogManager info
+INFO: Ricerca completata per: vale
+mag 10, 2026 12:28:00 AM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: ValerioR@gmail.com
+mag 10, 2026 12:28:00 AM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 10, 2026 12:38:14 AM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 10, 2026 12:38:14 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 10, 2026 12:38:14 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 10, 2026 12:38:14 AM util.LogManager warn
+WARNING: Richiesta scaduta per cliente: Federico@gmail.com
+mag 10, 2026 12:38:30 AM util.LogManager info
+INFO: Login effettuato con successo per: valerior@gmail.com
+mag 10, 2026 12:39:07 AM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 10, 2026 12:40:04 AM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 10, 2026 12:40:04 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 10, 2026 12:40:04 AM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 10, 2026 12:40:25 AM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 10, 2026 12:40:25 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 10, 2026 12:40:29 AM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 10, 2026 12:40:32 AM util.LogManager info
+INFO: Popup Ricerca PT aperto correttamente.
+mag 10, 2026 12:40:35 AM util.LogManager info
+INFO: Ricerca completata per: vale
+mag 10, 2026 12:40:37 AM util.LogManager info
+INFO: Invio richiesta tramite Bean da: Federico@gmail.com a: ValerioR@gmail.com
+mag 10, 2026 12:40:37 AM util.LogManager info
+INFO: Stato aggiornato in sessione a PENDING per: Federico@gmail.com
+mag 10, 2026 12:40:42 AM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 10, 2026 12:40:56 AM util.LogManager info
+INFO: Login effettuato con successo per: valerior@gmail.com
+mag 10, 2026 12:41:02 AM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 10, 2026 12:41:49 AM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 10, 2026 12:41:49 AM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 12, 2026 4:39:39 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 12, 2026 4:39:39 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 12, 2026 4:39:39 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 12, 2026 4:39:50 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 12, 2026 4:39:50 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 12, 2026 4:40:13 PM util.LogManager info
+INFO: Richiesta salvata per cliente: Federico@gmail.com
+mag 12, 2026 4:40:13 PM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 12, 2026 4:40:39 PM util.LogManager info
+INFO: Login effettuato con successo per: alessandrar@gmail.com
+mag 12, 2026 4:41:19 PM util.LogManager info
+INFO: Login effettuato con successo per: valerior@gmail.com
+mag 12, 2026 4:42:37 PM util.LogManager info
+INFO: Scheda inviata al cliente: Federico@gmail.com
+mag 12, 2026 4:42:55 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 12, 2026 4:43:30 PM util.LogManager info
+INFO: Progressi salvati per: Federico@gmail.com
+mag 12, 2026 4:45:36 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 12, 2026 4:45:36 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 12, 2026 4:45:36 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 12, 2026 4:45:48 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 12, 2026 4:49:15 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 12, 2026 4:49:15 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 12, 2026 4:49:15 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 12, 2026 4:49:28 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 12, 2026 4:50:23 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 12, 2026 4:50:23 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 12, 2026 4:50:23 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 12, 2026 4:50:37 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 12, 2026 4:50:37 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 12, 2026 4:50:51 PM util.LogManager info
+INFO: Richiesta salvata per cliente: Federico@gmail.com
+mag 12, 2026 4:50:51 PM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 12, 2026 4:51:33 PM util.LogManager info
+INFO: Login effettuato con successo per: valerior@gmail.com
+mag 12, 2026 4:52:07 PM util.LogManager info
+INFO: Scheda inviata al cliente: Federico@gmail.com
+mag 12, 2026 4:52:20 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com

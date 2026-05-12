@@ -1,4 +1,4 @@
-package controller.graphic;
+package controller;
 
 import bean.*;
 import model.dao.*;
@@ -11,7 +11,7 @@ import util.LogManager;
 
 public class RichiediSchedaController {
 
-    public void elaboraRichiesta(RichiestaSchedaBean bean) throws InvalidFormException {
+public void elaboraRichiesta(RichiestaSchedaBean bean) throws InvalidFormException,DAOException {
         RichiestaDAO dao = DAOFactory.getRichiestaDAO();
         SchedaDAO schedaDao = DAOFactory.getSchedaDAO();
         try {

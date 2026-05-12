@@ -1,7 +1,7 @@
 package test;
 
 import bean.RichiestaSchedaBean;
-import controller.graphic.RichiediSchedaController;
+import controller.RichiediSchedaController;
 import model.Sessione;
 import model.dao.*;
 import model.entity.*;

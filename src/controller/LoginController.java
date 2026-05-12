@@ -1,4 +1,4 @@
-package controller.graphic;
+package controller;
 
 import model.Sessione;
 import bean.*;

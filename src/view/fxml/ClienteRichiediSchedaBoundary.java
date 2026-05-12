@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 import util.LogManager;
-import controller.graphic.RichiediSchedaController;
+import controller.RichiediSchedaController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.entity.Cliente;

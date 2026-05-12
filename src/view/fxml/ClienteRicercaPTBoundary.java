@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import model.*;
 import model.exception.*;
 import util.LogManager;
-import controller.graphic.AssociaPTController;
+import controller.AssociaPTController;
 
 import java.util.List;
 

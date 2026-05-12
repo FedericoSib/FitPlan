@@ -1,7 +1,7 @@
 package view.fxml;
 
 import config.*;
-import controller.graphic.RichiediSchedaController;
+import controller.RichiediSchedaController;
 import javafx.scene.shape.Circle;
 import model.dao.DAOFactory;
 import util.observer.*;

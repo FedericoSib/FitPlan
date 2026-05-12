@@ -2,8 +2,8 @@ package test;
 
 import bean.LoginBean;
 import bean.RegistrazioneBean;
-import controller.graphic.LoginController;
-import controller.graphic.RegistrazioneController;
+import controller.LoginController;
+import controller.RegistrazioneController;
 import model.Sessione;
 import model.dao.DAOFactory;
 import model.dao.UtenteDAOMemory;

@@ -1,7 +1,7 @@
 package view.cli;
 
 import bean.*;
-import controller.cli.AssemblaSchedaCLIController;
+import controller.AssemblaSchedaController;
 import model.Sessione;
 import model.dao.DAOFactory;
 import model.exception.DAOException;
@@ -15,12 +15,12 @@ import java.util.Scanner;
 public class AssemblaSchedaCLIBoundary {
 
     private final Scanner scanner;
-    private final AssemblaSchedaCLIController controller;
+    private final AssemblaSchedaController controller;
     public static final String SCELTANONVALIDA = "Scelta non valida.";
 
     public AssemblaSchedaCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
-        this.controller = new AssemblaSchedaCLIController();
+        this.controller = new AssemblaSchedaController();
         controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
     }
 

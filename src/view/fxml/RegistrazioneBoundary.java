@@ -1,7 +1,7 @@
 package view.fxml;
 
 import bean.*;
-import controller.graphic.RegistrazioneController;
+import controller.RegistrazioneController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
