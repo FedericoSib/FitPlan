@@ -4,7 +4,6 @@ import bean.RichiestaSchedaBean;
 import controller.RichiediSchedaController;
 import model.Sessione;
 import model.entity.Cliente;
-import model.entity.StatoRichiesta;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
 import model.exception.TrainerNotAssociatedException;
@@ -35,6 +34,9 @@ public class RichiediSchedaCLIBoundary {
             case COMPLETATA -> {
                 System.out.println("\nIl tuo PT ti ha inviato la scheda. Visualizzala nel menù.");
                 return;
+            }
+            default -> {
+                //Stato: NESSUNA si può procedere al caso d'uso.
             }
         }
         try {
