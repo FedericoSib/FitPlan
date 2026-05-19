@@ -8461,3 +8461,45 @@ mag 12, 2026 4:52:07 PM util.LogManager info
 INFO: Scheda inviata al cliente: Federico@gmail.com
 mag 12, 2026 4:52:20 PM util.LogManager info
 INFO: Login effettuato con successo per: federico@gmail.com
+mag 18, 2026 7:16:47 PM util.LogManager info
+INFO: Sistema avviato in modalità: FULL (File System)
+mag 18, 2026 7:16:47 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato. Scadenza: 2 minuti (DEMO)
+mag 18, 2026 7:16:47 PM util.LogManager info
+INFO: ScadenzaRichiesteController avviato.
+mag 18, 2026 7:17:02 PM util.LogManager info
+INFO: Richieste trovate al login: 0
+mag 18, 2026 7:17:02 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 18, 2026 7:17:18 PM util.LogManager info
+INFO: Richiesta salvata per cliente: federico@gmail.com
+mag 18, 2026 7:17:18 PM util.LogManager info
+INFO: Stato del cliente in sessione aggiornato a PENDING.
+mag 18, 2026 7:17:21 PM util.LogManager info
+INFO: StatoRichiesta PRIMA: PENDING
+mag 18, 2026 7:17:21 PM util.LogManager info
+INFO: StatoRichiesta DOPO: PENDING
+mag 18, 2026 7:17:22 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 18, 2026 7:17:32 PM util.LogManager info
+INFO: Login effettuato con successo per: valerior@gmail.com
+mag 18, 2026 7:17:55 PM util.LogManager info
+INFO: Scheda inviata al cliente: federico@gmail.com
+mag 18, 2026 7:17:59 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 18, 2026 7:18:09 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 18, 2026 7:18:19 PM util.LogManager info
+INFO: StatoRichiesta PRIMA: COMPLETATA
+mag 18, 2026 7:18:19 PM util.LogManager info
+INFO: StatoRichiesta DOPO: COMPLETATA
+mag 18, 2026 7:18:35 PM util.LogManager info
+INFO: StatoRichiesta PRIMA: COMPLETATA
+mag 18, 2026 7:18:35 PM util.LogManager info
+INFO: StatoRichiesta DOPO: COMPLETATA
+mag 18, 2026 7:18:39 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...
+mag 18, 2026 7:18:49 PM util.LogManager info
+INFO: Login effettuato con successo per: federico@gmail.com
+mag 18, 2026 7:18:56 PM util.LogManager info
+INFO: Logout effettuato con successo. Reindirizzamento al login...

@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix piccoli errori" />
+    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix smells">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/fitplan_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/richieste_fitplan.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schede_fitplan.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/observer/NotificaObservable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/observer/NotificaObservableBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/observer/NotificaObservableBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,14 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Fix pop ups">
-      <option name="closed" value="true" />
-      <created>1777659611720</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1777659611720</updated>
     </task>
     <task id="LOCAL-00007" summary="Fix smells">
       <option name="closed" value="true" />
@@ -481,7 +481,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778597591211</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Fix smells">
+      <option name="closed" value="true" />
+      <created>1778597980998</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1778597980998</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -490,7 +498,6 @@
     <MESSAGE value="Fix Test classes" />
     <MESSAGE value="Fix coverage" />
     <MESSAGE value="Aggiunta di scadenza per la richiesta di associazione, tolto il match preciso della mail per il login (federico@gmail.com = FeDeRiCo@GmAiL.cOm), aggiunta la possibilita di cercare il PT per prefisso, se ci sono PT di Nome Alessandro e Alessio cercando Ale escono entrambi" />
-    <MESSAGE value="Fix smells" />
     <MESSAGE value="Fix errori come il pop up richiedi scheda che non va giu dopo aver inviato la richiesta e la possibilita di mandare 2 richieste di scheda" />
     <MESSAGE value="continuo del precedente commit" />
     <MESSAGE value="Caso d'usso Accetta/Assembla scheda" />
@@ -500,6 +507,7 @@
     <MESSAGE value="FIX SMELLS" />
     <MESSAGE value="Ultimi ritocchi di stile" />
     <MESSAGE value="Fix piccoli errori" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix piccoli errori" />
+    <MESSAGE value="Fix smells" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix smells" />
   </component>
 </project>

@@ -34,6 +34,7 @@ public class ClienteDashboardBoundary {
     private RichiediSchedaController richiestaController = new RichiediSchedaController();
     private static final String CSS_PATH_KEY = "style.css.path";
     private static final String GIALLO = "#fdcb6e";
+    private static final String VERDE = "#00b894";
     String cssPath = AppConfig.get(CSS_PATH_KEY);
     public static final String ATT = "Attenzione";
     @FXML private Label lblNomeUtente;
@@ -190,7 +191,7 @@ public class ClienteDashboardBoundary {
 
         switch (stato) {
             case ASSOCIATO -> {
-                cerchioStato.setFill(javafx.scene.paint.Color.web("#00b894")); // verde
+                cerchioStato.setFill(javafx.scene.paint.Color.web(VERDE)); // verde
                 lblStatoAssociazione.setText("Associato");
                 lblNomePT.setText("Personal Trainer: " + cliente.getIdPersonalTrainer());
             }
@@ -209,32 +210,48 @@ public class ClienteDashboardBoundary {
 
     private void popolaCardRichiesta(Cliente cliente) {
         try {
-            var dao = model.dao.DAOFactory.getRichiestaDAO();
-            boolean haRichiesta = dao.esisteRichiestaAttiva(cliente.getEmail());
-
-            if (haRichiesta) {
-                // Cerca la richiesta attiva per mostrare i dettagli
-                var richieste = dao.prendiRichiestePerPT(cliente.getIdPersonalTrainer());
-                richieste.stream()
-                        .filter(r -> r.getClienteEmail().equalsIgnoreCase(cliente.getEmail()))
-                        .findFirst()
-                        .ifPresent(r -> {
-                            lblStatoRichiesta.setText("⏳ Richiesta in attesa");
-                            lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web(GIALLO));
-                            lblObiettivoRichiesta.setText("Obiettivo: " + r.getObiettivo());
-                            lblDataRichiesta.setText("Frequenza: " + r.getFrequenzaSettimanale() + " giorni/settimana");
-                        });
-            } else {
-                lblStatoRichiesta.setText("Nessuna richiesta attiva");
-                lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web("#636e72"));
-                lblObiettivoRichiesta.setText(
-                        cliente.getStatoAssociazione() == StatoAssociazione.ASSOCIATO
-                                ? "Clicca per richiedere la tua scheda"
-                                : "Prima associati a un PT");
+            if (!DAOFactory.getSchedaDAO()
+                    .getSchedePerCliente(cliente.getEmail()).isEmpty()) {
+                lblStatoRichiesta.setText("✓ Scheda ricevuta");
+                lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web(VERDE));
+                lblObiettivoRichiesta.setText("Vai su Gestisci Scheda per visualizzarla");
                 lblDataRichiesta.setText("");
+                return;
+            }
+            switch (cliente.getStatoRichiesta()) {
+                case PENDING -> {
+                    lblStatoRichiesta.setText("⏳ Richiesta in attesa");
+                    lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web(GIALLO));
+                    // cerca obiettivo dalla richiesta
+                    DAOFactory.getRichiestaDAO()
+                            .prendiTutteLeRichieste().stream()
+                            .filter(r -> r.getClienteEmail()
+                                    .equalsIgnoreCase(cliente.getEmail()))
+                            .findFirst()
+                            .ifPresent(r -> {
+                                lblObiettivoRichiesta.setText("Obiettivo: " + r.getObiettivo());
+                                lblDataRichiesta.setText("Frequenza: " +
+                                        r.getFrequenzaSettimanale() + " gg/sett");
+                            });
+                }
+                case IN_LAVORAZIONE -> {
+                    lblStatoRichiesta.setText("🔧 In lavorazione");
+                    lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web("#0984e3"));
+                    lblObiettivoRichiesta.setText("Il tuo PT sta assemblando la scheda");
+                    lblDataRichiesta.setText("");
+                }
+                default -> {
+                    lblStatoRichiesta.setText("Nessuna richiesta attiva");
+                    lblStatoRichiesta.setTextFill(javafx.scene.paint.Color.web("#636e72"));
+                    lblObiettivoRichiesta.setText(
+                            cliente.getStatoAssociazione() == StatoAssociazione.ASSOCIATO
+                                    ? "Clicca per richiedere la tua scheda"
+                                    : "Prima associati a un Personal Trainer");
+                    lblDataRichiesta.setText("");
+                }
             }
         } catch (Exception e) {
-            util.LogManager.error("Errore caricamento info richiesta", e);
+            LogManager.error("Errore caricamento info richiesta", e);
         }
     }
 
@@ -247,7 +264,7 @@ public class ClienteDashboardBoundary {
             if (!schede.isEmpty()) {
                 var scheda = schede.get(schede.size() - 1);
                 lblSchedaInfo.setText("✓ Scheda disponibile");
-                lblSchedaInfo.setTextFill(javafx.scene.paint.Color.web("#00b894"));
+                lblSchedaInfo.setTextFill(javafx.scene.paint.Color.web(VERDE));
                 lblSchedaDettaglio.setText(scheda.getGiorni().size() +
                         " giorni di allenamento • Clicca per visualizzarla");
                 return;
