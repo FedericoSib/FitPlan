@@ -4,57 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Fix piccoli bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/richieste_fitplan.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schede_fitplan.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/AssociazioneBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/AssociazioneBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/EsercizioBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/EsercizioBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/LoginBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/LoginBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/PersonalTrainerBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/PersonalTrainerBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/ProgressiBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/ProgressiBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/RegistrazioneBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/RegistrazioneBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/RichiestaSchedaBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/RichiestaSchedaBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/SchedaBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/SchedaBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/UtenteBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/UtenteBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/AssemblaSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AssemblaSchedaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/AssociaPTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AssociaPTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GestisciRichiestePTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GestisciRichiestePTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GestisciSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GestisciSchedaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/RegistrazioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RegistrazioneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/RichiediSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RichiediSchedaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/AssociazioneDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/NotificaDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/NotificaDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/PersonalTrainerDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PersonalTrainerDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/UtenteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/UtenteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/UtenteDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/UtenteDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/DatiFisici.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/DatiFisici.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/RichiestaScheda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/RichiestaScheda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/StatoRichiesta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/StatoRichiesta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/entity/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Utente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/LogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/LogManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteGestisciSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteGestisciSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteRichiediSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRichiediSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/LoginBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/LoginBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/NoPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/NoPTBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTAssemblaSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTAssemblaSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendentiBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendentiBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiesteSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiesteSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ProfiloPersonaleBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ProfiloPersonaleBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/RegistrazioneBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/RegistrazioneBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test/RichiediSchedaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test/RichiediSchedaTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Pulizia del codice" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,14 +88,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Fix smells">
-      <option name="closed" value="true" />
-      <created>1777659917890</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1777659917890</updated>
     </task>
     <task id="LOCAL-00009" summary="Fix smells">
       <option name="closed" value="true" />
@@ -531,7 +473,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779150510121</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1779793910798</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1779793910798</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -551,6 +501,7 @@
     <MESSAGE value="Fix piccoli errori" />
     <MESSAGE value="Fix smells" />
     <MESSAGE value="Fix piccoli bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix piccoli bug" />
+    <MESSAGE value="Pulizia del codice" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pulizia del codice" />
   </component>
 </project>
