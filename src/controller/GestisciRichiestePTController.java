@@ -32,7 +32,6 @@ public class GestisciRichiestePTController extends NotificaObservableBase{
 
     public List<AssociazioneBean> getRichiesteSospese(String emailPT) throws DAOException {
         AssociazioneDAO dao = DAOFactory.getAssociazioneDAO();
-        // Nota: Dovresti aggiungere un metodo nel DAO per filtrare per PT
         List<String> clienti = dao.getRichiestePerPT(emailPT);
 
         List<AssociazioneBean> beanList = new ArrayList<>();

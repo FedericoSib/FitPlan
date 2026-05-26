@@ -7,13 +7,12 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class AssociazioneDAOMemory implements AssociazioneDAO {
-    // Mappa: EmailCliente -> [EmailPT, Stato]
     private static final Map<String, String> richiestePT = new HashMap<>();
     private static final Map<String, StatoAssociazione> stati = new HashMap<>();
 
     @Override
     public void salvaRichiesta(String emailCliente, String emailPT) {
-        richiestePT.put(emailCliente, emailPT); // put sovrascrive automaticamente il vecchio valore se la chiave esiste
+        richiestePT.put(emailCliente, emailPT);
         stati.put(emailCliente, StatoAssociazione.PENDING);
     }
 
@@ -45,7 +44,6 @@ public class AssociazioneDAOMemory implements AssociazioneDAO {
 
     @Override
     public List<String> rimuoviRichiesteScadute(long limiteMs) {
-        // In memory non abbiamo timestamp, restituiamo lista vuota
         return new ArrayList<>();
     }
 }

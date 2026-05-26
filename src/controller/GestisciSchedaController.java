@@ -21,8 +21,6 @@ public class GestisciSchedaController {
         List<Scheda> schede = DAOFactory.getSchedaDAO().getSchedePerCliente(email);
 
         if (schede.isEmpty()) return null;
-
-        // Prendiamo l'ultima scheda assegnata
         Scheda scheda = schede.get(schede.size() - 1);
 
         SchedaBean bean = new SchedaBean();

@@ -21,23 +21,23 @@ public class DAOFactory {
 
     public static RichiestaDAO getRichiestaDAO() {
         if (demoMode) {
-            return new RichiestaDAOMemory(); //Versione DEMO
+            return new RichiestaDAOMemory();
         } else {
-            return new RichiestaDAOFile(); //Versione FULL
+            return new RichiestaDAOFile();
         }
     }
     public static UtenteDAO getUtenteDAO() {
         if (demoMode) {
-            return new UtenteDAOMemory(); //Versione DEMO
+            return new UtenteDAOMemory();
         } else {
-            return new UtenteDAOFile(); //Versione FULL
+            return new UtenteDAOFile();
         }
     }
     public static PersonalTrainerDAO getPersonalTrainerDAO() {
         if (demoMode) {
-            return new PersonalTrainerDAOMemory(); //Versione DEMO
+            return new PersonalTrainerDAOMemory();
         } else {
-            return new PersonalTrainerDAOFile(); //Versione FULL
+            return new PersonalTrainerDAOFile();
         }
     }
 

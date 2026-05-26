@@ -42,7 +42,6 @@ public class ProfiloPersonaleBoundary {
         } catch (Exception e) {
             LogManager.error("Impossibile caricare l'immagine dell'avatar: ", e);
         }
-        // Impostiamo i dati comuni
         lblNome.setText(bean.getNome());
         lblCognome.setText(bean.getCognome() );
         lblCodiceUnivoco.setText(Sessione.getInstance().getUtente().getId());
@@ -55,20 +54,16 @@ public class ProfiloPersonaleBoundary {
         content.putString(lblCodiceUnivoco.getText());
         clipboard.setContent(content);
 
-        // Opzionale: un piccolo feedback visivo sulla label
         lblCodiceUnivoco.setOpacity(0.5);
         LogManager.info("Codice copiato: " + lblCodiceUnivoco.getText());
     }
 
     @FXML
     public void tornaAllaDashboard(ActionEvent event) {
-        // Chiude semplicemente il banner sovrapposto
         chiudiFinestra(event);
     }
 
-    // Metodo privato di utility per non ripetere il codice
     private void chiudiFinestra(ActionEvent event) {
-        // Risaliamo dal bottone (source) fino alla finestra (Stage) per chiuderla
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }

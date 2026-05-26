@@ -44,7 +44,6 @@ public class ClienteRicercaPTBoundary {
             }
         });
 
-        // 2. Disabilita il tasto associa finché non viene selezionato un PT
         btnAssocia.setDisable(true);
         listaPT.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) ->
                 btnAssocia.setDisable(newVal == null)
@@ -62,8 +61,6 @@ public class ClienteRicercaPTBoundary {
         }
 
         try {
-            // Supponiamo che il controller restituisca una lista di risultati
-            // o un singolo PT incapsulato in una lista
             List<PersonalTrainerBean> risultati = controller.cercaTrainer(query);
 
             ObservableList<PersonalTrainerBean> data = FXCollections.observableArrayList(risultati);
@@ -83,19 +80,15 @@ public class ClienteRicercaPTBoundary {
         PersonalTrainerBean selezionato = listaPT.getSelectionModel().getSelectedItem();
 
         try {
-            // 1. Creazione e popolamento del Bean
             AssociazioneBean associazioneBean = new AssociazioneBean();
 
-            // Prendiamo l'email del cliente dalla sessione
             String emailCliente = Sessione.getInstance().getUtente().getEmail();
             associazioneBean.setEmailCliente(emailCliente);
 
-            // Prendiamo l'email del PT selezionato dalla riga della lista
             associazioneBean.setEmailPT(selezionato.getEmail());
 
             LogManager.info("Invio richiesta tramite Bean da: " + emailCliente + " a: " + selezionato.getEmail());
 
-            // 2. Chiamata al controller logico passando il BEAN
             controller.inviaRichiestaAssociazione(associazioneBean);
 
             // 3. Feedback e chiusura
@@ -113,9 +106,7 @@ public class ClienteRicercaPTBoundary {
         chiudiFinestra(event);
     }
 
-    // Metodo privato di utility per non ripetere il codice
     private void chiudiFinestra(ActionEvent event) {
-        // Risaliamo dal bottone (source) fino alla finestra (Stage) per chiuderla
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }

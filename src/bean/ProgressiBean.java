@@ -6,10 +6,10 @@ public class ProgressiBean {
     private double carico;
     private int ripetizioni;
     private String note;
-    private String data; // stringa formattata per la UI
+    private String data;
 
     public ProgressiBean() {
-        //evitiamo il costruttore di default
+        // Costruttore vuoto obbligatorio per i Java Bean
     }
 
     public String getEmailCliente() { return emailCliente; }

@@ -97,7 +97,6 @@ public class AssociazioneDAOFile implements AssociazioneDAO {
 
     @Override
     public String getEmailPTAssociato(String emailCliente) throws DAOException {
-        // Logica simile a getStato per recuperare la seconda colonna
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -112,8 +111,6 @@ public class AssociazioneDAOFile implements AssociazioneDAO {
     public List<String> getRichiestePerPT(String emailPT) throws DAOException {
         List<String> clientiTrovati = new ArrayList<>();
         File file = new File(FILE_NAME);
-
-        // Se il file non esiste ancora, restituiamo semplicemente una lista vuota
         if (!file.exists()) {
             return clientiTrovati;
         }
@@ -121,15 +118,12 @@ public class AssociazioneDAOFile implements AssociazioneDAO {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Formato CSV: emailCliente;emailPT;stato
                 String[] parts = line.split(";");
 
                 if (parts.length >= 3) {
                     String clienteInRiga = parts[0];
                     String ptInRiga = parts[1];
                     String statoInRiga = parts[2];
-
-                    // Filtriamo: deve essere il PT loggato e lo stato deve essere PENDING
                     if (ptInRiga.equals(emailPT) && StatoAssociazione.PENDING.name().equals(statoInRiga)) {
                         clientiTrovati.add(clienteInRiga);
                     }
@@ -157,13 +151,12 @@ public class AssociazioneDAOFile implements AssociazioneDAO {
                 if (parts.length >= 4 && StatoAssociazione.PENDING.name().equals(parts[2])) {
                     long timestamp = Long.parseLong(parts[3]);
                     if (System.currentTimeMillis() - timestamp > limiteMs) {
-                        // Scaduta: non la riscriviamo e salviamo l'email del cliente
                         clientiScaduti.add(parts[0]);
                     } else {
                         lines.add(line);
                     }
                 } else {
-                    lines.add(line); // righe non PENDING le lasciamo sempre
+                    lines.add(line);
                 }
             }
         } catch (IOException _) {
@@ -175,7 +168,6 @@ public class AssociazioneDAOFile implements AssociazioneDAO {
         } catch (IOException _) {
             throw new DAOException("Errore scrittura dopo rimozione scadute");
         }
-
-        return clientiScaduti; // il controller userà questi per notificare i clienti
+        return clientiScaduti;
     }
 }

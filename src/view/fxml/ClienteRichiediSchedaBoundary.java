@@ -18,7 +18,6 @@ import java.util.List;
 
 public class ClienteRichiediSchedaBoundary {
 
-    // Componenti FXML (fx:id)
     @FXML private ChoiceBox<String> cbSesso;
     @FXML private ChoiceBox<String> cbObiettivo;
     @FXML private TextField txtEta;
@@ -35,16 +34,13 @@ public class ClienteRichiediSchedaBoundary {
     }
 
     public void mostraFormRichiesta() {
-        // Popolamento ChoiceBox
         cbSesso.getItems().addAll("Maschio", "Femmina");
         cbObiettivo.getItems().addAll("Aumento Massa", "Definizione", "Perdita Peso", "Mantenimento");
 
-        // Configurazione Spinner
         SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 7, 3);
         spFrequenza.setValueFactory(valueFactory);
 
-        // Caricamento Logo
         try {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
             imgFitplan.setImage(logo);
@@ -54,10 +50,8 @@ public class ClienteRichiediSchedaBoundary {
     }
 
     public RichiestaSchedaBean raccogliDatiRichiesta() {
-        // Recuperiamo i dati del cliente dalla sessione
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
 
-        // Popoliamo il Bean invece di creare le entity
         RichiestaSchedaBean bean = new RichiestaSchedaBean();
         bean.setClienteEmail(cliente.getEmail());
         bean.setIdPersonalTrainer(cliente.getIdPersonalTrainer());
@@ -113,18 +107,14 @@ public class ClienteRichiediSchedaBoundary {
 
     @FXML
     public void tornaAllaDashboard(ActionEvent event) {
-        // Chiude semplicemente il banner sovrapposto
         chiudiFinestra(event);
     }
 
-    // Metodo privato di utility per non ripetere il codice
     private void chiudiFinestra(ActionEvent event) {
-        // Risaliamo dal bottone (source) fino alla finestra (Stage) per chiuderla
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
 
-    // Metodo di utility interna per validare i campi prima della raccolta
     private List<String> verificaInputTestuali() {
         List<String> mancanti = new ArrayList<>();
         if (cbSesso.getValue() == null) mancanti.add("Sesso");

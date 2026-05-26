@@ -10,10 +10,8 @@ public class RegistrazioneBean {
     private int ruolo;
 
     public RegistrazioneBean() {
-        //evitiamo il costruttore di default
+        // Costruttore vuoto obbligatorio per i Java Bean
     }
-
-    // Getters e Setters
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
     public String getCognome() { return cognome; }
@@ -26,7 +24,6 @@ public class RegistrazioneBean {
     public void setPassword(String password) { this.password = password; }
     public int getRuolo() { return ruolo; }
     public void setRuolo(int ruolo) { this.ruolo = ruolo; }
-    // Validazione sintattica di base
     public void valida() throws RegistrazioneException {
         if (nome == null || nome.isEmpty() || cognome == null || cognome.isEmpty() ||
                 email == null || email.isEmpty() || password == null || password.isEmpty()) {

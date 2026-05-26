@@ -35,7 +35,6 @@ public class ClienteGestisciSchedaBoundary {
         caricaScheda();
         caricaStorico();
 
-        // Cambio giorno → aggiorna lista esercizi
         cbGiorni.getSelectionModel().selectedItemProperty()
                 .addListener((obs, old, newVal) -> {
                     if (newVal != null && scheda != null) {

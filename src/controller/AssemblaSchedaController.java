@@ -64,7 +64,6 @@ public class AssemblaSchedaController extends NotificaObservableBase {
             }
         }
 
-        // Trasformazione Bean → Entity
         List<GiornoScheda> giorni = new ArrayList<>();
         for (GiornoSchedaBean gb : schedaBean.getGiorni()) {
             GiornoScheda giorno = new GiornoScheda(gb.getNome());

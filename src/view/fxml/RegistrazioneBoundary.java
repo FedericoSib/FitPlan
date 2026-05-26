@@ -46,22 +46,18 @@ public class RegistrazioneBoundary {
         String conferma = txtConfermaPass.getText();
         String ruoloSelezionato = cbRuolo.getValue();
 
-        // 2. Controllo specifico della Boundary (conferma password)
-        // Questo rimane qui perché è un controllo di "interfaccia"
         if (!pass.equals(conferma)) {
             mostraAlert("Errore Password", "Le password non coincidono!");
             return;
         }
 
         try {
-            // 3. Creazione e popolamento del Bean
             RegistrazioneBean bean = new RegistrazioneBean();
             bean.setNome(txtNome.getText());
             bean.setCognome(txtCognome.getText());
             bean.setEmail(txtEmail.getText());
             bean.setPassword(pass);
 
-            // Conversione logica del ruolo
             int ruolo = "Personal Trainer".equals(ruoloSelezionato) ? 2 : 1;
             bean.setRuolo(ruolo);
 

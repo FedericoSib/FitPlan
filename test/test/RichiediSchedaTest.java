@@ -47,8 +47,6 @@ class RichiediSchedaTest {
             ((List<?>) field.get(null)).clear();
         }
 
-        //  Verifica stato associazione
-
         @Test
         @DisplayName("Cliente con stato NESSUNA → TrainerNotAssociatedException")
         void testVerificaAssociazione_StatoNessuna() {
@@ -72,7 +70,6 @@ class RichiediSchedaTest {
             assertDoesNotThrow(() -> controller.verificaAssociazionePT());
         }
 
-        //  Validazione peso
 
         @Test
         @DisplayName("Peso = 0 → InvalidFormException")
@@ -101,7 +98,6 @@ class RichiediSchedaTest {
             assertThrows(InvalidFormException.class, () -> controller.elaboraRichiesta(bean));
         }
 
-        //  Validazione età
 
         @Test
         @DisplayName("Età < 10 → InvalidFormException")
@@ -121,7 +117,6 @@ class RichiediSchedaTest {
             assertThrows(InvalidFormException.class, () -> controller.elaboraRichiesta(bean));
         }
 
-        //  Blocco richiesta già attiva
 
         @Test
         @DisplayName("Richiesta già in PENDING → InvalidFormException")
@@ -134,7 +129,6 @@ class RichiediSchedaTest {
                     () -> controller.elaboraRichiesta(creaBeanValido()));
         }
 
-        //  Happy path
 
         @Test
         @DisplayName("Dati validi → elaboraRichiesta senza eccezioni")

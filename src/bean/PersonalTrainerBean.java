@@ -8,10 +8,10 @@ public class PersonalTrainerBean implements Serializable {
     private String cognome;
     private String email;
 
-    // Costruttore vuoto obbligatorio per i Java Bean
-    public PersonalTrainerBean() {}
+    public PersonalTrainerBean() {
+        // Costruttore vuoto obbligatorio per i Java Bean
+    }
 
-    // Costruttore di comodità per il Controller logico
     public PersonalTrainerBean(String id, String nome, String cognome, String email) {
         this.id = id;
         this.nome = nome;
@@ -19,7 +19,6 @@ public class PersonalTrainerBean implements Serializable {
         this.email = email;
     }
 
-    // Getters e Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -32,10 +31,6 @@ public class PersonalTrainerBean implements Serializable {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    /**
-     * Utile se vuoi mostrare il nome completo direttamente in una ListView
-     * senza dover definire una CellFactory complessa.
-     */
     @Override
     public String toString() {
         return nome + " " + cognome + " (" + id + ")";

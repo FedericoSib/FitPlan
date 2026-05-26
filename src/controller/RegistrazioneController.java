@@ -12,11 +12,7 @@ import model.exception.RegistrazioneException;
 public class RegistrazioneController {
 
     public void registraNuovoUtente(RegistrazioneBean bean) throws RegistrazioneException {
-
-        // 1. Validazione dei dati tramite il Bean
         bean.valida();
-
-        // 2. Creazione dell'Entity partendo dai dati del Bean
         Utente nuovoUtente;
         if (bean.getRuolo() == 1) {
             nuovoUtente = new Cliente(bean.getNome(), bean.getCognome(), bean.getEmail(), bean.getPassword());
@@ -26,14 +22,9 @@ public class RegistrazioneController {
 
         try {
             UtenteDAO dao = DAOFactory.getUtenteDAO();
-
-            // 3. Verifica duplicati
             verificaEmailNonEsistente(dao, bean.getEmail());
-
-            // 4. Salvataggio
             dao.salvaNuovoUtente(nuovoUtente);
             LogManager.info("Registrazione completata con successo. ID Generato: " + nuovoUtente.getId());
-
         } catch (model.exception.DAOException e) {
             LogManager.error("Errore persistenza registrazione", e);
             throw new RegistrazioneException("Errore tecnico durante il salvataggio. Riprova più tardi.");

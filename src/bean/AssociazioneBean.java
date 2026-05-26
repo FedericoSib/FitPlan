@@ -6,10 +6,9 @@ public class AssociazioneBean {
     private String stato; // Usiamo String per semplicità nel Bean, il Controller la convertirà in Enum
 
     public AssociazioneBean() {
-        //evitiamo il costruttore di default
+        // Costruttore vuoto obbligatorio per i Java Bean
     }
 
-    // Getters e Setters
     public String getEmailCliente() { return emailCliente; }
     public void setEmailCliente(String emailCliente) { this.emailCliente = emailCliente; }
 

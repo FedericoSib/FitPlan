@@ -6,17 +6,13 @@ public class RichiestaSchedaBean {
     private String obiettivo;
     private int frequenzaSettimanale;
     private String note;
-
-    // Dati estratti da DatiFisici per non passare l'Entity
     private String sesso;
     private int eta;
     private double peso;
 
     public RichiestaSchedaBean() {
-        //evitiamo il costruttore di default
+        // Costruttore vuoto obbligatorio per i Java Bean
     }
-
-    // Getters e Setters
     public String getClienteEmail() { return clienteEmail; }
     public void setClienteEmail(String clienteEmail) { this.clienteEmail = clienteEmail; }
 

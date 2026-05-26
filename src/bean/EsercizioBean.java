@@ -8,8 +8,7 @@ public class EsercizioBean {
     private String note;
 
     public EsercizioBean() {
-        //evitiamo il costruttore di default
-
+        // Costruttore vuoto obbligatorio per i Java Bean
     }
 
     public String getNome() { return nome; }

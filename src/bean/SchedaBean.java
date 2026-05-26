@@ -9,7 +9,7 @@ public class SchedaBean {
     private List<GiornoSchedaBean> giorni = new ArrayList<>();
 
     public SchedaBean() {
-        //Evitiamo il costruttore di default
+        // Costruttore vuoto obbligatorio per i Java Bean
     }
 
     public String getEmailCliente() { return emailCliente; }

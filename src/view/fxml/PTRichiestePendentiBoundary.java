@@ -105,7 +105,6 @@ public class PTRichiestePendentiBoundary {
     }
 
     private void chiudiFinestra(ActionEvent event) {
-        // Risaliamo dal bottone (source) fino alla finestra (Stage) per chiuderla
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }

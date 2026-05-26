@@ -11,14 +11,11 @@ public class PersonalTrainerDAOFile implements PersonalTrainerDAO {
 
     private List<PersonalTrainer> caricaTutti() {
         List<PersonalTrainer> listaPT = new ArrayList<>();
-        // Leggiamo dal file dove tieni TUTTI gli utenti
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] parti = linea.split(";");
-                // Se il ruolo (indice 1) è "2", è un Personal Trainer
                 if (parti[1].equals("2")) {
-                    // Creiamo l'oggetto PT partendo dalla riga (ID, Nome, Cognome, Email, etc.)
                     PersonalTrainer pt = new PersonalTrainer(parti[0], parti[2], parti[3], parti[4], parti[5]);
                     listaPT.add(pt);
                 }

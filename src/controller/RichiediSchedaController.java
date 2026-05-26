@@ -31,8 +31,6 @@ public void elaboraRichiesta(RichiestaSchedaBean bean) throws InvalidFormExcepti
                     bean.getClienteEmail(),
                     bean.getIdPersonalTrainer()
             );
-
-            // 4. Salvataggio
             dao.salvaRichiesta(entity);
             LogManager.info("Richiesta salvata per cliente: " + bean.getClienteEmail());
 
@@ -69,7 +67,7 @@ public void elaboraRichiesta(RichiestaSchedaBean bean) throws InvalidFormExcepti
             return DAOFactory.getRichiestaDAO().esisteRichiestaAttiva(emailCliente);
         } catch (DAOException e) {
             LogManager.error("Errore durante il controllo preventivo richiesta", e);
-            return false; // In caso di errore, permettiamo comunque il tentativo per non bloccare l'utente
+            return false;
         }
     }
 }

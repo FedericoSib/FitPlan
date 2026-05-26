@@ -18,7 +18,7 @@ public class MenuClienteCLI {
     public void avvia() {
         sincronizzaStatoCliente();
 
-        // --- 2. AVVIA IL MENU ---
+        // --- AVVIA IL MENU ---
         boolean esci = false;
         while (!esci) {
             System.out.println("\n=== Menu Cliente ===");
@@ -45,14 +45,12 @@ public class MenuClienteCLI {
     private void sincronizzaStatoCliente() {
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
         try {
-            // 1. Ha già una scheda → COMPLETATA
             if (!DAOFactory.getSchedaDAO()
                     .getSchedePerCliente(cliente.getEmail()).isEmpty()) {
                 cliente.setStatoRichiesta(StatoRichiesta.COMPLETATA);
                 return;
             }
 
-            // 2. Cerca la richiesta tra tutte — legge lo stato salvato su file
             DAOFactory.getRichiestaDAO()
                     .prendiTutteLeRichieste()
                     .stream()

@@ -2,8 +2,6 @@ package model.entity;
 
 import java.io.Serializable;
 
- //Classe Entity che rappresenta il form di richiesta di una nuova scheda.
-
 public class RichiestaScheda implements Serializable {
     private static final long serialVersionUID = 1L;
     private DatiFisici datiFisici;
@@ -11,12 +9,9 @@ public class RichiestaScheda implements Serializable {
     private int frequenzaSettimanale;
     private String note;
     private StatoRichiesta stato = StatoRichiesta.PENDING;
-
-    // Identificativi per collegare la richiesta agli utenti
     private String clienteEmail;
     private String idPersonalTrainer;
 
-    // Costruttore completo
     public RichiestaScheda(DatiFisici datiFisici, String obiettivo,
                            int frequenzaSettimanale, String note,
                            String clienteEmail, String idPersonalTrainer) {
@@ -51,7 +46,6 @@ public class RichiestaScheda implements Serializable {
 
     @Override
     public String toString() {
-        // Usiamo il getter getPeso() sull'istanza datiFisici
         return String.format("Richiesta[Email=%s, Obiettivo=%s, Peso=%.2f, Frequenza=%d]",
                 clienteEmail,
                 obiettivo,

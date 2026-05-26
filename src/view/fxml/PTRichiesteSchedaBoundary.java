@@ -49,10 +49,8 @@ public class PTRichiesteSchedaBoundary {
 
     @FXML
     public void initialize() {
-        // Collega observer per notifiche
         controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
 
-        // Configura cella ListView
         lvRichieste.setCellFactory(lv -> new ListCell<>() {
             @Override
             protected void updateItem(RichiestaSchedaBean item, boolean empty) {
@@ -62,10 +60,8 @@ public class PTRichiesteSchedaBoundary {
             }
         });
 
-        // Carica le richieste
         caricaRichieste();
 
-        // Listener selezione → mostra dettagli
         lvRichieste.getSelectionModel().selectedItemProperty()
                 .addListener((obs, old, selected) -> {
                     if (selected != null) {
@@ -112,7 +108,6 @@ public class PTRichiesteSchedaBoundary {
             stage.setScene(scene);
             stage.showAndWait();
 
-            // Ricarica dopo il ritorno
             caricaRichieste();
             vboxDettagli.setVisible(false);
             vboxDettagli.setManaged(false);
@@ -149,8 +144,6 @@ public class PTRichiesteSchedaBoundary {
                     ? controller.getRichiesteInLavorazione(pt.getEmail())
                     : controller.getRichiestePerPT(pt.getEmail());
             lvRichieste.setItems(FXCollections.observableArrayList(richieste));
-
-            // Nasconde "Assembla in Seguito" se siamo già in lavorazione
             if (modalita == Modalita.IN_LAVORAZIONE) {
                 btnDopoAssembla.setVisible(false);
                 btnDopoAssembla.setManaged(false);

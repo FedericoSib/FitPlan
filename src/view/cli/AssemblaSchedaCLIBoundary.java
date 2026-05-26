@@ -174,7 +174,6 @@ public class AssemblaSchedaCLIBoundary {
         System.out.print("  Scelta: ");
     }
 
-    // Restituisce true se il loop deve continuare, false se il giorno è completato
     private boolean gestisciAzioneEsercizio(GiornoSchedaBean giorno) {
         String scelta = scanner.nextLine().trim();
         return switch (scelta) {

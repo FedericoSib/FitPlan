@@ -5,7 +5,7 @@ public class LoginBean {
     private String password;
 
     public LoginBean() {
-        //evitiamo il costruttore di defaut
+        // Costruttore vuoto obbligatorio per i Java Bean
     }
 
     public String getEmail() { return email; }
@@ -16,7 +16,6 @@ public class LoginBean {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    // Validazione semplice: evita di chiamare il controller se i campi sono vuoti
     public boolean isValid() {
         return email != null && !email.isEmpty() && password != null && !password.isEmpty();
     }

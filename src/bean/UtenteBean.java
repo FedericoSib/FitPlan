@@ -7,12 +7,10 @@ public class UtenteBean {
     private String cognome;
     private int ruolo;
 
-    // Costruttore vuoto obbligatorio per i Java Bean
     public UtenteBean() {
-        //evitiamo il costruttore di default
+        // Costruttore vuoto obbligatorio per i Java Bean
     }
 
-    // Getter e Setter per tutti i campi
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 

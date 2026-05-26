@@ -17,7 +17,7 @@ public abstract class Utente {
         this.email = email;
         this.password = password;
         this.ruolo = ruolo;
-        this.id = generaID(); // L'ID viene generato al momento della creazione dell'oggetto
+        this.id = generaID();
     }
 
     protected Utente(String id, String nome, String cognome,
@@ -31,20 +31,14 @@ public abstract class Utente {
     }
 
     private String generaID() {
-        // Prefisso in base al ruolo
         String prefisso = (ruolo == 1) ? "C" : "PT";
-
-        // Iniziali (prendiamo il primo carattere di nome e cognome, in maiuscolo)
         String iniziali = (nome.substring(0, 1) + cognome.substring(0, 1)).toUpperCase();
 
-        // Timestamp: GiornoMeseOreMinuti (Esempio: 10031425)
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMHHmm");
         String timestamp = LocalDateTime.now().format(formatter);
 
         return prefisso + "-" + iniziali + "-" + timestamp;
     }
-
-    // Getter per l'ID (senza setter, l'ID non deve cambiare!)
 
     public String getNome() {return nome ;}
     public String getCognome() {return cognome; }

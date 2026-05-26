@@ -30,8 +30,6 @@ public class Navigator {
             Scene scene = new Scene(root);
             primaryStage.setTitle(title);
             primaryStage.setScene(scene);
-
-            // Opzionale: centra la finestra e la rende non ridimensionabile se preferisci
             primaryStage.centerOnScreen();
             primaryStage.show();
 

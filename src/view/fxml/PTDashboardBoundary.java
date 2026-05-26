@@ -54,7 +54,6 @@ public class PTDashboardBoundary {
     @FXML
     public void initialize() {
         final String IMAGE_LOAD_ERROR = "Impossibile caricare immagine: ";
-        // 1. Recupero dati utente dalla sessione
         PersonalTrainer pT = (PersonalTrainer) Sessione.getInstance().getUtente();
         lblNomeUtente.setText(pT.getNome() + " " + pT.getCognome());
         try {
@@ -94,22 +93,18 @@ public class PTDashboardBoundary {
     }
 
     private void costruisciCalendarioDinamico() {
-        gridCalendario.getChildren().clear(); // Pulizia per ricaricamento
+        gridCalendario.getChildren().clear();
 
         LocalDate oggi = LocalDate.now();
         YearMonth meseCorrente = YearMonth.now();
 
-        // Imposta la Label superiore (es. MARZO 2026)
         String titoloMese = oggi.getMonth().getDisplayName(TextStyle.FULL, Locale.ITALIAN).toUpperCase();
         lblMeseAnno.setText(titoloMese + " " + oggi.getYear());
 
-        // Calcoliamo dove inizia il mese (1 = Lunedì, 7 = Domenica)
         int primoGiornoDelMese = meseCorrente.atDay(1).getDayOfWeek().getValue();
         int giorniNelMese = meseCorrente.lengthOfMonth();
 
-        // Riempimento Griglia
         int riga = 0;
-        // Iniziamo a scrivere dal giorno corretto (offset basato sul primo giorno)
         for (int giorno = 1; giorno <= giorniNelMese; giorno++) {
             int colonna = (giorno + primoGiornoDelMese - 2) % 7;
             riga = (giorno + primoGiornoDelMese - 2) / 7;
@@ -118,7 +113,6 @@ public class PTDashboardBoundary {
             lblGiorno.setPrefSize(40, 40);
             lblGiorno.setAlignment(Pos.CENTER);
 
-            // Se è il giorno di oggi, applichiamo lo stile speciale CSS
             if (giorno == oggi.getDayOfMonth()) {
                 lblGiorno.getStyleClass().add("giorno-attuale");
             }
@@ -281,13 +275,12 @@ public class PTDashboardBoundary {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/ProfiloPersonalePT.fxml"));
             Parent root = loader.load();
 
-            // Otteniamo il controller generico
             ProfiloPersonaleBoundary controller = loader.getController();
-            controller.setDatiUtente(bean); // Passiamo l'utente (Atleta o PT)
+            controller.setDatiUtente(bean);
 
             Stage popupStage = new Stage();
             popupStage.initModality(Modality.WINDOW_MODAL);
-            popupStage.initOwner(lblNomeUtente.getScene().getWindow()); // Usa una label qualsiasi della dashboard
+            popupStage.initOwner(lblNomeUtente.getScene().getWindow());
             popupStage.initStyle(StageStyle.TRANSPARENT);
 
             Scene scene = new Scene(root);
@@ -307,15 +300,8 @@ public class PTDashboardBoundary {
 
     @FXML
     public void handleLogout() {
-        // 1. Pulizia della sessione: impostiamo l'utente a null
-        // Questo è fondamentale per la sicurezza e per i check dei controller
         Sessione.getInstance().setUtente(null);
-
-        // 2. Feedback (opzionale ma consigliato)
         LogManager.info("Logout effettuato con successo. Reindirizzamento al login...");
-
-        // 3. Navigazione verso la schermata di Login
-        // Usiamo il tuo Navigator per cambiare scena
         Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
     }
 }

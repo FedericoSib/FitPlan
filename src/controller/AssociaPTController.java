@@ -17,7 +17,6 @@ public class AssociaPTController extends NotificaObservableBase{
         PersonalTrainerDAO dao = DAOFactory.getPersonalTrainerDAO();
         List<PersonalTrainer> entitaTrovate = new ArrayList<>();
 
-        // 1. Logica di ricerca (rimane invariata rispetto a prima)
         if (ricerca.toUpperCase().startsWith("PT-")) {
             PersonalTrainer pT = dao.getPTById(ricerca);
             if (pT != null) entitaTrovate.add(pT);
@@ -33,7 +32,6 @@ public class AssociaPTController extends NotificaObservableBase{
             throw new TrainerNotFoundException("Nessun Personal Trainer trovato per: " + ricerca);
         }
 
-        // 2. TRASFORMAZIONE: Da List<PersonalTrainer> a List<PersonalTrainerBean>
         List<PersonalTrainerBean> risultatiBean = new ArrayList<>();
         for (PersonalTrainer pt : entitaTrovate) {
             PersonalTrainerBean bean = new PersonalTrainerBean();
@@ -41,8 +39,6 @@ public class AssociaPTController extends NotificaObservableBase{
             bean.setCognome(pt.getCognome());
             bean.setEmail(pt.getEmail());
             bean.setId(pt.getId());
-            // Aggiungi solo i campi che servono davvero alla UI
-
             risultatiBean.add(bean);
         }
 

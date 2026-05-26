@@ -65,7 +65,6 @@ public class PTAssemblaSchedaBoundary {
         schedaBean.setEmailCliente(richiesta.getClienteEmail());
         schedaBean.setEmailPT(Sessione.getInstance().getUtente().getEmail());
 
-        // Pre-crea i giorni con nome automatico
         for (int i = 1; i <= totalGiorni; i++) {
             schedaBean.getGiorni().add(new GiornoSchedaBean("Giorno " + i));
         }
@@ -79,14 +78,11 @@ public class PTAssemblaSchedaBoundary {
     private void aggiornaVistaGiorno() {
         GiornoSchedaBean giornoCorrente = schedaBean.getGiorni().get(giornoCorrenteIndex);
 
-        // Aggiorna nome giorno nel TextField
         txtNomeGiorno.setText(giornoCorrente.getNome());
 
-        // Aggiorna label progresso
         lblProgressoGiorni.setText("Giorno " + (giornoCorrenteIndex + 1) +
                 " di " + totalGiorni);
 
-        // Carica esercizi del giorno corrente nella ListView
         esercizioGiornoCorrente.setAll(giornoCorrente.getEsercizi());
 
         // Reset campi input
@@ -99,7 +95,6 @@ public class PTAssemblaSchedaBoundary {
 
     @FXML
     public void handleNomeGiornoChanged() {
-        // Salva il nome modificato dal PT
         String nuovoNome = txtNomeGiorno.getText().trim();
         if (!nuovoNome.isBlank()) {
             schedaBean.getGiorni().get(giornoCorrenteIndex).setNome(nuovoNome);
@@ -121,11 +116,8 @@ public class PTAssemblaSchedaBoundary {
         esercizio.setRipetizioni(spRipetizioni.getValue());
         esercizio.setRecuperoSecondi(spRecupero.getValue());
         esercizio.setNote(txtNoteEsercizio.getText().trim());
-
-        // Aggiunge al giorno corrente (bean) e alla lista visuale
         schedaBean.getGiorni().get(giornoCorrenteIndex).aggiungiEsercizio(esercizio);
         esercizioGiornoCorrente.add(esercizio);
-
         txtNome.clear();
         txtNoteEsercizio.clear();
         spSerie.getValueFactory().setValue(3);

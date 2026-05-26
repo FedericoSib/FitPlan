@@ -14,7 +14,6 @@ public class DatiFisici implements Serializable {
         this.peso = peso;
     }
 
-    // Solo Getter (rendiamolo immutabile per sicurezza)
     public String getSesso() { return sesso; }
     public int getEta() { return eta; }
     public double getPeso() { return peso; }

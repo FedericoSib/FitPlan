@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UtenteDAOMemory implements UtenteDAO {
-    // Lista statica per simulare il database
     private static final List<Utente> utenti = new ArrayList<>();
 
     public UtenteDAOMemory() {

@@ -61,7 +61,6 @@ public class ClienteDashboardBoundary {
     @FXML
     public void initialize() {
         final String IMAGE_LOAD_ERROR = "Impossibile caricare immagine: ";
-        // 1. Recupero dati utente dalla sessione
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
         lblNomeUtente.setText(cliente.getNome() + " " + cliente.getCognome());
         sincronizzaStatoCliente(cliente);
@@ -93,7 +92,6 @@ public class ClienteDashboardBoundary {
             LogManager.error(IMAGE_LOAD_ERROR, e);
         }
 
-        // 2. Setup dinamico del calendario
         costruisciCalendarioDinamico();
         Cliente c = (Cliente) Sessione.getInstance().getUtente();
         NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
@@ -104,14 +102,12 @@ public class ClienteDashboardBoundary {
 
     private void sincronizzaStatoCliente(Cliente cliente) {
         try {
-            // 1. Ha già una scheda → COMPLETATA
             if (!DAOFactory.getSchedaDAO()
                     .getSchedePerCliente(cliente.getEmail()).isEmpty()) {
                 cliente.setStatoRichiesta(StatoRichiesta.COMPLETATA);
                 return;
             }
 
-            // 2. Legge lo stato direttamente dalla richiesta salvata
             DAOFactory.getRichiestaDAO()
                     .prendiTutteLeRichieste()
                     .stream()
@@ -126,22 +122,18 @@ public class ClienteDashboardBoundary {
     }
 
     private void costruisciCalendarioDinamico() {
-        gridCalendario.getChildren().clear(); // Pulizia per ricaricamento
+        gridCalendario.getChildren().clear();
 
         LocalDate oggi = LocalDate.now();
         YearMonth meseCorrente = YearMonth.now();
 
-        // Imposta la Label superiore (es. MARZO 2026)
         String titoloMese = oggi.getMonth().getDisplayName(TextStyle.FULL, Locale.ITALIAN).toUpperCase();
         lblMeseAnno.setText(titoloMese + " " + oggi.getYear());
 
-        // Calcoliamo dove inizia il mese (1 = Lunedì, 7 = Domenica)
         int primoGiornoDelMese = meseCorrente.atDay(1).getDayOfWeek().getValue();
         int giorniNelMese = meseCorrente.lengthOfMonth();
 
-        // Riempimento Griglia
         int riga = 0;
-        // Iniziamo a scrivere dal giorno corretto (offset basato sul primo giorno)
         for (int giorno = 1; giorno <= giorniNelMese; giorno++) {
             int colonna = (giorno + primoGiornoDelMese - 2) % 7;
             riga = (giorno + primoGiornoDelMese - 2) / 7;
@@ -150,7 +142,6 @@ public class ClienteDashboardBoundary {
             lblGiorno.setPrefSize(40, 40);
             lblGiorno.setAlignment(Pos.CENTER);
 
-            // Se è il giorno di oggi, applichiamo lo stile speciale CSS
             if (giorno == oggi.getDayOfMonth()) {
                 lblGiorno.getStyleClass().add("giorno-attuale");
             }
@@ -164,7 +155,6 @@ public class ClienteDashboardBoundary {
         Parent root = loader.load();
 
         Stage popupStage = new Stage();
-        // Assicurati che imgFitplan sia accessibile (o usa un altro nodo della scena)
         popupStage.initOwner(imgFitplan.getScene().getWindow());
         popupStage.initModality(Modality.WINDOW_MODAL);
         popupStage.initStyle(StageStyle.TRANSPARENT);
@@ -341,7 +331,7 @@ public class ClienteDashboardBoundary {
             else if(stato == StatoRichiesta.IN_LAVORAZIONE){
                 mostraAlert(Alert.AlertType.INFORMATION, ATT, "Il trainer non ha ancora lavorato la richiesta di scheda");
             }
-            return; // Blocca l'apertura della finestra se la scheda non è ancora pronta
+            return;
         }
 
         try {
@@ -377,7 +367,6 @@ public class ClienteDashboardBoundary {
             switch (stato) {
                 case NESSUNA -> mostraPopupErroreNoPT();
                 case PENDING -> {
-                    // In Java non puoi usare !mode su un int. Usiamo mode == 0
                     if (mode == 1) {
                         mostraAlert(Alert.AlertType.INFORMATION, ATT, "Il tuo Trainer non ha ancora accettato la richiesta.");
                     } else {
@@ -433,7 +422,6 @@ public class ClienteDashboardBoundary {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/ProfiloPersonaleCliente.fxml"));
             Parent root = loader.load();
 
-            // Otteniamo il controller generico
             ProfiloPersonaleBoundary controller = loader.getController();
             controller.setDatiUtente(bean); // Passiamo l'utente (Atleta o PT)
 
@@ -493,15 +481,10 @@ public class ClienteDashboardBoundary {
 
     @FXML
     public void handleLogout() {
-        // 1. Pulizia della sessione: impostiamo l'utente a null
-        // Questo è fondamentale per la sicurezza e per i check dei controller
         Sessione.getInstance().setUtente(null);
 
-        // 2. Feedback (opzionale ma consigliato)
         LogManager.info("Logout effettuato con successo. Reindirizzamento al login...");
 
-        // 3. Navigazione verso la schermata di Login
-        // Usiamo il tuo Navigator per cambiare scena
         Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
     }
 

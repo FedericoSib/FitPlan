@@ -22,7 +22,6 @@ public class LoginBoundary {
     private LoginController loginController = new LoginController();
 
     public void initialize() {
-        // Carichiamo il logo all'avvio (stessa cartella dell'altra boundary)
         try {
             Image logo = new Image(getClass().getResourceAsStream("/view/Immages/logo.png"));
             imgFitplan.setImage(logo);
@@ -62,7 +61,6 @@ public class LoginBoundary {
         if (loggato instanceof Cliente) {
             Navigator.pushScene("/view/fxml/ClienteDashboard.fxml", "FitPlan - Dashboard Cliente");
         } else if (loggato instanceof PersonalTrainer) {
-            // Qui caricherai la dashboard specifica per il PT che creeremo
             Navigator.pushScene("/view/fxml/PTDashboard.fxml", "FitPlan - Dashboard Trainer");
         }
     }

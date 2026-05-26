@@ -23,16 +23,13 @@ public class GestisciSchedaCLIBoundary {
     }
 
     public void avvia() {
-        // --- 1. CONTROLLI DI ACCESSO ---
         Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
 
-        // Controllo Associazione
         if (cliente.getStatoAssociazione() != StatoAssociazione.ASSOCIATO) {
             System.out.println("\nDevi essere associato a un Personal Trainer per poter gestire una scheda.");
             return;
         }
 
-        // Controllo Stato Richiesta Scheda
         StatoRichiesta stato = cliente.getStatoRichiesta();
         if (stato == StatoRichiesta.NESSUNA) {
             System.out.println("\nNon hai ancora richiesto una scheda al trainer.");
@@ -46,7 +43,7 @@ public class GestisciSchedaCLIBoundary {
             return;
         }
 
-        // --- 2. MENU GESTISCI SCHEDA ---
+        // --- MENU GESTISCI SCHEDA ---
         boolean esci = false;
         while (!esci) {
             System.out.println("\n--- Gestisci Scheda ---");

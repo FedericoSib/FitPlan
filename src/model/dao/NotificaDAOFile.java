@@ -41,11 +41,9 @@ public class NotificaDAOFile implements NotificaDAO {
         } catch (IOException e) {
             throw new DAOException("Errore lettura notifiche: " + e.getMessage());
         }
-
-        // Cancella il file dopo la lettura — notifiche consumate
         try {
             java.nio.file.Files.delete(file.toPath());
-        } catch (IOException e) {
+        } catch (IOException _) {
             LogManager.warn("Impossibile eliminare il file notifiche: " + file.getName());
         }
         return notifiche;

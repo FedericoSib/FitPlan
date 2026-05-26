@@ -31,11 +31,9 @@ public class NoPTBoundary {
 
     @FXML
     public void vaiAssociaPT(ActionEvent event) {
-        // 1. Chiudi il popup di errore
         Stage popupStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         popupStage.close();
 
-        // 2. Apri il caso d'uso come popup sopra la dashboard
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/ClienteRicercaPT.fxml"));
             Parent root = loader.load();
@@ -44,7 +42,6 @@ public class NoPTBoundary {
             ricercaStage.initModality(Modality.WINDOW_MODAL);
             ricercaStage.initStyle(StageStyle.TRANSPARENT);
 
-            // Usa il Navigator per ottenere il primaryStage come owner
             ricercaStage.initOwner(Navigator.getPrimaryStage());
 
             Scene scene = new Scene(root);
@@ -64,9 +61,7 @@ public class NoPTBoundary {
         chiudiFinestra(event);
     }
 
-    // Metodo privato di utility per non ripetere il codice
     private void chiudiFinestra(ActionEvent event) {
-        // Risaliamo dal bottone (source) fino alla finestra (Stage) per chiuderla
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }

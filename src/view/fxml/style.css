@@ -1,11 +1,11 @@
 .giorno-attuale {
-    -fx-background-color: #94b231; /* Il verde della tua dashboard */
-    -fx-background-radius: 20;     /* Lo rende circolare */
-    -fx-text-fill: white;          /* Numero in bianco */
+    -fx-background-color: #94b231;
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
-/* Stile opzionale per le label della griglia per allinearle bene */
+/* Stile opzionale per le label */
 .grid-pane Label {
     -fx-font-family: "Segoe UI", system-ui;
     -fx-font-size: 12px;
@@ -21,15 +21,15 @@
     -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-font-size: 18px; /* Dimensione normale */
-    -fx-cursor: hand;    /* Fa apparire la manina */
-    -fx-transition: 0.2s; /* Rende il cambio fluido se supportato */
+    -fx-font-size: 18px;
+    -fx-cursor: hand;
+    -fx-transition: 0.2s;
 }
 
 /* Effetto quando il mouse passa sopra */
 .bottone-laterale:hover {
-    -fx-text-fill: #d1d1d1; /* Il testo diventa grigio chiaro */
-    -fx-font-size: 13px;    /* Si rimpicciolisce leggermente come volevi */
+    -fx-text-fill: #d1d1d1;
+    -fx-font-size: 13px;
 }
 
 /* Effetto quando il bottone viene cliccato */
@@ -43,8 +43,8 @@
     -fx-background-color: white;
     -fx-background-radius: 20;
 
-    -fx-border-color: #94b231; /* Verde FitPlan */
-    -fx-border-width: 3;        /* Bordo un po' più spesso per farlo risaltare */
+    -fx-border-color: #94b231;
+    -fx-border-width: 3;
     -fx-border-radius: 20;
 
     -fx-padding: 25;
@@ -53,7 +53,7 @@
 /* Bottone "Indietro" (Grigio chiaro con testo scuro) */
 .btn-secondario {
     -fx-background-color: #f0f0f0;
-    -fx-text-fill: #333333; /* Testo grigio scuro/nero, ora si vede! */
+    -fx-text-fill: #333333;
     -fx-background-radius: 10;
     -fx-font-weight: bold;
     -fx-cursor: hand;
@@ -63,7 +63,7 @@
 /* Bottone "Associati ora" (Verde con testo bianco) */
 .btn-primario {
     -fx-background-color: #94b231;
-    -fx-text-fill: white; /* Testo bianco su fondo verde, perfetto */
+    -fx-text-fill: white;
     -fx-background-radius: 10;
     -fx-font-weight: bold;
     -fx-cursor: hand;
@@ -72,7 +72,7 @@
 
 .btn-rifiuto {
     -fx-background-color: #E81123;
-    -fx-text-fill: white; /* Testo bianco su fondo verde, perfetto */
+    -fx-text-fill: white;
     -fx-background-radius: 10;
     -fx-font-weight: bold;
     -fx-cursor: hand;
@@ -80,19 +80,19 @@
 }
 
 .button-close {
-    -fx-background-color: transparent; /* Sfondo trasparente */
-    -fx-text-fill: #95a5a6;             /* Grigio chiaro */
-    -fx-font-size: 18px;                /* Grande il giusto */
-    -fx-font-weight: bold;              /* Grassetto */
-    -fx-cursor: hand;                   /* Manina al passaggio */
-    -fx-background-radius: 50;          /* Tasto tondo */
-    -fx-padding: 2;                     /* Margine interno piccolissimo */
+    -fx-background-color: transparent;
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 50;
+    -fx-padding: 2;
 }
 
 .button-close:hover {
     -fx-text-fill: white;
-    -fx-background-color: #e74c3c;      /* Sfondo rosso al passaggio */
-    -fx-scale-x: 1.1;                   /* Si ingrandisce leggermente */
+    -fx-background-color: #e74c3c;
+    -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
 }
 
