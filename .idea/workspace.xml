@@ -89,14 +89,6 @@
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
     </task>
-    <task id="LOCAL-00009" summary="Fix smells">
-      <option name="closed" value="true" />
-      <created>1777663583637</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1777663583637</updated>
-    </task>
     <task id="LOCAL-00010" summary="Fix smells">
       <option name="closed" value="true" />
       <created>1777666665449</created>
@@ -481,7 +473,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779793910798</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1779794240914</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1779794240914</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
