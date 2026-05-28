@@ -88,30 +88,6 @@
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
     </task>
-    <task id="LOCAL-00012" summary="Fix smells">
-      <option name="closed" value="true" />
-      <created>1777668270442</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1777668270442</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Fix smells">
-      <option name="closed" value="true" />
-      <created>1777668442412</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1777668442412</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Fix AssociazionePT">
-      <option name="closed" value="true" />
-      <created>1777727245934</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1777727245934</updated>
-    </task>
     <task id="LOCAL-00015" summary="Fix AssociazionePT">
       <option name="closed" value="true" />
       <created>1777727438415</created>
@@ -480,7 +456,31 @@
       <option name="project" value="LOCAL" />
       <updated>1779796250497</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1779797741966</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1779797741966</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1779797886439</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1779797886439</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1779798029315</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1779798029315</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
