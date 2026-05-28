@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Pagina-1" id="vL8QxXtDiceExFaaUoJF">
-    <mxGraphModel dx="1516" dy="866" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1516" dy="888" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -10,22 +10,22 @@
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-2" parent="dNlgnb3P5ZLA7SEH6hWG-1" style="text;html=1;strokeColor=#d79b00;fillColor=#ffcd28;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;gradientColor=#ffa500;" value="&lt;div align=&quot;left&quot;&gt;&lt;u&gt;+getUtenteDAO(): UtenteDAO&lt;br&gt;    +getAssociazioneDAO(): AssociazioneDAO&lt;br&gt;    +getRichiestaDAO(): RichiestaDAO&lt;br&gt;    +getSchedaDAO(): SchedaDAO&lt;/u&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;u&gt;+getNotificaDAO(): NotificaDAO&lt;/u&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;u&gt;+getProgressiDAO(): ProgressiDAO&lt;/u&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="91" width="250" y="29" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-3" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.119;entryY=1.013;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;" target="dNlgnb3P5ZLA7SEH6hWG-2">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-3" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.119;entryY=1.013;entryDx=0;entryDy=0;startArrow=block;startFill=1;endArrow=none;endFill=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;" target="dNlgnb3P5ZLA7SEH6hWG-2">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="580" y="190" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-4" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-9" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.348;entryY=1.03;entryDx=0;entryDy=0;endArrow=none;endFill=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" target="dNlgnb3P5ZLA7SEH6hWG-2">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-4" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-9" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.348;entryY=1.03;entryDx=0;entryDy=0;endArrow=none;endFill=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;startArrow=block;startFill=1;" target="dNlgnb3P5ZLA7SEH6hWG-2">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1120" y="210" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-5" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-33" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.599;entryY=1.03;entryDx=0;entryDy=0;endArrow=none;endFill=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" target="dNlgnb3P5ZLA7SEH6hWG-2">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-5" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-33" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.599;entryY=1.03;entryDx=0;entryDy=0;endArrow=none;endFill=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryPerimeter=0;startArrow=block;startFill=1;" target="dNlgnb3P5ZLA7SEH6hWG-2">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1420" y="170" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-6" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-25" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.741;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" target="dNlgnb3P5ZLA7SEH6hWG-2">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-6" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-25" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.741;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=block;startFill=1;" target="dNlgnb3P5ZLA7SEH6hWG-2">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="420" y="130" as="sourcePoint" />
           </mxGeometry>
@@ -200,10 +200,10 @@
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-56" parent="dNlgnb3P5ZLA7SEH6hWG-54" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&amp;lt;&amp;gt; Metodi di ProgressiDAO" vertex="1">
           <mxGeometry height="40" width="170" y="52" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-57" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.999;exitY=0.8;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;exitPerimeter=0;" target="dNlgnb3P5ZLA7SEH6hWG-50">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-57" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.999;exitY=0.8;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;startArrow=none;startFill=0;endArrow=block;endFill=1;exitPerimeter=0;" target="dNlgnb3P5ZLA7SEH6hWG-50">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-58" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-41" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.925;entryY=1.038;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;startArrow=classic;startFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="dNlgnb3P5ZLA7SEH6hWG-2">
+        <mxCell id="dNlgnb3P5ZLA7SEH6hWG-58" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-41" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.925;entryY=1.038;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;startArrow=block;startFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="dNlgnb3P5ZLA7SEH6hWG-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="dNlgnb3P5ZLA7SEH6hWG-59" edge="1" parent="1" source="dNlgnb3P5ZLA7SEH6hWG-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.652;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;startArrow=block;startFill=0;endArrow=none;endFill=0;" target="dNlgnb3P5ZLA7SEH6hWG-26">
