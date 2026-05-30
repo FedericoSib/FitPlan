@@ -34,13 +34,26 @@ public class SchedaDAOFile implements SchedaDAO {
         return filtrate;
     }
 
-    @SuppressWarnings("unchecked")
     private List<Scheda> caricaTutte() throws DAOException {
         File file = new File(FILE_NAME);
         if (!file.exists()) return new ArrayList<>();
-        try (ObjectInputStream ois =
-                     new ObjectInputStream(new FileInputStream(file))) {
-            return (List<Scheda>) ois.readObject();
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+
+            Object rawObject = ois.readObject();
+            List<Scheda> schedeSicure = new ArrayList<>();
+
+            //Verifica che sia una Lista
+            if (rawObject instanceof List<?> listaGrezza) {
+                for (Object elemento : listaGrezza) {
+                    if (elemento instanceof Scheda scheda) {
+                        schedeSicure.add(scheda);
+                    }
+                }
+            }
+
+            return schedeSicure;
+
         } catch (IOException | ClassNotFoundException e) {
             throw new DAOException("Errore caricamento schede: " + e.getMessage());
         }

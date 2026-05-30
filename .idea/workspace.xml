@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Pulizia del codice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/PersonalTrainerBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/PersonalTrainerBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/ProgressiDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/ProgressiDAOFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/SchedaDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/SchedaDAOFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +31,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {}
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/FedericoSib/ISPW-PROJECT-SOLO.git&quot;,
@@ -87,14 +94,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Fix AssociazionePT">
-      <option name="closed" value="true" />
-      <created>1777727438415</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1777727438415</updated>
     </task>
     <task id="LOCAL-00016" summary="Fix Test classes">
       <option name="closed" value="true" />
@@ -480,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779798029315</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1779975455345</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1779975455345</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

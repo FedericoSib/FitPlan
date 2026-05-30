@@ -28,13 +28,26 @@ public class ProgressiDAOFile implements ProgressiDAO {
         return filtrati;
     }
 
-    @SuppressWarnings("unchecked")
     private List<Progressi> caricaTutti() throws DAOException {
         File file = new File(FILE_NAME);
         if (!file.exists()) return new ArrayList<>();
-        try (ObjectInputStream ois =
-                     new ObjectInputStream(new FileInputStream(file))) {
-            return (List<Progressi>) ois.readObject();
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+
+            Object rawObject = ois.readObject();
+            List<Progressi> progressiSicuri = new ArrayList<>();
+
+            //Verifica che l'oggetto letto sia una Lista
+            if (rawObject instanceof List<?> listaGrezza) {
+                for (Object elemento : listaGrezza) {
+                    if (elemento instanceof Progressi progressi) {
+                        progressiSicuri.add(progressi);
+                    }
+                }
+            }
+
+            return progressiSicuri;
+
         } catch (IOException | ClassNotFoundException e) {
             throw new DAOException("Errore caricamento progressi: " + e.getMessage());
         }

@@ -116,6 +116,7 @@ public class ClienteRicercaPTBoundary {
         alert.setTitle(titolo);
         alert.setHeaderText(null);
         alert.setContentText(messaggio);
+        alert.initOwner(null);
         alert.showAndWait();
     }
 }
