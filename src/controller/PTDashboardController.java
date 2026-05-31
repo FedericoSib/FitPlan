@@ -4,49 +4,36 @@ import bean.PersonalTrainerBean;
 import model.Sessione;
 import model.entity.Utente;
 import model.entity.StatoRichiesta;
-import model.entity.StatoAssociazione;
 import model.dao.DAOFactory;
-import model.dao.AssociazioneDAO;
 import util.LogManager;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PTDashboardController {
     public PersonalTrainerBean getDatiDashboard() {
         Utente pt = Sessione.getInstance().getUtente();
-        PersonalTrainerBean bean = new PersonalTrainerBean(
-                pt.getEmail(), // Usa l'email come ID
-                pt.getNome(),
-                pt.getCognome(),
-                pt.getEmail()
-        );
+        PersonalTrainerBean bean = new PersonalTrainerBean();
+        bean.setId(pt.getId());
+        bean.setNome(pt.getNome());
+        bean.setCognome(pt.getCognome());
+        bean.setEmail(pt.getEmail());
+        bean.setNomeCompleto(pt.getNome() + " " + pt.getCognome());
         try {
-            AssociazioneDAO associazioneDAO = DAOFactory.getAssociazioneDAO();
-
-            List<String> tuttiClientiDelPT = associazioneDAO.getRichiestePerPT(pt.getEmail());
-            List<String> clientiPendenti = new ArrayList<>();
-
-            for (String emailCliente : tuttiClientiDelPT) {
-                if (associazioneDAO.getStato(emailCliente) == StatoAssociazione.PENDING) {
-                    clientiPendenti.add(emailCliente);
-                }
-            }
+            List<String> clientiPendenti = DAOFactory.getAssociazioneDAO()
+                    .getRichiestePerPT(pt.getEmail());
 
             bean.setRichiesteAssociazionePending(clientiPendenti.size());
+            bean.setUltimeRichiesteAssociazione(
+                    clientiPendenti.stream().limit(3).toList());
 
-            List<String> ultimeRichieste = clientiPendenti.stream()
-                    .limit(3)
-                    .toList();
-            bean.setUltimeRichiesteAssociazione(ultimeRichieste);
+            var tutteRichieste = DAOFactory.getRichiestaDAO()
+                    .prendiRichiestePerPT(pt.getEmail());
 
-            long schedePending = DAOFactory.getRichiestaDAO().prendiTutteLeRichieste().stream()
-                    .filter(r -> r.getIdPersonalTrainer().equalsIgnoreCase(pt.getEmail()))
+            long schedePending = tutteRichieste.stream()
                     .filter(r -> r.getStato() == StatoRichiesta.PENDING)
                     .count();
             bean.setRichiesteSchedePending((int) schedePending);
 
-            long schedeLavorazione = DAOFactory.getRichiestaDAO().prendiTutteLeRichieste().stream()
-                    .filter(r -> r.getIdPersonalTrainer().equalsIgnoreCase(pt.getEmail()))
+            long schedeLavorazione = tutteRichieste.stream()
                     .filter(r -> r.getStato() == StatoRichiesta.IN_LAVORAZIONE)
                     .count();
             bean.setSchedeInLavorazione((int) schedeLavorazione);

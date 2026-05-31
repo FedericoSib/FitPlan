@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Pulizia del codice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitplan_logs.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/PersonalTrainerBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/PersonalTrainerBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/ProgressiDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/ProgressiDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/SchedaDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/SchedaDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PTDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PTDashboardController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,14 +88,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Fix Test classes">
-      <option name="closed" value="true" />
-      <created>1777729099442</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1777729099442</updated>
     </task>
     <task id="LOCAL-00017" summary="Fix Test classes">
       <option name="closed" value="true" />
@@ -487,7 +473,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779975455345</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1780149851721</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1780149851721</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
