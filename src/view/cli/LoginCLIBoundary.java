@@ -1,11 +1,13 @@
 package view.cli;
 
 import bean.LoginBean;
+import bean.UtenteBean;
 import controller.LoginController;
-import model.Sessione;
-import model.entity.PersonalTrainer;
+import model.dao.DAOFactory;
 import model.exception.LoginException;
+import util.observer.NotificaManager;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class LoginCLIBoundary {
@@ -31,14 +33,13 @@ public class LoginCLIBoundary {
 
         try {
             controller.autentica(bean);
-            System.out.println("Benvenuto, " +
-                    Sessione.getInstance().getUtente().getNome() + "!");
 
-            // Mostra notifiche pendenti CLI
+            UtenteBean utenteLoggato = controller.getUtenteLoggato();
+            System.out.println("Benvenuto, " + utenteLoggato.getNome() + "!");
+
             mostraNotifichePendenti(email);
 
-            // Smista al menu corretto
-            if (Sessione.getInstance().getUtente() instanceof PersonalTrainer) {
+            if (utenteLoggato.getRuolo() == 2) {
                 new MenuPTCLI(scanner).avvia();
             } else {
                 new MenuClienteCLI(scanner).avvia();
@@ -50,16 +51,16 @@ public class LoginCLIBoundary {
     }
 
     private void mostraNotifichePendenti(String email) {
-        try {
-            var dao = model.dao.DAOFactory.getNotificaDAO();
-            var notifiche = dao.caricaECancellaNotifiche(email);
-            if (!notifiche.isEmpty()) {
-                System.out.println("\n--- Notifiche ---");
-                notifiche.forEach(n -> System.out.println("  • " + n));
-                System.out.println("-----------------");
+        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
+
+        List<String> notifiche = manager.ottieniMessaggiPendenti(email);
+
+        if (!notifiche.isEmpty()) {
+            System.out.println("\n--- Notifiche ---");
+            for (String n : notifiche) {
+                System.out.println("  • " + n);
             }
-        } catch (Exception _) {
-            // Notifiche non bloccanti
+            System.out.println("-----------------");
         }
     }
 }

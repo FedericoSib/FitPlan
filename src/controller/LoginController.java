@@ -72,4 +72,17 @@ public class LoginController {
             LogManager.error("Errore sincronizzazione stato richiesta al login", e);
         }
     }
+
+    public bean.UtenteBean getUtenteLoggato() {
+        model.entity.Utente u = model.Sessione.getInstance().getUtente();
+        if (u == null) return null;
+
+        bean.UtenteBean utenteBean = new bean.UtenteBean();
+        utenteBean.setNome(u.getNome());
+        utenteBean.setCognome(u.getCognome());
+        utenteBean.setEmail(u.getEmail());
+        utenteBean.setRuolo(u.getRuolo());
+
+        return utenteBean;
+    }
 }

@@ -34,7 +34,6 @@ public class RichiestaDAOFile implements RichiestaDAO {
     @Override
     public void cancellaRichiesta(RichiestaScheda richiesta) throws DAOException, IOException {
         List<RichiestaScheda> lista = prendiTutteLeRichieste();
-        // Rimuoviamo la richiesta basandoci sull'uguaglianza dei dati
         lista.removeIf(r -> r.getClienteEmail().equals(richiesta.getClienteEmail()) &&
                 r.getObiettivo().equals(richiesta.getObiettivo()));
         salvaTuttaLaLista(lista);
@@ -85,8 +84,9 @@ public class RichiestaDAOFile implements RichiestaDAO {
     @Override
     public List<RichiestaScheda> prendiRichiestePerPTEStato(String emailPT, StatoRichiesta stato) throws DAOException {
         return prendiTutteLeRichieste().stream()
-                .filter(r -> r.getIdPersonalTrainer().equalsIgnoreCase(emailPT)
-                        && r.getStato() == stato)
+                .filter(r -> r.getIdPersonalTrainer() != null &&
+                        r.getIdPersonalTrainer().equalsIgnoreCase(emailPT) &&
+                        r.getStato() == stato)
                 .toList();
     }
 }

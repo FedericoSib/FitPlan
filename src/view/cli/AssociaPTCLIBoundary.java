@@ -2,10 +2,10 @@ package view.cli;
 
 import bean.AssociazioneBean;
 import bean.PersonalTrainerBean;
+import bean.ClienteBean;
 import controller.AssociaPTController;
-import model.Sessione;
+import controller.ClienteDashboardController;
 import model.dao.DAOFactory;
-import model.entity.Cliente;
 import model.entity.StatoAssociazione;
 import model.exception.DAOException;
 import model.exception.TrainerNotFoundException;
@@ -18,23 +18,27 @@ public class AssociaPTCLIBoundary {
 
     private final Scanner scanner;
     private final AssociaPTController controller;
+    private final ClienteDashboardController dashboardController;
 
     public AssociaPTCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
         this.controller = new AssociaPTController();
+        this.dashboardController = new ClienteDashboardController(); // Inizializzato!
         controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
     }
 
     public void avvia() {
-        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
-        if (cliente.getStatoAssociazione() == StatoAssociazione.ASSOCIATO) {
+       ClienteBean datiDashboard = dashboardController.getDatiDashboard();
+
+        if (datiDashboard.getStatoAssociazione() == StatoAssociazione.ASSOCIATO) {
             System.out.println("\nSei già associato a un Personal Trainer.");
             return;
         }
-        if (cliente.getStatoAssociazione() == StatoAssociazione.PENDING) {
+        if (datiDashboard.getStatoAssociazione() == StatoAssociazione.PENDING) {
             System.out.println("\nHai già una richiesta di associazione in attesa.");
             return;
         }
+
         System.out.println("\n--- Cerca Personal Trainer ---");
         System.out.println("Puoi cercare per ID (PT-xxx), email o nome/cognome.");
         System.out.print("Ricerca: ");
@@ -65,7 +69,7 @@ public class AssociaPTCLIBoundary {
             }
 
             PersonalTrainerBean selezionato = risultati.get(indice);
-            String emailCliente = Sessione.getInstance().getUtente().getEmail();
+            String emailCliente = datiDashboard.getEmail();
 
             AssociazioneBean bean = new AssociazioneBean();
             bean.setEmailCliente(emailCliente);

@@ -20,6 +20,7 @@ public class ClienteDashboardController {
         bean.setStatoAssociazione(cliente.getStatoAssociazione());
         bean.setStatoRichiesta(cliente.getStatoRichiesta());
         bean.setNomePT(cliente.getIdPersonalTrainer() != null ? cliente.getIdPersonalTrainer() : "");
+        bean.setIdPersonalTrainer(cliente.getIdPersonalTrainer());
 
         try {
             var schede = DAOFactory.getSchedaDAO().getSchedePerCliente(cliente.getEmail());

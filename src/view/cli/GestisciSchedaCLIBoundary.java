@@ -2,8 +2,9 @@ package view.cli;
 
 import bean.*;
 import controller.GestisciSchedaController;
-import model.Sessione;
-import model.entity.*;
+import controller.ClienteDashboardController; // <-- Aggiunto il nostro Logic Controller
+import model.entity.StatoAssociazione; // Gli Enum sono ammessi perché condivisi col DTO
+import model.entity.StatoRichiesta;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
 
@@ -14,23 +15,24 @@ import java.util.Scanner;
 public class GestisciSchedaCLIBoundary {
 
     private final Scanner scanner;
-    private final GestisciSchedaController controller =
-            new GestisciSchedaController();
-    public static final String STRINGAERRORE = "Errore";
+    private final GestisciSchedaController controller = new GestisciSchedaController();
+    private final ClienteDashboardController dashboardController = new ClienteDashboardController(); // <-- Aggiunto
+
+    public static final String STRINGAERRORE = "Errore: ";
 
     public GestisciSchedaCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public void avvia() {
-        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+        ClienteBean datiDashboard = dashboardController.getDatiDashboard();
 
-        if (cliente.getStatoAssociazione() != StatoAssociazione.ASSOCIATO) {
+        if (datiDashboard.getStatoAssociazione() != StatoAssociazione.ASSOCIATO) {
             System.out.println("\nDevi essere associato a un Personal Trainer per poter gestire una scheda.");
             return;
         }
 
-        StatoRichiesta stato = cliente.getStatoRichiesta();
+        StatoRichiesta stato = datiDashboard.getStatoRichiesta();
         if (stato == StatoRichiesta.NESSUNA) {
             System.out.println("\nNon hai ancora richiesto una scheda al trainer.");
             return;
@@ -131,7 +133,6 @@ public class GestisciSchedaCLIBoundary {
 
             String nomeEsercizio = tuttiEsercizi.get(indice);
 
-            // Carico (se fallisce il parse, salta automaticamente al catch NumberFormatException)
             System.out.print("Carico utilizzato (kg, es. 80.5): ");
             double carico = Double.parseDouble(scanner.nextLine().trim().replace(",", "."));
             if (carico < 0) {
@@ -139,7 +140,6 @@ public class GestisciSchedaCLIBoundary {
                 return;
             }
 
-            // Ripetizioni (se fallisce il parse, salta automaticamente al catch NumberFormatException)
             System.out.print("Ripetizioni effettuate: ");
             int ripetizioni = Integer.parseInt(scanner.nextLine().trim());
             if (ripetizioni <= 0) {
@@ -147,13 +147,13 @@ public class GestisciSchedaCLIBoundary {
                 return;
             }
 
-            // Note
             System.out.print("Note (Invio per saltare): ");
             String note = scanner.nextLine().trim();
 
-            // Costruzione bean e salvataggio
+            String emailCliente = dashboardController.getDatiDashboard().getEmail();
+
             ProgressiBean bean = new ProgressiBean();
-            bean.setEmailCliente(Sessione.getInstance().getUtente().getEmail());
+            bean.setEmailCliente(emailCliente);
             bean.setNomeEsercizio(nomeEsercizio);
             bean.setCarico(carico);
             bean.setRipetizioni(ripetizioni);
@@ -163,7 +163,6 @@ public class GestisciSchedaCLIBoundary {
             System.out.println("Progressi salvati!");
 
         } catch (NumberFormatException _) {
-            // Gestisce sia l'errore di input del carico che quello delle ripetizioni
             System.out.println("Valore non valido.");
         } catch (DAOException | InvalidFormException e) {
             System.out.println(STRINGAERRORE + e.getMessage());

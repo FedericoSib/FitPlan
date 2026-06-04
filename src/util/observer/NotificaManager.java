@@ -52,4 +52,13 @@ public class NotificaManager implements NotificaObserver {
         alert.setContentText(testo);
         alert.show();
     }
+
+    public List<String> ottieniMessaggiPendenti(String emailUtente) {
+        try {
+            return dao.caricaECancellaNotifiche(emailUtente);
+        } catch (DAOException e) {
+            LogManager.error("Errore caricamento notifiche pendenti", e);
+            return java.util.Collections.emptyList();
+        }
+    }
 }

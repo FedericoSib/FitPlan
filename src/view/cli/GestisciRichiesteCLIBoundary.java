@@ -1,8 +1,9 @@
 package view.cli;
 
 import bean.AssociazioneBean;
+import bean.PersonalTrainerBean;
 import controller.GestisciRichiestePTController;
-import model.Sessione;
+import controller.PTDashboardController;
 import model.dao.DAOFactory;
 import model.exception.DAOException;
 import util.observer.NotificaManager;
@@ -14,14 +15,18 @@ public class GestisciRichiesteCLIBoundary {
 
     private final Scanner scanner;
     private final GestisciRichiestePTController controller;
+    private final PTDashboardController ptDashboardController;
 
     public GestisciRichiesteCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
         this.controller = new GestisciRichiestePTController();
+        this.ptDashboardController = new PTDashboardController();
         controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
     }
+
     public void avvia() {
-        String emailPT = Sessione.getInstance().getUtente().getEmail();
+        PersonalTrainerBean ptLoggato = ptDashboardController.getDatiDashboard();
+        String emailPT = ptLoggato.getEmail();
 
         try {
             List<AssociazioneBean> richieste = controller.getRichiesteSospese(emailPT);

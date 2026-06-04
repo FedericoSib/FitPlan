@@ -9,6 +9,7 @@ public class ClienteBean {
     private StatoAssociazione statoAssociazione;
     private StatoRichiesta statoRichiesta;
     private String nomePT;
+    private String idPersonalTrainer;
     private boolean haSchedeDisponibili;
     private String obiettivoRichiesta;
     private int frequenzaRichiesta;
@@ -29,6 +30,9 @@ public class ClienteBean {
 
     public String getNomePT() { return nomePT; }
     public void setNomePT(String nomePT) { this.nomePT = nomePT; }
+
+    public String getIdPersonalTrainer() { return idPersonalTrainer; }
+    public void setIdPersonalTrainer(String idPersonalTrainer) { this.idPersonalTrainer = idPersonalTrainer; }
 
     public boolean isHaSchedeDisponibili() { return haSchedeDisponibili; }
     public void setHaSchedeDisponibili(boolean haSchedeDisponibili) { this.haSchedeDisponibili = haSchedeDisponibili; }

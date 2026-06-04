@@ -2,7 +2,7 @@ package view.cli;
 
 import bean.*;
 import controller.AssemblaSchedaController;
-import model.Sessione;
+import controller.PTDashboardController; // <-- Il nostro logic controller della GUI!
 import model.dao.DAOFactory;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
@@ -16,11 +16,13 @@ public class AssemblaSchedaCLIBoundary {
 
     private final Scanner scanner;
     private final AssemblaSchedaController controller;
+    private final PTDashboardController ptController;
     public static final String SCELTANONVALIDA = "Scelta non valida.";
 
     public AssemblaSchedaCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
         this.controller = new AssemblaSchedaController();
+        this.ptController = new PTDashboardController();
         controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
     }
 
@@ -44,7 +46,8 @@ public class AssemblaSchedaCLIBoundary {
     }
 
     private void gestisciRichieste(boolean inLavorazione) {
-        String emailPT = Sessione.getInstance().getUtente().getEmail();
+        PersonalTrainerBean ptLoggato = ptController.getDatiDashboard();
+        String emailPT = ptLoggato.getEmail();
 
         try {
             List<RichiestaSchedaBean> richieste = inLavorazione
@@ -129,7 +132,7 @@ public class AssemblaSchedaCLIBoundary {
     private SchedaBean costruisciSchedaBean(RichiestaSchedaBean richiesta) {
         SchedaBean schedaBean = new SchedaBean();
         schedaBean.setEmailCliente(richiesta.getClienteEmail());
-        schedaBean.setEmailPT(Sessione.getInstance().getUtente().getEmail());
+        schedaBean.setEmailPT(ptController.getDatiDashboard().getEmail());
 
         int totalGiorni = richiesta.getFrequenzaSettimanale();
         for (int i = 1; i <= totalGiorni; i++) {

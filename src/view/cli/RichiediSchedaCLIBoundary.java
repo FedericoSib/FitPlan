@@ -1,9 +1,9 @@
 package view.cli;
 
+import bean.ClienteBean;
 import bean.RichiestaSchedaBean;
+import controller.ClienteDashboardController;
 import controller.RichiediSchedaController;
-import model.Sessione;
-import model.entity.Cliente;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
 import model.exception.TrainerNotAssociatedException;
@@ -15,14 +15,16 @@ public class RichiediSchedaCLIBoundary {
     public static final String ERR = "Errore: ";
     private final Scanner scanner;
     private final RichiediSchedaController controller = new RichiediSchedaController();
+    private final ClienteDashboardController dashboardController = new ClienteDashboardController();
 
     public RichiediSchedaCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public void avvia() {
-        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
-        switch (cliente.getStatoRichiesta()) {
+        ClienteBean datiDashboard = dashboardController.getDatiDashboard();
+
+        switch (datiDashboard.getStatoRichiesta()) {
             case PENDING -> {
                 System.out.println("\nHai già una richiesta in attesa di valutazione.");
                 return;
@@ -39,36 +41,45 @@ public class RichiediSchedaCLIBoundary {
                 //Stato: NESSUNA si può procedere al caso d'uso.
             }
         }
+
         try {
             controller.verificaAssociazionePT();
         } catch (TrainerNotAssociatedException e) {
             System.out.println(ERR + e.getMessage());
             return;
         }
+
         System.out.println("\n--- Richiedi Scheda ---");
         System.out.println("\nCompila il form per richiedere la tua scheda:");
 
         String sesso = scegliSesso();
         if (sesso == null) return;
+
         int eta = leggiIntero("Inserisci la tua età: ", 10, 100);
         if (eta == -1) return;
+
         double peso = leggiDouble("Inserisci il tuo peso (kg): ", 1, 200);
         if (peso == -1) return;
+
         String obiettivo = scegliObiettivo();
         if (obiettivo == null) return;
+
         int frequenza = leggiIntero("Quante volte a settimana vuoi allenarti? (1-7): ", 1, 7);
         if (frequenza == -1) return;
+
         System.out.print("Note aggiuntive (premi Invio per saltare): ");
         String note = scanner.nextLine().trim();
+
         RichiestaSchedaBean bean = new RichiestaSchedaBean();
-        bean.setClienteEmail(cliente.getEmail());
-        bean.setIdPersonalTrainer(cliente.getIdPersonalTrainer());
+        bean.setClienteEmail(datiDashboard.getEmail());
+        bean.setIdPersonalTrainer(datiDashboard.getIdPersonalTrainer());
         bean.setSesso(sesso);
         bean.setEta(eta);
         bean.setPeso(peso);
         bean.setObiettivo(obiettivo);
         bean.setFrequenzaSettimanale(frequenza);
         bean.setNote(note);
+
         try {
             controller.elaboraRichiesta(bean);
             System.out.println("\nRichiesta inviata con successo al tuo Personal Trainer!");
