@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Pulizia del codice">
-      <change beforePath="$PROJECT_DIR$/src/model/entity/Progressi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Progressi.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Pulizia del codice" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,14 +85,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Aggiunta di scadenza per la richiesta di associazione, tolto il match preciso della mail per il login (federico@gmail.com = FeDeRiCo@GmAiL.cOm), aggiunta la possibilita di cercare il PT per prefisso, se ci sono PT di Nome Alessandro e Alessio cercando Ale escono entrambi">
-      <option name="closed" value="true" />
-      <created>1777792665236</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1777792665236</updated>
     </task>
     <task id="LOCAL-00020" summary="Fix smells">
       <option name="closed" value="true" />
@@ -480,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780582553730</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1780583102181</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1780583102181</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
