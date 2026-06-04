@@ -25,6 +25,7 @@ import model.entity.Utente;
 import util.LogManager;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.YearMonth;
 import java.time.format.TextStyle;
 import java.util.List;
@@ -108,8 +109,8 @@ public class PTDashboardBoundary {
 
     private void costruisciCalendarioDinamico() {
         gridCalendario.getChildren().clear();
-        LocalDate oggi = LocalDate.now();
-        YearMonth meseCorrente = YearMonth.now();
+        LocalDate oggi = LocalDate.now(ZoneId.systemDefault());
+        YearMonth meseCorrente = YearMonth.now(ZoneId.systemDefault());
 
         lblMeseAnno.setText(oggi.getMonth()
                 .getDisplayName(TextStyle.FULL, Locale.ITALIAN).toUpperCase()

@@ -2,6 +2,7 @@ package model.entity;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 
 public abstract class Utente {
     protected String id; // Es: C-MR-10031425 (Cliente, Mario Rossi, 10 Marzo ore 14:25)
@@ -35,7 +36,7 @@ public abstract class Utente {
         String iniziali = (nome.substring(0, 1) + cognome.substring(0, 1)).toUpperCase();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMHHmm");
-        String timestamp = LocalDateTime.now().format(formatter);
+        String timestamp = LocalDateTime.now(ZoneId.systemDefault()).format(formatter);
 
         return prefisso + "-" + iniziali + "-" + timestamp;
     }

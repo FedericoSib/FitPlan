@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Pulizia del codice">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/ClienteBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/ClienteBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ClienteDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ClienteDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/RichiestaDAOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/RichiestaDAOFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/observer/NotificaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/observer/NotificaManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/AssociaPTCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/AssociaPTCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/GestisciRichiesteCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/GestisciRichiesteCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/LoginCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/LoginCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/cli/RichiediSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/RichiediSchedaCLIBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utenti_fitplan.dat" beforeDir="false" afterPath="$PROJECT_DIR$/utenti_fitplan.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entity/Progressi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Progressi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,14 +87,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Fix coverage">
-      <option name="closed" value="true" />
-      <created>1777729829746</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1777729829746</updated>
     </task>
     <task id="LOCAL-00019" summary="Aggiunta di scadenza per la richiesta di associazione, tolto il match preciso della mail per il login (federico@gmail.com = FeDeRiCo@GmAiL.cOm), aggiunta la possibilita di cercare il PT per prefisso, se ci sono PT di Nome Alessandro e Alessio cercando Ale escono entrambi">
       <option name="closed" value="true" />
@@ -493,7 +472,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780237257289</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1780582553730</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1780582553730</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

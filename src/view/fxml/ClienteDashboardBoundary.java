@@ -29,6 +29,7 @@ import util.observer.NotificaManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.YearMonth;
 import java.time.format.TextStyle;
 import java.util.Locale;
@@ -97,8 +98,8 @@ public class ClienteDashboardBoundary {
 
     private void costruisciCalendarioDinamico() {
         gridCalendario.getChildren().clear();
-        LocalDate oggi = LocalDate.now();
-        YearMonth meseCorrente = YearMonth.now();
+        LocalDate oggi = LocalDate.now(ZoneId.systemDefault());
+        YearMonth meseCorrente = YearMonth.now(ZoneId.systemDefault());
 
         lblMeseAnno.setText(oggi.getMonth().getDisplayName(TextStyle.FULL, Locale.ITALIAN).toUpperCase() + " " + oggi.getYear());
         int primoGiorno = meseCorrente.atDay(1).getDayOfWeek().getValue();

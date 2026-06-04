@@ -2,6 +2,7 @@ package model.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 public class Progressi implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -16,7 +17,7 @@ public class Progressi implements Serializable {
     public Progressi(String emailCliente, String nomeEsercizio,
                      double carico, int ripetizioni, String note) {
         this.emailCliente = emailCliente;
-        this.data = LocalDate.now();
+        this.data = LocalDate.now(ZoneId.systemDefault());
         this.nomeEsercizio = nomeEsercizio;
         this.carico = carico;
         this.ripetizioni = ripetizioni;
