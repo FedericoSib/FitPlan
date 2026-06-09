@@ -16,7 +16,6 @@ public class PTDashboardController {
         bean.setNome(pt.getNome());
         bean.setCognome(pt.getCognome());
         bean.setEmail(pt.getEmail());
-        bean.setNomeCompleto(pt.getNome() + " " + pt.getCognome());
         try {
             List<String> clientiPendenti = DAOFactory.getAssociazioneDAO()
                     .getRichiestePerPT(pt.getEmail());
@@ -43,5 +42,10 @@ public class PTDashboardController {
         }
 
         return bean;
+    }
+
+    public void effettuaLogout() {
+        Sessione.getInstance().setUtente(null);
+        LogManager.info("Logout effettuato. Dati di sessione rimossi.");
     }
 }

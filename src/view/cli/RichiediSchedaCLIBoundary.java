@@ -25,15 +25,15 @@ public class RichiediSchedaCLIBoundary {
         ClienteBean datiDashboard = dashboardController.getDatiDashboard();
 
         switch (datiDashboard.getStatoRichiesta()) {
-            case PENDING -> {
+            case "PENDING" -> {
                 System.out.println("\nHai già una richiesta in attesa di valutazione.");
                 return;
             }
-            case IN_LAVORAZIONE -> {
+            case "IN_LAVORAZIONE" -> {
                 System.out.println("\nHai già una richiesta in corso. Attendi che il PT completi la scheda.");
                 return;
             }
-            case COMPLETATA -> {
+            case "COMPLETATA" -> {
                 System.out.println("\nIl tuo PT ti ha inviato la scheda. Visualizzala nel menù.");
                 return;
             }

@@ -6,11 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.exception.LoginException;
-import model.Sessione;
 import bean.*;
-import model.entity.Utente;
-import model.entity.Cliente;
-import model.entity.PersonalTrainer;
 import util.LogManager;
 
 public class LoginBoundary {
@@ -56,11 +52,11 @@ public class LoginBoundary {
     }
 
     private void procediAllaDashboard() {
-        Utente loggato = Sessione.getInstance().getUtente();
+        UtenteBean loggato = loginController.getUtenteLoggato();
         mostraAlert(Alert.AlertType.INFORMATION, "Benvenuto", "Accesso effettuato come: " + loggato.getId());
-        if (loggato instanceof Cliente) {
+        if (loggato.getRuolo() == 1) {
             Navigator.pushScene("/view/fxml/ClienteDashboard.fxml", "FitPlan - Dashboard Cliente");
-        } else if (loggato instanceof PersonalTrainer) {
+        } else if (loggato.getRuolo() == 2) {
             Navigator.pushScene("/view/fxml/PTDashboard.fxml", "FitPlan - Dashboard Trainer");
         }
     }

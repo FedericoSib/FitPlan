@@ -7,8 +7,6 @@ import util.LogManager;
 import controller.RichiediSchedaController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import model.entity.Cliente;
-import model.Sessione;
 import bean.*;
 import model.exception.InvalidFormException;
 import javafx.scene.image.ImageView;
@@ -50,11 +48,11 @@ public class ClienteRichiediSchedaBoundary {
     }
 
     public RichiestaSchedaBean raccogliDatiRichiesta() {
-        Cliente cliente = (Cliente) Sessione.getInstance().getUtente();
+        ClienteBean clienteBean = controller.getDatiClienteCorrente();
 
         RichiestaSchedaBean bean = new RichiestaSchedaBean();
-        bean.setClienteEmail(cliente.getEmail());
-        bean.setIdPersonalTrainer(cliente.getIdPersonalTrainer());
+        bean.setClienteEmail(clienteBean.getEmail());
+        bean.setIdPersonalTrainer(clienteBean.getIdPersonalTrainer());
         bean.setSesso(cbSesso.getValue());
         bean.setEta(Integer.parseInt(txtEta.getText()));
         bean.setPeso(Double.parseDouble(txtPeso.getText()));

@@ -1,9 +1,12 @@
 package controller;
 
 import bean.AssociazioneBean;
+import bean.PersonalTrainerBean;
+import model.Sessione;
 import model.entity.Notifica;
 import model.dao.AssociazioneDAO;
 import model.dao.DAOFactory;
+import model.entity.PersonalTrainer;
 import model.entity.StatoAssociazione;
 import model.exception.DAOException;
 import util.observer.*;
@@ -59,5 +62,14 @@ public class GestisciRichiestePTController extends NotificaObservableBase{
 
         notificaObserver(bean.getEmailCliente(),
                 "Il tuo Personal Trainer ha rifiutato la tua richiesta di associazione.");
+    }
+
+    public PersonalTrainerBean getPT() {
+        PersonalTrainer pt = (PersonalTrainer) Sessione.getInstance().getUtente();
+
+        PersonalTrainerBean bean = new PersonalTrainerBean();
+        bean.setEmail(pt.getEmail());
+
+        return bean;
     }
 }

@@ -15,10 +15,11 @@ public class ClienteDashboardController {
         sincronizzaStatoCliente(cliente);
 
         ClienteBean bean = new ClienteBean();
-        bean.setNomeCompleto(cliente.getNome() + " " + cliente.getCognome());
+        bean.setNome(cliente.getNome());
+        bean.setCognome(cliente.getCognome());
         bean.setEmail(cliente.getEmail());
-        bean.setStatoAssociazione(cliente.getStatoAssociazione());
-        bean.setStatoRichiesta(cliente.getStatoRichiesta());
+        bean.setStatoAssociazione(cliente.getStatoAssociazione().name());
+        bean.setStatoRichiesta(cliente.getStatoRichiesta().name());
         bean.setNomePT(cliente.getIdPersonalTrainer() != null ? cliente.getIdPersonalTrainer() : "");
         bean.setIdPersonalTrainer(cliente.getIdPersonalTrainer());
 
@@ -64,5 +65,10 @@ public class ClienteDashboardController {
         } catch (Exception e) {
             LogManager.error("Errore sincronizzazione stato cliente", e);
         }
+    }
+
+    public void effettuaLogout() {
+        Sessione.getInstance().setUtente(null);
+        LogManager.info("Logout effettuato. Dati di sessione rimossi.");
     }
 }

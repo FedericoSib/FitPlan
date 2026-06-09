@@ -20,8 +20,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import model.Sessione;
-import model.entity.Utente;
 import util.LogManager;
 
 import java.time.LocalDate;
@@ -65,7 +63,7 @@ public class PTDashboardBoundary {
 
     private void aggiornaSchermata() {
         datiDashboard = dashboardController.getDatiDashboard();
-        lblNomeUtente.setText(datiDashboard.getNomeCompleto());
+        lblNomeUtente.setText(datiDashboard.getNome() + " " + datiDashboard.getCognome());
 
         NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
         manager.mostraNotifichePendenti(datiDashboard.getEmail());
@@ -218,13 +216,10 @@ public class PTDashboardBoundary {
 
     @FXML
     public void apriProfiloPersonale() {
-        Utente utenteCorrente = Sessione.getInstance().getUtente();
-
         UtenteBean bean = new UtenteBean();
-        bean.setNome(utenteCorrente.getNome());
-        bean.setCognome(utenteCorrente.getCognome());
-        bean.setEmail(utenteCorrente.getEmail());
-        bean.setRuolo(utenteCorrente.getRuolo());
+        bean.setNome(datiDashboard.getNome());
+        bean.setCognome(datiDashboard.getCognome());
+        bean.setEmail(datiDashboard.getEmail());
 
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -256,8 +251,7 @@ public class PTDashboardBoundary {
 
     @FXML
     public void handleLogout() {
-        Sessione.getInstance().setUtente(null);
-        LogManager.info("Logout effettuato con successo. Reindirizzamento al login...");
+        dashboardController.effettuaLogout();
         Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
     }
 

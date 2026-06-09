@@ -1,6 +1,7 @@
 package controller;
 
 import bean.*;
+import model.Sessione;
 import model.dao.DAOFactory;
 import model.entity.*;
 import model.exception.DAOException;
@@ -99,5 +100,14 @@ public class AssemblaSchedaController extends NotificaObservableBase {
         } catch (Exception e) {
             LogManager.error("Errore aggiornamento stato richiesta", e);
         }
+    }
+
+    public PersonalTrainerBean getPT() {
+        PersonalTrainer pt = (PersonalTrainer) Sessione.getInstance().getUtente();
+
+        PersonalTrainerBean bean = new PersonalTrainerBean();
+        bean.setEmail(pt.getEmail());
+
+        return bean;
     }
 }

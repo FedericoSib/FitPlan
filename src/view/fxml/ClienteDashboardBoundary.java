@@ -19,10 +19,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
-import model.Sessione;
-import model.entity.StatoAssociazione;
-import model.entity.StatoRichiesta;
-import model.entity.Utente;
 import util.LogManager;
 import model.dao.DAOFactory;
 import util.observer.NotificaManager;
@@ -44,6 +40,10 @@ public class ClienteDashboardBoundary {
     private static final String GIALLO = "#fdcb6e";
     private static final String VERDE = "#00b894";
     public static final String ATT = "Attenzione";
+    private static final String STATO_ASSOCIATO = "ASSOCIATO";
+    private static final String STATO_PENDING = "PENDING";
+    private static final String STATO_NESSUNA = "NESSUNA";
+    private static final String STATO_INLAVORAZIONE = "IN_LAVORAZIONE";
 
     @FXML private Label lblNomeUtente;
     @FXML private Label lblMeseAnno;
@@ -74,7 +74,7 @@ public class ClienteDashboardBoundary {
 
     private void aggiornaSchermata() {
         this.datiDashboard = dashboardController.getDatiDashboard();
-        lblNomeUtente.setText(datiDashboard.getNomeCompleto());
+        lblNomeUtente.setText(datiDashboard.getNome()+ " " +datiDashboard.getCognome());
         NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
         manager.mostraNotifichePendenti(datiDashboard.getEmail());
 
@@ -125,12 +125,12 @@ public class ClienteDashboardBoundary {
 
     private void popolaCardAssociazione() {
         switch (datiDashboard.getStatoAssociazione()) {
-            case ASSOCIATO -> {
+            case STATO_ASSOCIATO -> {
                 cerchioStato.setFill(Color.web(VERDE));
                 lblStatoAssociazione.setText("Associato");
                 lblNomePT.setText("Personal Trainer: " + datiDashboard.getNomePT());
             }
-            case PENDING -> {
+            case STATO_PENDING -> {
                 cerchioStato.setFill(Color.web(GIALLO));
                 lblStatoAssociazione.setText("Richiesta in attesa...");
                 lblNomePT.setText("In attesa di conferma dal PT");
@@ -153,13 +153,13 @@ public class ClienteDashboardBoundary {
         }
 
         switch (datiDashboard.getStatoRichiesta()) {
-            case PENDING -> {
+            case STATO_PENDING -> {
                 lblStatoRichiesta.setText("⏳ Richiesta in attesa");
                 lblStatoRichiesta.setTextFill(Color.web(GIALLO));
                 lblObiettivoRichiesta.setText("Obiettivo: " + datiDashboard.getObiettivoRichiesta());
                 lblDataRichiesta.setText("Frequenza: " + datiDashboard.getFrequenzaRichiesta() + " gg/sett");
             }
-            case IN_LAVORAZIONE -> {
+            case STATO_INLAVORAZIONE -> {
                 lblStatoRichiesta.setText("🔧 In lavorazione");
                 lblStatoRichiesta.setTextFill(Color.web("#0984e3"));
                 lblObiettivoRichiesta.setText("Il tuo PT sta assemblando la scheda");
@@ -168,7 +168,7 @@ public class ClienteDashboardBoundary {
             default -> {
                 lblStatoRichiesta.setText("Nessuna richiesta attiva");
                 lblStatoRichiesta.setTextFill(Color.web("#636e72"));
-                lblObiettivoRichiesta.setText(datiDashboard.getStatoAssociazione() == StatoAssociazione.ASSOCIATO ? "Clicca per richiedere la tua scheda" : "Prima associati a un Personal Trainer");
+                lblObiettivoRichiesta.setText(datiDashboard.getStatoAssociazione().equals(STATO_ASSOCIATO) ? "Clicca per richiedere la tua scheda" : "Prima associati a un Personal Trainer");
                 lblDataRichiesta.setText("");
             }
         }
@@ -183,12 +183,12 @@ public class ClienteDashboardBoundary {
         }
 
         switch (datiDashboard.getStatoRichiesta()) {
-            case PENDING -> {
+            case STATO_PENDING -> {
                 lblSchedaInfo.setText("⏳ Richiesta inviata");
                 lblSchedaInfo.setTextFill(Color.web(GIALLO));
                 lblSchedaDettaglio.setText("Il tuo PT non ha ancora visualizzato la richiesta.");
             }
-            case IN_LAVORAZIONE -> {
+            case STATO_INLAVORAZIONE -> {
                 lblSchedaInfo.setText("🔧 Scheda in lavorazione");
                 lblSchedaInfo.setTextFill(Color.web("#0984e3"));
                 lblSchedaDettaglio.setText("Il tuo PT sta assemblando la tua scheda!");
@@ -196,7 +196,7 @@ public class ClienteDashboardBoundary {
             default -> {
                 lblSchedaInfo.setText("Nessuna scheda ancora disponibile");
                 lblSchedaInfo.setTextFill(Color.web("#d63031"));
-                lblSchedaDettaglio.setText(datiDashboard.getStatoAssociazione() == StatoAssociazione.ASSOCIATO ? "Richiedila ora al tuo Personal Trainer!" : "Prima associati a un Personal Trainer.");
+                lblSchedaDettaglio.setText(datiDashboard.getStatoAssociazione().equals(STATO_ASSOCIATO) ? "Richiedila ora al tuo Personal Trainer!" : "Prima associati a un Personal Trainer.");
             }
         }
     }
@@ -208,13 +208,13 @@ public class ClienteDashboardBoundary {
     @FXML
     public void apriGestisciScheda() {
         verificaAssociazionePTUtente(0);
-        if (datiDashboard.getStatoAssociazione() != StatoAssociazione.ASSOCIATO) return;
-        StatoRichiesta stato = datiDashboard.getStatoRichiesta();
-        if (stato == StatoRichiesta.NESSUNA) {
+        if (!datiDashboard.getStatoAssociazione().equals(STATO_ASSOCIATO)) return;
+        String stato = datiDashboard.getStatoRichiesta();
+        if (stato.equals(STATO_NESSUNA)) {
             mostraAlert(Alert.AlertType.INFORMATION, ATT, "Non hai ancora richiesto una scheda al trainer");
             return;
-        } else if (stato != StatoRichiesta.COMPLETATA) {
-            mostraAlert(Alert.AlertType.INFORMATION, ATT, stato == StatoRichiesta.PENDING ?
+        } else if (!stato.equals("COMPLETATA")) {
+            mostraAlert(Alert.AlertType.INFORMATION, ATT, stato.equals(STATO_PENDING) ?
                     "Il trainer non ha ancora visualizzato la richiesta di scheda" : "Il trainer non ha ancora lavorato la richiesta di scheda");
             return;
         }
@@ -233,10 +233,14 @@ public class ClienteDashboardBoundary {
     public void verificaAssociazionePTUtente(int mode) {
         try {
             switch (datiDashboard.getStatoAssociazione()) {
-                case NESSUNA -> mostraPopupErroreNoPT();
-                case PENDING -> mostraAlert(Alert.AlertType.INFORMATION, ATT, mode == 1 ? "Il tuo Trainer non ha ancora accettato la richiesta." : "Il tuo Trainer non ha ancora accettato la richiesta di associazione.");
-
-                case StatoAssociazione s when s == StatoAssociazione.ASSOCIATO && mode == 1 -> {
+                case STATO_NESSUNA -> mostraPopupErroreNoPT();
+                case STATO_PENDING -> mostraAlert(
+                        Alert.AlertType.INFORMATION,
+                        ATT,
+                        mode == 1 ? "Il tuo Trainer non ha ancora accettato la richiesta."
+                                : "Il tuo Trainer non ha ancora accettato la richiesta di associazione."
+                );
+                case String s when s.equals(STATO_ASSOCIATO) && mode == 1 -> {
                     if (richiestaController.verificaPresenzaRichiesta(datiDashboard.getEmail())) {
                         mostraAlert(Alert.AlertType.INFORMATION, ATT, "Hai già una richiesta di scheda in sospeso. Attendi la risposta del PT.");
                     } else {
@@ -244,10 +248,12 @@ public class ClienteDashboardBoundary {
                         aggiornaSchermata();
                     }
                 }
-                case ASSOCIATO -> {
-                    //se lo stato è associato ma il mode non è 1, non fa nulla.
+                case STATO_ASSOCIATO -> {
+                    // Se lo stato è associato ma il mode non è 1, il codice salta l'if e semplicemente non fa nulla, uscendo in automatico dallo switch.
                 }
+                default -> LogManager.info("Stato associazione sconosciuto.");
             }
+
         } catch (IOException e) {
             LogManager.error("Errore durante l'avvio della richiesta scheda", e);
         }
@@ -278,12 +284,10 @@ public class ClienteDashboardBoundary {
 
     @FXML
     public void apriProfiloPersonale() {
-        Utente utenteCorrente = Sessione.getInstance().getUtente(); // Ammesso per il routing globale del profilo
         UtenteBean bean = new UtenteBean();
-        bean.setNome(utenteCorrente.getNome());
-        bean.setCognome(utenteCorrente.getCognome());
-        bean.setEmail(utenteCorrente.getEmail());
-        bean.setRuolo(utenteCorrente.getRuolo());
+        bean.setNome(datiDashboard.getNome());
+        bean.setCognome(datiDashboard.getCognome());
+        bean.setEmail(datiDashboard.getEmail());
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/ProfiloPersonaleCliente.fxml"));
@@ -306,11 +310,11 @@ public class ClienteDashboardBoundary {
 
     @FXML
     public void apriRicercaPT() {
-        if (datiDashboard.getStatoAssociazione() == StatoAssociazione.PENDING) {
+        if (datiDashboard.getStatoAssociazione().equals(STATO_PENDING)) {
             mostraAlert(Alert.AlertType.INFORMATION, ATT, "Hai una richiesta pendente. Attendi la risposta del Trainer.");
             return;
         }
-        if (datiDashboard.getStatoAssociazione() == StatoAssociazione.ASSOCIATO) {
+        if (datiDashboard.getStatoAssociazione().equals(STATO_ASSOCIATO)) {
             mostraAlert(Alert.AlertType.INFORMATION, ATT, "Sei già associato a un Trainer!");
             return;
         }
@@ -332,8 +336,7 @@ public class ClienteDashboardBoundary {
 
     @FXML
     public void handleLogout() {
-        Sessione.getInstance().setUtente(null);
-        LogManager.info("Logout effettuato con successo. Reindirizzamento al login...");
+        dashboardController.effettuaLogout();
         Navigator.pushScene("/view/fxml/Login.fxml", "FitPlan - Login");
     }
 

@@ -58,4 +58,11 @@ public class AssociaPTController extends NotificaObservableBase{
 
         LogManager.info("Stato aggiornato in sessione a PENDING per: " + bean.getEmailCliente());
     }
+
+    public ClienteBean getClienteCorrente() {
+        Cliente c = (Cliente) Sessione.getInstance().getUtente();
+        ClienteBean bean = new ClienteBean();
+        bean.setEmail(c.getEmail());
+        return bean;
+    }
 }

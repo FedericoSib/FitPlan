@@ -2,9 +2,7 @@ package view.cli;
 
 import bean.*;
 import controller.GestisciSchedaController;
-import controller.ClienteDashboardController; // <-- Aggiunto il nostro Logic Controller
-import model.entity.StatoAssociazione; // Gli Enum sono ammessi perché condivisi col DTO
-import model.entity.StatoRichiesta;
+import controller.ClienteDashboardController;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
 
@@ -16,9 +14,16 @@ public class GestisciSchedaCLIBoundary {
 
     private final Scanner scanner;
     private final GestisciSchedaController controller = new GestisciSchedaController();
-    private final ClienteDashboardController dashboardController = new ClienteDashboardController(); // <-- Aggiunto
+    private final ClienteDashboardController dashboardController = new ClienteDashboardController();
 
     public static final String STRINGAERRORE = "Errore: ";
+
+    // Costanti per sostituire gli Enum
+    private static final String STATO_ASSOCIATO = "ASSOCIATO";
+    private static final String STATO_NESSUNA = "NESSUNA";
+    private static final String STATO_COMPLETATA = "COMPLETATA";
+    private static final String STATO_PENDING = "PENDING";
+    private static final String STATO_INLAVORAZIONE = "IN_LAVORAZIONE";
 
     public GestisciSchedaCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
@@ -27,19 +32,21 @@ public class GestisciSchedaCLIBoundary {
     public void avvia() {
         ClienteBean datiDashboard = dashboardController.getDatiDashboard();
 
-        if (datiDashboard.getStatoAssociazione() != StatoAssociazione.ASSOCIATO) {
+        // Controllo stato associazione con .equals()
+        if (!datiDashboard.getStatoAssociazione().equals(STATO_ASSOCIATO)) {
             System.out.println("\nDevi essere associato a un Personal Trainer per poter gestire una scheda.");
             return;
         }
 
-        StatoRichiesta stato = datiDashboard.getStatoRichiesta();
-        if (stato == StatoRichiesta.NESSUNA) {
+        // Controllo stato richiesta con .equals()
+        String stato = datiDashboard.getStatoRichiesta();
+        if (stato.equals(STATO_NESSUNA)) {
             System.out.println("\nNon hai ancora richiesto una scheda al trainer.");
             return;
-        } else if (stato != StatoRichiesta.COMPLETATA) {
-            if (stato == StatoRichiesta.PENDING) {
+        } else if (!stato.equals(STATO_COMPLETATA)) {
+            if (stato.equals(STATO_PENDING)) {
                 System.out.println("\nIl trainer non ha ancora visualizzato la tua richiesta di scheda.");
-            } else if (stato == StatoRichiesta.IN_LAVORAZIONE) {
+            } else if (stato.equals(STATO_INLAVORAZIONE)) {
                 System.out.println("\nIl trainer non ha ancora completato la tua scheda.");
             }
             return;
@@ -150,10 +157,8 @@ public class GestisciSchedaCLIBoundary {
             System.out.print("Note (Invio per saltare): ");
             String note = scanner.nextLine().trim();
 
-            String emailCliente = dashboardController.getDatiDashboard().getEmail();
-
             ProgressiBean bean = new ProgressiBean();
-            bean.setEmailCliente(emailCliente);
+            // L'email NON viene più passata dalla View! Ci pensa il Controller via Sessione.
             bean.setNomeEsercizio(nomeEsercizio);
             bean.setCarico(carico);
             bean.setRipetizioni(ripetizioni);

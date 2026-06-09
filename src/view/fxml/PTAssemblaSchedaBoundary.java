@@ -7,7 +7,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.Sessione;
 import model.dao.DAOFactory;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
@@ -60,10 +59,11 @@ public class PTAssemblaSchedaBoundary {
     public void setRichiesta(RichiestaSchedaBean richiesta) {
         this.richiesta = richiesta;
         this.totalGiorni = richiesta.getFrequenzaSettimanale();
+        String emailPT = controller.getPT().getEmail();
 
         schedaBean = new SchedaBean();
         schedaBean.setEmailCliente(richiesta.getClienteEmail());
-        schedaBean.setEmailPT(Sessione.getInstance().getUtente().getEmail());
+        schedaBean.setEmailPT(emailPT);
 
         for (int i = 1; i <= totalGiorni; i++) {
             schedaBean.getGiorni().add(new GiornoSchedaBean("Giorno " + i));

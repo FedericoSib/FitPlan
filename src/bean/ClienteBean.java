@@ -1,13 +1,11 @@
 package bean;
 
-import model.entity.StatoAssociazione;
-import model.entity.StatoRichiesta;
-
 public class ClienteBean {
-    private String nomeCompleto;
+    private String nome;
+    private String cognome;
     private String email;
-    private StatoAssociazione statoAssociazione;
-    private StatoRichiesta statoRichiesta;
+    private String statoAssociazione;
+    private String statoRichiesta;
     private String nomePT;
     private String idPersonalTrainer;
     private boolean haSchedeDisponibili;
@@ -16,17 +14,20 @@ public class ClienteBean {
     private int numeroGiorniScheda;
 
     // --- GETTER E SETTER ---
-    public String getNomeCompleto() { return nomeCompleto; }
-    public void setNomeCompleto(String nomeCompleto) { this.nomeCompleto = nomeCompleto; }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getCognome() { return cognome; }
+    public void setCognome(String cognome) { this.cognome = cognome; }
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    public StatoAssociazione getStatoAssociazione() { return statoAssociazione; }
-    public void setStatoAssociazione(StatoAssociazione statoAssociazione) { this.statoAssociazione = statoAssociazione; }
+    public String getStatoAssociazione() { return statoAssociazione; }
+    public void setStatoAssociazione(String statoAssociazione) { this.statoAssociazione = statoAssociazione; }
 
-    public StatoRichiesta getStatoRichiesta() { return statoRichiesta; }
-    public void setStatoRichiesta(StatoRichiesta statoRichiesta) { this.statoRichiesta = statoRichiesta; }
+    public String getStatoRichiesta() { return statoRichiesta; }
+    public void setStatoRichiesta(String statoRichiesta) { this.statoRichiesta = statoRichiesta; }
 
     public String getNomePT() { return nomePT; }
     public void setNomePT(String nomePT) { this.nomePT = nomePT; }

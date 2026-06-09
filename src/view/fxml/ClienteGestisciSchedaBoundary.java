@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
-import model.Sessione;
 import util.LogManager;
 
 import java.util.ArrayList;
@@ -121,7 +120,6 @@ public class ClienteGestisciSchedaBoundary {
         }
 
         ProgressiBean bean = new ProgressiBean();
-        bean.setEmailCliente(Sessione.getInstance().getUtente().getEmail());
         bean.setNomeEsercizio(esercizio);
         bean.setCarico(carico);
         bean.setRipetizioni(spRipetizioni.getValue());

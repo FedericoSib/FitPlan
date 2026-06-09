@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 import model.exception.RegistrazioneException;
 import util.LogManager;
 
-public class RegistrazioneBoundary {
+public class  RegistrazioneBoundary {
 
     @FXML private TextField txtNome;
     @FXML private TextField txtCognome;
@@ -41,7 +41,6 @@ public class RegistrazioneBoundary {
     @FXML
 
     public void finalizzaRegistrazione() {
-        // 1. Raccolta dati dalla UI
         String pass = txtPass.getText();
         String conferma = txtConfermaPass.getText();
         String ruoloSelezionato = cbRuolo.getValue();
@@ -61,7 +60,6 @@ public class RegistrazioneBoundary {
             int ruolo = "Personal Trainer".equals(ruoloSelezionato) ? 2 : 1;
             bean.setRuolo(ruolo);
 
-            // 4. Delega al controller (che ora accetta solo il Bean)
             controller.registraNuovoUtente(bean);
 
             mostraAlert("Successo", "Registrazione completata! Ora puoi effettuare il login.");

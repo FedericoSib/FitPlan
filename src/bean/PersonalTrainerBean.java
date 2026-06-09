@@ -9,7 +9,6 @@ public class PersonalTrainerBean implements Serializable {
     private String nome;
     private String cognome;
     private String email;
-    private String nomeCompleto;
 
     private int richiesteAssociazionePending;
     private List<String> ultimeRichiesteAssociazione = new ArrayList<>();
@@ -25,7 +24,6 @@ public class PersonalTrainerBean implements Serializable {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
-        this.nomeCompleto = nome + " " + cognome;
     }
 
     public String getId() { return id; }
@@ -39,9 +37,6 @@ public class PersonalTrainerBean implements Serializable {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
-
-    public String getNomeCompleto() { return nomeCompleto; }
-    public void setNomeCompleto(String nomeCompleto) { this.nomeCompleto = nomeCompleto; }
 
     public int getRichiesteAssociazionePending() { return richiesteAssociazionePending; }
     public void setRichiesteAssociazionePending(int richiesteAssociazionePending) {

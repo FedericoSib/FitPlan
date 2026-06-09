@@ -10,7 +10,6 @@ import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
-import model.Sessione;
 import util.LogManager;
 
 public class ProfiloPersonaleBoundary {
@@ -43,8 +42,8 @@ public class ProfiloPersonaleBoundary {
             LogManager.error("Impossibile caricare l'immagine dell'avatar: ", e);
         }
         lblNome.setText(bean.getNome());
-        lblCognome.setText(bean.getCognome() );
-        lblCodiceUnivoco.setText(Sessione.getInstance().getUtente().getId());
+        lblCognome.setText(bean.getCognome());
+        lblCodiceUnivoco.setText(bean.getId());
     }
 
     @FXML

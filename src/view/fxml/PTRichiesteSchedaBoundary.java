@@ -13,9 +13,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.paint.Color;
-import model.Sessione;
 import model.dao.DAOFactory;
-import model.entity.PersonalTrainer;
 import model.exception.DAOException;
 import util.LogManager;
 import util.observer.NotificaManager;
@@ -126,7 +124,6 @@ public class PTRichiesteSchedaBoundary {
 
         try {
             controller.segnaInLavorazione(selezionata.getClienteEmail());
-            // Rimuove dalla lista visuale
             lvRichieste.getItems().remove(selezionata);
             vboxDettagli.setVisible(false);
             vboxDettagli.setManaged(false);
@@ -138,11 +135,12 @@ public class PTRichiesteSchedaBoundary {
     }
 
     public void caricaRichieste() {
-        PersonalTrainer pt = (PersonalTrainer) Sessione.getInstance().getUtente();
+        String emailPT = controller.getPT().getEmail();
+
         try {
             List<RichiestaSchedaBean> richieste = modalita == Modalita.IN_LAVORAZIONE
-                    ? controller.getRichiesteInLavorazione(pt.getEmail())
-                    : controller.getRichiestePerPT(pt.getEmail());
+                    ? controller.getRichiesteInLavorazione(emailPT)
+                    : controller.getRichiestePerPT(emailPT);
             lvRichieste.setItems(FXCollections.observableArrayList(richieste));
             if (modalita == Modalita.IN_LAVORAZIONE) {
                 btnDopoAssembla.setVisible(false);

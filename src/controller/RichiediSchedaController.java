@@ -55,6 +55,17 @@ public void elaboraRichiesta(RichiestaSchedaBean bean) throws InvalidFormExcepti
         }
     }
 
+    public ClienteBean getDatiClienteCorrente() {
+        Cliente c = (Cliente) Sessione.getInstance().getUtente();
+        ClienteBean bean = new ClienteBean();
+        bean.setEmail(c.getEmail());
+        bean.setNome(c.getNome());
+        bean.setCognome(c.getCognome());
+        bean.setNomePT(c.getIdPersonalTrainer());
+        bean.setIdPersonalTrainer(c.getIdPersonalTrainer());
+        return bean;
+    }
+
     public void verificaAssociazionePT() throws TrainerNotAssociatedException {
         Cliente c = (Cliente) Sessione.getInstance().getUtente();
         if (c.getStatoAssociazione() != StatoAssociazione.ASSOCIATO) {

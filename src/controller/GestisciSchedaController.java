@@ -73,9 +73,10 @@ public class GestisciSchedaController {
         if (bean.getRipetizioni() <= 0) {
             throw new InvalidFormException("Le ripetizioni devono essere almeno 1.");
         }
+        String emailCorrente = Sessione.getInstance().getUtente().getEmail();
 
         Progressi entity = new Progressi(
-                bean.getEmailCliente(),
+                emailCorrente,
                 bean.getNomeEsercizio(),
                 bean.getCarico(),
                 bean.getRipetizioni(),
@@ -85,4 +86,6 @@ public class GestisciSchedaController {
         DAOFactory.getProgressiDAO().salvaProgressi(entity);
         LogManager.info("Progressi salvati per: " + bean.getEmailCliente());
     }
+
+
 }

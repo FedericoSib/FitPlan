@@ -6,7 +6,6 @@ import bean.ClienteBean;
 import controller.AssociaPTController;
 import controller.ClienteDashboardController;
 import model.dao.DAOFactory;
-import model.entity.StatoAssociazione;
 import model.exception.DAOException;
 import model.exception.TrainerNotFoundException;
 import util.observer.NotificaManager;
@@ -20,21 +19,23 @@ public class AssociaPTCLIBoundary {
     private final AssociaPTController controller;
     private final ClienteDashboardController dashboardController;
 
+    private static final String STATO_ASSOCIATO = "ASSOCIATO";
+    private static final String STATO_PENDING = "PENDING";
+
     public AssociaPTCLIBoundary(Scanner scanner) {
         this.scanner = scanner;
         this.controller = new AssociaPTController();
-        this.dashboardController = new ClienteDashboardController(); // Inizializzato!
+        this.dashboardController = new ClienteDashboardController();
         controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
     }
 
     public void avvia() {
-       ClienteBean datiDashboard = dashboardController.getDatiDashboard();
-
-        if (datiDashboard.getStatoAssociazione() == StatoAssociazione.ASSOCIATO) {
+        ClienteBean datiDashboard = dashboardController.getDatiDashboard();
+        if (datiDashboard.getStatoAssociazione().equals(STATO_ASSOCIATO)) {
             System.out.println("\nSei già associato a un Personal Trainer.");
             return;
         }
-        if (datiDashboard.getStatoAssociazione() == StatoAssociazione.PENDING) {
+        if (datiDashboard.getStatoAssociazione().equals(STATO_PENDING)) {
             System.out.println("\nHai già una richiesta di associazione in attesa.");
             return;
         }
@@ -69,10 +70,9 @@ public class AssociaPTCLIBoundary {
             }
 
             PersonalTrainerBean selezionato = risultati.get(indice);
-            String emailCliente = datiDashboard.getEmail();
 
             AssociazioneBean bean = new AssociazioneBean();
-            bean.setEmailCliente(emailCliente);
+            // L'email del cliente non la passiamo più dalla View! Ci pensa il Controller.
             bean.setEmailPT(selezionato.getEmail());
 
             controller.inviaRichiestaAssociazione(bean);

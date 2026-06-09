@@ -81,6 +81,7 @@ public class LoginController {
         utenteBean.setNome(u.getNome());
         utenteBean.setCognome(u.getCognome());
         utenteBean.setEmail(u.getEmail());
+        utenteBean.setId(u.getId());
         utenteBean.setRuolo(u.getRuolo());
 
         return utenteBean;

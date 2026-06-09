@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.util.List;
-import model.Sessione;
 import model.dao.DAOFactory;
 import model.exception.DAOException;
 import util.observer.NotificaManager;
@@ -51,7 +50,7 @@ public class PTRichiestePendentiBoundary {
 
     private void caricaRichieste() {
         try {
-            String emailPT = Sessione.getInstance().getUtente().getEmail();
+            String emailPT = controller.getPT().getEmail();
             lvRichieste.getItems().setAll(controller.getRichiesteSospese(emailPT));
             btnAccetta.setDisable(true);
             btnRifiuta.setDisable(true);

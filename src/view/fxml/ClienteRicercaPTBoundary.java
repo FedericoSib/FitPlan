@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.*;
 import model.exception.*;
 import util.LogManager;
 import controller.AssociaPTController;
@@ -81,10 +80,9 @@ public class ClienteRicercaPTBoundary {
 
         try {
             AssociazioneBean associazioneBean = new AssociazioneBean();
+            String emailCliente = controller.getClienteCorrente().getEmail();
 
-            String emailCliente = Sessione.getInstance().getUtente().getEmail();
             associazioneBean.setEmailCliente(emailCliente);
-
             associazioneBean.setEmailPT(selezionato.getEmail());
 
             LogManager.info("Invio richiesta tramite Bean da: " + emailCliente + " a: " + selezionato.getEmail());
