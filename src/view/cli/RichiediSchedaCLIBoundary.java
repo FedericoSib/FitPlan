@@ -4,7 +4,6 @@ import bean.ClienteBean;
 import bean.RichiestaSchedaBean;
 import controller.ClienteDashboardController;
 import controller.RichiediSchedaController;
-import model.exception.DAOException;
 import model.exception.InvalidFormException;
 import model.exception.TrainerNotAssociatedException;
 import util.LogManager;

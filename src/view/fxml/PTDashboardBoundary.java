@@ -4,8 +4,6 @@ import bean.AssociazioneBean;
 import bean.PersonalTrainerBean;
 import bean.UtenteBean;
 import controller.PTDashboardController;
-import model.dao.DAOFactory;
-import util.observer.NotificaManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

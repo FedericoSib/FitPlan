@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.util.List;
-import model.exception.DAOException;
 
 public class PTRichiestePendentiBoundary {
 
