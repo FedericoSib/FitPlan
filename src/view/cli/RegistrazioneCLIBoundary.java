@@ -3,6 +3,7 @@ package view.cli;
 import bean.RegistrazioneBean;
 import controller.RegistrazioneController;
 import model.exception.RegistrazioneException;
+import util.LogManager;
 
 import java.util.Scanner;
 
@@ -49,6 +50,9 @@ public class RegistrazioneCLIBoundary {
             System.out.println("Registrazione completata! Ora puoi effettuare il login.");
         } catch (RegistrazioneException e) {
             System.out.println("Errore: " + e.getMessage());
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore imprevisto durante la registrazione", e);
+            System.out.println("Errore tecnico durante la registrazione. Riprova più tardi.");
         }
     }
 }

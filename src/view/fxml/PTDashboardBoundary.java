@@ -64,10 +64,7 @@ public class PTDashboardBoundary {
     private void aggiornaSchermata() {
         datiDashboard = dashboardController.getDatiDashboard();
         lblNomeUtente.setText(datiDashboard.getNome() + " " + datiDashboard.getCognome());
-
-        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
-        manager.mostraNotifichePendenti(datiDashboard.getEmail());
-
+        dashboardController.gestisciNotifichePendenti();
         popolaInfoCard();
     }
 

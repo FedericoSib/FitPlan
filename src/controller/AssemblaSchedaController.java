@@ -110,4 +110,9 @@ public class AssemblaSchedaController extends NotificaObservableBase {
 
         return bean;
     }
+
+    public void configuraObserverNotifiche() {
+        util.observer.NotificaManager manager = new util.observer.NotificaManager(model.dao.DAOFactory.getNotificaDAO());
+        this.aggiungiObserver(manager);
+    }
 }

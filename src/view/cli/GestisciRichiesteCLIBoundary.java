@@ -4,9 +4,7 @@ import bean.AssociazioneBean;
 import bean.PersonalTrainerBean;
 import controller.GestisciRichiestePTController;
 import controller.PTDashboardController;
-import model.dao.DAOFactory;
-import model.exception.DAOException;
-import util.observer.NotificaManager;
+import util.LogManager;
 
 import java.util.List;
 import java.util.Scanner;
@@ -21,7 +19,7 @@ public class GestisciRichiesteCLIBoundary {
         this.scanner = scanner;
         this.controller = new GestisciRichiestePTController();
         this.ptDashboardController = new PTDashboardController();
-        controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
+        controller.configuraObserverNotifiche();
     }
 
     public void avvia() {
@@ -71,8 +69,9 @@ public class GestisciRichiesteCLIBoundary {
                 default -> System.out.println("Operazione annullata.");
             }
 
-        } catch (DAOException e) {
-            System.out.println("Errore: " + e.getMessage());
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore durante la gestione delle richieste di associazione", e);
+            System.out.println("Errore tecnico durante la gestione delle richieste.");
         }
     }
 

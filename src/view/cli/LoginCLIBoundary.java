@@ -3,9 +3,8 @@ package view.cli;
 import bean.LoginBean;
 import bean.UtenteBean;
 import controller.LoginController;
-import model.dao.DAOFactory;
 import model.exception.LoginException;
-import util.observer.NotificaManager;
+import util.LogManager;
 
 import java.util.List;
 import java.util.Scanner;
@@ -37,7 +36,7 @@ public class LoginCLIBoundary {
             UtenteBean utenteLoggato = controller.getUtenteLoggato();
             System.out.println("Benvenuto, " + utenteLoggato.getNome() + "!");
 
-            mostraNotifichePendenti(email);
+            mostraNotifichePendenti();
 
             if (utenteLoggato.getRuolo() == 2) {
                 new MenuPTCLI(scanner).avvia();
@@ -47,20 +46,25 @@ public class LoginCLIBoundary {
 
         } catch (LoginException e) {
             System.out.println("Errore: " + e.getMessage());
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore imprevisto durante il login", e);
+            System.out.println("Errore tecnico durante l'accesso al sistema.");
         }
+
     }
 
-    private void mostraNotifichePendenti(String email) {
-        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
-
-        List<String> notifiche = manager.ottieniMessaggiPendenti(email);
-
-        if (!notifiche.isEmpty()) {
-            System.out.println("\n--- Notifiche ---");
-            for (String n : notifiche) {
-                System.out.println("  • " + n);
+    private void mostraNotifichePendenti() {
+        try {
+            List<String> notifiche = controller.getNotifichePendenti();
+            if (notifiche != null && !notifiche.isEmpty()) {
+                System.out.println("\n--- Notifiche ---");
+                for (String n : notifiche) {
+                    System.out.println("  • " + n);
+                }
+                System.out.println("-----------------");
             }
-            System.out.println("-----------------");
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore recupero notifiche pendenti", e);
         }
     }
 }

@@ -13,10 +13,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.paint.Color;
-import model.dao.DAOFactory;
-import model.exception.DAOException;
 import util.LogManager;
-import util.observer.NotificaManager;
 
 import java.io.IOException;
 import java.util.List;
@@ -47,7 +44,7 @@ public class PTRichiesteSchedaBoundary {
 
     @FXML
     public void initialize() {
-        controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
+        controller.configuraObserverNotifiche();
 
         lvRichieste.setCellFactory(lv -> new ListCell<>() {
             @Override
@@ -129,7 +126,7 @@ public class PTRichiesteSchedaBoundary {
             vboxDettagli.setManaged(false);
             btnAssemblaSubito.setDisable(true);
             btnDopoAssembla.setDisable(true);
-        } catch (DAOException e) {
+        } catch (Exception e) {
             LogManager.error("Errore aggiornamento stato richiesta", e);
         }
     }
@@ -146,7 +143,7 @@ public class PTRichiesteSchedaBoundary {
                 btnDopoAssembla.setVisible(false);
                 btnDopoAssembla.setManaged(false);
             }
-        } catch (DAOException e) {
+        } catch (Exception e) {
             LogManager.error("Errore caricamento richieste scheda", e);
         }
     }

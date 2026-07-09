@@ -67,6 +67,12 @@ public class ClienteDashboardController {
         }
     }
 
+    public void gestisciNotifichePendenti() {
+        String email = getDatiDashboard().getEmail();
+        util.observer.NotificaManager manager = new util.observer.NotificaManager(model.dao.DAOFactory.getNotificaDAO());
+        manager.mostraNotifichePendenti(email);
+    }
+
     public void effettuaLogout() {
         Sessione.getInstance().setUtente(null);
         LogManager.info("Logout effettuato. Dati di sessione rimossi.");

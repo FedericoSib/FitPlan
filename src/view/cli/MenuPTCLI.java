@@ -1,12 +1,13 @@
 package view.cli;
 
-import model.Sessione;
+import controller.PTDashboardController;
 
 import java.util.Scanner;
 
 public class MenuPTCLI {
 
     private final Scanner scanner;
+    private final PTDashboardController controller = new PTDashboardController();
 
     public MenuPTCLI(Scanner scanner) {
         this.scanner = scanner;
@@ -24,7 +25,7 @@ public class MenuPTCLI {
             String scelta = scanner.nextLine().trim();
             switch (scelta) {
                 case "0" -> {
-                    Sessione.getInstance().setUtente(null);
+                    controller.effettuaLogout();
                     esci = true;
                     System.out.println("Logout effettuato.");
                 }

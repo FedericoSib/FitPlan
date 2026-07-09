@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.exception.DAOException;
 import model.exception.InvalidFormException;
 import util.LogManager;
 
@@ -68,7 +67,7 @@ public class ClienteGestisciSchedaBoundary {
             cbGiorni.getSelectionModel().selectFirst();
             aggiornaEsercizi(0);
 
-        } catch (DAOException e) {
+        } catch (Exception e) {
             LogManager.error("Errore caricamento scheda", e);
         }
     }
@@ -95,7 +94,7 @@ public class ClienteGestisciSchedaBoundary {
                 righe.add(p.toString());
             }
             lvStorico.setItems(FXCollections.observableArrayList(righe));
-        } catch (DAOException e) {
+        } catch (Exception e) {
             LogManager.error("Errore caricamento storico", e);
         }
     }
@@ -138,8 +137,11 @@ public class ClienteGestisciSchedaBoundary {
             // Aggiorna storico
             caricaStorico();
 
-        } catch (InvalidFormException | DAOException e) {
-            mostraAlert(Alert.AlertType.ERROR, "Errore", e.getMessage());
+        } catch (InvalidFormException e) {
+            mostraAlert(Alert.AlertType.ERROR, "Errore di validazione", e.getMessage());
+        } catch (Exception e) {
+            mostraAlert(Alert.AlertType.ERROR, "Errore di sistema", "Impossibile salvare i progressi in questo momento.");
+            LogManager.error("Errore salvataggio progressi", e);
         }
     }
 

@@ -1,11 +1,12 @@
 package view.cli;
 
-import model.Sessione; // Unico import tollerato per la chiusura della sessione
+import controller.ClienteDashboardController;
 import java.util.Scanner;
 
 public class MenuClienteCLI {
 
     private final Scanner scanner;
+    private final ClienteDashboardController controller = new ClienteDashboardController();
 
     public MenuClienteCLI(Scanner scanner) {
         this.scanner = scanner;
@@ -24,7 +25,7 @@ public class MenuClienteCLI {
             String scelta = scanner.nextLine().trim();
             switch (scelta) {
                 case "0" -> {
-                    Sessione.getInstance().setUtente(null);
+                    controller.effettuaLogout();
                     esci = true;
                     System.out.println("Logout effettuato.");
                 }

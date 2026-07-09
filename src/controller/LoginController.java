@@ -9,6 +9,8 @@ import model.exception.LoginException;
 import model.exception.DAOException;
 import util.LogManager;
 
+import java.util.List;
+
 public class LoginController {
 
     public void autentica(LoginBean loginBean) throws LoginException {
@@ -71,6 +73,11 @@ public class LoginController {
         } catch (Exception e) {
             LogManager.error("Errore sincronizzazione stato richiesta al login", e);
         }
+    }
+
+    public List<String> getNotifichePendenti() {
+        util.observer.NotificaManager manager = new util.observer.NotificaManager(model.dao.DAOFactory.getNotificaDAO());
+        return manager.ottieniMessaggiPendenti(this.getUtenteLoggato().getEmail());
     }
 
     public bean.UtenteBean getUtenteLoggato() {

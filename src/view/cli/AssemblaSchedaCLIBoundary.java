@@ -2,12 +2,9 @@ package view.cli;
 
 import bean.*;
 import controller.AssemblaSchedaController;
-import controller.PTDashboardController; // <-- Il nostro logic controller della GUI!
-import model.dao.DAOFactory;
-import model.exception.DAOException;
+import controller.PTDashboardController;
 import model.exception.InvalidFormException;
 import util.LogManager;
-import util.observer.NotificaManager;
 
 import java.util.List;
 import java.util.Scanner;
@@ -23,7 +20,7 @@ public class AssemblaSchedaCLIBoundary {
         this.scanner = scanner;
         this.controller = new AssemblaSchedaController();
         this.ptController = new PTDashboardController();
-        controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
+        controller.configuraObserverNotifiche();
     }
 
     public void avvia() {
@@ -102,10 +99,9 @@ public class AssemblaSchedaCLIBoundary {
                 }
                 default -> System.out.println("Operazione annullata.");
             }
-
-        } catch (DAOException e) {
+        } catch (Exception e) {
             LogManager.error("[CLI] Errore caricamento richieste scheda", e);
-            System.out.println("Errore: " + e.getMessage());
+            System.out.println("Errore tecnico durante il caricamento delle richieste.");
         }
     }
 
@@ -207,8 +203,11 @@ public class AssemblaSchedaCLIBoundary {
         try {
             controller.inviaScheda(schedaBean);
             System.out.println("\nScheda inviata con successo a " + emailCliente + "!");
-        } catch (InvalidFormException | DAOException e) {
-            System.out.println("Errore: " + e.getMessage());
+        } catch (InvalidFormException e) {
+            System.out.println("Errore validazione: " + e.getMessage());
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore invio scheda", e);
+            System.out.println("Errore tecnico durante l'invio della scheda.");
         }
     }
 

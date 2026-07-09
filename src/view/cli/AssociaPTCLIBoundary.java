@@ -5,10 +5,8 @@ import bean.PersonalTrainerBean;
 import bean.ClienteBean;
 import controller.AssociaPTController;
 import controller.ClienteDashboardController;
-import model.dao.DAOFactory;
-import model.exception.DAOException;
 import model.exception.TrainerNotFoundException;
-import util.observer.NotificaManager;
+import util.LogManager;
 
 import java.util.List;
 import java.util.Scanner;
@@ -26,7 +24,7 @@ public class AssociaPTCLIBoundary {
         this.scanner = scanner;
         this.controller = new AssociaPTController();
         this.dashboardController = new ClienteDashboardController();
-        controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
+        controller.configuraObserverNotifiche();
     }
 
     public void avvia() {
@@ -81,8 +79,9 @@ public class AssociaPTCLIBoundary {
 
         } catch (TrainerNotFoundException e) {
             System.out.println("Nessun PT trovato: " + e.getMessage());
-        } catch (DAOException e) {
-            System.out.println("Errore: " + e.getMessage());
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore invio richiesta associazione", e);
+            System.out.println("Errore tecnico durante l'invio della richiesta.");
         }
     }
 

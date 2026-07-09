@@ -7,6 +7,7 @@ import controller.RichiediSchedaController;
 import model.exception.DAOException;
 import model.exception.InvalidFormException;
 import model.exception.TrainerNotAssociatedException;
+import util.LogManager;
 
 import java.util.Scanner;
 
@@ -83,8 +84,11 @@ public class RichiediSchedaCLIBoundary {
         try {
             controller.elaboraRichiesta(bean);
             System.out.println("\nRichiesta inviata con successo al tuo Personal Trainer!");
-        } catch (InvalidFormException | DAOException e) {
+        } catch (InvalidFormException e) {
             System.out.println(ERR + e.getMessage());
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore imprevisto durante l'invio della richiesta scheda", e);
+            System.out.println(ERR + "Impossibile inviare la richiesta in questo momento. Riprova più tardi.");
         }
     }
 

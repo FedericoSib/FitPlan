@@ -6,31 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b74fda-60fb-4296-8dcb-b49c42124bae" name="Changes" comment="Pulizia del codice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/ClienteBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/ClienteBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/PersonalTrainerBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/PersonalTrainerBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/UtenteBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/UtenteBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/AssemblaSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AssemblaSchedaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/AssociaPTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AssociaPTController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ClienteDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ClienteDashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GestisciRichiestePTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GestisciRichiestePTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GestisciSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GestisciSchedaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/PTDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PTDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/RichiediSchedaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RichiediSchedaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/AssemblaSchedaCLIBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/cli/AssociaPTCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/AssociaPTCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/GestisciRichiesteCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/GestisciRichiesteCLIBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/GestisciSchedaCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/LoginCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/LoginCLIBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/MenuClienteCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/MenuPTCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/MenuPTCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cli/RegistrazioneCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/RegistrazioneCLIBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/cli/RichiediSchedaCLIBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cli/RichiediSchedaCLIBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteDashboardBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteGestisciSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteGestisciSchedaBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRicercaPTBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ClienteRichiediSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ClienteRichiediSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/LoginBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/LoginBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/fxml/PTAssemblaSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTAssemblaSchedaBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTDashboardBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendentiBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiestePendentiBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/fxml/PTRichiesteSchedaBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/PTRichiesteSchedaBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/ProfiloPersonaleBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/ProfiloPersonaleBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/fxml/RegistrazioneBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/fxml/RegistrazioneBoundary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,14 +109,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777462493606</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Fix smells">
-      <option name="closed" value="true" />
-      <created>1777794910640</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1777794910640</updated>
     </task>
     <task id="LOCAL-00022" summary="Fix smells">
       <option name="closed" value="true" />
@@ -505,7 +494,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780583393189</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Pulizia del codice">
+      <option name="closed" value="true" />
+      <created>1781009636400</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1781009636401</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

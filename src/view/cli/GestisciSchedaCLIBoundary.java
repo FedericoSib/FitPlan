@@ -3,8 +3,8 @@ package view.cli;
 import bean.*;
 import controller.GestisciSchedaController;
 import controller.ClienteDashboardController;
-import model.exception.DAOException;
 import model.exception.InvalidFormException;
+import util.LogManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +32,11 @@ public class GestisciSchedaCLIBoundary {
     public void avvia() {
         ClienteBean datiDashboard = dashboardController.getDatiDashboard();
 
-        // Controllo stato associazione con .equals()
         if (!datiDashboard.getStatoAssociazione().equals(STATO_ASSOCIATO)) {
             System.out.println("\nDevi essere associato a un Personal Trainer per poter gestire una scheda.");
             return;
         }
 
-        // Controllo stato richiesta con .equals()
         String stato = datiDashboard.getStatoRichiesta();
         if (stato.equals(STATO_NESSUNA)) {
             System.out.println("\nNon hai ancora richiesto una scheda al trainer.");
@@ -73,10 +71,6 @@ public class GestisciSchedaCLIBoundary {
         }
     }
 
-    // ─────────────────────────────────────────────
-    //  VISUALIZZA SCHEDA
-    // ─────────────────────────────────────────────
-
     private void visualizzaScheda() {
         try {
             SchedaBean scheda = controller.getSchedaCliente();
@@ -98,14 +92,11 @@ public class GestisciSchedaCLIBoundary {
                 }
             }
 
-        } catch (DAOException e) {
-            System.out.println(STRINGAERRORE + e.getMessage());
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore caricamento scheda cliente", e);
+            System.out.println(STRINGAERRORE + "Impossibile caricare la scheda in questo momento.");
         }
     }
-
-    // ─────────────────────────────────────────────
-    //  REGISTRA SESSIONE
-    // ─────────────────────────────────────────────
 
     private void registraSessione() {
         try {
@@ -115,7 +106,6 @@ public class GestisciSchedaCLIBoundary {
                 return;
             }
 
-            // Raccoglie tutti gli esercizi disponibili
             List<String> tuttiEsercizi = new ArrayList<>();
             for (GiornoSchedaBean g : scheda.getGiorni()) {
                 for (EsercizioBean e : g.getEsercizi()) {
@@ -169,14 +159,13 @@ public class GestisciSchedaCLIBoundary {
 
         } catch (NumberFormatException _) {
             System.out.println("Valore non valido.");
-        } catch (DAOException | InvalidFormException e) {
+        } catch (InvalidFormException e) {
             System.out.println(STRINGAERRORE + e.getMessage());
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore salvataggio progressi", e);
+            System.out.println(STRINGAERRORE + "Impossibile salvare i progressi in questo momento.");
         }
     }
-
-    // ─────────────────────────────────────────────
-    //  VISUALIZZA STORICO
-    // ─────────────────────────────────────────────
 
     private void visualizzaStorico() {
         try {
@@ -191,14 +180,11 @@ public class GestisciSchedaCLIBoundary {
                 System.out.println("  " + p);
             }
 
-        } catch (DAOException e) {
-            System.out.println(STRINGAERRORE + e.getMessage());
+        } catch (Exception e) {
+            LogManager.error("[CLI] Errore caricamento storico", e);
+            System.out.println(STRINGAERRORE + "Impossibile caricare lo storico in questo momento.");
         }
     }
-
-    // ─────────────────────────────────────────────
-    //  HELPER
-    // ─────────────────────────────────────────────
 
     private int parseSelezione(String scelta) {
         try {

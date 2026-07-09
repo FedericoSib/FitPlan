@@ -1,8 +1,6 @@
 package view.fxml;
 
 import bean.*;
-import util.observer.*;
-import model.dao.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,8 +27,7 @@ public class ClienteRicercaPTBoundary {
 
     @FXML
     public void initialize() {
-        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
-        controller.aggiungiObserver(manager);
+        controller.configuraObserverNotifiche();
         listaPT.setCellFactory(lv -> new ListCell<>() {
             @Override
             protected void updateItem(PersonalTrainerBean item, boolean empty) {
@@ -93,7 +90,7 @@ public class ClienteRicercaPTBoundary {
             ((Stage) btnAssocia.getScene().getWindow()).close();
             mostraAlert("Inviata", "Richiesta inviata correttamente! Ora sei in stato PENDING.");
 
-        } catch (DAOException e) {
+        } catch (Exception e) {
             LogManager.error("Errore durante l'invio della richiesta", e);
             mostraAlert("Errore", "Impossibile inviare la richiesta: " + e.getMessage());
         }

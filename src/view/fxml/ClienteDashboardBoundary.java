@@ -20,8 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import util.LogManager;
-import model.dao.DAOFactory;
-import util.observer.NotificaManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -75,9 +73,7 @@ public class ClienteDashboardBoundary {
     private void aggiornaSchermata() {
         this.datiDashboard = dashboardController.getDatiDashboard();
         lblNomeUtente.setText(datiDashboard.getNome()+ " " +datiDashboard.getCognome());
-        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
-        manager.mostraNotifichePendenti(datiDashboard.getEmail());
-
+        dashboardController.gestisciNotifichePendenti();
         popolaInfoCard();
     }
 

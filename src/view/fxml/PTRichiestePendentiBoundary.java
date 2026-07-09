@@ -8,9 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.util.List;
-import model.dao.DAOFactory;
 import model.exception.DAOException;
-import util.observer.NotificaManager;
 
 public class PTRichiestePendentiBoundary {
 
@@ -26,8 +24,7 @@ public class PTRichiestePendentiBoundary {
 
     @FXML
     public void initialize() {
-        NotificaManager manager = new NotificaManager(DAOFactory.getNotificaDAO());
-        controller.aggiungiObserver(manager);
+        controller.configuraObserverNotifiche();
         lvRichieste.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         lvRichieste.setCellFactory(lv -> new ListCell<AssociazioneBean>() {
@@ -60,7 +57,7 @@ public class PTRichiestePendentiBoundary {
             lvRichieste.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) ->
                     btnRifiuta.setDisable(newVal == null)
             );
-        } catch (DAOException _) {
+        } catch (Exception _) {
             mostraAlert(Alert.AlertType.ERROR, ERR,
                     "impossibile caricare le richieste");
         }
@@ -76,7 +73,7 @@ public class PTRichiestePendentiBoundary {
             mostraAlert(Alert.AlertType.INFORMATION, SUCC,
                     "Cliente associato con successo!");
             caricaRichieste();
-        } catch (DAOException _) {
+        } catch (Exception _) {
             mostraAlert(Alert.AlertType.ERROR, ERR,
                     "impossibile caricare le richieste");
         }
@@ -92,7 +89,7 @@ public class PTRichiestePendentiBoundary {
             mostraAlert(Alert.AlertType.INFORMATION, SUCC,
                     "Cliente rifiutato con successo!");
             caricaRichieste();
-        } catch (DAOException _) {
+        } catch (Exception _) {
             mostraAlert(Alert.AlertType.ERROR, ERR,
                     "Impossibile rifiutare la richiesta.");
         }

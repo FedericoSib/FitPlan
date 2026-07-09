@@ -7,11 +7,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.dao.DAOFactory;
-import model.exception.DAOException;
 import model.exception.InvalidFormException;
 import util.LogManager;
-import util.observer.NotificaManager;
 
 public class PTAssemblaSchedaBoundary {
 
@@ -37,7 +34,7 @@ public class PTAssemblaSchedaBoundary {
 
     @FXML
     public void initialize() {
-        controller.aggiungiObserver(new NotificaManager(DAOFactory.getNotificaDAO()));
+        controller.configuraObserverNotifiche();
 
         spSerie.setValueFactory(
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 3));
@@ -172,7 +169,7 @@ public class PTAssemblaSchedaBoundary {
             ((Stage) lvEsercizi.getScene().getWindow()).close();
         } catch (InvalidFormException e) {
             mostraAlert(Alert.AlertType.WARNING, "Attenzione", e.getMessage());
-        } catch (DAOException e) {
+        } catch (Exception e) {
             LogManager.error("Errore invio scheda", e);
             mostraAlert(Alert.AlertType.ERROR, "Errore",
                     "Errore tecnico durante l'invio.");

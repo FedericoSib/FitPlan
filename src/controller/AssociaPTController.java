@@ -59,6 +59,11 @@ public class AssociaPTController extends NotificaObservableBase{
         LogManager.info("Stato aggiornato in sessione a PENDING per: " + bean.getEmailCliente());
     }
 
+    public void configuraObserverNotifiche() {
+        util.observer.NotificaManager manager = new util.observer.NotificaManager(model.dao.DAOFactory.getNotificaDAO());
+        this.aggiungiObserver(manager);
+    }
+
     public ClienteBean getClienteCorrente() {
         Cliente c = (Cliente) Sessione.getInstance().getUtente();
         ClienteBean bean = new ClienteBean();
