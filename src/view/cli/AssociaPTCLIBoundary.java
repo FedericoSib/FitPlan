@@ -70,7 +70,8 @@ public class AssociaPTCLIBoundary {
             PersonalTrainerBean selezionato = risultati.get(indice);
 
             AssociazioneBean bean = new AssociazioneBean();
-            // L'email del cliente non la passiamo più dalla View! Ci pensa il Controller.
+
+            bean.setEmailCliente(datiDashboard.getEmail());
             bean.setEmailPT(selezionato.getEmail());
 
             controller.inviaRichiestaAssociazione(bean);

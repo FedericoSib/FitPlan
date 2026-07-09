@@ -86,9 +86,8 @@ public class ClienteRicercaPTBoundary {
 
             controller.inviaRichiestaAssociazione(associazioneBean);
 
-            // 3. Feedback e chiusura
-            ((Stage) btnAssocia.getScene().getWindow()).close();
             mostraAlert("Inviata", "Richiesta inviata correttamente! Ora sei in stato PENDING.");
+            ((Stage) btnAssocia.getScene().getWindow()).close();
 
         } catch (Exception e) {
             LogManager.error("Errore durante l'invio della richiesta", e);
@@ -111,7 +110,7 @@ public class ClienteRicercaPTBoundary {
         alert.setTitle(titolo);
         alert.setHeaderText(null);
         alert.setContentText(messaggio);
-        alert.initOwner(null);
+        alert.initOwner(btnAssocia.getScene().getWindow());
         alert.showAndWait();
     }
 }
