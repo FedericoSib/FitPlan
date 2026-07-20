@@ -80,13 +80,13 @@
           <mxGeometry height="30" width="170" y="130" as="geometry" />
         </mxCell>
         <mxCell id="ic539_YyqJAxWopLhuCQ-11" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFE599;gradientColor=none;strokeColor=#82b366;" value="&lt;div&gt;&amp;lt;&amp;lt;Entity&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt; &lt;br&gt;&lt;/div&gt;Utente" vertex="1">
-          <mxGeometry height="180" width="150" x="770" y="650" as="geometry" />
+          <mxGeometry height="190" width="150" x="770" y="650" as="geometry" />
         </mxCell>
         <mxCell id="ic539_YyqJAxWopLhuCQ-12" parent="ic539_YyqJAxWopLhuCQ-11" style="text;strokeColor=#82b366;fillColor=#FFE599;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="#id: String&lt;br&gt;#email: String&lt;br&gt;#password: String&lt;br&gt;#nome: String&lt;br&gt;#cognome: String&lt;br&gt;&lt;div&gt;#ruolo: int&lt;/div&gt;" vertex="1">
           <mxGeometry height="100" width="150" y="50" as="geometry" />
         </mxCell>
-        <mxCell id="ic539_YyqJAxWopLhuCQ-13" parent="ic539_YyqJAxWopLhuCQ-11" style="text;strokeColor=#82b366;fillColor=#FFE599;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="+getters/setters" vertex="1">
-          <mxGeometry height="30" width="150" y="150" as="geometry" />
+        <mxCell id="ic539_YyqJAxWopLhuCQ-13" parent="ic539_YyqJAxWopLhuCQ-11" style="text;strokeColor=#82b366;fillColor=#FFE599;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&lt;div&gt;-generaID(): String&lt;/div&gt;&lt;div&gt;+getters/setters&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="150" y="150" as="geometry" />
         </mxCell>
         <mxCell id="ic539_YyqJAxWopLhuCQ-14" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFE599;gradientColor=none;strokeColor=#82b366;" value="&lt;div&gt;&amp;lt;&amp;lt;Entity&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;Personal Trainer&lt;/div&gt;" vertex="1">
           <mxGeometry height="140" width="170" x="980" y="490" as="geometry" />
