@@ -4,7 +4,7 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="T4QQlBp0tss7mlm_4cb_-30" edge="1" parent="1" source="dVbM38iz88rTHkjdB0zz-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="dVbM38iz88rTHkjdB0zz-5">
+        <mxCell id="T4QQlBp0tss7mlm_4cb_-30" edge="1" parent="1" source="dVbM38iz88rTHkjdB0zz-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="dVbM38iz88rTHkjdB0zz-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="dVbM38iz88rTHkjdB0zz-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=29;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;swimlaneFillColor=light-dark(#ffffff, #ededed);fillColor=#A0D7EB;" value="&lt;div&gt;&amp;lt;&amp;lt;Boundary&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;ClienteRichiediSchedaBoundary&lt;/div&gt;" vertex="1">
@@ -47,7 +47,7 @@
             <mxPoint x="845" y="650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="T4QQlBp0tss7mlm_4cb_-53" edge="1" parent="1" source="ic539_YyqJAxWopLhuCQ-20" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;startArrow=classic;startFill=1;edgeStyle=orthogonalEdgeStyle;" target="dVbM38iz88rTHkjdB0zz-5" value="">
+        <mxCell id="T4QQlBp0tss7mlm_4cb_-53" edge="1" parent="1" source="ic539_YyqJAxWopLhuCQ-20" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;startArrow=block;startFill=1;edgeStyle=orthogonalEdgeStyle;" target="dVbM38iz88rTHkjdB0zz-5" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="1180" y="229" as="sourcePoint" />
             <mxPoint x="811" y="240" as="targetPoint" />
@@ -65,7 +65,7 @@
             <mxPoint x="585" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ic539_YyqJAxWopLhuCQ-1" edge="1" parent="1" source="dVbM38iz88rTHkjdB0zz-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.553;entryY=0.006;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;">
+        <mxCell id="ic539_YyqJAxWopLhuCQ-1" edge="1" parent="1" source="dVbM38iz88rTHkjdB0zz-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.553;entryY=0.006;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;endArrow=block;endFill=1;">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="825.0700000000002" y="261.02" as="targetPoint" />
           </mxGeometry>
@@ -112,7 +112,7 @@
         <mxCell id="ic539_YyqJAxWopLhuCQ-21" parent="ic539_YyqJAxWopLhuCQ-20" style="text;strokeColor=#82b366;fillColor=#FFE599;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="-sesso: String&lt;br&gt;-eta: int&lt;br&gt;&lt;div&gt;-peso: double&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="170" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="ic539_YyqJAxWopLhuCQ-22" parent="ic539_YyqJAxWopLhuCQ-20" style="text;strokeColor=#82b366;fillColor=#FFE599;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&lt;div&gt;+getters&lt;/div&gt;" vertex="1">
+        <mxCell id="ic539_YyqJAxWopLhuCQ-22" parent="ic539_YyqJAxWopLhuCQ-20" style="text;strokeColor=#82b366;fillColor=#FFE599;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&lt;div&gt;+getters/setters&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="170" y="100" as="geometry" />
         </mxCell>
       </root>
