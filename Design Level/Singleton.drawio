@@ -1,14 +1,14 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Pagina-1" id="cd4o1T7_8K4MsKxWrlFt">
-    <mxGraphModel dx="1414" dy="799" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="566" dy="320" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="yRDNzFhd9rddyRfIq5ey-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=none;strokeColor=#d79b00;" value="&lt;div&gt;&amp;lt;&amp;lt;Singleton&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;Sessione&lt;/div&gt;" vertex="1">
-          <mxGeometry height="70" width="170" x="500" y="190" as="geometry" />
+          <mxGeometry height="80" width="170" x="500" y="190" as="geometry" />
         </mxCell>
-        <mxCell id="yRDNzFhd9rddyRfIq5ey-2" parent="yRDNzFhd9rddyRfIq5ey-1" style="text;strokeColor=#d79b00;fillColor=#ffcd28;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="-Sessione()" vertex="1">
-          <mxGeometry height="30" width="170" y="40" as="geometry" />
+        <mxCell id="yRDNzFhd9rddyRfIq5ey-2" parent="yRDNzFhd9rddyRfIq5ey-1" style="text;strokeColor=#d79b00;fillColor=#ffcd28;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&lt;div&gt;-Sessione()&lt;/div&gt;&lt;div&gt;+get/setUtente&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="170" y="40" as="geometry" />
         </mxCell>
         <mxCell id="yRDNzFhd9rddyRfIq5ey-3" edge="1" parent="1" source="yRDNzFhd9rddyRfIq5ey-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=none;endFill=0;" target="yRDNzFhd9rddyRfIq5ey-1">
           <mxGeometry relative="1" as="geometry" />
@@ -40,7 +40,7 @@
           <mxGeometry height="41" width="210" y="29" as="geometry" />
         </mxCell>
         <mxCell id="V472gwiOdq0MiUYfR2_i-1" parent="1" style="text;strokeColor=#d79b00;fillColor=#ffcd28;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&lt;u&gt;+getInstance(): Sessione&lt;/u&gt;&lt;br&gt;    +getUtente(): Utente&lt;br&gt;    +setUtente(u: Utente)" vertex="1">
-          <mxGeometry height="60" width="170" x="500" y="260" as="geometry" />
+          <mxGeometry height="60" width="170" x="500" y="270" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
