@@ -112,7 +112,7 @@
         <mxCell id="ic539_YyqJAxWopLhuCQ-21" parent="ic539_YyqJAxWopLhuCQ-20" style="text;strokeColor=#82b366;fillColor=#FFE599;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="-sesso: String&lt;br&gt;-eta: int&lt;br&gt;&lt;div&gt;-peso: double&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="170" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="ic539_YyqJAxWopLhuCQ-22" parent="ic539_YyqJAxWopLhuCQ-20" style="text;strokeColor=#82b366;fillColor=#FFE599;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&lt;div&gt;+getters/setters&lt;/div&gt;" vertex="1">
+        <mxCell id="ic539_YyqJAxWopLhuCQ-22" parent="ic539_YyqJAxWopLhuCQ-20" style="text;strokeColor=#82b366;fillColor=#FFE599;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;gradientColor=none;" value="&lt;div&gt;+getters&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="170" y="100" as="geometry" />
         </mxCell>
       </root>
